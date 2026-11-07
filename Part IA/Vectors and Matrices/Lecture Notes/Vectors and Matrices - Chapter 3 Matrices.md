@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Matrices.pdf
 drive_file_id: 1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA
 source_url: https://drive.google.com/file/d/1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA/view
-source_pages: 25
+source_pages: 31
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 3: Matrices
 
 > [!abstract] Overview
-> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, and the general (Leibniz) formula with its properties. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
+> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, and minors, cofactors, Laplace expansion and the adjugate. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
 > Prerequisite: [[Vectors and Matrices - Chapter 2 Vectors]] (bases, dimension).
 
 ## Results index
@@ -52,6 +52,13 @@ tags: [lecture, vectors-and-matrices]
 | [[#Proposition — Alternating forms and linear independence]] | $[\mathbf v_1,\dots,\mathbf v_n]\ne0\iff$ independent | 22–24 |
 | [[#Leibniz's formula]] | $\det M=\sum_{p\in S_n}\operatorname{sgn}(p)\prod_iM_{ip(i)}$ | 24 |
 | [[#Properties of the determinant]] | multilinear, alternating, $\det(\lambda M)=\lambda^n\det M$, $\det M^{\mathsf T}=\det M$, $\det(MN)=\det M\det N$ | 24–25 |
+| [[#Invertibility and special matrices]] | $\det M\ne0\iff$ invertible; $\det M^{-1}=\frac1{\det M}$; triangular; $\det Q=\pm1$, $\lvert\det U\rvert=1$ | 26–27 |
+| [[#Rows and columns give the same determinant]] | $\det M^{\mathsf T}=\det M$ via Leibniz | 27 |
+| [[#Product formula and volume scaling]] | $[M\mathbf v_1,\dots,M\mathbf v_n]=\det M\,[\mathbf v_1,\dots,\mathbf v_n]$ | 28 |
+| [[#Definition — Minor and cofactor]] | $M_{ij}=\det M^{(ij)}$, $C_{ij}=(-1)^{i+j}M_{ij}$ | 29 |
+| [[#Laplace expansion]] | $\det M=\sum_kM_{ik}C_{ik}=\sum_kM_{kj}C_{kj}$ | 30 |
+| [[#Cofactor identities]] | $\sum_kM_{ik}C_{jk}=\delta_{ij}\det M$; why the sign $(-1)^{i+j}$ | 30–31 |
+| [[#Definition — Adjugate]] | $\tilde MM=(\det M)I$, $M^{-1}=\tilde M/\det M$ | 31 |
 
 ## 3.1 Linear maps
 
@@ -737,3 +744,120 @@ Everything holds as well for rows.
 7. **Transpose:** $\det(M^{\mathsf T})=\det M$.
 8. **Conjugation and adjoint:** $\det(\overline M)=\overline{\det M}$, $\det(M^\dagger)=\overline{\det M}$.
 9. **Products:** $\det(MN)=\det M\det N$.
+
+**Recap.** For an $n$-linear alternating form $w$ and a basis $\{\mathbf e_1,\dots,\mathbf e_n\}$, the condition $w(\mathbf e_1,\dots,\mathbf e_n)=1$ makes $w$ **unique**.
+
+### Invertibility and special matrices
+
+10. **Invertibility:** $M$ is invertible if and only if $\det M\ne0$.
+11. **Determinant of the inverse:** $\det(M^{-1})=\frac1{\det M}$ if $M$ is invertible.
+12. **Triangular matrices:** for an upper triangular matrix
+$$M=\begin{pmatrix}M_{11}&M_{12}&\cdots&M_{1n}\\0&M_{22}&\cdots&\vdots\\\vdots&&\ddots&\\0&0&\cdots&M_{nn}\end{pmatrix},\qquad\det M=M_{11}M_{22}\cdots M_{nn}=\prod_{i=1}^nM_{ii}.$$
+13. **Orthogonal and unitary matrices:**
+   - orthogonal $M$: $M^{\mathsf T}M=I$, so $\det(M^{\mathsf T}M)=\det(M^{\mathsf T})\det M=(\det M)^2=\det I=1$, hence $\det M=\pm1$;
+   - unitary $U$: $U^\dagger U=I$, so $1=\det I=\det(U^\dagger)\det U=\overline{\det U}\det U$, hence $|\det U|=1$.
+
+For a square matrix,
+$$\det M\ne0\iff\operatorname{rank}M=n\iff\ker M=\{\mathbf 0\},$$
+where $\operatorname{rank}M$ is the number of linearly independent columns of $M$ (or rows).
+
+### Rows and columns give the same determinant
+
+Apply Leibniz's formula to $M^{\mathsf T}$:
+$$\begin{aligned}
+\det M^{\mathsf T}&=\sum_{p\in S_n}\operatorname{sgn}(p)\prod_{i=1}^n(M^{\mathsf T})_{ip(i)}\\
+&=\sum_{p\in S_n}\operatorname{sgn}(p)\prod_{i=1}^nM_{p(i)i}\\
+&=\sum_{p\in S_n}\operatorname{sgn}(p)\prod_{j=1}^nM_{jp^{-1}(j)} &&(j=p(i),\ i=p^{-1}(j))\\
+&=\det M.
+\end{aligned}$$
+So $\det M=[\mathbf C_1,\mathbf C_2,\dots,\mathbf C_n]=[\mathbf R_1^{\mathsf T},\mathbf R_2^{\mathsf T},\dots,\mathbf R_n^{\mathsf T}]$.
+
+> [!note] Explanation
+> The third line only reorders each product (multiplication commutes). For the last step, $\operatorname{sgn}(p)=\operatorname{sgn}(p^{-1})$, and as $p$ runs over all of $S_n$ so does $q=p^{-1}$; so the sum is $\sum_q\operatorname{sgn}(q)\prod_jM_{jq(j)}$, which is Leibniz's formula for $\det M$.
+
+### Product formula and volume scaling
+
+Fix indices $a_1,\dots,a_n$. Then
+$$\sum_{i_1,\dots,i_n=1}^n\varepsilon_{i_1\cdots i_n}M_{i_1a_1}\cdots M_{i_na_n}=[\mathbf C_{a_1},\dots,\mathbf C_{a_n}]=(\det M)\,\varepsilon_{a_1\cdots a_n}.$$
+Expanding in the canonical basis, this gives
+$$[M\mathbf v_1,\dots,M\mathbf v_n]=(\det M)[\mathbf v_1,\dots,\mathbf v_n].$$
+If $[\mathbf v_1,\dots,\mathbf v_n]\ne0$ ($\{\mathbf v_1,\dots,\mathbf v_n\}$ linearly independent), then
+$$\det M=\frac{[M\mathbf v_1,\dots,M\mathbf v_n]}{[\mathbf v_1,\dots,\mathbf v_n]},$$
+so $|\det M|$ is the factor by which volumes are scaled. If $\{\mathbf v_1,\dots,\mathbf v_n\}$ are the columns of $N$, this gives
+$$\det(MN)=\det M\det N.$$
+
+**Complex conjugation and orthogonal matrices.** $\det\overline M=\overline{\det M}$ and $\det M^\dagger=\overline{\det M}$, so
+- $U^\dagger U=I\Rightarrow\overline{\det U}\det U=1\Rightarrow|\det U|=1$;
+- $Q^{\mathsf T}Q=I\Rightarrow(\det Q)^2=1\Rightarrow\det Q=\pm1$: $\det Q=1$ for a rotation, $\det Q=-1$ for a reflection.
+
+### 3.4.5 Minors, cofactors and Laplace expansion
+
+### Definition — Minor and cofactor
+
+For $M=(M_{ij})$, the **minor matrix** $M^{(ij)}$ is $M$ with row $i$ and column $j$ deleted. The **minor** is
+$$M_{ij}=\det\big(M^{(ij)}\big),$$
+and the **cofactor** is
+$$C_{ij}=(-1)^{i+j}M_{ij}.$$
+
+**Example.** For $M=\begin{pmatrix}M_{11}&M_{12}&M_{13}\\M_{21}&M_{22}&M_{23}\\M_{31}&M_{32}&M_{33}\end{pmatrix}$, fix $i=2$, $j=3$:
+$$M^{(23)}=\begin{pmatrix}M_{11}&M_{12}\\M_{31}&M_{32}\end{pmatrix},\qquad\text{minor }\det M^{(23)}=M_{11}M_{32}-M_{31}M_{12},$$
+$$C_{23}=(-1)^{2+3}\det M^{(23)}=M_{31}M_{12}-M_{11}M_{32}.$$
+
+### Laplace expansion
+
+Along row $i$, or along column $j$:
+$$\det M=\sum_{k=1}^nM_{ik}C_{ik}=\sum_{k=1}^nM_{kj}C_{kj}.$$
+**Example** (first row of a $3\times3$ matrix):
+$$\begin{aligned}
+\det M&=M_{11}C_{11}+M_{12}C_{12}+M_{13}C_{13}\\
+&=M_{11}\det\begin{pmatrix}M_{22}&M_{23}\\M_{32}&M_{33}\end{pmatrix}-M_{12}\det\begin{pmatrix}M_{21}&M_{23}\\M_{31}&M_{33}\end{pmatrix}+M_{13}\det\begin{pmatrix}M_{21}&M_{22}\\M_{31}&M_{32}\end{pmatrix}.
+\end{aligned}$$
+
+### Cofactor identities
+
+$$\sum_kM_{ik}C_{jk}=\delta_{ij}\det M,\qquad\sum_kC_{ki}M_{kj}=\delta_{ij}\det M.$$
+
+> [!note] Explanation
+> For $i=j$ these are the Laplace expansions. For $i\ne j$, $\sum_kM_{ik}C_{jk}$ is the Laplace expansion along row $j$ of the matrix obtained from $M$ by replacing row $j$ with row $i$; that matrix has two equal rows, so its determinant is $0$.
+
+**Why the cofactor sign appears.** Replace column $j$ of $M$ by the canonical vector $\mathbf e_i$:
+$$C_{ij}=[\mathbf C_1,\dots,\mathbf C_{j-1},\mathbf e_i,\mathbf C_{j+1},\dots,\mathbf C_n]=[\mathbf R_1^{\mathsf T},\dots,\mathbf R_{i-1}^{\mathsf T},\mathbf e_j,\mathbf R_{i+1}^{\mathsf T},\dots,\mathbf R_n^{\mathsf T}].$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw (0,1.6) .. controls (-0.25,0.8) and (-0.25,-0.8) .. (0,-1.6);
+  \draw (3.6,1.6) .. controls (3.85,0.8) and (3.85,-0.8) .. (3.6,-1.6);
+  \node at (0.5,1.3) {$M_{11}$}; \node at (1.25,1.3) {$\cdots$}; \node at (3.1,1.3) {$M_{1n}$};
+  \node at (0.5,0.1) {$\vdots$}; \node at (3.1,0.1) {$\vdots$};
+  \node at (0.5,-1.3) {$M_{n1}$}; \node at (3.1,-1.3) {$M_{nn}$};
+  \foreach \y in {1.3,0.75,-0.75,-1.3} {\node at (2.0,\y) {$0$};}
+  \node at (2.0,0.25) {$\vdots$};
+  \node at (2.0,-0.3) {$1$};
+  \draw[red,thick] (1.75,-1.55) rectangle (2.25,1.55);
+  \draw[red,thick] (0.15,-0.52) rectangle (3.45,-0.08);
+  \node[red] at (2.0,1.85) {$j$};
+  \node[red] at (3.95,-0.3) {$i$};
+  % remaining minor
+  \draw[red,->] (4.3,0) -- (5.2,0);
+  \draw[red] (5.7,0.9) .. controls (5.5,0.45) and (5.5,-0.45) .. (5.7,-0.9);
+  \draw[red] (6.9,0.9) .. controls (7.1,0.45) and (7.1,-0.45) .. (6.9,-0.9);
+  \node[red] at (6.3,0) {$M^{(ij)}$};
+  \node[red,below] at (6.3,-1.0) {\small$(n-1)\times(n-1)$};
+\end{tikzpicture}
+\end{document}
+```
+*Replacing column $j$ by $\mathbf e_i$ leaves a single $1$, in row $i$; deleting row $i$ and column $j$ leaves the minor matrix $M^{(ij)}$.*
+
+> [!note] Explanation
+> Expand the determinant of this matrix along column $j$: the only non-zero entry is the $1$ in position $(i,j)$. Moving that row to the top takes $i-1$ row swaps and moving that column to the left takes $j-1$ column swaps, each flipping the sign, so the determinant is $(-1)^{(i-1)+(j-1)}\det M^{(ij)}=(-1)^{i+j}M_{ij}=C_{ij}$.
+
+### Definition — Adjugate
+
+For an $n\times n$ matrix $M$, write $\tilde M$ for its **adjugate**. For $n=3$, with columns $\mathbf C_1,\mathbf C_2,\mathbf C_3$,
+$$\tilde M:=\begin{pmatrix}(\mathbf C_2\times\mathbf C_3)^{\mathsf T}\\(\mathbf C_3\times\mathbf C_1)^{\mathsf T}\\(\mathbf C_1\times\mathbf C_2)^{\mathsf T}\end{pmatrix}.$$
+Then in $\tilde MM$, e.g. $(\mathbf C_2\times\mathbf C_3)\cdot\mathbf C_1=\det M$, while $(\mathbf C_2\times\mathbf C_3)\cdot\mathbf C_2=0$ and $(\mathbf C_2\times\mathbf C_3)\cdot\mathbf C_3=0$. So
+$$(\tilde MM)_{ij}=\delta_{ij}\det M\iff\tilde MM=(\det M)I.$$
+If $\det M\ne0$ ($M$ invertible),
+$$M^{-1}=\frac{\tilde M}{\det M}.$$
