@@ -3219,7 +3219,8 @@
         "Pages 5-8 added: rotations/reflections in R^2, Rodrigues formula, reflection/dilation/shear in R^3. Figures redrawn schematically.",
         "Pages 15-20: antisymmetric 3D, trace, orthogonal/unitary, 2D orthogonal proposition, determinants 2D/3D (Sarrus), permutations. p.15: 'a_j = 1/2 sum_{j,k} eps_ijk A_jk' normalized to a_i.",
         "Pages 21-25: sign via cycles, alternating symbol, alternating forms, Proposition (forms and independence), Leibniz formula, det properties. p.23 'choose p s.t. alpha_p = 0' normalized to alpha_p != 0; p.24 'Multiplicity' read as multilinearity.",
-        "Pages 26-31: det properties 10-13, rows/columns via Leibniz, product formula and volume scaling, minors, cofactors, Laplace expansion, cofactor identities, adjugate. p.30 figure redrawn with the 1 at (i,j)."
+        "Pages 26-31: det properties 10-13, rows/columns via Leibniz, product formula and volume scaling, minors, cofactors, Laplace expansion, cofactor identities, adjugate. p.30 figure redrawn with the 1 at (i,j).",
+        "p.29: minor written M_ij in source (same as the entry); written \\mathcal M_ij in the note to avoid the clash."
       ],
       "unresolved_todos": [],
       "diagram_note": "Two schematic coset-partition pictures redrawn in TikZ (compiled locally).",

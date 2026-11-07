@@ -55,7 +55,7 @@ tags: [lecture, vectors-and-matrices]
 | [[#Invertibility and special matrices]] | $\det M\ne0\iff$ invertible; $\det M^{-1}=\frac1{\det M}$; triangular; $\det Q=\pm1$, $\lvert\det U\rvert=1$ | 26–27 |
 | [[#Rows and columns give the same determinant]] | $\det M^{\mathsf T}=\det M$ via Leibniz | 27 |
 | [[#Product formula and volume scaling]] | $[M\mathbf v_1,\dots,M\mathbf v_n]=\det M\,[\mathbf v_1,\dots,\mathbf v_n]$ | 28 |
-| [[#Definition — Minor and cofactor]] | $M_{ij}=\det M^{(ij)}$, $C_{ij}=(-1)^{i+j}M_{ij}$ | 29 |
+| [[#Definition — Minor and cofactor]] | $\mathcal M_{ij}=\det M^{(ij)}$, $C_{ij}=(-1)^{i+j}\mathcal M_{ij}$ | 29 |
 | [[#Laplace expansion]] | $\det M=\sum_kM_{ik}C_{ik}=\sum_kM_{kj}C_{kj}$ | 30 |
 | [[#Cofactor identities]] | $\sum_kM_{ik}C_{jk}=\delta_{ij}\det M$; why the sign $(-1)^{i+j}$ | 30–31 |
 | [[#Definition — Adjugate]] | $\tilde MM=(\det M)I$, $M^{-1}=\tilde M/\det M$ | 31 |
@@ -795,13 +795,13 @@ $$\det(MN)=\det M\det N.$$
 ### Definition — Minor and cofactor
 
 For $M=(M_{ij})$, the **minor matrix** $M^{(ij)}$ is $M$ with row $i$ and column $j$ deleted. The **minor** is
-$$M_{ij}=\det\big(M^{(ij)}\big),$$
-and the **cofactor** is
-$$C_{ij}=(-1)^{i+j}M_{ij}.$$
+$$\mathcal M_{ij}=\det\big(M^{(ij)}\big)$$
+(written $\mathcal M_{ij}$ to distinguish it from the entry $M_{ij}$ of $M$), and the **cofactor** is
+$$C_{ij}=(-1)^{i+j}\mathcal M_{ij}.$$
 
 **Example.** For $M=\begin{pmatrix}M_{11}&M_{12}&M_{13}\\M_{21}&M_{22}&M_{23}\\M_{31}&M_{32}&M_{33}\end{pmatrix}$, fix $i=2$, $j=3$:
-$$M^{(23)}=\begin{pmatrix}M_{11}&M_{12}\\M_{31}&M_{32}\end{pmatrix},\qquad\text{minor }\det M^{(23)}=M_{11}M_{32}-M_{31}M_{12},$$
-$$C_{23}=(-1)^{2+3}\det M^{(23)}=M_{31}M_{12}-M_{11}M_{32}.$$
+$$M^{(23)}=\begin{pmatrix}M_{11}&M_{12}\\M_{31}&M_{32}\end{pmatrix},\qquad\mathcal M_{23}=\det M^{(23)}=M_{11}M_{32}-M_{31}M_{12},$$
+$$C_{23}=(-1)^{2+3}\mathcal M_{23}=M_{31}M_{12}-M_{11}M_{32}.$$
 
 ### Laplace expansion
 
@@ -851,7 +851,7 @@ $$C_{ij}=[\mathbf C_1,\dots,\mathbf C_{j-1},\mathbf e_i,\mathbf C_{j+1},\dots,\m
 *Replacing column $j$ by $\mathbf e_i$ leaves a single $1$, in row $i$; deleting row $i$ and column $j$ leaves the minor matrix $M^{(ij)}$.*
 
 > [!note] Explanation
-> Expand the determinant of this matrix along column $j$: the only non-zero entry is the $1$ in position $(i,j)$. Moving that row to the top takes $i-1$ row swaps and moving that column to the left takes $j-1$ column swaps, each flipping the sign, so the determinant is $(-1)^{(i-1)+(j-1)}\det M^{(ij)}=(-1)^{i+j}M_{ij}=C_{ij}$.
+> Expand the determinant of this matrix along column $j$: the only non-zero entry is the $1$ in position $(i,j)$. Moving that row to the top takes $i-1$ row swaps and moving that column to the left takes $j-1$ column swaps, each flipping the sign, so the determinant is $(-1)^{(i-1)+(j-1)}\det M^{(ij)}=(-1)^{i+j}\mathcal M_{ij}=C_{ij}$.
 
 ### Definition — Adjugate
 
