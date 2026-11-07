@@ -25,6 +25,9 @@ tags: [concept, numbers-and-sets]
 - **Proposition 6.** $a_n\le d$ and $a_n\to c$ give $c\le d$; strict $<$ need not survive. → [[Numbers and Sets - Chapter 2 The Reals#Proposition 6 — Limits preserve weak inequalities|proof]]
 - **Proposition 7.** $a_n\to c$, $b_n\to d\Rightarrow a_n+b_n\to c+d$ (triangle inequality, $N^*=\max\{N,M\}$). → [[Numbers and Sets - Chapter 2 The Reals#Proposition 7 — Limit of a sum|proof]]
 - **Series:** $\sum a_n=\lim S_k$ of the partial sums. Geometric $\sum_{n\ge1}r^n=\frac r{1-r}$ for $|r|<1$; harmonic $\sum\frac1n$ diverges since $S_{2^k}\ge1+\frac k2$. → [[Numbers and Sets - Chapter 2 The Reals#Definition — Partial sums and series|lecture]] · [[Numbers and Sets - Chapter 2 The Reals#Examples of series|examples]]
+- $\sum\frac1{n^2}$ converges: blocks of length $2^m$ are $\le\frac1{2^m}$, so $S_{2^k-1}<2$ (Theorem 5). → [[Numbers and Sets - Chapter 2 The Reals#Examples of series|lecture]]
+- **Decimal expansions.** $0.d_1d_2\ldots=\sum\frac{d_n}{10^n}$ always converges; every $0\le x<1$ has one (choose each digit maximal); two expansions of one number differ only as $\ldots a999\ldots=\ldots(a+1)000\ldots$; periodic $\iff$ rational (Fermat–Euler gives $10^{\varphi(q)}-1=kq$). → [[Numbers and Sets - Chapter 2 The Reals#Existence of decimal expansions|lecture]] · [[Numbers and Sets - Chapter 2 The Reals#Periodic decimals are exactly the rationals|proof]]
+- **Euler's number** $e=\sum_{j\ge0}\frac1{j!}$ converges (partial sums $<3$); $e$ is irrational (Prop 8). → [[Numbers and Sets - Chapter 2 The Reals#Definition — Euler's number e|lecture]]
 
 ## Examples
 

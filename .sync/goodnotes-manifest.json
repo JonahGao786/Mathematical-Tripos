@@ -3150,8 +3150,8 @@
       "source_file_name": "Ch.2 The Reals.pdf",
       "source_url": "https://drive.google.com/file/d/1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC/view?usp=drivesdk",
       "drive_folder_path": "GoodNotes/Part IA/Numbers and Sets",
-      "observed_source_modified_timestamp": "2026-11-05T13:42:53.865Z",
-      "processed_source_modified_timestamp": "2026-11-05T13:42:53.865Z",
+      "observed_source_modified_timestamp": "2026-11-07T10:59:48.936Z",
+      "processed_source_modified_timestamp": "2026-11-07T10:59:48.936Z",
       "markdown_paths": [
         "Part IA/Numbers and Sets/Lecture Notes/Numbers and Sets - Chapter 2 The Reals.md",
         "Concepts/Real Numbers and the Least Upper Bound Axiom.md",
@@ -3161,16 +3161,17 @@
       "course": "Part IA Numbers and Sets",
       "status": "processed",
       "classification": "study_material",
-      "total_page_count": 14,
-      "visually_inspected_pages": "1-14 (11-14 viewed 2026-11-05; 1-10 matched baseline hashes)",
+      "total_page_count": 17,
+      "visually_inspected_pages": "1-17 (14-17 viewed 2026-11-07; 1-13 matched baseline hashes)",
       "normalizations": [
         "Prop 1 proof missing in source (todo in note).",
         "Pages 1-4: Prop 1 proofs, axioms of R, sup, remarks, examples. Source Remark (i) steps rendered as in source.",
         "Pages 8-11: sequences and limits (absolute value, triangle inequality, examples 1-4, divergence, uniqueness of limits) with three figures. p.11: 'one even and one odd n >= N' made explicit.",
-        "Pages 11-14: bounded/monotonic, Thm 5 (statement 'Every bounded monotonic sequence.' completed with 'converges'), Props 6-7, series. p.11 bounded proof: 'n > N' read as n >= N to match the max over a_1..a_{N-1}."
+        "Pages 11-14: bounded/monotonic, Thm 5 (statement 'Every bounded monotonic sequence.' completed with 'converges'), Props 6-7, series. p.11 bounded proof: 'n > N' read as n >= N to match the max over a_1..a_{N-1}.",
+        "Pages 14-17: sum 1/n^2 completed (old p.14 todo resolved), decimal expansions (existence, non-uniqueness, periodic iff rational), Euler's number e, Proposition 8 (statement only)."
       ],
       "unresolved_todos": [
-        "p.14: example a_n = 1/n^2 stops after writing S_{2^k-1}; continues in a later lecture."
+        "p.17: Proposition 8 (e is irrational) stated; proof follows in a later lecture."
       ],
       "diagram_note": "Two schematic coset-partition pictures redrawn in TikZ (compiled locally).",
       "page_hashes": [
@@ -3187,19 +3188,22 @@
         "327f7c1ee6e269482375",
         "5f32bd17d49878f59fbe",
         "15eb1e2c22519f5025d9",
-        "eb6a6236891db40230b9"
+        "d536737cecaddae46424",
+        "4589980f9226655c9c1f",
+        "e284e99bc7e5825cd6a7",
+        "880caf69b748537aa0e2"
       ],
-      "source_sha256": "6a763b56b8c020c1dfa718dddbbafa633f504685b813815fdbcde73afc35ddcc",
-      "source_size_bytes": 3556655,
-      "last_successful_processing_at": "2026-11-05"
+      "source_sha256": "d80fc60928acc604634ee9644b92ecac70d69dccf18fb3ae92cb696e03813b28",
+      "source_size_bytes": 4313755,
+      "last_successful_processing_at": "2026-11-07"
     },
     "1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA": {
       "drive_file_id": "1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA",
       "source_file_name": "Ch.3 Matrices.pdf",
       "source_url": "https://drive.google.com/file/d/1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA/view?usp=drivesdk",
       "drive_folder_path": "GoodNotes/Part IA/Vectors and Matrices",
-      "observed_source_modified_timestamp": "2026-11-05T13:43:23.935Z",
-      "processed_source_modified_timestamp": "2026-11-05T13:43:23.935Z",
+      "observed_source_modified_timestamp": "2026-11-07T16:42:58.146Z",
+      "processed_source_modified_timestamp": "2026-11-07T16:42:58.146Z",
       "markdown_paths": [
         "Part IA/Vectors and Matrices/Lecture Notes/Vectors and Matrices - Chapter 3 Matrices.md",
         "Concepts/Linear Maps and Matrices.md"
@@ -3208,13 +3212,15 @@
       "course": "Part IA Vectors and Matrices",
       "status": "processed",
       "classification": "study_material",
-      "total_page_count": 25,
-      "visually_inspected_pages": "1-25 (21-25 viewed 2026-11-05; 1-20 matched baseline hashes)",
+      "total_page_count": 31,
+      "visually_inspected_pages": "1-31 (26-31 viewed 2026-11-07; 1-25 matched baseline hashes)",
       "normalizations": [
         "Rank-nullity proof reordered into spanning then independence.",
         "Pages 5-8 added: rotations/reflections in R^2, Rodrigues formula, reflection/dilation/shear in R^3. Figures redrawn schematically.",
         "Pages 15-20: antisymmetric 3D, trace, orthogonal/unitary, 2D orthogonal proposition, determinants 2D/3D (Sarrus), permutations. p.15: 'a_j = 1/2 sum_{j,k} eps_ijk A_jk' normalized to a_i.",
-        "Pages 21-25: sign via cycles, alternating symbol, alternating forms, Proposition (forms and independence), Leibniz formula, det properties. p.23 'choose p s.t. alpha_p = 0' normalized to alpha_p != 0; p.24 'Multiplicity' read as multilinearity."
+        "Pages 21-25: sign via cycles, alternating symbol, alternating forms, Proposition (forms and independence), Leibniz formula, det properties. p.23 'choose p s.t. alpha_p = 0' normalized to alpha_p != 0; p.24 'Multiplicity' read as multilinearity.",
+        "Pages 26-31: det properties 10-13, rows/columns via Leibniz, product formula and volume scaling, minors, cofactors, Laplace expansion, cofactor identities, adjugate. p.30 figure redrawn with the 1 at (i,j).",
+        "p.29: minor written M_ij in source (same as the entry); written \\mathcal M_ij in the note to avoid the clash."
       ],
       "unresolved_todos": [],
       "diagram_note": "Two schematic coset-partition pictures redrawn in TikZ (compiled locally).",
@@ -3243,11 +3249,17 @@
         "fc99a8195d5b24710dc7",
         "38e9f8afccc2cfe361d7",
         "97f1a61d53900aaafbc5",
-        "d685a39983ebe20e869a"
+        "d685a39983ebe20e869a",
+        "330c3ac7f990e937493a",
+        "f7a886cff449d907eaef",
+        "e6a3ab6baa8805437c69",
+        "e117728d529e51a80fa7",
+        "76e3c1ca027a50dcab63",
+        "5147c73ebfcadd8ba59b"
       ],
-      "source_sha256": "f8695a1ed20f4551434df2c9dd2488d5fb1a57b71d9c5b02fb2026e8037b9c87",
-      "source_size_bytes": 4832676,
-      "last_successful_processing_at": "2026-11-05"
+      "source_sha256": "9b6ad325b7a550e8d57185932ae3c83bd74703656b39b4589124ca433a4463d7",
+      "source_size_bytes": 5819825,
+      "last_successful_processing_at": "2026-11-07"
     },
     "1cD6n9aI-_mW-bAMZOGvUBNHr3V2QzJue": {
       "drive_file_id": "1cD6n9aI-_mW-bAMZOGvUBNHr3V2QzJue",
@@ -3370,17 +3382,17 @@
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-06",
-    "completed_at": "2026-11-06T14:00:00Z",
+    "date": "2026-11-07",
+    "completed_at": "2026-11-07T18:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 1,
+    "new_source_count": 0,
     "modified_source_count": 2,
-    "processed_source_count": 3,
+    "processed_source_count": 2,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; pagediff.py selected pages: Groups Ch.4 pp.9-12, DE Ch.5 pp.10-15; new Groups Ch.5 (3 pp) viewed in full.",
-    "visually_inspected_page_count": 13,
+    "reading_method": "Service-account download; pagediff.py selected pages: N&S Ch.2 pp.14-17, V&M Ch.3 pp.26-31; others matched baseline hashes.",
+    "visually_inspected_page_count": 10,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-06"
+    "commit_message": "notes: process Goodnotes files from 2026-11-07"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

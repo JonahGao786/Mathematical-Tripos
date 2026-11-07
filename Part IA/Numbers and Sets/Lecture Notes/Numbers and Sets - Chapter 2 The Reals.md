@@ -6,14 +6,14 @@ chapter: 2
 source_file: Ch.2 The Reals.pdf
 drive_file_id: 1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC
 source_url: https://drive.google.com/file/d/1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC/view
-source_pages: 14
+source_pages: 17
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 2: The Reals
 
 > [!abstract] Overview
-> The rationals have a "gap": $\sqrt2$ is not rational, and the set $\{x:x^2<2\}$ has no least upper bound in $\mathbb Q$. The real numbers are defined by field and order axioms together with the least upper bound axiom. Consequences: $\mathbb N$ is unbounded (Archimedes), infima exist, $\sqrt2$ exists in $\mathbb R$, and both the rationals and the irrationals are dense. Finally, sequences and their limits: the $\varepsilon$–$N$ definition, examples, divergence and uniqueness of limits; bounded and monotonic sequences and the monotone convergence theorem; limits of sums and inequalities; series (geometric and harmonic).
+> The rationals have a "gap": $\sqrt2$ is not rational, and the set $\{x:x^2<2\}$ has no least upper bound in $\mathbb Q$. The real numbers are defined by field and order axioms together with the least upper bound axiom. Consequences: $\mathbb N$ is unbounded (Archimedes), infima exist, $\sqrt2$ exists in $\mathbb R$, and both the rationals and the irrationals are dense. Finally, sequences and their limits: the $\varepsilon$–$N$ definition, examples, divergence and uniqueness of limits; bounded and monotonic sequences and the monotone convergence theorem; limits of sums and inequalities; series (geometric, harmonic, $\sum\frac1{n^2}$); decimal expansions, and periodic decimals as exactly the rationals; Euler's number $e$.
 > Prerequisite: [[Numbers and Sets - Chapter 1 Elementary Number Theory]] (unique factorization).
 
 ## Results index
@@ -42,7 +42,13 @@ tags: [lecture, numbers-and-sets]
 | [[#Proposition 6 — Limits preserve weak inequalities]] | $a_n\le d$, $a_n\to c\Rightarrow c\le d$ | 12 |
 | [[#Proposition 7 — Limit of a sum]] | $a_n+b_n\to c+d$ | 13 |
 | [[#Definition — Partial sums and series]] | $S_k=\sum_{n=1}^ka_n$, $\sum a_n=\lim S_k$ | 13 |
-| [[#Examples of series]] | geometric $\sum r^n=\frac r{1-r}$; harmonic $\sum\frac1n$ diverges | 13–14 |
+| [[#Examples of series]] | geometric $\sum r^n=\frac r{1-r}$; harmonic $\sum\frac1n$ diverges; $\sum\frac1{n^2}$ converges | 13–14 |
+| [[#Definition — Decimal expansion]] | $x=\sum_{n\ge1}\frac{d_n}{10^n}=0.d_1d_2d_3\ldots$, $0\le x\le1$ | 15 |
+| [[#Existence of decimal expansions]] | every $0\le x<1$ has a decimal expansion | 15 |
+| [[#Non-uniqueness of decimal expansions]] | two expansions differ only as $0.\ldots a_k999\ldots=0.\ldots(a_k+1)000\ldots$ | 16 |
+| [[#Periodic decimals are exactly the rationals]] | periodic $\iff$ rational | 16–17 |
+| [[#Definition — Euler's number e]] | $e=\sum_{j\ge0}\frac1{j!}$, converges (bounded by $3$) | 17 |
+| [[#Proposition 8 — e is irrational]] | $e\notin\mathbb Q$ | 17 |
 
 ## 2.1 Why not stop at the rationals?
 
@@ -450,8 +456,86 @@ S_{2^k}&=1+\frac12+\underbrace{\frac13+\frac14}_{\text{each}\ \ge\frac14}+\under
 In general,
 $$\frac1{2^m+1}+\frac1{2^m+2}+\dots+\frac1{2^{m+1}}\ \ge\ \frac{2^m}{2^{m+1}}=\frac12.$$
 Hence $S_{2^k}\ge1+\frac k2$. So the partial sums are increasing and unbounded, and $\sum_{n=1}^\infty\frac1n$ diverges.
+**3)** $a_n=\frac1{n^2}$. Group the terms in blocks starting at powers of $2$:
+$$S_{2^k-1}=1+\underbrace{\frac1{2^2}+\frac1{3^2}}_{\le2\cdot\frac1{2^2}}+\underbrace{\frac1{4^2}+\frac1{5^2}+\frac1{6^2}+\frac1{7^2}}_{\le4\cdot\frac1{4^2}}+\dots+\frac1{(2^k-1)^2}.$$
+In general,
+$$\frac1{(2^m)^2}+\frac1{(2^m+1)^2}+\dots+\frac1{(2^{m+1}-1)^2}\ \le\ \frac{2^m}{(2^m)^2}=\frac1{2^m}.$$
+So
+$$S_{2^k-1}\le1+\frac12+\frac14+\dots+\frac1{2^{k-1}}<2.$$
+By [[#Theorem 5 — Monotone convergence theorem|Theorem 5]], $\sum_{n=1}^\infty\frac1{n^2}$ converges, as its partial sums are increasing and bounded above. (In fact, $\sum_{n=1}^\infty\frac1{n^2}=\frac{\pi^2}6$.)
 
-**3)** $a_n=\frac1{n^2}$:
-$$S_{2^k-1}=1+\frac1{2^2}+\frac1{3^2}+\frac1{4^2}+\frac1{5^2}+\frac1{6^2}+\frac1{7^2}+\dots+\frac1{(2^k-1)^2}.$$
+## 2.6 Decimal expansions
 
-> [!todo] p.14: the source stops here; the argument for $\sum\frac1{n^2}$ continues in a later lecture.
+### Definition — Decimal expansion
+
+Let $(d_n)$ be a sequence with $d_n\in\{0,1,\dots,9\}$. Then $\sum_{n=1}^\infty\frac{d_n}{10^n}$ converges to some limit $x$, where $0\le x\le1$, because the partial sums $S_m=\sum_{n=1}^m\frac{d_n}{10^n}$ are increasing and bounded by
+$$\sum_{n=1}^\infty\frac9{10^n}=\frac9{10}\cdot\frac1{1-\frac1{10}}=1.$$
+We say that $0.d_1d_2d_3\ldots$ is the **decimal expansion** of $x$.
+
+### Existence of decimal expansions
+
+Does every $x$ with $0\le x<1$ have a decimal expansion?
+
+Pick $d_1\in\mathbb Z$ maximal such that $\frac{d_1}{10}\le x<1$. Then $0\le d_1\le9$ because $0\le x<1$, and $0\le x-\frac{d_1}{10}<\frac1{10}$ because $d_1$ is maximal.
+
+Pick $d_2\in\mathbb Z$ maximal such that $\frac{d_2}{100}\le x-\frac{d_1}{10}$. Then $0\le d_2\le9$ because $0\le x-\frac{d_1}{10}<\frac1{10}$, and $0\le x-\frac{d_1}{10}-\frac{d_2}{100}<\frac1{100}$ because $d_2$ is maximal.
+
+Inductively, pick $d_n\in\mathbb Z$ maximal such that
+$$\frac{d_n}{10^n}\le x-\sum_{j=1}^{n-1}\frac{d_j}{10^j},\qquad\text{so}\qquad0\le x-\sum_{j=1}^n\frac{d_j}{10^j}<\frac1{10^n}.$$
+Since $\frac1{10^n}\to0$ as $n\to\infty$, $x-\sum_{j=1}^n\frac{d_j}{10^j}\to0$, i.e.
+$$x=\sum_{j=1}^\infty\frac{d_j}{10^j}=0.d_1d_2d_3\ldots$$
+
+### Non-uniqueness of decimal expansions
+
+Decimal expansions need not be unique, e.g. $0.47999\ldots=0.48000\ldots$
+
+Suppose $0.a_1a_2\ldots=0.b_1b_2\ldots$ are different. We may suppose $a_j=b_j$ for $j<k$, for some $k$, and $a_k<b_k$. Then
+$$\sum_{j=k+1}^\infty\frac{a_j}{10^j}\le\sum_{j=k+1}^\infty\frac9{10^j}=\frac9{10^{k+1}}\cdot\frac1{1-\frac1{10}}=\frac1{10^k}.$$
+We must have $b_k=a_k+1$: for if $b_k>a_k+1$, then $b-a\ge\frac2{10^k}-\frac1{10^k}>0$. Also, for all $j>k$, $a_j=9$ and $b_j=0$.
+
+> [!note] Explanation
+> Writing $a=0.a_1a_2\ldots$ and $b=0.b_1b_2\ldots$: after the first $k-1$ digits agree, $b$ is ahead by $\frac{b_k-a_k}{10^k}$ at digit $k$, and the tail of $a$ can make up at most $\frac1{10^k}$ (all $9$s), while the tail of $b$ only adds. Equality therefore forces the gap to be exactly one unit ($b_k=a_k+1$), the tail of $a$ to be all $9$s, and the tail of $b$ to be all $0$s.
+
+### Definition — Periodic decimal
+
+A decimal expansion is **periodic** if, after a finite number of terms, it repeats in blocks, of length $k$ say, i.e.
+$$\exists\,\ell,k\ \text{ such that }\ d_{n+k}=d_n\ \text{ for all }n>\ell.$$
+
+### Periodic decimals are exactly the rationals
+
+*A periodic decimal is rational.* E.g. $x=0.7832147147147\ldots$:
+$$\begin{aligned}
+10^4x-7832&=0.147147147\ldots\\
+&=147\sum_{j=1}^\infty\frac1{10^{3j}}\\
+&=147\cdot\frac1{10^3}\cdot\frac1{1-\frac1{10^3}},
+\end{aligned}$$
+so $x\in\mathbb Q$.
+
+*Conversely, if $x\in\mathbb Q$, then it has a periodic decimal expansion.* To see this, write
+$$x=\frac p{2^a5^bq},\qquad a,b,p,q\in\mathbb Z,\quad a,b,q\ge0,\quad\gcd(q,10)=1.$$
+Then
+$$10^{\max\{a,b\}}x=\frac tq=n+\frac cq,\qquad n,c\in\mathbb Z,\quad0\le c<q.$$
+By the [[Numbers and Sets - Chapter 1 Elementary Number Theory#Theorem 13' — Fermat–Euler theorem|Fermat–Euler theorem]], since $\gcd(q,10)=1$,
+$$10^{\varphi(q)}-1=kq\qquad\text{for some }k\in\mathbb N.$$
+Hence
+$$\frac cq=\frac{kc}{kq}=\frac{kc}{10^{\varphi(q)}-1}=kc\sum_{j=1}^\infty\frac1{(10^{\varphi(q)})^j}.$$
+Since $0\le kc<kq$, we can write $kc$ as a $\varphi(q)$-digit number $d_1d_2\ldots d_{\varphi(q)}$ ($kq=10^{\varphi(q)}-1$ has $\varphi(q)$ digits), and so $x$ is periodic.
+
+> [!note] Explanation
+> $\frac{kc}{10^N-1}$ with $N=\varphi(q)$ is the repeating decimal $0.\overline{d_1\ldots d_N}$: dividing by $10^N-1$ means "repeat this $N$-digit block forever", exactly as $\frac{147}{999}=0.147147\ldots$ The factor $10^{\max\{a,b\}}$ clears the $2$s and $5$s in the denominator, which only shift the decimal point and produce the finite non-repeating start.
+
+## 2.7 Euler's number e
+
+### Definition — Euler's number e
+
+Define
+$$e=1+\frac1{1!}+\underbrace{\frac1{2!}}_{=\frac12}+\underbrace{\frac1{3!}}_{\le\frac14}+\underbrace{\frac1{4!}}_{\le\frac18}+\cdots$$
+By [[#Theorem 5 — Monotone convergence theorem|Theorem 5]] this series converges, because the partial sums are increasing and bounded above by
+$$1+1+\frac12+\frac14+\frac18+\cdots=3.$$
+If we define $0!=1$, then $e=\sum_{j=0}^\infty\frac1{j!}$.
+
+### Proposition 8 — e is irrational
+
+$e$ is irrational.
+
+> [!todo] p.17: the source states Proposition 8 and stops; the proof follows in a later lecture.
