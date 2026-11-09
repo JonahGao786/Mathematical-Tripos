@@ -34,7 +34,7 @@ tags: [concept, differential-equations]
 
 - **Trial P.I.s:** $e^{mx}\to Ae^{mx}$, $\sin kx,\cos kx\to A\sin kx+B\cos kx$, polynomial $\to$ polynomial of the same degree; superpose. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Trial particular integrals|lecture]]
 - **Resonance.** If the forcing is a C.F., detune, add a C.F. to regularise, and take the limit: P.I. $=t\times$(non-resonant P.I.), e.g. $y''+\omega_0^2y=\sin\omega_0t$ gives $-\frac t{2\omega_0}\cos\omega_0t$; equidimensional analogue $(\ln x)x^{k}$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Resonance|derivation]]
-- **Variation of parameters.** $y_p=uy_1+vy_2$ with $u'y_1+v'y_2=0$ gives $u'=-\frac{y_2f}W$, $v'=\frac{y_1f}W$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Variation of parameters|derivation]]
+- **Variation of parameters.** First normalise to $y''+py'+qy=f$ (divide by the coefficient of $y''$; for $ay''+by'+cy=F$ the forcing becomes $f=F/a$). Then $y_p=uy_1+vy_2$ with $u'y_1+v'y_2=0$ gives $u'=-\frac{y_2f}W$, $v'=\frac{y_1f}W$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Variation of parameters|derivation]]
 
 ## Examples
 
