@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Higher Order Linear ODEs.pdf
 drive_file_id: 1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB
 source_url: https://drive.google.com/file/d/1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB/view
-source_pages: 15
+source_pages: 19
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 5: Higher Order Linear ODEs
 
 > [!abstract] Overview
-> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients.
+> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters.
 > Prerequisite: [[Differential Equations - Chapter 4 First-Order Linear Differential Equations]] ($e^{\lambda x}$ as eigenfunction, CF + PI).
 
 ## Results index
@@ -32,6 +32,10 @@ tags: [lecture, differential-equations]
 | [[#Abel's theorem]] | $W\equiv0$ on $I$ or $W$ never $0$ on $I$; $W(x)=W(x_0)e^{-\int_{x_0}^xp}$ | 10–12 |
 | [[#Definition — Equidimensional ODE]] | $ax^2y''+bxy'+cy=f(x)$; scaling property | 12–13 |
 | [[#Solving equidimensional ODEs]] | $y_c=x^k$, $ak^2+(b-a)k+c=0$; $z=\ln x$; repeated root gives $x^k\ln x$ | 13–14 |
+| [[#Trial particular integrals]] | $e^{mx}\to Ae^{mx}$; $\sin kx,\cos kx\to A\sin kx+B\cos kx$; $P_n\to Q_n$ | 15–16 |
+| [[#Resonance]] | forcing in the C.F.: P.I. $=t\times$(non-resonant P.I.), e.g. $-\frac t{2\omega_0}\cos\omega_0t$ | 16–17 |
+| [[#Resonance in equidimensional equations]] | forcing $x^{k_1}$: P.I. $\propto(\ln x)x^{k_1}$ | 17–18 |
+| [[#Variation of parameters]] | $y_p=-y_1\int^x\frac{y_2f}W+y_2\int^x\frac{y_1f}W$ | 18–19 |
 
 Notes on scope:
 - We focus on second order, but many methods apply to higher order.
@@ -318,3 +322,106 @@ so $(\ln x)x^k$ is the other C.F.
 ## 3. Inhomogeneous (forced) second-order ODEs
 
 Methods to find a P.I.
+
+## 3.1 Constant coefficients
+
+### Trial particular integrals
+
+For
+$$a\frac{d^2y}{dx^2}+b\frac{dy}{dx}+cy=f(x),$$
+with $f(x)$ the **forcing function**:
+
+| $f(x)$ | try $y_p$ of the form |
+| --- | --- |
+| $e^{mx}$ | $Ae^{mx}$ |
+| $\sin kx$ or $\cos kx$ | $A\sin kx+B\cos kx$ |
+| polynomial $P_n(x)$ | polynomial $Q_n(x)$ |
+
+Since the equation is linear, we can superpose terms.
+
+**Example.** $y''-5y'+6y=2x+e^{4x}$. Try
+$$y_p=\underbrace{Ax+B}_{\text{for }2x}+\underbrace{Ce^{4x}}_{\text{for }e^{4x}},\qquad y_p'=A+4Ce^{4x},\qquad y_p''=16Ce^{4x}.$$
+Substituting,
+$$\underbrace{(16C-20C+6C)}_{=1}e^{4x}+\underbrace{6A}_{=2}x+\underbrace{(-5A+6B)}_{=0}=2x+e^{4x},$$
+so $C=\frac12$, $A=\frac13$, $B=\frac5{18}$. The C.F. is $y_c=\alpha e^{2x}+\beta e^{3x}$ ($\alpha,\beta$ constants), so the general solution is
+$$y=\alpha e^{2x}+\beta e^{3x}+\frac12e^{4x}+\frac13x+\frac5{18}.$$
+
+### Resonance
+
+What if the forcing term $f(x)$ involves a term that is in a C.F.? Use detuning.
+
+**Example.**
+$$y''+\omega_0^2y=\sin\omega_0t.\tag{$*$}$$
+The left side is SHM at angular frequency $\omega_0$, and the forcing term is at the "natural frequency" $\omega_0$: the oscillator is driven **resonantly**. Here $y_c(t)=A\sin\omega_0t+B\cos\omega_0t$.
+
+"Detuned" equation, with $\omega\ne\omega_0$:
+$$y''+\omega_0^2y=\sin\omega t.\tag{$\dagger$}$$
+Try $y_p(t)=C\sin\omega t+D\cos\omega t$; then $D=0$ and
+$$(-\omega^2+\omega_0^2)C=1\ \Rightarrow\ C=\frac1{\omega_0^2-\omega^2}.$$
+The limit $\omega\to\omega_0$ doesn't exist. Add in a C.F. to regularise the limit:
+$$y_p(t)=\frac1{\omega_0^2-\omega^2}\big(\sin\omega t-\underbrace{\sin\omega_0t}_{\text{a C.F.}}\big)$$
+still satisfies $(\dagger)$. Evaluate the indeterminate limit using [[L'Hôpital's Rule|L'Hôpital's rule]] (differentiating top and bottom with respect to $\omega$):
+$$\lim_{\omega\to\omega_0}y_p(t)=\lim_{\omega\to\omega_0}\frac{t\cos\omega t}{-2\omega}=-\frac t{2\omega_0}\cos\omega_0t.$$
+Therefore the P.I. of the original equation $(*)$ is
+$$y_p(t)=-\frac t{2\omega_0}\cos\omega_0t,$$
+with **linear growth in amplitude**.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=0.5,yscale=0.32]
+  \draw[->] (0,0) -- (21,0) node[right] {$t$};
+  \draw[->] (0,-6.5) -- (0,6.8) node[above] {$y_p$};
+  \draw[gray,dashed,domain=0:20] plot (\x,{0.3*\x}) node[right] {\small$\frac t{2\omega_0}$};
+  \draw[gray,dashed,domain=0:20] plot (\x,{-0.3*\x});
+  \draw[blue,thick,domain=0:20,samples=300] plot (\x,{-0.3*\x*cos(\x*90)});
+\end{tikzpicture}
+\end{document}
+```
+*Resonant response $y_p=-\frac t{2\omega_0}\cos\omega_0t$ (schematic): the oscillation stays at frequency $\omega_0$ while its amplitude grows linearly between the dashed lines $\pm\frac t{2\omega_0}$.*
+
+**General rule.** If the forcing term is a linear combination of C.F.s, the P.I. is
+$$y_p(t)=t\times(\text{non-resonant P.I.}),$$
+with the non-resonant P.I. from the [[#Trial particular integrals|table above]].
+
+**Note.** If the homogeneous equation is degenerate, we may need $t^2\times(\text{non-resonant P.I.})$.
+
+### Resonance in equidimensional equations
+
+Consider $ax^2y''+bxy'+cy=f(x)$ with $y_c=Ax^{k_1}+Bx^{k_2}$ (assume non-degenerate, $k_1\ne k_2$).
+- If $f(x)\propto x^m$, the P.I. is $Cx^m$ for $m\ne k_1,k_2$.
+- If $f(x)\propto x^{k_1}$ (or $x^{k_2}$), the P.I. is $y_p\propto(\ln x)x^{k_1}$. (This follows from transforming with $z=\ln x$: $ze^{k_1z}\propto(\ln x)x^{k_1}$.)
+
+**Note.** If degenerate ($k_1=k_2$), we need $(\ln x)^2x^{k_1}$.
+
+## 3.2 Variation of parameters
+
+### Variation of parameters
+
+A systematic method to find a P.I. given two linearly independent C.F.s. Consider
+$$y''+p(x)y'+q(x)y=f(x)\tag{$*$}$$
+with linearly independent C.F.s $y_1$ and $y_2$. Use the solution vectors $\mathbf Y_1(x)$ and $\mathbf Y_2(x)$ as a basis in phase space at any $x$ to write the solution vector for the P.I. as
+$$\mathbf Y_p(x)=u(x)\mathbf Y_1(x)+v(x)\mathbf Y_2(x).$$
+In components:
+$$\begin{aligned}
+y_p(x)&=u(x)y_1(x)+v(x)y_2(x),\\
+y_p'(x)&=u(x)y_1'(x)+v(x)y_2'(x).
+\end{aligned}\qquad\begin{aligned}&(\dagger)\\&(\dagger\dagger)\end{aligned}$$
+Differentiating $(\dagger\dagger)$: $y_p''=uy_1''+u'y_1'+vy_2''+v'y_2'$. So, from $(*)$,
+$$\begin{aligned}
+f(x)&=y_p''+py_p'+qy_p\\
+&=uy_1''+u'y_1'+v'y_2'+vy_2''+p(x)\big[uy_1'+vy_2'\big]+q(x)\big[uy_1+vy_2\big]\\
+&=u'y_1'+v'y_2' &&(y_1,y_2\text{ are C.F.s}).
+\end{aligned}$$
+But $(\dagger\dagger)$ must be consistent with $\frac d{dx}(\dagger)$:
+$$\frac d{dx}y_p=uy_1'+u'y_1+vy_2'+v'y_2=y_p'=uy_1'+vy_2'\quad(\dagger\dagger)\ \Rightarrow\ u'y_1+v'y_2=0.$$
+Combining, with the fundamental matrix:
+$$\begin{pmatrix}y_1&y_2\\y_1'&y_2'\end{pmatrix}\begin{pmatrix}u'\\v'\end{pmatrix}=\begin{pmatrix}0\\f\end{pmatrix}\ \Rightarrow\ \begin{pmatrix}u'\\v'\end{pmatrix}=\frac1W\begin{pmatrix}y_2'&-y_2\\-y_1'&y_1\end{pmatrix}\begin{pmatrix}0\\f\end{pmatrix},$$
+with $W=y_1y_2'-y_2y_1'$. So
+$$u'=-\frac{y_2}Wf,\qquad v'=\frac{y_1}Wf.$$
+Integrating,
+$$y_p(x)=-y_1(x)\int^x\frac{y_2(u)f(u)}{W(u)}\,du+y_2(x)\int^x\frac{y_1(u)f(u)}{W(u)}\,du.$$
+Changing the lower limit just adds multiples of the C.F.
+
+> [!note] Explanation
+> There are two unknown functions $u,v$ but only one equation $(*)$, so we are free to impose one extra condition; choosing $(\dagger\dagger)$ (equivalently $u'y_1+v'y_2=0$) keeps $y_p'$ free of $u'$ and $v'$, so $y_p''$ contains only first derivatives of $u,v$. The matrix is invertible because $W\ne0$ for linearly independent solutions ([[#Abel's theorem]]).
