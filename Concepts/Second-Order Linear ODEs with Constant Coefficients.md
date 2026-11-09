@@ -30,6 +30,12 @@ tags: [concept, differential-equations]
 - **Abel's theorem.** $W'=-pW$, so $W(x)=W(x_0)e^{-\int_{x_0}^xp}$ (Abel's identity): $W$ is identically $0$ or never $0$; also gives a second solution via $\frac d{dx}(y_2/y_1)=W/y_1^2$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Abel's theorem|proof]]
 - **Equidimensional** $ax^2y''+bxy'+cy=f$: try $x^k$ with $ak^2+(b-a)k+c=0$, or substitute $z=\ln x$ to get constant coefficients; a repeated root gives $x^k$ and $x^k\ln x$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Solving equidimensional ODEs|lecture]]
 
+## Forced equations
+
+- **Trial P.I.s:** $e^{mx}\to Ae^{mx}$, $\sin kx,\cos kx\to A\sin kx+B\cos kx$, polynomial $\to$ polynomial of the same degree; superpose. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Trial particular integrals|lecture]]
+- **Resonance.** If the forcing is a C.F., detune, add a C.F. to regularise, and take the limit: P.I. $=t\times$(non-resonant P.I.), e.g. $y''+\omega_0^2y=\sin\omega_0t$ gives $-\frac t{2\omega_0}\cos\omega_0t$; equidimensional analogue $(\ln x)x^{k}$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Resonance|derivation]]
+- **Variation of parameters.** $y_p=uy_1+vy_2$ with $u'y_1+v'y_2=0$ gives $u'=-\frac{y_2f}W$, $v'=\frac{y_1f}W$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Variation of parameters|derivation]]
+
 ## Examples
 
 - $y''-5y'+6y=0$: $\lambda=2,3$, $y=Ae^{3x}+Be^{2x}$.

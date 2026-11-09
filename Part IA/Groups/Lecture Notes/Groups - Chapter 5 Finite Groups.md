@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Finite Groups.pdf
 drive_file_id: 1ELnkPWzlB1-HPs9ERuMIKGAXEJi70axO
 source_url: https://drive.google.com/file/d/1ELnkPWzlB1-HPs9ERuMIKGAXEJi70axO/view
-source_pages: 3
+source_pages: 7
 tags: [lecture, groups]
 ---
 
 # Groups — Chapter 5: Finite Groups
 
 > [!abstract] Overview
-> Towards listing groups by order. Groups of prime order are cyclic; order $4$ already allows something other than $C_4$, the Klein four-group $C_2\times C_2$. The direct product theorem recognises when a group is the direct product of two subgroups.
+> Towards listing groups by order. Groups of prime order are cyclic; order $4$ already allows something other than $C_4$, the Klein four-group $C_2\times C_2$. The direct product theorem recognises when a group is the direct product of two subgroups. With it: every group of order $4$ is $C_4$ or $K_4$, $C_m\times C_n\cong C_{mn}$ for coprime $m,n$, every group of order $6$ is $C_6$ or $D_6$, and order $8$ brings in the quaternion group $Q_8$.
 > Prerequisites: [[Groups - Chapter 2 Lagrange's Theorem]] (groups of prime order); [[Groups - Chapter 1 Examples and Definitions]] (homomorphisms, kernels).
 
 ## Results index
@@ -23,6 +23,11 @@ tags: [lecture, groups]
 | [[#Definition — Direct product]] | $G\times H$ with componentwise operation; $\lvert G\times H\rvert=\lvert G\rvert\lvert H\rvert$ | 1 |
 | [[#Example — Klein four-group]] | $K_4=C_2\times C_2$, not cyclic | 1 |
 | [[#Theorem 5.1 — Direct product theorem]] | $H_1\cap H_2=\{e\}$, commuting, $G=H_1H_2\Rightarrow G\cong H_1\times H_2$ | 2–3 |
+| [[#Lemma 5.2 — Groups of order 4]] | $\lvert G\rvert=4\Rightarrow G\cong C_4$ or $K_4$ | 3 |
+| [[#Theorem 5.3 — Chinese remainder theorem]] | $\gcd(m,n)=1\Rightarrow C_m\times C_n\cong C_{mn}$ | 4 |
+| [[#Lemma 5.4 — Groups of order 6]] | $\lvert G\rvert=6\Rightarrow G\cong C_6$ or $D_6$ | 5–6 |
+| [[#Definition — Quaternion group]] | $Q_8=\{\pm1,\pm i,\pm j,\pm k\}$, non-abelian, $Q_8\not\cong D_8$ | 6–7 |
+| [[#Lemma 5.6 — Groups of order 8]] | $C_2^3$, $C_2\times C_4$, $C_8$, $D_8$ or $Q_8$ | 7 |
 
 ## 5.1 Groups of small order
 
@@ -71,3 +76,105 @@ $$\begin{aligned}
 
 > [!note] Explanation
 > Each hypothesis is used once. (2) lets $h_2$ slide past $h_1'$, which is exactly what makes multiplying in $G$ look like multiplying componentwise. (3) says every element of $G$ is hit. (1) says the two subgroups overlap only in $e$, so $h_1h_2=e$ forces both factors to be $e$.
+
+**Remarks.**
+- If $|H_1|$ and $|H_2|$ are coprime, then $H_1\cap H_2=\{e\}$ automatically.
+- If $H_1\cap H_2=\{e\}$, then $|H_1H_2|=|H_1|\cdot|H_2|$.
+- In particular, if we know $|G|=|H_1|\cdot|H_2|$, then (3) follows automatically from (1).
+
+> [!note] Explanation
+> First remark: $H_1\cap H_2$ is a subgroup of both, so by Lagrange its order divides $|H_1|$ and $|H_2|$, hence divides their gcd $1$. Second remark: $h_1h_2=h_1'h_2'$ gives $h_1'^{-1}h_1=h_2'h_2^{-1}\in H_1\cap H_2=\{e\}$, so the $|H_1||H_2|$ products are all different. Third: then $H_1H_2$ is a subset of $G$ of the same size, so it is all of $G$.
+
+### Lemma 5.2 — Groups of order 4
+
+If $|G|=4$, then $G\cong C_4$ or $G\cong K_4$.
+
+**Proof.** By Lagrange, every non-trivial element has order $2$ or $4$.
+- If there is an element $g$ of order $4$: $C_4\cong\langle g\rangle\le G$ and $4=|C_4|=|G|$, so $C_4\cong G$.
+- Otherwise every non-trivial element has order $2$. Let $a,b\in G$ be distinct and non-trivial. Then
+  1. $\langle a\rangle\cap\langle b\rangle=\{e,a\}\cap\{e,b\}=\{e\}$;
+  2. $ab=ba$ (by Example Sheet 1, Q11);
+  3. $|\langle a\rangle\langle b\rangle|=4$: the elements $e,a,b,ab$ (immediate since $a,b$ are distinct and non-trivial).
+
+  So by Theorem 5.1, $G\cong\langle a\rangle\times\langle b\rangle\cong C_2\times C_2\cong K_4$. $\square$
+
+> [!note] Explanation
+> Why $ab=ba$ when every element has order $2$: then each element is its own inverse, so $ab=(ab)^{-1}=b^{-1}a^{-1}=ba$.
+
+### Theorem 5.3 — Chinese remainder theorem
+
+If $\gcd(m,n)=1$, then $C_m\times C_n\cong C_{mn}$.
+
+**Proof.** Say $C_{mn}=\langle g\rangle$. Let
+$$H_1=\langle g^n\rangle\cong C_m,\qquad H_2=\langle g^m\rangle\cong C_n.$$
+Let's check the hypotheses of Theorem 5.1.
+1. For $0\le k\le mn-1$: $g^k\in H_1\iff n\mid k$, and $g^k\in H_2\iff m\mid k$. So
+$$g^k\in H_1\cap H_2\iff\operatorname{lcm}(m,n)\mid k.$$
+Now $\gcd(m,n)=1\iff\operatorname{lcm}(m,n)=mn$. Thus $k=0$ and $g^k=e$, so $H_1\cap H_2=\{e\}$.
+2. Immediate, as $C_{mn}$ is abelian.
+3. Fix $g^k\in C_{mn}$. By Bézout, $k=pm+qn$ for some $p,q\in\mathbb Z$, so
+$$g^k=(g^n)^q\cdot(g^m)^p\in H_1H_2.$$
+
+So by Theorem 5.1, $C_{mn}\cong C_m\times C_n$. $\square$
+
+## 5.2 Groups of order 5 to 8
+
+Let's continue trying to identify small-order groups.
+- $|G|=5\Rightarrow G\cong C_5$, as $5$ is prime.
+- $|G|=6$? We have $D_6$, $C_6$, $S_3$, …
+  - $D_6$ and $C_6$ are not isomorphic (e.g. because $C_6$ is abelian and $D_6$ isn't).
+  - $D_6\cong S_3$: symmetries of an equilateral triangle correspond one-to-one to permutations of the set of its $3$ vertices.
+
+### Lemma 5.4 — Groups of order 6
+
+If $|G|=6$, then $G\cong C_6$ or $G\cong D_6$.
+
+**Proof.** By [[Groups - Chapter 3 Group Actions#Theorem 3.8 — Cauchy's theorem|Cauchy's theorem]], there are elements $r,s\in G$ with $\operatorname{ord}(r)=3$ and $\operatorname{ord}(s)=2$. By Lagrange,
+$$|G:\langle r\rangle|=\frac63=2.$$
+As $2$ and $3$ are coprime, $s\notin\langle r\rangle$. So
+$$G=\langle r\rangle\sqcup s\langle r\rangle=\langle r\rangle\sqcup\langle r\rangle s,$$
+so $s\langle r\rangle=\langle r\rangle s$. Thus $sr=r^is$ for some $i\in\{0,1,2\}$.
+- $i=0$: $sr=s\Rightarrow r=e$, a contradiction.
+- $i=1$: $sr=rs$, so $\langle r\rangle$ and $\langle s\rangle$ commute, and
+$$G\cong\langle r\rangle\times\langle s\rangle\cong C_3\times C_2\cong C_6$$
+by Theorem 5.1 and then Theorem 5.3.
+- $i=2$: $sr=r^2s=r^{-1}s$. We recognise the dihedral relation! With $\operatorname{ord}(r)\mid3$, $\operatorname{ord}(s)\mid2$, $sr=r^{-1}s$ and $|G|=6$,
+$$G\cong D_6$$
+by [[Groups - Chapter 1 Examples and Definitions#Corollary 1.41 — Recognising dihedral groups|Corollary 1.41]]. $\square$
+
+> [!note] Explanation
+> The left cosets and the right cosets of $\langle r\rangle$ both split $G$ into $\langle r\rangle$ and "everything else", so $s\langle r\rangle$ and $\langle r\rangle s$ are the same set. Hence $sr$, which lies in $s\langle r\rangle$, can be written as $r^is$. For $i=1$, Theorem 5.1 applies by the Remarks: $|\langle r\rangle|=3$ and $|\langle s\rangle|=2$ are coprime and $|G|=3\cdot2$.
+
+- $|G|=7\Rightarrow G\cong C_7$, because $7$ is prime.
+- $|G|=8$? We already have:
+
+| group | | orders of elements |
+| --- | --- | --- |
+| $D_8$ | non-abelian | $1,2,4$ |
+| $C_8$ | abelian | $1,2,4,8$ |
+| $C_4\times C_2$ | abelian | $1,2,4$ |
+| $C_2\times C_2\times C_2$ | abelian | $1,2$ |
+
+### Definition — Quaternion group
+
+Consider the $2\times2$ matrices
+$$\mathbf 1=\begin{pmatrix}1&0\\0&1\end{pmatrix},\quad\mathbf i=\begin{pmatrix}i&0\\0&-i\end{pmatrix},\quad\mathbf j=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\quad\mathbf k=\begin{pmatrix}0&i\\i&0\end{pmatrix}.$$
+Note that
+$$\mathbf i^2=\mathbf j^2=\mathbf k^2=-\mathbf 1,\qquad\mathbf i\mathbf j=\mathbf k,\quad\mathbf j\mathbf k=\mathbf i,\quad\mathbf k\mathbf i=\mathbf j,\qquad(-\mathbf 1)\mathbf i=-\mathbf i,\ \text{etc.}$$
+Altogether this implies that the set $\{\pm\mathbf 1,\pm\mathbf i,\pm\mathbf j,\pm\mathbf k\}$ is a group, with binary operation matrix multiplication and identity element $\mathbf 1$. This is called the **quaternion group** $Q_8$.
+
+Observe that $\mathbf i\mathbf j=\mathbf k$ but $\mathbf j\mathbf i=-\mathbf k$, so $Q_8$ is non-abelian.
+- $Q_8$ has $1$ element of order $2$ (namely $-\mathbf 1$).
+- $D_8$ has $4+1$ elements of order $2$ (four reflections and the half-turn).
+
+So $Q_8\not\cong D_8$.
+
+### Lemma 5.6 — Groups of order 8
+
+If $|G|=8$, then $G\cong C_2\times C_2\times C_2$, $C_2\times C_4$, $C_8$, $D_8$ or $Q_8$.
+
+**Proof.** By Lagrange, every element has order $1$, $2$, $4$ or $8$.
+- If there is an element of order $8$, $G\cong C_8$.
+- Suppose every non-trivial element has order $2$. …
+
+> [!todo] p.7: the proof of Lemma 5.6 stops here; it continues in a later lecture.
