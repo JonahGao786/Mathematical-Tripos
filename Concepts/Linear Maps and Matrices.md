@@ -36,6 +36,11 @@ tags: [concept, vectors-and-matrices]
 - **More on $\det$:** triangular $\Rightarrow$ product of the diagonal; $\det Q=\pm1$ (rotation/reflection), $|\det U|=1$; $|\det M|$ is the volume scale factor, $[M\mathbf v_1,\dots,M\mathbf v_n]=\det M[\mathbf v_1,\dots,\mathbf v_n]$. → [[Vectors and Matrices - Chapter 3 Matrices#Invertibility and special matrices|lecture]] · [[Vectors and Matrices - Chapter 3 Matrices#Product formula and volume scaling|lecture]]
 - **Cofactors:** $C_{ij}=(-1)^{i+j}\det M^{(ij)}$; Laplace expansion along any row or column; adjugate $\tilde M$ with $\tilde MM=(\det M)I$, so $M^{-1}=\tilde M/\det M$. → [[Vectors and Matrices - Chapter 3 Matrices#Laplace expansion|lecture]] · [[Vectors and Matrices - Chapter 3 Matrices#Definition — Adjugate|lecture]]
 
+## Systems of linear equations
+
+- **$2\times2$, Cramer's rule:** if $\det A\ne0$, $x_i=\frac{\det A_i(\mathbf b)}{\det A}$ ($\mathbf b$ in column $i$); if $\det A=0$, no solution (parallel lines) or infinitely many (same line). → [[Vectors and Matrices - Chapter 3 Matrices#Solving 2×2 systems and Cramer's rule|lecture]] · [[Vectors and Matrices - Chapter 3 Matrices#2×2 systems with det A = 0|lecture]]
+- **General:** solutions of $A\mathbf x=\mathbf b$ form $\mathbf x_0+\ker A$, of dimension $n-\operatorname{rank}A$; solvable iff $\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A$. → [[Vectors and Matrices - Chapter 3 Matrices#General solution of A x = b|lecture]]
+
 ## Geometric examples
 
 - Rotation in the plane $R(\theta)=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}$, with $R(\theta_1)R(\theta_2)=R(\theta_1+\theta_2)$. → [[Vectors and Matrices - Chapter 3 Matrices#Rotations in the plane|lecture]]

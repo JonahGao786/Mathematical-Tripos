@@ -27,6 +27,12 @@ tags: [concept, numbers-and-sets]
 - **Theorem 4.** $\sqrt2$ exists in $\mathbb R$: take $c=\sup\{x:x^2<2\}$; $c^2<2$ puts some $c+t$ in the set, $c^2>2$ makes $c-t$ a smaller upper bound. Same for $\sqrt[n]x$. → [[Numbers and Sets - Chapter 2 The Reals#Theorem 4 — Existence of square root of 2|proof]]
 - **Density.** Between any $a<b$ lie a rational (step along multiples of $\frac1n<b-a$) and an irrational ($\frac c{\sqrt2}$ with $c$ rational). → [[Numbers and Sets - Chapter 2 The Reals#Density of the rationals|proof]] · [[Numbers and Sets - Chapter 2 The Reals#Density of the irrationals|proof]]
 
+## Irrational, algebraic and transcendental numbers
+
+- **Proposition 8.** $e$ is irrational: if $e=\frac pq$, then $q!\,e$ is an integer plus a tail strictly between $0$ and $1$. → [[Numbers and Sets - Chapter 2 The Reals#Proposition 8 — e is irrational|proof]]
+- **Algebraic:** a root of a non-zero integer polynomial (e.g. rationals, $\sqrt2$); **transcendental:** not algebraic. → [[Numbers and Sets - Chapter 2 The Reals#Definition — Algebraic and transcendental numbers|lecture]]
+- **Theorem 9 — Liouville.** $\sum10^{-n!}$ is transcendental: it is too well approximated by rationals, since $|p(L_n)|\ge10^{-dn!}$ but $|p(L_n)-p(L)|\le2K\,10^{-(n+1)!}$. → [[Numbers and Sets - Chapter 2 The Reals#Theorem 9 — Liouville's theorem|proof]]
+
 ## Related
 
 [[Divisibility and Prime Numbers]] · [[Natural Numbers and Mathematical Induction]] · [[Sequences and Limits]]
