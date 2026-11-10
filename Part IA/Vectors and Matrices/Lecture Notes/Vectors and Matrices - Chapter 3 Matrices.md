@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Matrices.pdf
 drive_file_id: 1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA
 source_url: https://drive.google.com/file/d/1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA/view
-source_pages: 31
+source_pages: 38
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 3: Matrices
 
 > [!abstract] Overview
-> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, and minors, cofactors, Laplace expansion and the adjugate. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
+> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, minors, cofactors, Laplace expansion and the adjugate; then systems of linear equations: the $2\times2$ case with Cramer's rule, and the general solution $\mathbf x_0+\ker A$ with the rank test for consistency. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
 > Prerequisite: [[Vectors and Matrices - Chapter 2 Vectors]] (bases, dimension).
 
 ## Results index
@@ -58,7 +58,11 @@ tags: [lecture, vectors-and-matrices]
 | [[#Definition — Minor and cofactor]] | $\mathcal M_{ij}=\det M^{(ij)}$, $C_{ij}=(-1)^{i+j}\mathcal M_{ij}$ | 29 |
 | [[#Laplace expansion]] | $\det M=\sum_kM_{ik}C_{ik}=\sum_kM_{kj}C_{kj}$ | 30 |
 | [[#Cofactor identities]] | $\sum_kM_{ik}C_{jk}=\delta_{ij}\det M$; why the sign $(-1)^{i+j}$ | 30–31 |
-| [[#Definition — Adjugate]] | $\tilde MM=(\det M)I$, $M^{-1}=\tilde M/\det M$ | 31 |
+| [[#Definition — Adjugate]] | $\tilde MM=(\det M)I$, $M^{-1}=\tilde M/\det M$; $\operatorname{adj}M=C^{\mathsf T}$ | 31–32 |
+| [[#Example — det of A(a)]] | $\det A(a)=(a-1)^2(a+2)$ by row and column operations | 32 |
+| [[#Solving 2×2 systems and Cramer's rule]] | $x_i=\frac{\det A_i(\mathbf b)}{\det A}$ when $\det A\ne0$ | 33–35 |
+| [[#2×2 systems with det A = 0]] | no solution or infinitely many; homogeneous case | 35–36 |
+| [[#General solution of A x = b]] | $\mathbf x_0+\ker A$; consistent $\iff\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A$ | 36–38 |
 
 ## 3.1 Linear maps
 
@@ -861,3 +865,132 @@ Then in $\tilde MM$, e.g. $(\mathbf C_2\times\mathbf C_3)\cdot\mathbf C_1=\det M
 $$(\tilde MM)_{ij}=\delta_{ij}\det M\iff\tilde MM=(\det M)I.$$
 If $\det M\ne0$ ($M$ invertible),
 $$M^{-1}=\frac{\tilde M}{\det M}.$$
+
+**General $n$.** The adjugate of $M$ of size $n\times n$ is the transpose of the **cofactor matrix**:
+$$\operatorname{adj}M:=C^{\mathsf T},\qquad C=\begin{pmatrix}C_{11}&\cdots&C_{1n}\\\vdots&&\vdots\\C_{n1}&\cdots&C_{nn}\end{pmatrix},$$
+with
+$$C_{ij}=[\mathbf R_1^{\mathsf T},\dots,\mathbf R_{i-1}^{\mathsf T},\mathbf e_j,\mathbf R_{i+1}^{\mathsf T},\dots,\mathbf R_n^{\mathsf T}]$$
+(it can also be defined with columns). For example, for $n=3$, $C_{22}=[\mathbf R_1^{\mathsf T},\mathbf e_2,\mathbf R_3^{\mathsf T}]=\mathbf R_1^{\mathsf T}\cdot(\mathbf e_2\times\mathbf R_3^{\mathsf T})$. Then
+$$M\operatorname{adj}M=\operatorname{adj}M\cdot M=(\det M)I_n,$$
+and if $\det M\ne0$ ($M$ invertible),
+$$M^{-1}=\frac{\operatorname{adj}M}{\det M}.$$
+
+> [!note] Explanation
+> $(M\operatorname{adj}M)_{ij}=\sum_kM_{ik}(C^{\mathsf T})_{kj}=\sum_kM_{ik}C_{jk}=\delta_{ij}\det M$: this is exactly the first [[#Cofactor identities|cofactor identity]].
+
+### Example — det of A(a)
+
+Compute $\det A(a)$ for
+$$A(a)=\begin{pmatrix}1&a&1\\1&1&a\\a&1&1\end{pmatrix}.$$
+Using $\mathbf R_1\mapsto\mathbf R_1-\mathbf R_3$ and $\mathbf R_2\mapsto\mathbf R_2-\mathbf R_3$, then taking out a factor $a-1$ from each of the first two rows, then $\mathbf C_1\mapsto\mathbf C_1+\mathbf C_2+\mathbf C_3$:
+$$\begin{aligned}
+\det A(a)&=\begin{vmatrix}1-a&a-1&0\\1-a&0&a-1\\a&1&1\end{vmatrix}
+=(a-1)^2\begin{vmatrix}-1&1&0\\-1&0&1\\a&1&1\end{vmatrix}
+=(a-1)^2\begin{vmatrix}0&1&0\\0&0&1\\a+2&1&1\end{vmatrix}\\
+&=(a-1)^2(a+2)\begin{vmatrix}1&0\\0&1\end{vmatrix}=(a-1)^2(a+2),
+\end{aligned}$$
+expanding along the first column in the last step.
+
+## 3.5 Systems of linear equations
+
+### 3.5.1 The 2×2 case
+
+### Solving 2×2 systems and Cramer's rule
+
+Consider
+$$(\circledast)\qquad\begin{cases}\text{EQ1}: & A_{11}x_1+A_{12}x_2=b_1,\\\text{EQ2}: & A_{21}x_1+A_{22}x_2=b_2,\end{cases}\qquad A=\begin{pmatrix}A_{11}&A_{12}\\A_{21}&A_{22}\end{pmatrix},\quad\mathbf x=\begin{pmatrix}x_1\\x_2\end{pmatrix},\quad\mathbf b=\begin{pmatrix}b_1\\b_2\end{pmatrix},$$
+so $(\circledast)\iff A\mathbf x=\mathbf b$.
+
+**Solve the system.** $A_{22}(\text{EQ1})-A_{12}(\text{EQ2})$ gives
+$$A_{22}A_{11}x_1+A_{22}A_{12}x_2-A_{12}A_{21}x_1-A_{12}A_{22}x_2=A_{22}b_1-A_{12}b_2\iff\underbrace{(A_{11}A_{22}-A_{12}A_{21})}_{\det A}x_1=A_{22}b_1-A_{12}b_2,$$
+and $A_{11}(\text{EQ2})-A_{21}(\text{EQ1})$ gives $(A_{11}A_{22}-A_{12}A_{21})x_2=A_{11}b_2-A_{21}b_1$. So
+$$\begin{aligned}
+\det A\,x_1&=A_{22}b_1-A_{12}b_2,\qquad&(\#1)\\
+\det A\,x_2&=A_{11}b_2-A_{21}b_1.\qquad&(\#2)
+\end{aligned}$$
+
+**If $\det A\ne0$:**
+$$\begin{pmatrix}x_1\\x_2\end{pmatrix}=\underbrace{\frac1{\det A}\begin{pmatrix}A_{22}&-A_{12}\\-A_{21}&A_{11}\end{pmatrix}}_{A^{-1}}\begin{pmatrix}b_1\\b_2\end{pmatrix},\qquad\text{i.e.}\qquad A\mathbf x=\mathbf b\Rightarrow\mathbf x=A^{-1}\mathbf b.$$
+
+**Cramer's rule in 2D.** With
+$$A_1(\mathbf b)=\begin{pmatrix}b_1&A_{12}\\b_2&A_{22}\end{pmatrix},\qquad A_2(\mathbf b)=\begin{pmatrix}A_{11}&b_1\\A_{21}&b_2\end{pmatrix}$$
+($\mathbf b$ replacing column $1$, resp. column $2$), $(\#1)$ and $(\#2)$ give
+$$x_1=\frac{\det A_1(\mathbf b)}{\det A},\qquad x_2=\frac{\det A_2(\mathbf b)}{\det A}.$$
+
+**Example.**
+$$\begin{cases}2x_1+x_2=5,\\x_1-x_2=1,\end{cases}\qquad A=\begin{pmatrix}2&1\\1&-1\end{pmatrix},\quad\mathbf b=\begin{pmatrix}5\\1\end{pmatrix}.$$
+$\det A=-3\ne0$, so there is a unique solution. $A_1(\mathbf b)=\begin{pmatrix}5&1\\1&-1\end{pmatrix}$ has $\det=-6$, and $A_2(\mathbf b)=\begin{pmatrix}2&5\\1&1\end{pmatrix}$ has $\det=-3$. So
+$$x_1=\frac{\det A_1(\mathbf b)}{\det A}=2,\qquad x_2=1.$$
+
+### 2×2 systems with det A = 0
+
+**If $\det A=0$,** the two coefficient rows are proportional: $(A_{21},A_{22})=\lambda(A_{11},A_{12})$. Then $(\text{EQ2})-\lambda(\text{EQ1})$ gives
+$$0=b_2-\lambda b_1.$$
+1. **No solutions.** If $b_2\ne\lambda b_1$, there is a contradiction, so there is no solution: two parallel lines. (E.g. $x_1+2x_2=3$, $2x_1+4x_2=7$.)
+2. **Infinitely many solutions.** If $b_2=\lambda b_1$, both equations describe the same line, so there are infinitely many solutions. (E.g. $x_1+2x_2=3$, $2x_1+4x_2=6$: $x_2=t$, $x_1=3-2t$, $\mathbf x=\begin{pmatrix}3-2t\\t\end{pmatrix}$.)
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[scale=0.75]
+  % unique solution
+  \begin{scope}
+    \draw[->,gray] (-0.3,0) -- (3.4,0) node[right] {\small$x_1$};
+    \draw[->,gray] (0,-1.2) -- (0,3.4) node[above] {\small$x_2$};
+    \draw[blue,thick] (1.0,3.0) -- (2.55,-0.1);
+    \draw[red,thick] (0.4,-0.6) -- (3.3,2.3);
+    \fill (2,1) circle (2pt);
+    \node at (1.6,-1.9) {\small$\det A\ne0$: one point};
+  \end{scope}
+  % parallel
+  \begin{scope}[xshift=5cm]
+    \draw[->,gray] (-0.3,0) -- (3.4,0) node[right] {\small$x_1$};
+    \draw[->,gray] (0,-1.2) -- (0,3.4) node[above] {\small$x_2$};
+    \draw[blue,thick] (0,1.5) -- (3.2,-0.1);
+    \draw[red,thick] (0,1.75+0.6) -- (3.2,0.75);
+    \node at (1.6,-1.9) {\small$b_2\ne\lambda b_1$: none};
+  \end{scope}
+  % same line
+  \begin{scope}[xshift=10cm]
+    \draw[->,gray] (-0.3,0) -- (3.4,0) node[right] {\small$x_1$};
+    \draw[->,gray] (0,-1.2) -- (0,3.4) node[above] {\small$x_2$};
+    \draw[blue,line width=2.2pt] (0,1.5) -- (3.2,-0.1);
+    \draw[red,thick,dashed] (0,1.5) -- (3.2,-0.1);
+    \node at (1.6,-1.9) {\small$b_2=\lambda b_1$: a whole line};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*The two equations as lines in the $(x_1,x_2)$-plane: they meet in one point, are parallel, or coincide.*
+
+**$\mathbf b=\mathbf 0$: the homogeneous case** $A\mathbf x=\mathbf 0$.
+- There is always at least one solution, $\mathbf x=\mathbf 0$.
+- There are non-zero solutions if and only if $\det A=0$; then we have one line that passes through the origin.
+
+### 3.5.2 General case
+
+### General solution of A x = b
+
+A system of $m$ equations in $n$ unknowns,
+$$\sum_{j=1}^nA_{ij}x_j=b_i,\quad i=1,\dots,m\qquad\iff\qquad A\mathbf x=\mathbf b,\quad A\in\mathbb F^{m\times n},\ \mathbf b\in\mathbb F^m,\ \mathbf x\in\mathbb F^n,$$
+with
+$$A=\begin{pmatrix}A_{11}&A_{12}&\cdots&A_{1n}\\A_{21}&A_{22}&\cdots&A_{2n}\\\vdots&\vdots&&\vdots\\A_{m1}&A_{m2}&\cdots&A_{mn}\end{pmatrix},\qquad\mathbf x=\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix},\qquad\mathbf b=\begin{pmatrix}b_1\\\vdots\\b_m\end{pmatrix}.$$
+Assume that $\mathbf x_0$ is one particular solution: $A\mathbf x_0=\mathbf b$. Then every solution is
+$$\mathbf x=\mathbf x_0+\mathbf z,\qquad\mathbf z\in\ker A.$$
+- Take $\mathbf x=\mathbf x_0+\mathbf z$: $A\mathbf x=A\mathbf x_0+\underbrace{A\mathbf z}_{=\mathbf 0}=\mathbf b$.
+- If $\mathbf x$ is a solution, then $\mathbf b=A\mathbf x=A\mathbf x_0+A\mathbf z$ with $\mathbf z=\mathbf x-\mathbf x_0\in\ker A$.
+
+We rewrite this as an **affine translate** of $\mathbf x_0$: the solutions of $A\mathbf x=\mathbf b$ are $\mathbf x_0+\ker A$. For the homogeneous system $A\mathbf x=\mathbf 0$, the solution set is $\mathbf 0+\ker A=\ker A$, with
+$$\dim\ker A=n-\operatorname{rank}A.$$
+
+In general, for $A\mathbf x=\mathbf b$:
+- The system is **consistent** if $\mathbf b\in\operatorname{Im}A$.
+- The **augmented matrix** is $[A\mid\mathbf b]$.
+- $A\mathbf x=\mathbf b$ has at least one solution $\iff$ it is consistent $\iff\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A$.
+
+With columns $\{\mathbf C_1,\dots,\mathbf C_n\}$ of $A$, $A\mathbf x=x_1\mathbf C_1+\dots+x_n\mathbf C_n$. A solution exists if $\mathbf b$ is a linear combination of $\{\mathbf C_1,\dots,\mathbf C_n\}$; in this case adding $\mathbf b$ doesn't increase the rank. Otherwise $\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A+1$ (inconsistent).
+
+If $\{\mathbf u_1,\dots,\mathbf u_k\}$ is a basis of $\ker A$, the general solution is
+$$\mathbf x=\mathbf x_0+\sum_{j=1}^kt_j\mathbf u_j,\qquad t_j\in\mathbb F,\quad k=n-\operatorname{rank}A.$$
+- If $k=0$: **unique solution**.
+- If $k>0$: **infinitely many solutions**.

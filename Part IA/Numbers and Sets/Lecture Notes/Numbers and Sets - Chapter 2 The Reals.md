@@ -6,14 +6,14 @@ chapter: 2
 source_file: Ch.2 The Reals.pdf
 drive_file_id: 1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC
 source_url: https://drive.google.com/file/d/1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC/view
-source_pages: 17
+source_pages: 20
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 2: The Reals
 
 > [!abstract] Overview
-> The rationals have a "gap": $\sqrt2$ is not rational, and the set $\{x:x^2<2\}$ has no least upper bound in $\mathbb Q$. The real numbers are defined by field and order axioms together with the least upper bound axiom. Consequences: $\mathbb N$ is unbounded (Archimedes), infima exist, $\sqrt2$ exists in $\mathbb R$, and both the rationals and the irrationals are dense. Finally, sequences and their limits: the $\varepsilon$–$N$ definition, examples, divergence and uniqueness of limits; bounded and monotonic sequences and the monotone convergence theorem; limits of sums and inequalities; series (geometric, harmonic, $\sum\frac1{n^2}$); decimal expansions, and periodic decimals as exactly the rationals; Euler's number $e$.
+> The rationals have a "gap": $\sqrt2$ is not rational, and the set $\{x:x^2<2\}$ has no least upper bound in $\mathbb Q$. The real numbers are defined by field and order axioms together with the least upper bound axiom. Consequences: $\mathbb N$ is unbounded (Archimedes), infima exist, $\sqrt2$ exists in $\mathbb R$, and both the rationals and the irrationals are dense. Finally, sequences and their limits: the $\varepsilon$–$N$ definition, examples, divergence and uniqueness of limits; bounded and monotonic sequences and the monotone convergence theorem; limits of sums and inequalities; series (geometric, harmonic, $\sum\frac1{n^2}$); decimal expansions, and periodic decimals as exactly the rationals; Euler's number $e$ and its irrationality; algebraic and transcendental numbers, with Liouville's theorem.
 > Prerequisite: [[Numbers and Sets - Chapter 1 Elementary Number Theory]] (unique factorization).
 
 ## Results index
@@ -48,7 +48,9 @@ tags: [lecture, numbers-and-sets]
 | [[#Non-uniqueness of decimal expansions]] | two expansions differ only as $0.\ldots a_k999\ldots=0.\ldots(a_k+1)000\ldots$ | 16 |
 | [[#Periodic decimals are exactly the rationals]] | periodic $\iff$ rational | 16–17 |
 | [[#Definition — Euler's number e]] | $e=\sum_{j\ge0}\frac1{j!}$, converges (bounded by $3$) | 17 |
-| [[#Proposition 8 — e is irrational]] | $e\notin\mathbb Q$ | 17 |
+| [[#Proposition 8 — e is irrational]] | $e\notin\mathbb Q$ | 17–18 |
+| [[#Definition — Algebraic and transcendental numbers]] | root of a non-zero integer polynomial, or not | 18 |
+| [[#Theorem 9 — Liouville's theorem]] | $\sum_{n\ge1}10^{-n!}$ is transcendental | 18–20 |
 
 ## 2.1 Why not stop at the rationals?
 
@@ -538,4 +540,70 @@ If we define $0!=1$, then $e=\sum_{j=0}^\infty\frac1{j!}$.
 
 $e$ is irrational.
 
-> [!todo] p.17: the source states Proposition 8 and stops; the proof follows in a later lecture.
+**Proof.** Suppose $e$ were rational, i.e. $e=\frac pq$ where $p,q\in\mathbb N$ and $q>1$ (since $2<e<3$). Then $q!\,e\in\mathbb N$. But
+$$q!\,e=q!+\frac{q!}{1!}+\frac{q!}{2!}+\dots+\frac{q!}{q!}+\frac{q!}{(q+1)!}+\cdots=N+x\qquad\text{for some }N\in\mathbb N,$$
+where
+$$\begin{aligned}
+x=\sum_{j=q+1}^\infty\frac{q!}{j!}=\sum_{j=1}^\infty\frac{q!}{(q+j)!}&=\frac1{q+1}+\underbrace{\frac1{(q+1)(q+2)}}_{\le\frac1{(q+1)^2}}+\underbrace{\frac1{(q+1)(q+2)(q+3)}}_{\le\frac1{(q+1)^3}}+\cdots
+\end{aligned}$$
+In general $\frac{q!}{(q+j)!}\le\frac1{(q+1)^j}$, so
+$$x\le\frac1{q+1}+\frac1{(q+1)^2}+\dots=\frac1q<1\qquad(\text{as }q\ge2).$$
+Hence $0<x<1$, contradicting the fact that $q!\,e\in\mathbb N$ (since $N\in\mathbb N$ and $q!\,e=N+x$). So $e$ is irrational. $\square$
+
+> [!note] Explanation
+> Multiplying by $q!$ makes the first $q+1$ terms of the series integers, so if $e$ were $\frac pq$ the leftover tail $x$ would have to be an integer too. But the tail is squeezed strictly between $0$ and $1$ by comparing it with a geometric series, which is impossible.
+
+## 2.8 Algebraic and transcendental numbers
+
+### Definition — Algebraic and transcendental numbers
+
+A real number is **algebraic** if it is a root of a (non-zero) polynomial with integer coefficients (or rational coefficients — same thing!). A real number is **transcendental** if it is not algebraic.
+
+**Examples.**
+1. Every rational number is algebraic: $x=\frac pq\Rightarrow qx-p=0$.
+2. $\sqrt2$ is algebraic: it satisfies $x^2-2=0$.
+
+### Theorem 9 — Liouville's theorem
+
+(Liouville, 1851.) The number
+$$L=\sum_{n=1}^\infty\frac1{10^{n!}}$$
+is transcendental.
+
+We will need two facts about polynomials.
+
+**Fact A.** For any polynomial $p$ there is a constant $K$ such that $|p(x)-p(y)|\le K|x-y|$ for all $0\le x,y\le1$.
+
+Indeed, suppose $p(x)=a_\alpha x^\alpha+a_{\alpha-1}x^{\alpha-1}+\dots+a_1x+a_0$. Then
+$$\begin{aligned}
+p(x)-p(y)&=a_\alpha(x^\alpha-y^\alpha)+a_{\alpha-1}(x^{\alpha-1}-y^{\alpha-1})+\dots+a_1(x-y)\\
+&=(x-y)\big[a_\alpha(x^{\alpha-1}+x^{\alpha-2}y+\dots+y^{\alpha-1})+\dots+a_1\big],
+\end{aligned}$$
+so
+$$|p(x)-p(y)|\le|x-y|\,\underbrace{\big(|a_\alpha|+|a_{\alpha-1}|+\dots+|a_1|\big)\cdot\alpha}_{K}.$$
+
+**Fact B.** A non-zero polynomial of degree $d$ has at most $d$ roots.
+
+Indeed, given a polynomial $p$ of degree $d$, we may assume by induction that the fact holds for all polynomials of degree $<d$, and that $p$ has a root, $r$ say (otherwise we are done). By long division we may write $p(x)=(x-r)q(x)$ for some polynomial $q$ of degree $d-1$. So each root of $p$ is either $r$ or a root of $q$. But by the induction hypothesis, $q$ has at most $d-1$ roots.
+
+**Proof of Theorem 9.** Write $L_n=\sum_{k=1}^n\frac1{10^{k!}}$, so $L_n\to L$ as $n\to\infty$. Suppose there is a polynomial $p$ of which $L$ is a root. By Fact A there is $K$ with $|p(x)-p(y)|\le K|x-y|$ for all $0\le x,y\le1$. Note
+$$|L-L_n|=\sum_{k=n+1}^\infty\frac1{10^{k!}}\le2\cdot\frac1{10^{(n+1)!}}.$$
+Suppose $p$ has degree $d$, i.e. $p(x)=a_dx^d+\dots+a_1x+a_0$ with $a_i\in\mathbb Z$, $a_d\ne0$. Notice that $L_n=\frac s{10^{n!}}$ for some $s\in\mathbb N$, so
+$$p(L_n)=\frac t{10^{dn!}}\qquad\text{for some }t\in\mathbb Z.$$
+By Fact B, for sufficiently large $n$, $L_n$ is not a root of $p$. Hence
+$$|p(L_n)-p(L)|=|p(L_n)|\ge\frac1{10^{dn!}}.$$
+Therefore
+$$\begin{aligned}
+\frac1{10^{dn!}}&\le|p(L_n)-p(L)|\\
+&\le K|L_n-L| &&(\text{Fact A})\\
+&\le K\frac2{10^{(n+1)!}}.
+\end{aligned}$$
+This is a contradiction for sufficiently large $n$. $\square$
+
+> [!note] Explanation
+> The inequality says $10^{(n+1)!-dn!}\le2K$. But $(n+1)!-dn!=n!\,(n+1-d)\to\infty$, so the left side eventually exceeds the fixed number $2K$. Fact B is used because the $L_n$ are all different (strictly increasing), so at most $d$ of them can be roots of $p$; for every other $n$, $p(L_n)$ is a non-zero integer divided by $10^{dn!}$, hence at least $\frac1{10^{dn!}}$ in size. In short: $L$ is approximated by rationals far too well for a polynomial with integer coefficients to vanish at it.
+
+**Remarks.**
+1. The same proof shows that any real number $x$ such that for every $n\in\mathbb N$ there is a rational $\frac pq$ with $0<|x-\frac pq|<\frac1{q^n}$ is transcendental: "$x$ has a very good rational approximation $\Rightarrow$ $x$ is transcendental."
+2. Such $x$ are known as **Liouville numbers**.
+3. This proof does **not** show that $e$ is transcendental, but it is in fact.
+4. We will give another proof of the existence of transcendental numbers in Chapter 4.
