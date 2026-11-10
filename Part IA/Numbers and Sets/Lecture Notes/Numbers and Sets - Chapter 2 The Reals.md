@@ -603,7 +603,7 @@ This is a contradiction for sufficiently large $n$. $\square$
 > The inequality says $10^{(n+1)!-dn!}\le2K$. But $(n+1)!-dn!=n!\,(n+1-d)\to\infty$, so the left side eventually exceeds the fixed number $2K$. Fact B is used because the $L_n$ are all different (strictly increasing), so at most $d$ of them can be roots of $p$; for every other $n$, $p(L_n)$ is a non-zero integer divided by $10^{dn!}$, hence at least $\frac1{10^{dn!}}$ in size. In short: $L$ is approximated by rationals far too well for a polynomial with integer coefficients to vanish at it.
 
 **Remarks.**
-1. The same proof shows that any real number $x$ such that for every $n\in\mathbb N$ there is a rational $\frac pq$ with $0<|x-\frac pq|<\frac1{q^n}$ is transcendental: "$x$ has a very good rational approximation $\Rightarrow$ $x$ is transcendental."
+1. The same proof shows that any real number $x$ such that for every $n\in\mathbb N$ there is a rational $\frac pq$ ($p,q\in\mathbb Z$, $q\ge2$) with $0<|x-\frac pq|<\frac1{q^n}$ is transcendental: "$x$ has a very good rational approximation $\Rightarrow$ $x$ is transcendental." (The condition $q\ge2$ matters: with $q=1$ allowed, $x=\frac12$ would qualify via $\frac pq=\frac01$, since $0<\frac12<1$.)
 2. Such $x$ are known as **Liouville numbers**.
 3. This proof does **not** show that $e$ is transcendental, but it is in fact.
 4. We will give another proof of the existence of transcendental numbers in Chapter 4.

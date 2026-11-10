@@ -924,10 +924,12 @@ $$x_1=\frac{\det A_1(\mathbf b)}{\det A}=2,\qquad x_2=1.$$
 
 ### 2×2 systems with det A = 0
 
-**If $\det A=0$,** the two coefficient rows are proportional: $(A_{21},A_{22})=\lambda(A_{11},A_{12})$. Then $(\text{EQ2})-\lambda(\text{EQ1})$ gives
+**If $\det A=0$ and $A\ne0$,** the two coefficient rows are proportional: one is a multiple of the other, so after swapping the two equations if necessary, $(A_{11},A_{12})\ne(0,0)$ and $(A_{21},A_{22})=\lambda(A_{11},A_{12})$. Then $(\text{EQ2})-\lambda(\text{EQ1})$ gives
 $$0=b_2-\lambda b_1.$$
 1. **No solutions.** If $b_2\ne\lambda b_1$, there is a contradiction, so there is no solution: two parallel lines. (E.g. $x_1+2x_2=3$, $2x_1+4x_2=7$.)
 2. **Infinitely many solutions.** If $b_2=\lambda b_1$, both equations describe the same line, so there are infinitely many solutions. (E.g. $x_1+2x_2=3$, $2x_1+4x_2=6$: $x_2=t$, $x_1=3-2t$, $\mathbf x=\begin{pmatrix}3-2t\\t\end{pmatrix}$.)
+
+(If $A=0$, every $\mathbf x$ solves the system when $\mathbf b=\mathbf 0$, and nothing does when $\mathbf b\ne\mathbf 0$.)
 
 ```tikz
 \usepackage{tikz}
@@ -965,7 +967,7 @@ $$0=b_2-\lambda b_1.$$
 
 **$\mathbf b=\mathbf 0$: the homogeneous case** $A\mathbf x=\mathbf 0$.
 - There is always at least one solution, $\mathbf x=\mathbf 0$.
-- There are non-zero solutions if and only if $\det A=0$; then we have one line that passes through the origin.
+- There are non-zero solutions if and only if $\det A=0$; then (for $A\ne0$) the solutions form one line that passes through the origin, and for $A=0$ the whole plane.
 
 ### 3.5.2 General case
 

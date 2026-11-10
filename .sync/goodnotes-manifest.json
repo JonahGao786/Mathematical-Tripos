@@ -3169,7 +3169,8 @@
         "Pages 8-11: sequences and limits (absolute value, triangle inequality, examples 1-4, divergence, uniqueness of limits) with three figures. p.11: 'one even and one odd n >= N' made explicit.",
         "Pages 11-14: bounded/monotonic, Thm 5 (statement 'Every bounded monotonic sequence.' completed with 'converges'), Props 6-7, series. p.11 bounded proof: 'n > N' read as n >= N to match the max over a_1..a_{N-1}.",
         "Pages 14-17: sum 1/n^2 completed (old p.14 todo resolved), decimal expansions (existence, non-uniqueness, periodic iff rational), Euler's number e, Proposition 8 (statement only).",
-        "Pages 17-20: proof of Prop 8 (old p.17 todo resolved), algebraic/transcendental, Facts A and B, Theorem 9 (Liouville) with remarks. p.18 'algebraic if it is not a root' normalized to 'is a root'."
+        "Pages 17-20: proof of Prop 8 (old p.17 todo resolved), algebraic/transcendental, Facts A and B, Theorem 9 (Liouville) with remarks. p.18 'algebraic if it is not a root' normalized to 'is a root'.",
+        "p.20 Remark 1: added q >= 2 to the Liouville criterion (q = 1 would make it false, e.g. x = 1/2)."
       ],
       "unresolved_todos": [],
       "diagram_note": "Two schematic coset-partition pictures redrawn in TikZ (compiled locally).",
@@ -3223,7 +3224,8 @@
         "Pages 21-25: sign via cycles, alternating symbol, alternating forms, Proposition (forms and independence), Leibniz formula, det properties. p.23 'choose p s.t. alpha_p = 0' normalized to alpha_p != 0; p.24 'Multiplicity' read as multilinearity.",
         "Pages 26-31: det properties 10-13, rows/columns via Leibniz, product formula and volume scaling, minors, cofactors, Laplace expansion, cofactor identities, adjugate. p.30 figure redrawn with the 1 at (i,j).",
         "p.29: minor written M_ij in source (same as the entry); written \\mathcal M_ij in the note to avoid the clash.",
-        "Pages 31-38: adjugate for general n, det A(a) example, section 3.5 linear systems (2x2, Cramer, det A = 0 cases, homogeneous, general case). Three-panel line figure added for the 2x2 cases."
+        "Pages 31-38: adjugate for general n, det A(a) example, section 3.5 linear systems (2x2, Cramer, det A = 0 cases, homogeneous, general case). Three-panel line figure added for the 2x2 cases.",
+        "p.35-36: det A = 0 case qualified for A != 0 (swap rows if the first is zero) and the A = 0 case stated separately."
       ],
       "unresolved_todos": [],
       "diagram_note": "Two schematic coset-partition pictures redrawn in TikZ (compiled locally).",
