@@ -109,7 +109,7 @@ using $ad-bc\ne0$. Similarly $\nu\circ\mu(z)=z$, so $\mu$ is a bijection: $\mu\i
 - $\operatorname{id}_{\hat{\mathbb C}}\in\mathcal M$ (take $a=d=1$, $b=c=0$).
 - $\mathcal M$ is closed under composition, by $(*)$ and the product formula for determinants:
 $$\det\left[\begin{pmatrix}a_1&b_1\\c_1&d_1\end{pmatrix}\begin{pmatrix}a_2&b_2\\c_2&d_2\end{pmatrix}\right]=\det\begin{pmatrix}a_1&b_1\\c_1&d_1\end{pmatrix}\det\begin{pmatrix}a_2&b_2\\c_2&d_2\end{pmatrix}\ne0.$$
-- $\mathcal M$ has inverses, by $(\dagger)$. $\square$
+- $\mathcal M$ has inverses, by $(\dagger)$.
 
 ## 4.3 Fixed points
 
@@ -136,7 +136,7 @@ If $\mu\in\mathcal M$ has $3$ different fixed points in $\hat{\mathbb C}$, then 
 
 *Case 1: $\infty\notin\operatorname{Fix}(\mu)$.* By Example 3(a), the quadratic equation $cz^2+(d-a)z-b=0$ has $3$ distinct roots. So all its coefficients vanish; in particular $c=0$, contradicting $\infty\notin\operatorname{Fix}(\mu)$.
 
-*Case 2: $\infty\in\operatorname{Fix}(\mu)$,* say $w_1=\infty$ after relabelling. Then $c=0$, and by Example 3(b) the linear equation $(d-a)z-b=0$ has (at least) two distinct roots $w_2,w_3$ in $\mathbb C$. So $d=a$, $b=0$, and $\mu=\operatorname{id}_{\hat{\mathbb C}}$. $\square$
+*Case 2: $\infty\in\operatorname{Fix}(\mu)$,* say $w_1=\infty$ after relabelling. Then $c=0$, and by Example 3(b) the linear equation $(d-a)z-b=0$ has (at least) two distinct roots $w_2,w_3$ in $\mathbb C$. So $d=a$, $b=0$, and $\mu=\operatorname{id}_{\hat{\mathbb C}}$.
 
 ### Lemma 4.6 — Three points to three points
 
@@ -151,7 +151,7 @@ which is in $\mathcal M$ as the $z_i$ are distinct. Then
 $$\alpha(z_1)=0,\qquad\alpha(z_2)=1,\qquad\alpha(z_3)=\infty.$$
 Similarly
 $$\beta:z\mapsto\frac{(z-w_1)(w_2-w_3)}{(z-w_3)(w_2-w_1)}$$
-has $\beta(w_1)=0$, $\beta(w_2)=1$, $\beta(w_3)=\infty$. So $\mu=\beta^{-1}\circ\alpha$ works. $\square$
+has $\beta(w_1)=0$, $\beta(w_2)=1$, $\beta(w_3)=\infty$. So $\mu=\beta^{-1}\circ\alpha$ works.
 
 > [!note] Explanation
 > $\alpha$ is built to send the three given points to the three "standard" points $0,1,\infty$: the factor $z-z_1$ makes $z_1\mapsto0$, the factor $z-z_3$ in the denominator makes $z_3\mapsto\infty$, and the constant $\frac{z_2-z_3}{z_2-z_1}$ is chosen so that $z_2\mapsto1$. Then $\beta^{-1}\circ\alpha$ goes $z_i\mapsto$ (standard point) $\mapsto w_i$.
@@ -175,7 +175,7 @@ Suppose $f\in\mathcal M\setminus\{\operatorname{id}_{\hat{\mathbb C}}\}$. Then e
 - As $\infty\in\operatorname{Fix}(F)$, we have $F(z)=az+b$ with $a\ne0$.
 - Now $az+b=z$ has no roots in $\mathbb C$, so $a=1$ and $F:z\mapsto z+b$ for some $b\ne0$.
 
-Now conjugate with $z\mapsto z/b$. $\square$
+Now conjugate with $z\mapsto z/b$.
 
 > [!note] Explanation
 > By Definition 4.4, $f\ne\operatorname{id}$ has $1$ or $2$ fixed points (at least one, and at most two by Lemma 4.5), so the two cases cover everything. For the last step, with $h(z)=z/b$ we get $h\circ F\circ h^{-1}(z)=\frac{bz+b}b=z+1$.
@@ -207,7 +207,7 @@ $$\mu_2\circ\mu_1(z_1)=0,\qquad\mu_2\circ\mu_1(z_3)=\mu_2(\infty)=\infty,\qquad\
 $$\mu_3\circ\mu_2\circ\mu_1(z_1)=\mu_3(0)=0,\qquad\mu_3\circ\mu_2\circ\mu_1(z_2)=1,\qquad\mu_3\circ\mu_2\circ\mu_1(z_3)=\infty.$$
 
 By the three-point lemma, $\mu_3\circ\mu_2\circ\mu_1\circ\mu$ fixes $0$, $1$ and $\infty$, so it is $\operatorname{id}_{\hat{\mathbb C}}$. So
-$$\mu=\mu_1^{-1}\circ\mu_2^{-1}\circ\mu_3^{-1}.\qquad\square$$
+$$\mu=\mu_1^{-1}\circ\mu_2^{-1}\circ\mu_3^{-1}.$$
 
 > [!note] Explanation
 > Each $\mu_k$ is a composite of the three kinds of generator: $\mu_1$ is a translation then $i$, $\mu_2$ is a translation, and $\mu_3=\mu_{1/z_2''}$ (here $z_2''\ne0,\infty$ because $\mu_2\circ\mu_1$ is a bijection and already sends $z_1\mapsto0$, $z_3\mapsto\infty$). The inverses of generators are again of the same kinds ($\mu_a^{-1}=\mu_{1/a}$, $\tau^{-1}$ is translation by $-1$, $i^{-1}=i$), so $\mu$ is a product of generators.
@@ -262,7 +262,7 @@ a line.
 $$\Big|z-\frac{\bar c}{|c|^2-r^2}\Big|=\frac r{\big||c|^2-r^2\big|},$$
 a circle.
 
-*(b) $C$ is a Euclidean line.* A similar manipulation (exercise). $\square$
+*(b) $C$ is a Euclidean line.* A similar manipulation (exercise).
 
 > [!note] Explanation
 > Case 1: $|1-cz|=r|z|=|c||z|$; divide by $|c|$ to get $|\frac1c-z|=|z|$, the perpendicular bisector of $0$ and $\frac1c$. Case 2: square $|1-cz|^2=r^2|z|^2$ to get $(|c|^2-r^2)|z|^2-2\operatorname{Re}(cz)+1=0$, divide by $|c|^2-r^2$ and complete the square; the centre is $\frac{\bar c}{|c|^2-r^2}$. The origin matters because $\frac1z$ sends $0$ to $\infty$: a circle through $0$ becomes a "circle through $\infty$", i.e. a line.
@@ -289,7 +289,6 @@ $$\begin{aligned}
 &=f\circ g^{-1}(g(z_4))=f(z_4)\\
 &=[z_1,z_2,z_3,z_4].
 \end{aligned}$$
-$\square$
 
 ### Corollary 4.13 — Four points on a circle
 
@@ -297,4 +296,4 @@ Four points $z_1,z_2,z_3,z_4\in\hat{\mathbb C}$ lie on a circle if and only if $
 
 **Proof.** Let $g\in\mathcal M$ with $z_1\mapsto0$, $z_2\mapsto1$ and $z_3\mapsto\infty$. Observe that $0,1,\infty$ all lie on the circle $\mathbb R\cup\{\infty\}$. So $z_1,z_2,z_3$ all lie on the circle $C=g^{-1}(\mathbb R\cup\{\infty\})$ (Theorem 4.10), which is the only circle through them. Now
 $$z_4\in C\iff g(z_4)\in\mathbb R\cup\{\infty\}\iff[z_1,z_2,z_3,z_4]\in\mathbb R\cup\{\infty\},$$
-the last step by definition of the cross-ratio. $\square$
+the last step by definition of the cross-ratio.

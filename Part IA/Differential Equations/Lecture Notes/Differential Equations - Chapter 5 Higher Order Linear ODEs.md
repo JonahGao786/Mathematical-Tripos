@@ -257,7 +257,7 @@ W'&=y_1y_2''+y_1'y_2'-y_2'y_1'-y_2y_1''\\
 \end{aligned}$$
 This is a separable ODE for $W(x)$:
 $$W(x)=W(x_0)\underbrace{\exp\Big(-\int_{x_0}^xp(u)\,du\Big)}_{\text{never zero}},$$
-**Abel's identity**. Therefore $W(x_0)=0\Rightarrow W(x)=0$ for all $x$, and $W(x_0)\ne0\Rightarrow W(x)\ne0$ for all $x$. $\square$
+**Abel's identity**. Therefore $W(x_0)=0\Rightarrow W(x)=0$ for all $x$, and $W(x_0)\ne0\Rightarrow W(x)\ne0$ for all $x$.
 
 **Geometric interpretation.** The solution vectors are always collinear or never collinear as $x$ varies.
 
