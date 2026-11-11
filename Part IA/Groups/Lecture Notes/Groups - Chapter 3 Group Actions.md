@@ -252,7 +252,7 @@ As $p\mid|G|$, we must have $p\mid\ell$, so $\ell\ge p\ge2$, i.e. there are at l
 - $(e,e,\dots,e)\in X$ has an orbit of size $1$, so $\ell\ne0$.
 - So $\ell\ge2$, and hence there is at least one other, say $(g,g,\dots,g)\in X$ with $g\ne e$.
 
-By definition of $X$, $g^p=e$, so $\operatorname{ord}(g)\mid p$. Then $\operatorname{ord}(g)=1$ or $p$. As $g\ne e$, we must have $\operatorname{ord}(g)=p$. $\square$
+By definition of $X$, $g^p=e$, so $\operatorname{ord}(g)\mid p$. Then $\operatorname{ord}(g)=1$ or $p$. As $g\ne e$, we must have $\operatorname{ord}(g)=p$.
 
 > [!note] Explanation
 > *Goal:* find an element of order $p$. *Trick:* look at all $p$-tuples of elements of $G$ whose product is $e$, and cycle the entries (move the first entry to the end). The product stays $e$ because $g_1(g_2\cdots g_p)=e$ forces $g_2\cdots g_p=g_1^{-1}$, so $(g_2\cdots g_p)g_1=e$. *Counting:* choosing $g_1,\dots,g_{p-1}$ freely fixes $g_p$, so $X$ has $|G|^{p-1}$ elements, a multiple of $p$. Every orbit of the cycling action has size $1$ or $p$. The orbits of size $p$ contribute a multiple of $p$ to $|X|$, so the number $\ell$ of size-$1$ orbits is also a multiple of $p$. Since $(e,\dots,e)$ is one such orbit, there must be at least $p-1\ge1$ more, and a tuple fixed by cycling is just $(g,\dots,g)$ with $g^p=e$.

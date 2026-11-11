@@ -166,13 +166,13 @@ Clearly $1$ is an upper bound. Is there an upper bound $<1$? (Answered after Cor
 
 $\mathbb N$ is not bounded above in $\mathbb R$.
 
-**Proof.** Suppose on the contrary that $\mathbb N$ is bounded above, and let $c=\sup\mathbb N$. By definition $c-1$ is not an upper bound for $\mathbb N$, so there is $n\in\mathbb N$ with $n>c-1$. But then $n+1\in\mathbb N$ with $n+1>c$, contradicting the fact that $c$ is an upper bound for $\mathbb N$. $\square$
+**Proof.** Suppose on the contrary that $\mathbb N$ is bounded above, and let $c=\sup\mathbb N$. By definition $c-1$ is not an upper bound for $\mathbb N$, so there is $n\in\mathbb N$ with $n>c-1$. But then $n+1\in\mathbb N$ with $n+1>c$, contradicting the fact that $c$ is an upper bound for $\mathbb N$.
 
 ### Corollary 3 — Arbitrarily small 1 over n
 
 For any real $t>0$ there is $n\in\mathbb N$ with $\frac1n<t$.
 
-**Proof.** Given $t>0$, by Proposition 2 there is $n\in\mathbb N$ with $n>\frac1t$. Hence $\frac1n<t$. $\square$
+**Proof.** Given $t>0$, by Proposition 2 there is $n\in\mathbb N$ with $n>\frac1t$. Hence $\frac1n<t$.
 
 ### Definition — Lower bound and greatest lower bound
 
@@ -210,7 +210,7 @@ $$\begin{aligned}
 \end{aligned}$$
 Then $c-t$ is an upper bound for $S$ with $c-t<c$, contradicting that $c$ is the *least* upper bound.
 
-Hence $c^2=2$. $\square$
+Hence $c^2=2$.
 
 > [!note] Explanation
 > Why is $c-t$ an upper bound in the second case? Take $t$ also below $1$, so $c-t>0$. If some $x\in S$ had $x>c-t>0$, then $x^2>(c-t)^2>2$, contradicting $x^2<2$. So every $x\in S$ satisfies $x\le c-t$.
@@ -248,7 +248,7 @@ The rationals are **dense** in $\mathbb R$: for all $a<b$ in $\mathbb R$ there i
 $$T=\left\{k\in\mathbb N:\tfrac kn\ge b\right\}.$$
 By the Axiom of Archimedes there is $N\in\mathbb N$ with $N>b$; hence $Nn\in T$, so $T\ne\varnothing$. By the well-ordering principle $T$ has a least element $m$. Set $c=\frac{m-1}n$. Since $m-1\notin T$, $c<b$. If $c\le a$, then
 $$\frac mn=c+\frac1n<a+(b-a)=b,$$
-contradicting $m\in T$. So $a<c<b$. $\square$
+contradicting $m\in T$. So $a<c<b$.
 
 ### Density of the irrationals
 
@@ -256,7 +256,7 @@ The irrationals are also dense in $\mathbb R$: for all $a<b$ in $\mathbb R$ ther
 
 **Proof.** Take a rational $c$ with $a\sqrt2<c<b\sqrt2$. Then
 $$a<\frac c{\sqrt2}<b,$$
-and $\frac c{\sqrt2}$ is irrational (choosing $c\ne0$, e.g. by applying density of $\mathbb Q$ to a subinterval avoiding $0$). $\square$
+and $\frac c{\sqrt2}$ is irrational (choosing $c\ne0$, e.g. by applying density of $\mathbb Q$ to a subinterval avoiding $0$).
 
 ## 2.4 Sequences
 
@@ -376,7 +376,7 @@ $$\begin{aligned}
 2\varepsilon=|\ell-k|&\le|\ell-a_n|+|a_n-k| &&(\text{triangle inequality})\\
 &<\varepsilon+\varepsilon=2\varepsilon,
 \end{aligned}$$
-a contradiction. $\square$
+a contradiction.
 
 ### Definition — Bounded sequence
 
@@ -395,7 +395,7 @@ Every bounded monotonic sequence converges.
 
 **Proof.** Suppose $(a_n)$ is increasing. The set $\{a_n:n\ge1\}$ is non-empty, and bounded above because $(a_n)$ is bounded. So it has a supremum, $\ell$ say. Given $\varepsilon>0$, $\ell-\varepsilon$ is **not** an upper bound for $\{a_n:n\ge1\}$, so there is $N\in\mathbb N$ with $a_N>\ell-\varepsilon$. Since $(a_n)$ is increasing and $\ell$ is an upper bound,
 $$\ell-\varepsilon<a_N\le a_n\le\ell\qquad\text{for all }n\ge N.$$
-Hence $|a_n-\ell|<\varepsilon$ for all $n\ge N$, so $a_n\to\ell$. The decreasing case is similar. $\square$
+Hence $|a_n-\ell|<\varepsilon$ for all $n\ge N$, so $a_n\to\ell$. The decreasing case is similar.
 
 **Remarks.**
 1. For an increasing sequence to converge, we only need to know that it is bounded above.
@@ -409,7 +409,7 @@ If $a_n\le d$ for all $n$ and $a_n\to c$ as $n\to\infty$, then $c\le d$.
 
 **Proof.** Suppose $c>d$. Let $\varepsilon=|c-d|=c-d>0$. Then there is $N\in\mathbb N$ such that $|a_n-c|<\varepsilon$ for all $n\ge N$. But
 $$|a_n-c|<\varepsilon\ \Rightarrow\ a_n>c-\varepsilon=d,$$
-a contradiction. $\square$
+a contradiction.
 
 **Warning.** If $a_n<d$ for all $n$ and $a_n\to c$ as $n\to\infty$, we need **not** have $c<d$. E.g. $\frac12,\ \frac12+\frac14,\ \frac12+\frac14+\frac18,\dots$: each term is $<1$, but $\lim_{n\to\infty}a_n=1$.
 
@@ -422,7 +422,6 @@ $$\begin{aligned}
 |a_n+b_n-(c+d)|&\le|a_n-c|+|b_n-d| &&(\text{triangle inequality})\\
 &<\varepsilon+\varepsilon=2\varepsilon.
 \end{aligned}$$
-$\square$
 
 > [!note] Explanation
 > Ending with $2\varepsilon$ instead of $\varepsilon$ is fine: $\varepsilon>0$ was arbitrary, so $2\varepsilon$ is also an arbitrary positive number. (Equivalently, run the argument with $\frac\varepsilon2$ in place of $\varepsilon$ to finish with exactly $\varepsilon$.)
@@ -548,7 +547,7 @@ x=\sum_{j=q+1}^\infty\frac{q!}{j!}=\sum_{j=1}^\infty\frac{q!}{(q+j)!}&=\frac1{q+
 \end{aligned}$$
 In general $\frac{q!}{(q+j)!}\le\frac1{(q+1)^j}$, so
 $$x\le\frac1{q+1}+\frac1{(q+1)^2}+\dots=\frac1q<1\qquad(\text{as }q\ge2).$$
-Hence $0<x<1$, contradicting the fact that $q!\,e\in\mathbb N$ (since $N\in\mathbb N$ and $q!\,e=N+x$). So $e$ is irrational. $\square$
+Hence $0<x<1$, contradicting the fact that $q!\,e\in\mathbb N$ (since $N\in\mathbb N$ and $q!\,e=N+x$). So $e$ is irrational.
 
 > [!note] Explanation
 > Multiplying by $q!$ makes the first $q+1$ terms of the series integers, so if $e$ were $\frac pq$ the leftover tail $x$ would have to be an integer too. But the tail is squeezed strictly between $0$ and $1$ by comparing it with a geometric series, which is impossible.
@@ -597,7 +596,7 @@ $$\begin{aligned}
 &\le K|L_n-L| &&(\text{Fact A})\\
 &\le K\frac2{10^{(n+1)!}}.
 \end{aligned}$$
-This is a contradiction for sufficiently large $n$. $\square$
+This is a contradiction for sufficiently large $n$.
 
 > [!note] Explanation
 > The inequality says $10^{(n+1)!-dn!}\le2K$. But $(n+1)!-dn!=n!\,(n+1-d)\to\infty$, so the left side eventually exceeds the fixed number $2K$. Fact B is used because the $L_n$ are all different (strictly increasing), so at most $d$ of them can be roots of $p$; for every other $n$, $p(L_n)$ is a non-zero integer divided by $10^{dn!}$, hence at least $\frac1{10^{dn!}}$ in size. In short: $L$ is approximated by rationals far too well for a polynomial with integer coefficients to vanish at it.

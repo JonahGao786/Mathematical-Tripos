@@ -53,7 +53,7 @@ If $H\le G$, then $H\trianglelefteq G$ if and only if $gH=Hg$ for all $g\in G$.
 $$gh=ghg^{-1}g=h'g\in Hg.$$
 So $gH\subseteq Hg$. Similarly $g^{-1}H\subseteq Hg^{-1}$, so $gH=Hg$.
 
-($\Leftarrow$) Suppose $gH=Hg$. For any $h\in H$, $gh\in Hg$, so $gh=h'g$ for some $h'\in H$, so $ghg^{-1}=h'\in H$. $\square$
+($\Leftarrow$) Suppose $gH=Hg$. For any $h\in H$, $gh\in Hg$, so $gh=h'g$ for some $h'\in H$, so $ghg^{-1}=h'\in H$.
 
 > [!note] Explanation
 > The step "$g^{-1}H\subseteq Hg^{-1}$, so $gH=Hg$": take inverses of every element of both sides. The inverses of the elements of $g^{-1}H$ form $Hg$, and those of $Hg^{-1}$ form $gH$, so $Hg\subseteq gH$. Together with $gH\subseteq Hg$ this gives equality.
@@ -75,7 +75,7 @@ $$g_1g_2=g_1'h_1g_2'h_2=g_1'g_2'\underbrace{h_1'h_2}_{\in H},$$
 so $g_1g_2H=g_1'g_2'H$. ✓
 - *Associative?* Yes, from associativity of $G$.
 - *Identity?* $H=eH$ works, by the identity of $G$.
-- *Inverse?* $(gH)\cdot(g^{-1}H)=(gg^{-1})H=H$, so $(gH)^{-1}=g^{-1}H$. $\square$
+- *Inverse?* $(gH)\cdot(g^{-1}H)=(gg^{-1})H=H$, so $(gH)^{-1}=g^{-1}H$.
 
 > [!note] Explanation
 > "Well defined" means the product does not depend on which representatives $g_1,g_2$ we pick for the two cosets. Normality is exactly what lets the stray $h_1$ move past $g_2'$; without it, different choices could give different cosets (e.g. with $H=\langle s\rangle\le D_{2n}$).

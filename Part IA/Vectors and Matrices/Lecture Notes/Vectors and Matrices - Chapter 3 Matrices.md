@@ -604,7 +604,7 @@ $$\mathbf C_2=(-\sin\theta,\cos\theta)^{\mathsf T}\qquad\text{or}\qquad\mathbf C
 *$\mathbf C_1$ is a unit vector at angle $\theta$; $\mathbf C_2$ is a unit vector perpendicular to it, and there are exactly two choices.*
 
 Hence
-$$Q=R(\theta)=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\qquad\text{or}\qquad Q=H\Big(\frac\theta2\Big)=\begin{pmatrix}\cos\theta&\sin\theta\\\sin\theta&-\cos\theta\end{pmatrix}.\qquad\square$$
+$$Q=R(\theta)=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}\qquad\text{or}\qquad Q=H\Big(\frac\theta2\Big)=\begin{pmatrix}\cos\theta&\sin\theta\\\sin\theta&-\cos\theta\end{pmatrix}.$$
 
 ## 3.4 Determinants
 
@@ -715,7 +715,7 @@ $$\begin{aligned}
 1=[\mathbf e_1,\dots,\mathbf e_n]&=\Big[\sum_{j=1}^n\alpha_{j1}\mathbf v_j,\ \dots,\ \sum_{j=1}^n\alpha_{jn}\mathbf v_j\Big]\\
 &=\sum_{j_1,\dots,j_n=1}^n\alpha_{j_11}\cdots\alpha_{j_nn}[\mathbf v_{j_1},\dots,\mathbf v_{j_n}].
 \end{aligned}$$
-Terms with repeated indices vanish, so $(j_1,\dots,j_n)$ is a permutation of $(1,\dots,n)$ and each remaining bracket is $\pm[\mathbf v_1,\dots,\mathbf v_n]$. Hence $[\mathbf v_1,\dots,\mathbf v_n]\ne0$. $\square$
+Terms with repeated indices vanish, so $(j_1,\dots,j_n)$ is a permutation of $(1,\dots,n)$ and each remaining bracket is $\pm[\mathbf v_1,\dots,\mathbf v_n]$. Hence $[\mathbf v_1,\dots,\mathbf v_n]\ne0$.
 
 > [!note] Explanation
 > An alternating form vanishes whenever two arguments are equal: swapping them changes nothing but must flip the sign, so the value $x$ satisfies $x=-x$, i.e. $x=0$. That is why every bracket with a repeated vector drops out in both halves of the proof. In the second half, if $[\mathbf v_1,\dots,\mathbf v_n]$ were $0$, every surviving term would be $0$ and the sum could not equal $1$.

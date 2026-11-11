@@ -72,7 +72,7 @@ $$\begin{aligned}
 &=\varphi(h_1h_1',\ h_2h_2').
 \end{aligned}$$
 - *$\varphi$ is surjective:* yes, by (3).
-- *$\varphi$ is injective:* we need $\ker\varphi=\{e\}$. Suppose $\varphi(h_1,h_2)=e$, i.e. $h_1h_2=e$. Then $h_1=h_2^{-1}\in H_1\cap H_2=\{e\}$ by (1). So $h_1=h_2^{-1}=e$, so $(h_1,h_2)=(e,e)$, i.e. $\varphi$ is injective. $\square$
+- *$\varphi$ is injective:* we need $\ker\varphi=\{e\}$. Suppose $\varphi(h_1,h_2)=e$, i.e. $h_1h_2=e$. Then $h_1=h_2^{-1}\in H_1\cap H_2=\{e\}$ by (1). So $h_1=h_2^{-1}=e$, so $(h_1,h_2)=(e,e)$, i.e. $\varphi$ is injective.
 
 > [!note] Explanation
 > Each hypothesis is used once. (2) lets $h_2$ slide past $h_1'$, which is exactly what makes multiplying in $G$ look like multiplying componentwise. (3) says every element of $G$ is hit. (1) says the two subgroups overlap only in $e$, so $h_1h_2=e$ forces both factors to be $e$.
@@ -96,7 +96,7 @@ If $|G|=4$, then $G\cong C_4$ or $G\cong K_4$.
   2. $ab=ba$ (by Example Sheet 1, Q11);
   3. $|\langle a\rangle\langle b\rangle|=4$: the elements $e,a,b,ab$ (immediate since $a,b$ are distinct and non-trivial).
 
-  So by Theorem 5.1, $G\cong\langle a\rangle\times\langle b\rangle\cong C_2\times C_2\cong K_4$. $\square$
+  So by Theorem 5.1, $G\cong\langle a\rangle\times\langle b\rangle\cong C_2\times C_2\cong K_4$.
 
 > [!note] Explanation
 > Why $ab=ba$ when every element has order $2$: then each element is its own inverse, so $ab=(ab)^{-1}=b^{-1}a^{-1}=ba$.
@@ -115,7 +115,7 @@ Now $\gcd(m,n)=1\iff\operatorname{lcm}(m,n)=mn$. Thus $k=0$ and $g^k=e$, so $H_1
 3. Fix $g^k\in C_{mn}$. By Bézout, $k=pm+qn$ for some $p,q\in\mathbb Z$, so
 $$g^k=(g^n)^q\cdot(g^m)^p\in H_1H_2.$$
 
-So by Theorem 5.1, $C_{mn}\cong C_m\times C_n$. $\square$
+So by Theorem 5.1, $C_{mn}\cong C_m\times C_n$.
 
 ## 5.2 Groups of order 5 to 8
 
@@ -140,7 +140,7 @@ $$G\cong\langle r\rangle\times\langle s\rangle\cong C_3\times C_2\cong C_6$$
 by Theorem 5.1 and then Theorem 5.3.
 - $i=2$: $sr=r^2s=r^{-1}s$. We recognise the dihedral relation! With $\operatorname{ord}(r)\mid3$, $\operatorname{ord}(s)\mid2$, $sr=r^{-1}s$ and $|G|=6$,
 $$G\cong D_6$$
-by [[Groups - Chapter 1 Examples and Definitions#Corollary 1.41 — Recognising dihedral groups|Corollary 1.41]]. $\square$
+by [[Groups - Chapter 1 Examples and Definitions#Corollary 1.41 — Recognising dihedral groups|Corollary 1.41]].
 
 > [!note] Explanation
 > The left cosets and the right cosets of $\langle r\rangle$ both split $G$ into $\langle r\rangle$ and "everything else", so $s\langle r\rangle$ and $\langle r\rangle s$ are the same set. Hence $sr$, which lies in $s\langle r\rangle$, can be written as $r^is$. For $i=1$, Theorem 5.1 applies by the Remarks: $|\langle r\rangle|=3$ and $|\langle s\rangle|=2$ are coprime and $|G|=3\cdot2$.
@@ -195,7 +195,7 @@ so $ba=a^ib$ for some $i\in\{0,1,2,3\}$.
       | --- | --- | --- | --- | --- | --- | --- | --- |
       | $\mathbf 1$ | $\mathbf i$ | $-\mathbf 1$ | $-\mathbf i$ | $\mathbf j$ | $\mathbf k$ | $-\mathbf j$ | $-\mathbf k$ |
 
-      and one can check this gives an isomorphism $Q_8\to G$. $\square$
+      and one can check this gives an isomorphism $Q_8\to G$.
 
 > [!note] Explanation
 > Two steps in B2. *Why the intersection is non-trivial:* if $\langle a\rangle\cap\langle b\rangle=\{e\}$, then by the Remarks after Theorem 5.1, $|\langle a\rangle\langle b\rangle|=4\cdot4=16>8$. *Why $b^2=a^2$:* that intersection is a non-trivial subgroup of the cyclic group $\langle b\rangle\cong C_4$, so it contains $b^2$, the only element of order $2$ in $\langle b\rangle$; and it cannot contain $b$ or $b^3$, since then $b\in\langle a\rangle$. In the same way, the only element of order $2$ in $\langle a\rangle$ is $a^2$, so $b^2=a^2$. Then $(ba^{-1})^2=b^2a^{-2}=e$ ($G$ is abelian in case B), and $ba^{-1}\ne e$ because $b\notin\langle a\rangle$.
