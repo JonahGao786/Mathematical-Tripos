@@ -26,7 +26,7 @@ tags: [concept, groups]
 - **Theorem 5.3 — CRT.** $\gcd(m,n)=1\Rightarrow C_m\times C_n\cong C_{mn}$, via $H_1=\langle g^n\rangle$, $H_2=\langle g^m\rangle$ and Bézout. → [[Groups - Chapter 5 Finite Groups#Theorem 5.3 — Chinese remainder theorem|proof]]
 - **Lemma 5.4.** Order $6$: $C_6$ or $D_6$ ($\cong S_3$); Cauchy gives $r,s$ of orders $3,2$, and $sr=r^is$ with $i=1$ (cyclic) or $i=2$ (dihedral). → [[Groups - Chapter 5 Finite Groups#Lemma 5.4 — Groups of order 6|proof]]
 - **Quaternion group** $Q_8=\{\pm1,\pm i,\pm j,\pm k\}$, $i^2=j^2=k^2=-1$, $ij=k=-ji$; one element of order $2$, so $Q_8\not\cong D_8$. → [[Groups - Chapter 5 Finite Groups#Definition — Quaternion group|lecture]]
-- **Lemma 5.6.** Order $8$: $C_2^3$, $C_2\times C_4$, $C_8$, $D_8$ or $Q_8$. → [[Groups - Chapter 5 Finite Groups#Lemma 5.6 — Groups of order 8|lecture]]
+- **Lemma 5.6.** Order $8$: $C_2^3$, $C_2\times C_4$, $C_8$, $D_8$ or $Q_8$. *Idea:* all elements of order $\le2$ gives $C_2^3$; otherwise take $a$ of order $4$, $b\notin\langle a\rangle$, and split on $ba=a^ib$: $i=1$ abelian ($C_4\times C_2$), $i=2$ impossible, $i=3$ gives $D_8$ or $Q_8$. → [[Groups - Chapter 5 Finite Groups#Lemma 5.6 — Groups of order 8|proof]]
 
 ## Related
 

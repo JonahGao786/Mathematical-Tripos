@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Higher Order Linear ODEs.pdf
 drive_file_id: 1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB
 source_url: https://drive.google.com/file/d/1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB/view
-source_pages: 19
+source_pages: 23
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 5: Higher Order Linear ODEs
 
 > [!abstract] Overview
-> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters.
+> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response.
 > Prerequisite: [[Differential Equations - Chapter 4 First-Order Linear Differential Equations]] ($e^{\lambda x}$ as eigenfunction, CF + PI).
 
 ## Results index
@@ -35,7 +35,10 @@ tags: [lecture, differential-equations]
 | [[#Trial particular integrals]] | $e^{mx}\to Ae^{mx}$; $\sin kx,\cos kx\to A\sin kx+B\cos kx$; $P_n\to Q_n$ | 15–16 |
 | [[#Resonance]] | forcing in the C.F.: P.I. $=t\times$(non-resonant P.I.), e.g. $-\frac t{2\omega_0}\cos\omega_0t$ | 16–17 |
 | [[#Resonance in equidimensional equations]] | forcing $x^{k_1}$: P.I. $\propto(\ln x)x^{k_1}$ | 17–18 |
-| [[#Variation of parameters]] | $y_p=-y_1\int^x\frac{y_2f}W+y_2\int^x\frac{y_1f}W$ | 18–19 |
+| [[#Variation of parameters]] | $y_p=-y_1\int^x\frac{y_2f}W+y_2\int^x\frac{y_1f}W$; example $y''+4y=\sin2x$ | 18–20 |
+| [[#Damped mass–spring system]] | $m\ddot y+b\dot y+ky=F(t)$; $y''+2\kappa y'+y=f(\tau)$ with $\tau=\omega_0t$ | 20–21 |
+| [[#Free response — light, critical and heavy damping]] | $\kappa<1$ oscillates and decays; $\kappa=1$: $e^{-\tau}(A+B\tau)$; $\kappa>1$: two decaying exponentials | 21–23 |
+| [[#Forced response — transient and steady state]] | C.F. decays, leaving a steady-state P.I. | 23 |
 
 Notes on scope:
 - We focus on second order, but many methods apply to higher order.
@@ -425,3 +428,133 @@ Changing the lower limit just adds multiples of the C.F.
 
 > [!note] Explanation
 > There are two unknown functions $u,v$ but only one equation $(*)$, so we are free to impose one extra condition; choosing $(\dagger\dagger)$ (equivalently $u'y_1+v'y_2=0$) keeps $y_p'$ free of $u'$ and $v'$, so $y_p''$ contains only first derivatives of $u,v$. The matrix is invertible because $W\ne0$ for linearly independent solutions ([[#Abel's theorem]]).
+
+**Example.** $y''+4y=\sin2x$, so $f(x)=\sin2x$. The C.F.s are $y_1=\sin2x$, $y_2=\cos2x$, giving $W(x)=y_1y_2'-y_2y_1'=-2$. The forcing is resonant. Then
+$$\begin{aligned}
+y_p(x)&=\frac{\sin2x}2\int^x\underbrace{\cos2u\sin2u}_{\frac12\sin4u}\,du-\frac{\cos2x}2\int^x\underbrace{\sin2u\sin2u}_{\frac12(1-\cos4u)}\,du\\
+&=\frac14\sin2x\Big(-\frac14\underbrace{\cos4x}_{2\cos^22x-1}\Big)-\frac14\cos2x\Big(x-\frac14\underbrace{\sin4x}_{2\sin2x\cos2x}\Big)\\
+&=-\frac14x\cos2x+\frac1{16}\sin2x.
+\end{aligned}$$
+The term $-\frac14x\cos2x$ is $x\times$(C.F.), as expected for resonance; $\frac1{16}\sin2x$ is a C.F., so it can be removed.
+
+## 4. Forced ODEs — transient and damping
+
+### Damped mass–spring system
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  % ground
+  \draw[thick] (-1.5,0) -- (3.5,0);
+  \foreach \x in {-1.4,-1.1,...,3.4} {\draw (\x,0) -- (\x-0.2,-0.2);}
+  % spring
+  \draw (0,0) -- (0,0.3);
+  \draw (0,0.3) -- (0.2,0.4) -- (-0.2,0.55) -- (0.2,0.7) -- (-0.2,0.85) -- (0.2,1.0) -- (-0.2,1.15) -- (0.2,1.3) -- (0,1.4);
+  \draw (0,1.4) -- (0,1.8);
+  % dashpot
+  \draw (2,0) -- (2,0.6);
+  \draw (1.75,0.6) -- (1.75,1.2) (2.25,0.6) -- (2.25,1.2) (1.75,0.6) -- (2.25,0.6);
+  \draw (1.85,1.0) -- (2.15,1.0); \draw (2,1.0) -- (2,1.8);
+  % mass
+  \draw[thick,fill=gray!15] (-0.6,1.8) rectangle (2.6,2.6);
+  \node at (1,2.2) {mass $m$};
+  % forces
+  \draw[->,thick] (1,2.6) -- (1,3.4) node[above] {$F(t)$ (driving force)};
+  \draw[->] (-0.6,0.9) -- (-0.6,1.5) node[left] {$-ky$ (restoring)};
+  \draw[->] (2.6,0.9) -- (2.6,1.5) node[right] {$-b\dot y$ (damping)};
+  \draw[->] (-1.4,2.0) -- (-1.4,2.9) node[left] {$y(t)$};
+\end{tikzpicture}
+\end{document}
+```
+*A mass on a spring (restoring force $-ky$) and a damper (damping force $-b\dot y$), driven by $F(t)$; $y(t)$ is the displacement from equilibrium.*
+
+Newton's second law:
+$$m\ddot y=\sum\text{forces}=-ky-b\dot y+F(t),\qquad\text{i.e.}\qquad m\ddot y+b\dot y+ky=F(t),$$
+with $m,b,k$ positive constants ($k$ is the spring constant).
+
+For $F(t)=0$ and $b=0$: SHM at angular frequency $\omega_0=\sqrt{k/m}$.
+
+For convenience use the dimensionless time coordinate $\tau=\omega_0t$, so $\frac{dy}{dt}=\omega_0\frac{dy}{d\tau}$. Writing $y'=\frac{dy}{d\tau}$, the equation becomes
+$$y''+2\kappa y'+y=f(\tau),\qquad2\kappa=\frac{b\omega_0}k=\frac b{m\omega_0},\qquad f(\tau)=\frac{F(t)}k.$$
+
+> [!note] Explanation
+> Two different letters appear here: $k$ is the spring constant and $\kappa$ (kappa) is the damping parameter. Substituting $\frac{d}{dt}=\omega_0\frac{d}{d\tau}$ gives $m\omega_0^2y''+b\omega_0y'+ky=F$; since $m\omega_0^2=k$, dividing by $k$ leaves $y''+\frac{b\omega_0}ky'+y=\frac Fk$. The coefficient $\frac{b\omega_0}k=\frac b{m\omega_0}$ has no units, which is why $\kappa$ is called dimensionless.
+
+### Free response — light, critical and heavy damping
+
+The free ("unforced" or "natural") response is described by one dimensionless parameter $\kappa$:
+$$y''+2\kappa y'+y=0.$$
+Trying $y\propto e^{\lambda\tau}$ gives the characteristic equation $\lambda^2+2\kappa\lambda+1=0$, so
+$$\lambda_1,\lambda_2=-\kappa\pm\sqrt{\kappa^2-1}.$$
+
+**1) Light damping ("underdamping"), $\kappa<1$.** $\lambda_1,\lambda_2$ are complex: $-\kappa\pm i\sqrt{1-\kappa^2}$. General solution:
+$$y(\tau)=e^{-\kappa\tau}\Big(A\sin\big(\sqrt{1-\kappa^2}\,\tau\big)+B\cos\big(\sqrt{1-\kappa^2}\,\tau\big)\Big).$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=0.55,yscale=1.4]
+  \draw[->] (0,0) -- (20.5,0) node[right] {$\tau$};
+  \draw[->] (0,-1.3) -- (0,1.4) node[above] {$y(\tau)$};
+  \draw[red,thick,domain=0:20,samples=100] plot (\x,{exp(-0.15*\x)});
+  \node[red] at (4.5,0.75) {$e^{-\kappa\tau}$};
+  \draw[red,thick,domain=0:20,samples=100] plot (\x,{-exp(-0.15*\x)});
+  \draw[blue,thick,domain=0:20,samples=300] plot (\x,{exp(-0.15*\x)*(0.5*sin(deg(0.989*\x))+0.6*cos(deg(0.989*\x)))});
+\end{tikzpicture}
+\end{document}
+```
+*Damped oscillator ($\kappa<1$, here $\kappa=0.15$): oscillation inside the decaying envelope $\pm e^{-\kappa\tau}$.*
+
+The oscillations are at (angular) frequency
+$$\omega_{\text{freq}}=\sqrt{1-\kappa^2}\,\omega_0\ \to\ \omega_0\quad\text{as }\kappa\to0,\qquad\text{period}=\frac{2\pi}{\omega_0\sqrt{1-\kappa^2}}.$$
+
+**2) Critical damping, $\kappa=1$.** Degenerate case $\lambda_1=\lambda_2=-\kappa=-1$. General solution:
+$$y(\tau)=e^{-\kappa\tau}(A+B\tau)=e^{-\tau}(A+B\tau).$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=0.8,yscale=2]
+  \draw[->] (0,0) -- (8.5,0) node[right] {$\tau$};
+  \draw[->] (0,-0.1) -- (0,1.2) node[above] {$y(\tau)$};
+  \draw[blue,thick,domain=0:8,samples=100] plot (\x,{exp(-\x)*(0.6+1.6*\x)});
+\end{tikzpicture}
+\end{document}
+```
+*Critical damping (here $A=0.6$, $B=1.6$): at most one rise, then decay with no oscillation.*
+
+**3) Heavy damping ("overdamping"), $\kappa>1$.** $\lambda_1$ and $\lambda_2$ are real; take $|\lambda_1|<|\lambda_2|$ without loss of generality:
+$$\lambda_1=\underbrace{-\kappa+\sqrt{\kappa^2-1}}_{<0},\qquad\lambda_2=\underbrace{-\kappa-\sqrt{\kappa^2-1}}_{<0}.$$
+General solution:
+$$y(\tau)=\underbrace{Ae^{-|\lambda_1|\tau}}_{\text{dominates long-term motion (if present)}}+Be^{-|\lambda_2|\tau}.$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=0.8,yscale=1.6]
+  \draw[->] (0,0) -- (8.5,0) node[right] {$\tau$};
+  \draw[->] (0,-1.1) -- (0,1.3) node[above] {$y(\tau)$};
+  \draw[blue,thick,domain=0:8,samples=100] plot (\x,{1.0*exp(-0.27*\x)});
+  \node[blue] at (3.2,0.75) {$Ae^{-|\lambda_1|\tau}$};
+  \draw[red,thick,domain=0:8,samples=100] plot (\x,{-0.7*exp(-3.73*\x)});
+  \node[red] at (1.3,-0.6) {$Be^{-|\lambda_2|\tau}$};
+  \draw[green!60!black,thick,domain=0:8,samples=150] plot (\x,{1.0*exp(-0.27*\x)-0.7*exp(-3.73*\x)});
+\end{tikzpicture}
+\end{document}
+```
+*Heavy damping (here $\kappa=2$, $A=1$, $B=-0.7$): the sum (green) of a slowly decaying term (blue) and a quickly decaying term (red); the slow one dominates at large $\tau$.*
+
+**Note.** The unforced response eventually decays to zero (in all three cases).
+
+### Forced response — transient and steady state
+
+Initially the solution is C.F. + P.I. (the "**transient**" response), but the system settles down to a specific P.I. (the "**steady-state**" response) for any choice of initial conditions. Take $F(t)=F_0\sin\omega t$.
+
+**Example.**
+$$\ddot y+\mu\dot y+\omega_0^2y=\frac{F_0}m\sin\omega t,\qquad\mu=\frac bm,\qquad\kappa=\frac\mu{2\omega_0}.$$
+Assume light damping ($\kappa<1\Rightarrow\mu<2\omega_0$). The C.F. is
+$$y_c(t)=e^{-\mu t/2}\big(A\sin\omega_{\text{freq}}t+B\cos\omega_{\text{freq}}t\big),\qquad\omega_{\text{freq}}=\sqrt{\omega_0^2-\mu^2/4}.$$
+
+> [!note] Explanation
+> This is the same as case 1 in the original time $t$: $\kappa\tau=\frac\mu{2\omega_0}\cdot\omega_0t=\frac{\mu t}2$, and $\sqrt{1-\kappa^2}\,\omega_0=\sqrt{\omega_0^2-\mu^2/4}$. The factor $e^{-\mu t/2}$ is why the C.F. (transient) dies away, leaving only the P.I.

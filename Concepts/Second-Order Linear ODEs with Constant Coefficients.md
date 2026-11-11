@@ -36,6 +36,12 @@ tags: [concept, differential-equations]
 - **Resonance.** If the forcing is a C.F., detune, add a C.F. to regularise, and take the limit: P.I. $=t\times$(non-resonant P.I.), e.g. $y''+\omega_0^2y=\sin\omega_0t$ gives $-\frac t{2\omega_0}\cos\omega_0t$; equidimensional analogue $(\ln x)x^{k}$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Resonance|derivation]]
 - **Variation of parameters.** First normalise to $y''+py'+qy=f$ (divide by the coefficient of $y''$; for $ay''+by'+cy=F$ the forcing becomes $f=F/a$). Then $y_p=uy_1+vy_2$ with $u'y_1+v'y_2=0$ gives $u'=-\frac{y_2f}W$, $v'=\frac{y_1f}W$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Variation of parameters|derivation]]
 
+## Damped oscillations
+
+- **Mass–spring–damper** $m\ddot y+b\dot y+ky=F$ ($k$ the spring constant). With $\tau=\omega_0t$, $\omega_0=\sqrt{k/m}$: $y''+2\kappa y'+y=F/k$, where the damping parameter $\kappa=\frac b{2m\omega_0}$ is dimensionless. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Damped mass–spring system|lecture]]
+- **Free response** ($\lambda=-\kappa\pm\sqrt{\kappa^2-1}$): $\kappa<1$ decaying oscillation at $\omega_0\sqrt{1-\kappa^2}$; $\kappa=1$ $e^{-\tau}(A+B\tau)$; $\kappa>1$ two decaying exponentials. All decay to $0$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Free response — light, critical and heavy damping|lecture]]
+- **Forced response:** the C.F. is transient; the steady state is a P.I. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Forced response — transient and steady state|lecture]]
+
 ## Examples
 
 - $y''-5y'+6y=0$: $\lambda=2,3$, $y=Ae^{3x}+Be^{2x}$.
