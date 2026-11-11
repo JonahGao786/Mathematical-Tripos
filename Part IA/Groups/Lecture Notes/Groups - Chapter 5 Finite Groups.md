@@ -6,7 +6,7 @@ chapter: 5
 source_file: Ch.5 Finite Groups.pdf
 drive_file_id: 1ELnkPWzlB1-HPs9ERuMIKGAXEJi70axO
 source_url: https://drive.google.com/file/d/1ELnkPWzlB1-HPs9ERuMIKGAXEJi70axO/view
-source_pages: 7
+source_pages: 9
 tags: [lecture, groups]
 ---
 
@@ -27,7 +27,7 @@ tags: [lecture, groups]
 | [[#Theorem 5.3 — Chinese remainder theorem]] | $\gcd(m,n)=1\Rightarrow C_m\times C_n\cong C_{mn}$ | 4 |
 | [[#Lemma 5.4 — Groups of order 6]] | $\lvert G\rvert=6\Rightarrow G\cong C_6$ or $D_6$ | 5–6 |
 | [[#Definition — Quaternion group]] | $Q_8=\{\pm1,\pm i,\pm j,\pm k\}$, non-abelian, $Q_8\not\cong D_8$ | 6–7 |
-| [[#Lemma 5.6 — Groups of order 8]] | $C_2^3$, $C_2\times C_4$, $C_8$, $D_8$ or $Q_8$ | 7 |
+| [[#Lemma 5.6 — Groups of order 8]] | $C_2^3$, $C_2\times C_4$, $C_8$, $D_8$ or $Q_8$ | 7–9 |
 
 ## 5.1 Groups of small order
 
@@ -175,6 +175,27 @@ If $|G|=8$, then $G\cong C_2\times C_2\times C_2$, $C_2\times C_4$, $C_8$, $D_8$
 
 **Proof.** By Lagrange, every element has order $1$, $2$, $4$ or $8$.
 - If there is an element of order $8$, $G\cong C_8$.
-- Suppose every non-trivial element has order $2$. …
+- Suppose every non-trivial element has order $2$.
+  - Choose non-trivial elements $a$ and $b\ne a$. Then $\langle\{a,b\}\rangle=\langle a\rangle\times\langle b\rangle\cong C_2\times C_2$ by Theorem 5.1 (with $ab=ba$ by Example Sheet 1, Q11).
+  - Choose $c\in G\setminus\langle\{a,b\}\rangle$; $c$ commutes with $a$ and $b$ (Example Sheet 1, Q11). So again by Theorem 5.1,
+$$G\cong\langle\{a,b\}\rangle\times\langle c\rangle\cong C_2\times C_2\times C_2.$$
+- Remaining cases: $G$ has an element of order $4$, say $a$ (and no elements of order $8$). Let $b\in G\setminus\langle a\rangle$; then $\operatorname{ord}(b)=2$ or $4$, and
+$$G=\langle a\rangle\sqcup b\langle a\rangle=\langle a\rangle\sqcup\langle a\rangle b,$$
+so $ba=a^ib$ for some $i\in\{0,1,2,3\}$.
+  - **A) $i=0$:** $ba=b\Rightarrow a=e$, a contradiction.
+  - **B) $i=1$:** $ba=ab$, so $G$ is abelian.
+    - B1) $\operatorname{ord}(b)=2$: $\langle a\rangle\cap\underbrace{\langle b\rangle}_{\{e,b\}}=\{e\}$. By Theorem 5.1, $G\cong C_4\times C_2$.
+    - B2) $\operatorname{ord}(b)=4$: $\langle a\rangle\cap\langle b\rangle\ne\{e\}$ (by counting, as $|G|=8$). Observe we must have $b^2=a^2$ (thinking about orders, and $b\notin\langle a\rangle$). Now $\operatorname{ord}(ba^{-1})=2$, $\langle ba^{-1}\rangle\cap\langle a\rangle=\{e\}$ and $G=\langle a\rangle\sqcup(ba^{-1})\langle a\rangle$. Similarly to B1, $G\cong\langle a\rangle\times\langle ba^{-1}\rangle\cong C_4\times C_2$.
+  - **C) $i=2$:** $ba=a^2b\Rightarrow bab^{-1}=a^2$. But $a$ has order $4$ and $a^2$ has order $2$, so $a$ and $a^2$ can't be conjugate (Example Sheet 2, Q1): a contradiction.
+  - **D) $i=3$:** $ba=a^3b=a^{-1}b$.
+    - D1) $\operatorname{ord}(b)=2$: by [[Groups - Chapter 1 Examples and Definitions#Corollary 1.41 — Recognising dihedral groups|Corollary 1.41]], $G\cong D_8$.
+    - D2) $\operatorname{ord}(b)=4$: as in B2, $a^2=b^2$. Set $\mathbf i=a$, $\mathbf j=b$, $\mathbf k=ab$, $-\mathbf 1=a^2=b^2$. The elements of $G$ are
 
-> [!todo] p.7: the proof of Lemma 5.6 stops here; it continues in a later lecture.
+      | $e$ | $a$ | $a^2$ | $a^3$ | $b$ | $ab$ | $a^2b$ | $a^3b$ |
+      | --- | --- | --- | --- | --- | --- | --- | --- |
+      | $\mathbf 1$ | $\mathbf i$ | $-\mathbf 1$ | $-\mathbf i$ | $\mathbf j$ | $\mathbf k$ | $-\mathbf j$ | $-\mathbf k$ |
+
+      and one can check this gives an isomorphism $Q_8\to G$. $\square$
+
+> [!note] Explanation
+> Two steps in B2. *Why the intersection is non-trivial:* if $\langle a\rangle\cap\langle b\rangle=\{e\}$, then by the Remarks after Theorem 5.1, $|\langle a\rangle\langle b\rangle|=4\cdot4=16>8$. *Why $b^2=a^2$:* that intersection is a non-trivial subgroup of the cyclic group $\langle b\rangle\cong C_4$, so it contains $b^2$, the only element of order $2$ in $\langle b\rangle$; and it cannot contain $b$ or $b^3$, since then $b\in\langle a\rangle$. In the same way, the only element of order $2$ in $\langle a\rangle$ is $a^2$, so $b^2=a^2$. Then $(ba^{-1})^2=b^2a^{-2}=e$ ($G$ is abelian in case B), and $ba^{-1}\ne e$ because $b\notin\langle a\rangle$.
