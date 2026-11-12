@@ -32,6 +32,8 @@ tags: [concept, vectors-and-matrices, complex-numbers]
 - $z\mapsto z+z_0$ translates, $z\mapsto\lambda z$ ($\lambda>0$) scales, $z\mapsto e^{i\theta}z$ rotates, $z\mapsto\bar z$ reflects.
 → [[Vectors and Matrices - Chapter 1 Complex Numbers#Geometric transformations|lecture]]
 
+- **Construction (Numbers and Sets).** $\mathbb C$ is $\mathbb R^2$ with $(a,b)(c,d)=(ac-bd,ad+bc)$; $i=(0,1)$, $i^2=-1$; it is a field, with $(a+bi)^{-1}=\frac{a-bi}{a^2+b^2}$. → [[Numbers and Sets - Chapter 2 The Reals#Definition — Complex numbers|lecture]] · [[Numbers and Sets - Chapter 2 The Reals#Definition — Field|field]]
+
 ## Related
 
 [[Complex Exponential and Trigonometric Functions]] · [[Roots of Unity]] · [[Complex Logarithms and Powers]] · [[Isometries and Dihedral Groups]]
