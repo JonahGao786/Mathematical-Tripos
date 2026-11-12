@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Matrices.pdf
 drive_file_id: 1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA
 source_url: https://drive.google.com/file/d/1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA/view
-source_pages: 38
+source_pages: 44
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 3: Matrices
 
 > [!abstract] Overview
-> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, minors, cofactors, Laplace expansion and the adjugate; then systems of linear equations: the $2\times2$ case with Cramer's rule, and the general solution $\mathbf x_0+\ker A$ with the rank test for consistency. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
+> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, minors, cofactors, Laplace expansion and the adjugate; then systems of linear equations: the $2\times2$ case with Cramer's rule, the general solution $\mathbf x_0+\ker A$ with the rank test for consistency, square and rectangular systems, Cramer's rule in general, and the computational cost of determinants. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
 > Prerequisite: [[Vectors and Matrices - Chapter 2 Vectors]] (bases, dimension).
 
 ## Results index
@@ -63,6 +63,9 @@ tags: [lecture, vectors-and-matrices]
 | [[#Solving 2×2 systems and Cramer's rule]] | $x_i=\frac{\det A_i(\mathbf b)}{\det A}$ when $\det A\ne0$ | 33–35 |
 | [[#2×2 systems with det A = 0]] | no solution or infinitely many; homogeneous case | 35–36 |
 | [[#General solution of A x = b]] | $\mathbf x_0+\ker A$; consistent $\iff\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A$ | 36–38 |
+| [[#Square and rectangular systems]] | cases $m=n$, $n<m$, $n>m$ by rank and $\mathbf b\in\operatorname{Im}A$; solution set of dimension $n-r$ | 39–42 |
+| [[#Theorem — Cramer's rule]] | $\det A\ne0\Rightarrow x_i=\frac{\det A_i(\mathbf b)}{\det A}$; $\mathbf x=\frac{(\operatorname{adj}A)\mathbf b}{\det A}$ | 42–43 |
+| [[#Computational cost]] | Laplace expansion $O(n!)$, adjugate $O(n\cdot n!)$, Gaussian elimination $O(n^3)$ | 43–44 |
 
 ## 3.1 Linear maps
 
@@ -996,3 +999,121 @@ If $\{\mathbf u_1,\dots,\mathbf u_k\}$ is a basis of $\ker A$, the general solut
 $$\mathbf x=\mathbf x_0+\sum_{j=1}^kt_j\mathbf u_j,\qquad t_j\in\mathbb F,\quad k=n-\operatorname{rank}A.$$
 - If $k=0$: **unique solution**.
 - If $k>0$: **infinitely many solutions**.
+
+### Square and rectangular systems
+
+Let $A$ be of size $m\times n$ ($m$ equations, $n$ unknowns), and $r=\operatorname{rank}A$.
+
+**Case $m=n$:** $A$ is square ($A\mathbf x=\mathbf b$).
+- $\operatorname{rank}A=n$, equivalently $\det A\ne0$: **unique solution** $\mathbf x=A^{-1}\mathbf b$, for every $\mathbf b$.
+- $\operatorname{rank}A<n$, $\mathbf b\notin\operatorname{Im}A$: **no solution**.
+- $\operatorname{rank}A<n$, $\mathbf b\in\operatorname{Im}A$: **infinitely many solutions**, with $n-\operatorname{rank}A$ free parameters.
+
+**Case $m\ne n$.**
+
+*1. $n<m$* (more equations than unknowns): the $n$ columns cannot span $\mathbb F^m$.
+- a) **One solution:** $r=n$ and $\mathbf b\in\operatorname{Im}A$. E.g. in $\mathbb R^2$, three lines meet at one point: $x=0$, $y=0$, $x+y=0$.
+- b) **Infinitely many solutions:** $r<n$, $\mathbf b\in\operatorname{Im}A$. The solution set is an affine subspace of dimension $n-r$. E.g. in $\mathbb R^2$: $x+y=1$, $2x+2y=2$, $3x+3y=3$, with $A=\begin{pmatrix}1&1\\2&2\\3&3\end{pmatrix}$, $\operatorname{rank}A=1$.
+- c) **No solutions:** $\mathbf b\notin\operatorname{Im}A$, whether $r=n$ or $r<n$. E.g. in $\mathbb R^2$: $x=0$, $y=0$, $x+y=1$ form a triangle, with no solution.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=0.9]
+  \begin{scope}
+    \draw[->,gray] (-1.5,0) -- (1.8,0) node[right] {\small$x$};
+    \draw[->,gray] (0,-1.5) -- (0,1.8) node[above] {\small$y$};
+    \draw[red,very thick] (-1.4,0) -- (1.6,0); \draw[red,thick] (0,-1.4) -- (0,1.6);
+    \draw[red,thick] (-1.3,1.3) -- (1.3,-1.3);
+    \fill (0,0) circle (2pt);
+    \node[align=center] at (0.2,-2.1) {\small$x=0$, $y=0$, $x+y=0$\\\small one point};
+  \end{scope}
+  \begin{scope}[xshift=5.6cm]
+    \draw[->,gray] (-1.2,0) -- (2.2,0) node[right] {\small$x$};
+    \draw[->,gray] (0,-1.2) -- (0,2.2) node[above] {\small$y$};
+    \draw[red,very thick] (-1.0,0) -- (2.0,0); \draw[red,thick] (0,-1.0) -- (0,2.0);
+    \draw[red,thick] (-0.6,1.6) -- (1.6,-0.6);
+    \node[align=center] at (0.5,-2.1) {\small$x=0$, $y=0$, $x+y=1$\\\small no common point};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*Three equations in two unknowns: the three lines may share a point (left) or form a triangle with no common point (right).*
+
+**Remark.** When $n<m$ there are always some right-hand sides $\mathbf b$ with no solution.
+
+*2. $n>m$* (fewer equations than unknowns):
+- a) **Full row rank** $r=m$: the columns span $\mathbb F^m$, so there are infinitely many solutions for every $\mathbf b$, with $n-m$ free parameters. E.g. in $\mathbb R^3$, $x=0$, $y=0$: the intersection is the $z$-axis $\{(0,0,t):t\in\mathbb R\}$ (two non-parallel planes in $\mathbb R^3$).
+- b) **Rank $r<m$, $\mathbf b\in\operatorname{Im}A$:** infinitely many solutions. E.g. in $\mathbb R^3$, $x=0$, $2x=0$: $r=1$, solution set $\{(0,s,t):s,t\in\mathbb R\}$, two free parameters.
+- c) **Rank $r<m$, $\mathbf b\notin\operatorname{Im}A$:** no solutions. E.g. in $\mathbb R^3$, $x=0$, $x=1$ (two parallel planes).
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,x={(-0.55cm,-0.55cm)},y={(1.2cm,0cm)},z={(0cm,1.2cm)}]
+  \begin{scope}
+    \fill[blue!12] (0,0,0) -- (0,2,0) -- (0,2,2) -- (0,0,2) -- cycle;
+    \fill[green!15] (0,0,0) -- (2,0,0) -- (2,0,2) -- (0,0,2) -- cycle;
+    \draw[blue] (0,0,0) -- (0,2,0) -- (0,2,2) -- (0,0,2) -- cycle;
+    \draw[green!50!black] (0,0,0) -- (2,0,0) -- (2,0,2) -- (0,0,2) -- cycle;
+    \draw[->] (0,0,0) -- (2.6,0,0) node[below left] {$x$};
+    \draw[->] (0,0,0) -- (0,2.6,0) node[right] {$y$};
+    \draw[red,very thick] (0,0,0) -- (0,0,2.4) node[above] {$z$};
+    \node[blue] at (0,1.6,1.7) {\small$x=0$};
+    \node[green!40!black] at (2,0,1.6) [left] {\small$y=0$};
+  \end{scope}
+  \begin{scope}[shift={(0,4.8,0)}]
+    \fill[blue!12] (0,0,0) -- (0,2,0) -- (0,2,2) -- (0,0,2) -- cycle;
+    \draw[blue] (0,0,0) -- (0,2,0) -- (0,2,2) -- (0,0,2) -- cycle;
+    \fill[orange!15] (1.5,0,0) -- (1.5,2,0) -- (1.5,2,2) -- (1.5,0,2) -- cycle;
+    \draw[orange!70!black] (1.5,0,0) -- (1.5,2,0) -- (1.5,2,2) -- (1.5,0,2) -- cycle;
+    \draw[->] (0,0,0) -- (2.6,0,0) node[below left] {$x$};
+    \draw[->] (0,0,0) -- (0,2.6,0) node[right] {$y$};
+    \draw[->] (0,0,0) -- (0,0,2.4) node[above] {$z$};
+    \node[blue] at (0,1.6,1.7) {\small$x=0$};
+    \node[orange!60!black] at (1.5,2,0.2) [right] {\small$x=1$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*Two equations in three unknowns. Left: the planes $x=0$ and $y=0$ meet in the $z$-axis (red). Right: the parallel planes $x=0$ and $x=1$ do not meet.*
+
+**Summary.** The solution set of a consistent rectangular system is a point, a line, a plane, or a higher-dimensional affine subspace, according to $n-r$.
+
+**Example.** $x_1+x_2+x_3=2$, $x_2+x_3=1$:
+$$A=\begin{pmatrix}1&1&1\\0&1&1\end{pmatrix},\qquad\mathbf b=\begin{pmatrix}2\\1\end{pmatrix},\qquad A\mathbf x=\mathbf b.$$
+Then $x_1=1$, $x_2=t$, $x_3=1-t$, so
+$$\mathbf x=\begin{pmatrix}1\\t\\1-t\end{pmatrix}=\underbrace{\begin{pmatrix}1\\0\\1\end{pmatrix}}_{\mathbf x_0}+t\underbrace{\begin{pmatrix}0\\1\\-1\end{pmatrix}}_{\mathbf u},\qquad\mathbf u\in\ker A.$$
+
+### Theorem — Cramer's rule
+
+Let $A$ be an $n\times n$ matrix over $\mathbb F$ with $\det A\ne0$, let $\mathbf b\in\mathbb F^n$, and let $A_i(\mathbf b)$ be $A$ with column $i$ replaced by $\mathbf b$ ($i=1,\dots,n$). The unique solution of $A\mathbf x=\mathbf b$ is
+$$x_i=\frac{\det A_i(\mathbf b)}{\det A},\qquad i=1,\dots,n.$$
+
+**Proof.** Write $A=\big(\mathbf C_1\ \cdots\ \mathbf C_n\big)$. $A$ is invertible, so there is a unique solution $\mathbf x$, and
+$$A\mathbf x=\mathbf b\iff\mathbf b=x_1\mathbf C_1+\dots+x_n\mathbf C_n.$$
+Then
+$$\begin{aligned}
+\det A_i(\mathbf b)&=\det(\mathbf C_1,\dots,\mathbf C_{i-1},\mathbf b,\mathbf C_{i+1},\dots,\mathbf C_n)\\
+&=\sum_{j=1}^nx_j\det(\mathbf C_1,\dots,\mathbf C_{i-1},\mathbf C_j,\mathbf C_{i+1},\dots,\mathbf C_n) &&(\text{multilinearity})\\
+&=x_i\det A,
+\end{aligned}$$
+since for $j\ne i$ the corresponding term is $0$ (the column $\mathbf C_j$ appears twice). Hence $x_i=\frac{\det A_i(\mathbf b)}{\det A}$.
+
+**Connection with the adjugate formula.** Let $C_{ji}$ denote the $(j,i)$ cofactor of $A$. Expanding along column $i$,
+$$\det A_i(\mathbf b)=\sum_{j=1}^nb_jC_{ji}.$$
+Since $(\operatorname{adj}A)_{ij}=C_{ji}$, Cramer's rule gives
+$$\mathbf x=\frac{(\operatorname{adj}A)\mathbf b}{\det A}=A^{-1}\mathbf b.$$
+
+### Computational cost
+
+Let $f_n$ be the number of multiplications needed for an $n\times n$ determinant by recursive Laplace expansion. Then
+$$f_n=nf_{n-1}+n,\qquad f_1=0.$$
+Dividing by $n!$,
+$$\frac{f_n}{n!}=\frac{f_{n-1}}{(n-1)!}+\frac1{(n-1)!}=\sum_{j=1}^{n-1}\frac1{j!},$$
+so $f_n=O(n!)$.
+- The adjugate formula requires $n^2$ cofactors: $O\big(n^2(n-1)!\big)=O(n\cdot n!)$.
+- Gaussian elimination needs only $O(n^3)$.
+
+> [!note] Explanation
+> The recursion: expanding along a row multiplies each of the $n$ entries by a cofactor (the $+n$), and each cofactor is an $(n-1)\times(n-1)$ determinant (the $nf_{n-1}$). Telescoping from $\frac{f_1}{1!}=0$ gives the sum, which is less than $e-1$, so $f_n\le(e-1)\,n!$.

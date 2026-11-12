@@ -6,14 +6,14 @@ chapter: 2
 source_file: Ch.2 The Reals.pdf
 drive_file_id: 1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC
 source_url: https://drive.google.com/file/d/1NXO09JT735Tr2NnPTWDvsrkXBMYgGyrC/view
-source_pages: 20
+source_pages: 22
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 2: The Reals
 
 > [!abstract] Overview
-> The rationals have a "gap": $\sqrt2$ is not rational, and the set $\{x:x^2<2\}$ has no least upper bound in $\mathbb Q$. The real numbers are defined by field and order axioms together with the least upper bound axiom. Consequences: $\mathbb N$ is unbounded (Archimedes), infima exist, $\sqrt2$ exists in $\mathbb R$, and both the rationals and the irrationals are dense. Finally, sequences and their limits: the $\varepsilon$–$N$ definition, examples, divergence and uniqueness of limits; bounded and monotonic sequences and the monotone convergence theorem; limits of sums and inequalities; series (geometric, harmonic, $\sum\frac1{n^2}$); decimal expansions, and periodic decimals as exactly the rationals; Euler's number $e$ and its irrationality; algebraic and transcendental numbers, with Liouville's theorem.
+> The rationals have a "gap": $\sqrt2$ is not rational, and the set $\{x:x^2<2\}$ has no least upper bound in $\mathbb Q$. The real numbers are defined by field and order axioms together with the least upper bound axiom. Consequences: $\mathbb N$ is unbounded (Archimedes), infima exist, $\sqrt2$ exists in $\mathbb R$, and both the rationals and the irrationals are dense. Finally, sequences and their limits: the $\varepsilon$–$N$ definition, examples, divergence and uniqueness of limits; bounded and monotonic sequences and the monotone convergence theorem; limits of sums and inequalities; series (geometric, harmonic, $\sum\frac1{n^2}$); decimal expansions, and periodic decimals as exactly the rationals; Euler's number $e$ and its irrationality; algebraic and transcendental numbers, with Liouville's theorem; and the complex numbers as $\mathbb R^2$ with a multiplication, an example of a field.
 > Prerequisite: [[Numbers and Sets - Chapter 1 Elementary Number Theory]] (unique factorization).
 
 ## Results index
@@ -51,6 +51,8 @@ tags: [lecture, numbers-and-sets]
 | [[#Proposition 8 — e is irrational]] | $e\notin\mathbb Q$ | 17–18 |
 | [[#Definition — Algebraic and transcendental numbers]] | root of a non-zero integer polynomial, or not | 18 |
 | [[#Theorem 9 — Liouville's theorem]] | $\sum_{n\ge1}10^{-n!}$ is transcendental | 18–20 |
+| [[#Definition — Complex numbers]] | $\mathbb C=\mathbb R^2$ with $(a,b)(c,d)=(ac-bd,ad+bc)$; $z=a+bi$ | 21 |
+| [[#Definition — Field]] | rules (1)–(3); $\mathbb C,\mathbb R,\mathbb Q,\mathbb Z_p$ but not $\mathbb Z$; FTA | 21–22 |
 
 ## 2.1 Why not stop at the rationals?
 
@@ -606,3 +608,42 @@ This is a contradiction for sufficiently large $n$.
 2. Such $x$ are known as **Liouville numbers**.
 3. This proof does **not** show that $e$ is transcendental, but it is in fact.
 4. We will give another proof of the existence of transcendental numbers in Chapter 4.
+
+## 2.9 Complex numbers
+
+Some polynomials have no real roots, e.g. $x^2+1$. We will try to define $x$ with $x^2+1=0$ "into existence".
+
+### Definition — Complex numbers
+
+The **complex numbers**, written $\mathbb C$, consist of $\mathbb R^2$ (the set of all ordered pairs $(a,b)$ with $a,b\in\mathbb R$) together with the operations $+$ and $\cdot$ defined by
+$$(a,b)+(c,d)=(a+c,\ b+d),\qquad(a,b)\cdot(c,d)=(ac-bd,\ ad+bc).$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=1.2]
+  \draw[->] (-0.4,0) -- (3.2,0) node[right] {$a$};
+  \draw[->] (0,-0.4) -- (0,2.4) node[above] {$b$};
+  \fill[red] (0,0.8) circle (1.5pt) node[left] {$(0,1)=i$};
+  \fill[red] (2.3,1.7) circle (1.5pt) node[right] {$(a,b)\leftrightarrow a+bi$};
+  \fill (1,0) circle (1.2pt) node[below] {$(1,0)=1$};
+\end{tikzpicture}
+\end{document}
+```
+*The complex numbers as points of the plane: $(1,0)$ is the real number $1$, $(0,1)=i$, and $(a,b)=a+bi$.*
+
+We can view $\mathbb R$ as contained in $\mathbb C$ by identifying $a\in\mathbb R$ with $(a,0)\in\mathbb C$. Note that
+$$(a,0)+(b,0)=(a+b,0)\qquad\text{and}\qquad(a,0)\cdot(b,0)=(ab,0).$$
+Now let $i=(0,1)$. Then $i^2=(-1,0)$, corresponding to $-1\in\mathbb R$. Every $z\in\mathbb C$ is of the form $a+bi$ with $a,b\in\mathbb R$; indeed
+$$(a,b)=a(1,0)+b(0,1)=a+bi.$$
+
+### Definition — Field
+
+**Remarks.**
+1. $\mathbb C$ obeys all the usual rules of arithmetic. In particular, it obeys rules (1)–(3) set out for $\mathbb R$ in [[#Definition — The real numbers]], including that for $z\in\mathbb C$, $z\ne0$, there is $w$ with $z\cdot w=1$. Indeed, given $z=a+bi$, note that
+$$(a+bi)\cdot(a-bi)=a^2+b^2,\qquad\text{so}\qquad(a+bi)\cdot\frac{a-bi}{a^2+b^2}=1.$$
+A structure obeying rules (1)–(3) is called a **field**, e.g. $\mathbb C$, $\mathbb R$, $\mathbb Q$, $\mathbb Z_p$ with $p$ prime, but not $\mathbb Z$.
+2. Every non-constant polynomial (even allowing complex coefficients) has a root in $\mathbb C$. This is known as the **Fundamental Theorem of Algebra** (see [[Fundamental Theorem of Algebra]]).
+
+> [!note] Explanation
+> $\mathbb Z$ fails rule (2): $2$ has no multiplicative inverse in $\mathbb Z$. $\mathbb Z_p$ passes because every non-zero residue is a unit modulo a prime ([[Numbers and Sets - Chapter 1 Elementary Number Theory#Proposition 10 — Units modulo a prime|Proposition 10]] of Chapter 1). The division $\frac{a-bi}{a^2+b^2}$ is allowed because $a^2+b^2>0$ when $z\ne0$.

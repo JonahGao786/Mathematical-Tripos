@@ -40,6 +40,8 @@ tags: [concept, vectors-and-matrices]
 
 - **$2\times2$, Cramer's rule:** if $\det A\ne0$, $x_i=\frac{\det A_i(\mathbf b)}{\det A}$ ($\mathbf b$ in column $i$); if $\det A=0$, no solution (parallel lines) or infinitely many (same line). → [[Vectors and Matrices - Chapter 3 Matrices#Solving 2×2 systems and Cramer's rule|lecture]] · [[Vectors and Matrices - Chapter 3 Matrices#2×2 systems with det A = 0|lecture]]
 - **General:** solutions of $A\mathbf x=\mathbf b$ form $\mathbf x_0+\ker A$, of dimension $n-\operatorname{rank}A$; solvable iff $\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A$. → [[Vectors and Matrices - Chapter 3 Matrices#General solution of A x = b|lecture]]
+- **Square and rectangular systems:** by $r=\operatorname{rank}A$ and whether $\mathbf b\in\operatorname{Im}A$: none, one, or an affine subspace of dimension $n-r$; with more equations than unknowns some $\mathbf b$ always fail. → [[Vectors and Matrices - Chapter 3 Matrices#Square and rectangular systems|lecture]]
+- **Cramer's rule** for $n\times n$: $x_i=\det A_i(\mathbf b)/\det A$ (multilinearity in column $i$), equivalent to $\mathbf x=(\operatorname{adj}A)\mathbf b/\det A$; Laplace costs $O(n!)$, Gaussian elimination $O(n^3)$. → [[Vectors and Matrices - Chapter 3 Matrices#Theorem — Cramer's rule|proof]] · [[Vectors and Matrices - Chapter 3 Matrices#Computational cost|lecture]]
 
 ## Geometric examples
 
