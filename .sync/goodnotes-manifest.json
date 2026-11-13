@@ -3345,7 +3345,8 @@
         "Pages 10-15: Abel's theorem and identity (Bessel example, application), equidimensional ODEs (scaling, eigenfunctions, z = ln x). p.15 section 3 heading only.",
         "Pages 15-19: trial P.I.s (example with f = 2x + e^{4x}), resonance with detuning and L'Hopital, equidimensional resonance, variation of parameters. Resonance growth figure added (schematic).",
         "Pages 20-23: variation-of-parameters example, section 4 damping. k vs kappa resolved by dimensional check: spring constant k, damping parameter kappa (2kappa = b*w0/k = b/(m*w0); kappa = mu/(2*w0)); source e^{-kappa t}, e^{lambda t} in tau-variables normalized to tau. Figures: mass-spring-damper, three damping regimes (plotted from the formulas).",
-        "Pages 23-28: steady-state P.I. (verified by solving the coefficient equations), impulses, Dirac delta, delta forcing and jump condition, example y''-y = 3 delta(x-pi/2) (verified). p.26 'a<t<b' read as a<t0<b. Figures plotted from the formulas."
+        "Pages 23-28: steady-state P.I. (verified by solving the coefficient equations), impulses, Dirac delta, delta forcing and jump condition, example y''-y = 3 delta(x-pi/2) (verified). p.26 'a<t<b' read as a<t0<b. Figures plotted from the formulas.",
+        "Review fixes: p.25 delta family qualified (unit area must concentrate at 0); p.27 general rule clarified (y'' carries delta, y' jumps); example caption slopes corrected to -3/2 and +3/2."
       ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",

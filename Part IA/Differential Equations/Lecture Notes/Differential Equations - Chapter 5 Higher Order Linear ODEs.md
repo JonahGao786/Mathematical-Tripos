@@ -653,7 +653,7 @@ $$D(t;\varepsilon)=\frac{e^{-t^2/\varepsilon^2}}{\varepsilon\sqrt\pi}.$$
 ```
 *$D(t;\varepsilon)=\frac{e^{-t^2/\varepsilon^2}}{\varepsilon\sqrt\pi}$ for two values of $\varepsilon$: as $\varepsilon\to0$ the spike gets taller and narrower while its area stays $1$.*
 
-The family is not unique, but for any such family, $\lim_{\varepsilon\to0}$ yields the Dirac delta function.
+The family is not unique, but for any such family, $\lim_{\varepsilon\to0}$ yields the Dirac delta function. (Precisely, the unit area must concentrate at $0$: take $D\ge0$ with the area outside any interval $(-a,a)$ tending to $0$, as for the Gaussian above; a unit-area bump sliding off to infinity also satisfies the two conditions but does not give $\delta$.)
 
 ### Definition — Dirac delta function
 
@@ -686,7 +686,7 @@ $$\lim_{\varepsilon\to0^+}\big[y'\big]_{-\varepsilon}^\varepsilon=1\qquad(\text{
 
 **Note.** Continuity of $y$ at $x=0$ is required: otherwise $y'\propto\delta(x)$ (see later) around $x=0$, and $y''$ is even worse behaved.
 
-**General rule.** The highest-order term in the ODE deals with the $\delta$-function forcing.
+**General rule.** The highest-order term in the ODE deals with the $\delta$-function forcing: for a second-order equation $y''$ contains the $\delta$, so $y'$ jumps while $y$ stays continuous (for an $n$th-order equation, the $(n-1)$th derivative jumps).
 
 **Example.** $y''-y=3\delta\big(x-\frac\pi2\big)$, with $y=0$ at $x=0$ and $x=\pi$.
 - For $0\le x<\frac\pi2$: $y''-y=0$, so $y=A\sinh x$ ($A$ constant, since $y(0)=0$).
@@ -714,4 +714,4 @@ $$A=C=-\frac3{2\cosh\frac\pi2}.$$
 \end{tikzpicture}
 \end{document}
 ```
-*The solution is continuous with a corner at $x=\frac\pi2$, where the slope jumps by $3$ (from $-1.5\tanh\frac\pi2$ to $+1.5\tanh\frac\pi2$).*
+*The solution is continuous with a corner at $x=\frac\pi2$ (where $y=-\frac32\tanh\frac\pi2$); the slope jumps by $3$, from $-\frac32$ to $+\frac32$.*
