@@ -40,7 +40,7 @@ tags: [concept, differential-equations]
 
 - **Mass–spring–damper** $m\ddot y+b\dot y+ky=F$ ($k$ the spring constant). With $\tau=\omega_0t$, $\omega_0=\sqrt{k/m}$: $y''+2\kappa y'+y=F/k$, where the damping parameter $\kappa=\frac b{2m\omega_0}$ is dimensionless. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Damped mass–spring system|lecture]]
 - **Free response** ($\lambda=-\kappa\pm\sqrt{\kappa^2-1}$): $\kappa<1$ decaying oscillation at $\omega_0\sqrt{1-\kappa^2}$; $\kappa=1$ $e^{-\tau}(A+B\tau)$; $\kappa>1$ two decaying exponentials. All decay to $0$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Free response — light, critical and heavy damping|lecture]]
-- **Forced response:** the C.F. is transient; the steady state is a P.I. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Forced response — transient and steady state|lecture]]
+- **Forced response:** the C.F. is transient; the steady state is the P.I. $\frac{F_0/m}{(\omega_0^2-\omega^2)^2+\mu^2\omega^2}\big((\omega_0^2-\omega^2)\sin\omega t-\mu\omega\cos\omega t\big)$. Impulses and delta-function forcing: see [[Dirac Delta Function]]. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Forced response — transient and steady state|lecture]]
 
 ## Examples
 

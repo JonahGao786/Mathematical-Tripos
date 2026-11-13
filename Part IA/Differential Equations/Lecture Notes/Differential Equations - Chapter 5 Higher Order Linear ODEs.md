@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Higher Order Linear ODEs.pdf
 drive_file_id: 1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB
 source_url: https://drive.google.com/file/d/1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB/view
-source_pages: 23
+source_pages: 28
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 5: Higher Order Linear ODEs
 
 > [!abstract] Overview
-> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response.
+> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition.
 > Prerequisite: [[Differential Equations - Chapter 4 First-Order Linear Differential Equations]] ($e^{\lambda x}$ as eigenfunction, CF + PI).
 
 ## Results index
@@ -38,7 +38,10 @@ tags: [lecture, differential-equations]
 | [[#Variation of parameters]] | $y_p=-y_1\int^x\frac{y_2f}W+y_2\int^x\frac{y_1f}W$; example $y''+4y=\sin2x$ | 18–20 |
 | [[#Damped mass–spring system]] | $m\ddot y+b\dot y+ky=F(t)$; $y''+2\kappa y'+y=f(\tau)$ with $\tau=\omega_0t$ | 20–21 |
 | [[#Free response — light, critical and heavy damping]] | $\kappa<1$ oscillates and decays; $\kappa=1$: $e^{-\tau}(A+B\tau)$; $\kappa>1$: two decaying exponentials | 21–23 |
-| [[#Forced response — transient and steady state]] | C.F. decays, leaving a steady-state P.I. | 23 |
+| [[#Forced response — transient and steady state]] | C.F. decays, leaving the steady state $y_p=\frac{F_0/m}{(\omega_0^2-\omega^2)^2+\mu^2\omega^2}\big((\omega_0^2-\omega^2)\sin\omega t-\mu\omega\cos\omega t\big)$ | 23 |
+| [[#Impulses and point forces]] | impulse $I=\int F\,dt$; $\lim m[\dot y]=I$: velocity jumps | 24–25 |
+| [[#Definition — Dirac delta function]] | $\delta(t)=\lim_{\varepsilon\to0}D(t;\varepsilon)$; $\int g(t)\delta(t-t_0)\,dt=g(t_0)$ | 25–26 |
+| [[#Delta-function forcing and the jump condition]] | $y''+py'+qy=\delta(x)$: $y$ continuous, $[y']=1$ | 27–28 |
 
 Notes on scope:
 - We focus on second order, but many methods apply to higher order.
@@ -558,3 +561,157 @@ $$y_c(t)=e^{-\mu t/2}\big(A\sin\omega_{\text{freq}}t+B\cos\omega_{\text{freq}}t\
 
 > [!note] Explanation
 > This is the same as case 1 in the original time $t$: $\kappa\tau=\frac\mu{2\omega_0}\cdot\omega_0t=\frac{\mu t}2$, and $\sqrt{1-\kappa^2}\,\omega_0=\sqrt{\omega_0^2-\mu^2/4}$. The factor $e^{-\mu t/2}$ is why the C.F. (transient) dies away, leaving only the P.I.
+
+Try $y_p(t)=\frac{F_0}m(C\sin\omega t+D\cos\omega t)$. This gives
+$$y_p(t)=\frac{F_0/m}{(\omega_0^2-\omega^2)^2+\mu^2\omega^2}\Big((\omega_0^2-\omega^2)\sin\omega t-\mu\omega\cos\omega t\Big).$$
+
+> [!note] Explanation
+> Substituting and comparing coefficients of $\sin\omega t$ and $\cos\omega t$ gives $(\omega_0^2-\omega^2)C-\mu\omega D=1$ and $\mu\omega C+(\omega_0^2-\omega^2)D=0$. Solving this pair of linear equations gives $C=\frac{\omega_0^2-\omega^2}\Delta$ and $D=-\frac{\mu\omega}\Delta$ with $\Delta=(\omega_0^2-\omega^2)^2+\mu^2\omega^2$. The amplitude of $y_p$ is $\frac{F_0/m}{\sqrt\Delta}$, which does not depend on the initial conditions.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=0.32,yscale=0.9]
+  \draw[->] (0,0) -- (31,0) node[right] {$t$};
+  \draw[->] (0,-2.6) -- (0,2.8);
+  \draw[dashed] (0,2.08) -- (30,2.08) node[right] {\small amplitude of $y_p$};
+  \draw[dashed] (0,-2.08) -- (30,-2.08);
+  \draw[red,thick,domain=0:20,samples=200] plot (\x,{1.38*exp(-0.2*\x)*cos(deg(0.98*\x))});
+  \draw[red,dotted,domain=0:20,samples=100] plot (\x,{1.38*exp(-0.2*\x)});
+  \draw[red,dotted,domain=0:20,samples=100] plot (\x,{-1.38*exp(-0.2*\x)});
+  \node[red] at (-1.2,1.3) {$y_c$};
+  \draw[blue,thick,domain=0:30,samples=400] plot (\x,{(0.36*sin(deg(0.8*\x))-0.32*cos(deg(0.8*\x)))/0.232+1.38*exp(-0.2*\x)*cos(deg(0.98*\x))});
+  \node[blue] at (24,-2.45) {$y_p+y_c$};
+\end{tikzpicture}
+\end{document}
+```
+*Transient and steady state (here $\omega_0=1$, $\mu=0.4$, $\omega=0.8$, $y(0)=0$). The C.F. $y_c$ (red) dies away inside its envelope, and the full solution $y_p+y_c$ (blue) settles onto the steady-state oscillation between the dashed lines.*
+
+## 5. Impulses and point forces
+
+### Impulses and point forces
+
+Consider a system that experiences a sudden force $F(t;\varepsilon)$ between $t=T-\varepsilon$ and $t=T+\varepsilon$, e.g. striking a mass on a spring:
+$$m\ddot y+b\dot y+ky=F(t;\varepsilon)\qquad(\text{forced, damped oscillator}).$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=1.2,yscale=1.4]
+  \draw[->] (0,0) -- (5,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,1.6) node[above] {$F(t;\varepsilon)$};
+  \draw[blue,thick,domain=1.5:3.5,samples=80] plot (\x,{1.2*(cos(deg(pi*(\x-2.5)))+1)/2});
+  \foreach \x/\l in {1.5/T-\varepsilon,2.5/T,3.5/T+\varepsilon} {\draw (\x,0.05) -- (\x,-0.05) node[below] {$\l$};}
+\end{tikzpicture}
+\end{document}
+```
+*A sudden force acting only for $T-\varepsilon<t<T+\varepsilon$.*
+
+It is mathematically convenient to consider the limit of a sudden impulse, $\varepsilon\to0$, with the **impulse**
+$$I=\int_{T-\varepsilon}^{T+\varepsilon}F(t;\varepsilon)\,dt$$
+held constant. Integrate the ODE from $T-\varepsilon$ to $T+\varepsilon$ and take the limit $\varepsilon\to0^+$:
+$$\lim_{\varepsilon\to0^+}\Big(m\big[\dot y\big]_{T-\varepsilon}^{T+\varepsilon}+\underbrace{b\big[y\big]_{T-\varepsilon}^{T+\varepsilon}}_{\to0\text{ if }y\text{ continuous}}+\underbrace{k\int_{T-\varepsilon}^{T+\varepsilon}y\,dt}_{\to0\text{ if }y\text{ remains finite}}\Big)=\lim_{\varepsilon\to0^+}\int_{T-\varepsilon}^{T+\varepsilon}F(t;\varepsilon)\,dt=I.$$
+Therefore
+$$\lim_{\varepsilon\to0^+}\Big(m\big[\dot y\big]_{T-\varepsilon}^{T+\varepsilon}\Big)=I:$$
+the **velocity is discontinuous** at $t=T$.
+
+**Note.** As $\varepsilon\to0$, only the impulse $I$ matters for the subsequent motion (not the details of $F(t;\varepsilon)$).
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=0.45,yscale=1.2]
+  \draw[->] (0,0) -- (21,0) node[right] {$t$};
+  \draw[->] (0,-1.1) -- (0,1.3) node[above] {$y(t)$};
+  \draw[blue,thick] (0,0) -- (4,0);
+  \draw[blue,thick,domain=4:20,samples=200] plot (\x,{exp(-0.15*(\x-4))*sin(deg(0.9*(\x-4)))});
+  \draw (4,0.05) -- (4,-0.05) node[below] {$T$};
+\end{tikzpicture}
+\end{document}
+```
+*An oscillator at rest is struck at $t=T$: $y$ stays continuous but $\dot y$ jumps, and the motion afterwards is a free (damped) oscillation.*
+
+## 5.1 Dirac delta function
+
+The Dirac delta function formalises the idea of an impulsive force. Consider a family of functions $D(t;\varepsilon)$ such that
+$$\lim_{\varepsilon\to0}D(t;\varepsilon)=0\quad\text{for all }t\ne0,\qquad\int_{-\infty}^\infty D(t;\varepsilon)\,dt=1\quad(\text{unit impulse}).$$
+(The impulsive force considered earlier is $F(t;\varepsilon)=I\,D(t-T;\varepsilon)$.) One example is
+$$D(t;\varepsilon)=\frac{e^{-t^2/\varepsilon^2}}{\varepsilon\sqrt\pi}.$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=1.4,yscale=0.9]
+  \draw[->] (-3,0) -- (3.2,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,3.2) node[above] {$D(t;\varepsilon)$};
+  \draw[blue,thick,domain=-1.2:1.2,samples=120] plot (\x,{exp(-(\x/0.2)^2)/(0.2*sqrt(pi))});
+  \draw[red,thick,domain=-2.9:2.9,samples=120] plot (\x,{exp(-(\x/1.2)^2)/(1.2*sqrt(pi))});
+  \node[blue] at (0.7,2.5) {\small small $\varepsilon$};
+  \node[red] at (2.1,0.55) {\small large $\varepsilon$};
+\end{tikzpicture}
+\end{document}
+```
+*$D(t;\varepsilon)=\frac{e^{-t^2/\varepsilon^2}}{\varepsilon\sqrt\pi}$ for two values of $\varepsilon$: as $\varepsilon\to0$ the spike gets taller and narrower while its area stays $1$.*
+
+The family is not unique, but for any such family, $\lim_{\varepsilon\to0}$ yields the Dirac delta function. (Precisely, the unit area must concentrate at $0$: take $D\ge0$ with the area outside any interval $(-a,a)$ tending to $0$, as for the Gaussian above; a unit-area bump sliding off to infinity also satisfies the two conditions but does not give $\delta$.)
+
+### Definition — Dirac delta function
+
+The **Dirac delta function** is defined by
+$$\delta(t)=\lim_{\varepsilon\to0}D(t;\varepsilon).$$
+(Technically it is a distribution, not a function: it only makes sense inside an integral.)
+
+**Properties.**
+1. $\delta(t)=0$ for all $t\ne0$.
+2. $\int_{-\infty}^\infty\delta(t)\,dt=1$.
+3. For all functions $g(t)$ that are continuous at $t=0$,
+$$\int_{-\infty}^\infty g(t)\delta(t)\,dt=\lim_{\varepsilon\to0}\int_{-\infty}^\infty g(t)D(t;\varepsilon)\,dt=g(0)\lim_{\varepsilon\to0}\int_{-\infty}^\infty D(t;\varepsilon)\,dt=g(0).$$
+
+More generally, for $g$ continuous at $t=t_0$,
+$$\int_a^bg(t)\,\delta(t-t_0)\,dt=\begin{cases}g(t_0)&\text{if }a<t_0<b,\\0&\text{if }t_0<a\text{ or }t_0>b,\\\text{undefined}&\text{otherwise.}\end{cases}$$
+
+> [!note] Explanation
+> Property 3 works because for small $\varepsilon$, $D(t;\varepsilon)$ is non-negligible only very close to $t=0$, where $g(t)\approx g(0)$; so $g$ can be taken outside the integral as the constant $g(0)$. "Undefined otherwise" covers $t_0=a$ or $t_0=b$, where the spike sits exactly on an endpoint.
+
+## 5.2 Delta-function forcing
+
+### Delta-function forcing and the jump condition
+
+Consider
+$$y''+p(x)y'+q(x)y=\delta(x),\tag{$*$}$$
+with $p,q$ continuous. For $x<0$ and $x>0$, $y''+p(x)y'+q(x)y=0$. But there is a discontinuity in $y'$ at $x=0$: integrating $(*)$,
+$$\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^\varepsilon(*)\,dx:\qquad\lim_{\varepsilon\to0^+}\big[y'\big]_{-\varepsilon}^\varepsilon+p(0)\underbrace{\lim_{\varepsilon\to0^+}\big[y\big]_{-\varepsilon}^\varepsilon}_{\to0\text{ if }y\text{ continuous}}+\underbrace{\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^\varepsilon qy\,dx}_{\to0\text{ if finite}}=1,$$
+so
+$$\lim_{\varepsilon\to0^+}\big[y'\big]_{-\varepsilon}^\varepsilon=1\qquad(\text{the "jump condition"}).$$
+
+**Note.** Continuity of $y$ at $x=0$ is required: otherwise $y'\propto\delta(x)$ (see later) around $x=0$, and $y''$ is even worse behaved.
+
+**General rule.** The highest-order term in the ODE deals with the $\delta$-function forcing: for a second-order equation $y''$ contains the $\delta$, so $y'$ jumps while $y$ stays continuous (for an $n$th-order equation, the $(n-1)$th derivative jumps).
+
+**Example.** $y''-y=3\delta\big(x-\frac\pi2\big)$, with $y=0$ at $x=0$ and $x=\pi$.
+- For $0\le x<\frac\pi2$: $y''-y=0$, so $y=A\sinh x$ ($A$ constant, since $y(0)=0$).
+- For $\frac\pi2<x\le\pi$: $y''-y=0$, so $y=C\sinh(\pi-x)$ ($C$ constant, since $y(\pi)=0$).
+
+Join at $x=\frac\pi2$:
+- $y$ continuous $\Rightarrow$ $A\sinh\frac\pi2=C\sinh\frac\pi2$, so $A=C$.
+- Jump condition, $\lim_{\varepsilon\to0^+}\big[y'\big]_{\pi/2-\varepsilon}^{\pi/2+\varepsilon}=3$:
+$$-C\cosh\Big(\pi-\frac\pi2\Big)-A\cosh\frac\pi2=3.$$
+
+Therefore
+$$A=C=-\frac3{2\cosh\frac\pi2}.$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,xscale=1.4,yscale=1.2]
+  \draw[->] (0,0) -- (3.5,0) node[right] {$x$};
+  \draw[->] (0,-1.6) -- (0,0.6) node[above] {$y$};
+  \draw[blue,thick,domain=0:1.5708,samples=60] plot (\x,{-3/(2*cosh(1.5708))*sinh(\x)});
+  \draw[blue,thick,domain=1.5708:3.1416,samples=60] plot (\x,{-3/(2*cosh(1.5708))*sinh(3.1416-\x)});
+  \draw[dotted] (1.5708,0) -- (1.5708,-1.37);
+  \draw (1.5708,0.05) -- (1.5708,-0.05); \node[above] at (1.5708,0) {$\frac\pi2$};
+  \draw (3.1416,0.05) -- (3.1416,-0.05); \node[above] at (3.1416,0) {$\pi$};
+\end{tikzpicture}
+\end{document}
+```
+*The solution is continuous with a corner at $x=\frac\pi2$ (where $y=-\frac32\tanh\frac\pi2$); the slope jumps by $3$, from $-\frac32$ to $+\frac32$.*
