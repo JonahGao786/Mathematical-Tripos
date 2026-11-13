@@ -3344,14 +3344,15 @@
         "Pages 5-10: general rule x*y_c1, section 2 (reduction of order, phase space with figure, Wronskian). p.5 operator factorisation left unfinished in source; completed in an explanation callout.",
         "Pages 10-15: Abel's theorem and identity (Bessel example, application), equidimensional ODEs (scaling, eigenfunctions, z = ln x). p.15 section 3 heading only.",
         "Pages 15-19: trial P.I.s (example with f = 2x + e^{4x}), resonance with detuning and L'Hopital, equidimensional resonance, variation of parameters. Resonance growth figure added (schematic).",
-        "Pages 20-23: variation-of-parameters example, section 4 damping. k vs kappa resolved by dimensional check: spring constant k, damping parameter kappa (2kappa = b*w0/k = b/(m*w0); kappa = mu/(2*w0)); source e^{-kappa t}, e^{lambda t} in tau-variables normalized to tau. Figures: mass-spring-damper, three damping regimes (plotted from the formulas)."
+        "Pages 20-23: variation-of-parameters example, section 4 damping. k vs kappa resolved by dimensional check: spring constant k, damping parameter kappa (2kappa = b*w0/k = b/(m*w0); kappa = mu/(2*w0)); source e^{-kappa t}, e^{lambda t} in tau-variables normalized to tau. Figures: mass-spring-damper, three damping regimes (plotted from the formulas).",
+        "Pages 23-28: steady-state P.I. (verified by solving the coefficient equations), impulses, Dirac delta, delta forcing and jump condition, example y''-y = 3 delta(x-pi/2) (verified). p.26 'a<t<b' read as a<t0<b. Figures plotted from the formulas."
       ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",
-      "observed_source_modified_timestamp": "2026-11-11T12:54:58.604Z",
-      "processed_source_modified_timestamp": "2026-11-11T12:54:58.604Z",
-      "total_page_count": 23,
-      "visually_inspected_pages": "1-23 (20-23 viewed 2026-11-11; 1-19 matched baseline hashes)",
+      "observed_source_modified_timestamp": "2026-11-13T17:17:37.712Z",
+      "processed_source_modified_timestamp": "2026-11-13T17:17:37.712Z",
+      "total_page_count": 28,
+      "visually_inspected_pages": "1-28 (23-28 viewed 2026-11-13; 1-22 matched baseline hashes)",
       "page_hashes": [
         "016dda0da4bc868b5152",
         "a81b04bbdd354879b1a9",
@@ -3375,11 +3376,16 @@
         "7df3c3ac0d10018ab642",
         "7312187ab608ae82b52c",
         "e3db343f0a867d007ceb",
-        "2f38272991371fb552ce"
+        "f0dc6cebbe5ed2885838",
+        "8189967bd17d4325835b",
+        "937f26eb4a4c5d0e7a4a",
+        "23300d4ef6efd84687a3",
+        "f1f77b8ae33b0a6f2ae7",
+        "10eb512a39ad948a48b7"
       ],
-      "source_sha256": "f02247b9529034b0aa8e4f9349e054ae1a30bbf33dab7a6dba90d094d99fd383",
-      "source_size_bytes": 4596344,
-      "last_successful_processing_at": "2026-11-11",
+      "source_sha256": "2f3bfe81daa3331beb4f753e6e32676a879ae273fb4584e232055972beac3788",
+      "source_size_bytes": 5580194,
+      "last_successful_processing_at": "2026-11-13",
       "status": "processed"
     },
     "1ELnkPWzlB1-HPs9ERuMIKGAXEJi70axO": {
@@ -3432,21 +3438,27 @@
       "material_type": "lecture notes",
       "course": "Part IA Groups",
       "classification": "study_material",
-      "normalizations": [],
+      "normalizations": [
+        "Pages 3-7: examples of quotients (figures for Z/3Z and index 2), warning, Thm 6.5 isomorphism theorem, Def 6.6 simple groups. p.6 'phi(g)=0' read as phi(g)=e; p.4 'H = +-1' read as H = <+-1>."
+      ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",
-      "observed_source_modified_timestamp": "2026-11-11T12:55:16.351Z",
-      "processed_source_modified_timestamp": "2026-11-11T12:55:16.351Z",
-      "total_page_count": 3,
-      "visually_inspected_pages": "1-3 (all, 2026-11-11)",
+      "observed_source_modified_timestamp": "2026-11-13T17:17:49.095Z",
+      "processed_source_modified_timestamp": "2026-11-13T17:17:49.095Z",
+      "total_page_count": 7,
+      "visually_inspected_pages": "1-7 (3-7 viewed 2026-11-13; 1-2 matched baseline hashes)",
       "page_hashes": [
         "48bdde1309b08fe9e4cb",
         "5b11a11af9ca5bcc5192",
-        "c9b95f1e4b12ee2f6fe6"
+        "2c8e034718f5c5034db0",
+        "73c23b8acc07ff2f6658",
+        "58ba6877aa700aedb8ad",
+        "adef64b01e1bf85dffa2",
+        "194bfc8e2e1f6c5db97b"
       ],
-      "source_sha256": "23381205a020fc39ccd8c693ce2467aafa4908f93b2241b51f716998be63545b",
-      "source_size_bytes": 564044,
-      "last_successful_processing_at": "2026-11-11",
+      "source_sha256": "b37063a1a595c791bd1b66c31b0dc9762e106370d38363abdea474ce5e91b002",
+      "source_size_bytes": 1269265,
+      "last_successful_processing_at": "2026-11-13",
       "status": "processed"
     },
     "1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ": {
@@ -3480,22 +3492,48 @@
       "source_size_bytes": 780919,
       "last_successful_processing_at": "2026-11-12",
       "status": "processed"
+    },
+    "1HbJG7sgn41dEBzVvy_WrH_2_0PF8Gjf0": {
+      "drive_file_id": "1HbJG7sgn41dEBzVvy_WrH_2_0PF8Gjf0",
+      "source_file_name": "Ch.7 Permutation.pdf",
+      "source_url": "https://drive.google.com/file/d/1HbJG7sgn41dEBzVvy_WrH_2_0PF8Gjf0/view?usp=drivesdk",
+      "drive_folder_path": "GoodNotes/Part IA/Groups",
+      "markdown_paths": [
+        "Part IA/Groups/Lecture Notes/Groups - Chapter 7 Permutations.md"
+      ],
+      "material_type": "lecture notes",
+      "course": "Part IA Groups",
+      "classification": "study_material",
+      "normalizations": [],
+      "unresolved_todos": [],
+      "diagram_note": "No diagrams in source.",
+      "observed_source_modified_timestamp": "2026-11-13T17:18:00.010Z",
+      "processed_source_modified_timestamp": "2026-11-13T17:18:00.010Z",
+      "total_page_count": 1,
+      "visually_inspected_pages": "1 (all, 2026-11-13)",
+      "page_hashes": [
+        "5518ea7a78a2d40f97d8"
+      ],
+      "source_sha256": "0c39c8d9cce6225c95139b4e269d6150b5dcefd16a16bbc2d8a08c82c31a2bdd",
+      "source_size_bytes": 87446,
+      "last_successful_processing_at": "2026-11-13",
+      "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-12",
-    "completed_at": "2026-11-12T16:00:00Z",
+    "date": "2026-11-13",
+    "completed_at": "2026-11-13T19:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
     "new_source_count": 1,
     "modified_source_count": 2,
     "processed_source_count": 3,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; pagediff.py selected pages: N&S Ch.2 pp.21-22, V&M Ch.3 pp.39-44; new N&S Ch.3 (3 pp) viewed in full.",
-    "visually_inspected_page_count": 11,
+    "reading_method": "Service-account download; pagediff.py selected pages: Groups Ch.6 pp.3-7, DE Ch.5 pp.23-28; new Groups Ch.7 (1 p) viewed.",
+    "visually_inspected_page_count": 12,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-12"
+    "commit_message": "notes: process Goodnotes files from 2026-11-13"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,
