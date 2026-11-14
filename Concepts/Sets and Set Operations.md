@@ -21,6 +21,9 @@ tags: [concept, numbers-and-sets]
 
 - **Distributive laws** $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$, $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$. *Idea:* LHS $\subseteq$ RHS and RHS $\subseteq$ LHS, element by element. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Distributive laws|proof]]
 
+- **Russell's paradox.** $\{x:x\notin x\}$ cannot be a set, so there is no universal set; build sets from known sets by subset selection and the constructions above. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Russell's paradox|lecture]]
+- **Finite sets** and counting subsets: see [[Binomial Coefficients]].
+
 ## Related
 
 [[Logical Connectives and Quantifiers]] · [[Bijections and Permutations]] · [[Real Numbers and the Least Upper Bound Axiom]]
