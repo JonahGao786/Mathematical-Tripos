@@ -70,7 +70,7 @@ tags: [lecture, vectors-and-matrices]
 | [[#Gaussian elimination]] | row operations preserve solutions; row-echelon form; pivots; $O(n^3)$ | 45–46 |
 | [[#Separating pivot and free variables]] | $U\mathbf y_p=\mathbf d_p-B\mathbf y_f$; consistency $\mathbf d_0=\mathbf 0$ | 46–47 |
 | [[#Proposition — Row rank equals column rank]] | $\operatorname{rank}A^{\mathsf T}=\operatorname{rank}A$ | 47 |
-| [[#Determinants by elimination]] | $\det A=(-1)^sp_1p_2\cdots p_n$ | 47 |
+| [[#Determinants by elimination]] | $\det A=(-1)^s\prod E_{ii}$; $=(-1)^sp_1\cdots p_n$ if full rank, else $0$ | 47 |
 | [[#Summary — how the ideas fit together]] | linear map $\leftrightarrow$ matrix $\leftrightarrow$ linear system | 47–48 |
 
 ## 3.1 Linear maps
@@ -1203,11 +1203,11 @@ $$\operatorname{rank}A^{\mathsf T}=\operatorname{rank}A.$$
 ### Determinants by elimination
 
 For a square matrix $A$,
-$$\det A=(-1)^s\det E=(-1)^s\prod_{i=1}^nE_{ii}=(-1)^sp_1p_2\cdots p_n,$$
-where $E$ is the upper triangular matrix obtained from $A$ by elimination and $s$ is the number of row swaps.
+$$\det A=(-1)^s\det E=(-1)^s\prod_{i=1}^nE_{ii},$$
+where $E$ is the upper triangular matrix obtained from $A$ by elimination and $s$ is the number of row swaps. If $A$ has full rank, the diagonal of $E$ consists of the $n$ pivots, so $\det A=(-1)^sp_1p_2\cdots p_n$; if there are fewer than $n$ pivots, some $E_{ii}=0$ and $\det A=0$.
 
 > [!note] Explanation
-> Adding a multiple of one row to another leaves $\det$ unchanged (property 4), and each swap multiplies it by $-1$ (property 2); no rows are rescaled. The determinant of the triangular $E$ is the product of its diagonal (property 12), i.e. of the pivots.
+> Adding a multiple of one row to another leaves $\det$ unchanged (property 4), and each swap multiplies it by $-1$ (property 2); no rows are rescaled. The determinant of the triangular $E$ is the product of its diagonal (property 12). When $A$ is invertible those diagonal entries are exactly the pivots; e.g. $A=\operatorname{diag}(2,0)$ has only one pivot and $\det A=0$.
 
 ### 3.5.5 Summary: how the ideas fit together
 

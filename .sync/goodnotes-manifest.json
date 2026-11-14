@@ -3231,7 +3231,8 @@
         "Pages 31-38: adjugate for general n, det A(a) example, section 3.5 linear systems (2x2, Cramer, det A = 0 cases, homogeneous, general case). Three-panel line figure added for the 2x2 cases.",
         "p.35-36: det A = 0 case qualified for A != 0 (swap rows if the first is zero) and the A = 0 case stated separately.",
         "Pages 39-44: square/rectangular systems, Cramer's rule (general), adjugate connection, computational cost. p.39 'A of size n x m' read as m x n (m equations, n unknowns, as in the diagrams); p.43 'C_ji denote (i,j) cofactor' read as (j,i) cofactor. Figures: lines in R^2, planes in R^3.",
-        "Pages 44-48: 3.5.3 geometry in R^3 (figure), 3.5.4 Gaussian elimination, pivot/free variables, rank A^T = rank A, det by elimination, 3.5.5 summary."
+        "Pages 44-48: 3.5.3 geometry in R^3 (figure), 3.5.4 Gaussian elimination, pivot/free variables, rank A^T = rank A, det by elimination, 3.5.5 summary.",
+        "Review fix: p.47 pivot-product formula for det restricted to full rank (fewer than n pivots gives det 0)."
       ],
       "unresolved_todos": [],
       "diagram_note": "Two schematic coset-partition pictures redrawn in TikZ (compiled locally).",
