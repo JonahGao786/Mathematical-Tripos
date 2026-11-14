@@ -42,6 +42,7 @@ tags: [concept, vectors-and-matrices]
 - **General:** solutions of $A\mathbf x=\mathbf b$ form $\mathbf x_0+\ker A$, of dimension $n-\operatorname{rank}A$; solvable iff $\operatorname{rank}[A\mid\mathbf b]=\operatorname{rank}A$. → [[Vectors and Matrices - Chapter 3 Matrices#General solution of A x = b|lecture]]
 - **Square and rectangular systems:** by $r=\operatorname{rank}A$ and whether $\mathbf b\in\operatorname{Im}A$: none, one, or an affine subspace of dimension $n-r$; with more equations than unknowns some $\mathbf b$ always fail. → [[Vectors and Matrices - Chapter 3 Matrices#Square and rectangular systems|lecture]]
 - **Cramer's rule** for $n\times n$: $x_i=\det A_i(\mathbf b)/\det A$ (multilinearity in column $i$), equivalent to $\mathbf x=(\operatorname{adj}A)\mathbf b/\det A$; Laplace costs $O(n!)$, Gaussian elimination $O(n^3)$. → [[Vectors and Matrices - Chapter 3 Matrices#Theorem — Cramer's rule|proof]] · [[Vectors and Matrices - Chapter 3 Matrices#Computational cost|lecture]]
+- **Gaussian elimination:** row operations preserve solutions; reduce to row-echelon form; pivots $=\operatorname{rank}A$, free variables $n-r$; solve $U\mathbf y_p=\mathbf d_p-B\mathbf y_f$ when $\mathbf d_0=\mathbf 0$; cost $O(n^3)$. Also $\operatorname{rank}A^{\mathsf T}=\operatorname{rank}A$ and $\det A=(-1)^sp_1\cdots p_n$. → [[Vectors and Matrices - Chapter 3 Matrices#Gaussian elimination|lecture]] · [[Vectors and Matrices - Chapter 3 Matrices#Determinants by elimination|lecture]]
 
 ## Geometric examples
 

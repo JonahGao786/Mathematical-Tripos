@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Matrices.pdf
 drive_file_id: 1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA
 source_url: https://drive.google.com/file/d/1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA/view
-source_pages: 44
+source_pages: 48
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 3: Matrices
 
 > [!abstract] Overview
-> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, minors, cofactors, Laplace expansion and the adjugate; then systems of linear equations: the $2\times2$ case with Cramer's rule, the general solution $\mathbf x_0+\ker A$ with the rank test for consistency, square and rectangular systems, Cramer's rule in general, and the computational cost of determinants. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
+> Linear maps between vector spaces, their image and kernel, the rank–nullity theorem, how a choice of bases represents a linear map by a matrix, the standard geometric maps (rotations, reflections, dilations, shears) as matrices, matrix algebra (products, inverses, transpose, adjoint, trace), orthogonal and unitary matrices, and determinants: 2D and 3D, permutations and their sign, alternating forms, the general (Leibniz) formula with its properties, volume scaling, minors, cofactors, Laplace expansion and the adjugate; then systems of linear equations: the $2\times2$ case with Cramer's rule, the general solution $\mathbf x_0+\ker A$ with the rank test for consistency, square and rectangular systems, Cramer's rule in general, the computational cost of determinants, the geometry of $3\times3$ systems, Gaussian elimination, and a summary of how the chapter fits together. Throughout, the scalar field $\mathbb F$ is $\mathbb R$ or $\mathbb C$.
 > Prerequisite: [[Vectors and Matrices - Chapter 2 Vectors]] (bases, dimension).
 
 ## Results index
@@ -66,6 +66,12 @@ tags: [lecture, vectors-and-matrices]
 | [[#Square and rectangular systems]] | cases $m=n$, $n<m$, $n>m$ by rank and $\mathbf b\in\operatorname{Im}A$; solution set of dimension $n-r$ | 39–42 |
 | [[#Theorem — Cramer's rule]] | $\det A\ne0\Rightarrow x_i=\frac{\det A_i(\mathbf b)}{\det A}$; $\mathbf x=\frac{(\operatorname{adj}A)\mathbf b}{\det A}$ | 42–43 |
 | [[#Computational cost]] | Laplace expansion $O(n!)$, adjugate $O(n\cdot n!)$, Gaussian elimination $O(n^3)$ | 43–44 |
+| [[#Geometric interpretation in R3]] | rank $3,2,1,0$: point, line, plane, $\mathbb R^3$ | 44 |
+| [[#Gaussian elimination]] | row operations preserve solutions; row-echelon form; pivots; $O(n^3)$ | 45–46 |
+| [[#Separating pivot and free variables]] | $U\mathbf y_p=\mathbf d_p-B\mathbf y_f$; consistency $\mathbf d_0=\mathbf 0$ | 46–47 |
+| [[#Proposition — Row rank equals column rank]] | $\operatorname{rank}A^{\mathsf T}=\operatorname{rank}A$ | 47 |
+| [[#Determinants by elimination]] | $\det A=(-1)^sp_1p_2\cdots p_n$ | 47 |
+| [[#Summary — how the ideas fit together]] | linear map $\leftrightarrow$ matrix $\leftrightarrow$ linear system | 47–48 |
 
 ## 3.1 Linear maps
 
@@ -1117,3 +1123,99 @@ so $f_n=O(n!)$.
 
 > [!note] Explanation
 > The recursion: expanding along a row multiplies each of the $n$ entries by a cofactor (the $+n$), and each cofactor is an $(n-1)\times(n-1)$ determinant (the $nf_{n-1}$). Telescoping from $\frac{f_1}{1!}=0$ gives the sum, which is less than $e-1$, so $f_n\le(e-1)\,n!$.
+
+### 3.5.3 Geometric interpretation in R³
+
+### Geometric interpretation in R3
+
+By rank–nullity, for $A\mathbf x=\mathbf b$ with $n=3$ unknowns:
+
+| $\operatorname{rank}A$ | $\dim\ker A$ | solution set (if consistent) |
+| --- | --- | --- |
+| $3$ | $0$ | a point |
+| $2$ | $1$ | a line |
+| $1$ | $2$ | a plane |
+| $0$ | $3$ | $\mathbb R^3$ |
+
+For three equations (three planes in $\mathbb R^3$):
+- **Rank 2:** a common line (consistent), or no common point (inconsistent).
+- **Rank 1:** a common plane (consistent), or no common point (inconsistent).
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \draw[thick] (-0.3,0) -- (3.3,0);
+  \draw[thick] (-0.2,-0.3) -- (1.7,1.6);
+  \draw[thick] (3.2,-0.3) -- (1.3,1.6);
+  \fill[blue] (0.1,0) circle (1.6pt); \fill[blue] (2.9,0) circle (1.6pt); \fill[blue] (1.5,1.4) circle (1.6pt);
+\end{tikzpicture}
+\end{document}
+```
+*Rank 2 with no common point, seen end-on: each pair of the three planes meets in a line (blue points), but the three lines are parallel and distinct, so no point lies on all three planes.*
+
+### 3.5.4 Gaussian elimination
+
+### Gaussian elimination
+
+For $A=(A_{ij})$ of size $m\times n$ and $\mathbf b=(b_1,\dots,b_m)^{\mathsf T}$, form the **augmented matrix**
+$$[A\mid\mathbf b]=\left(\begin{array}{ccc|c}A_{11}&\cdots&A_{1n}&b_1\\\vdots&&\vdots&\vdots\\A_{m1}&\cdots&A_{mn}&b_m\end{array}\right).$$
+
+**Key point.** Elementary row operations preserve the solution set:
+- interchange two rows ($\mathbf R_i\leftrightarrow\mathbf R_j$);
+- multiply a row by a non-zero scalar ($\mathbf R_i\mapsto\lambda\mathbf R_i$, $\lambda\ne0$);
+- add a multiple of one row to another ($\mathbf R_i\mapsto\mathbf R_i+\lambda\mathbf R_j$, $\lambda\in\mathbb F$).
+
+Gaussian elimination produces a **row-echelon form**, e.g.
+$$\begin{pmatrix}\boxed{p_1}&*&*&*&*\\0&0&\boxed{p_2}&*&*\\0&0&0&0&\boxed{p_3}\\0&0&0&0&0\end{pmatrix}\longrightarrow\begin{pmatrix}\boxed1&*&*&*&*\\0&0&\boxed1&*&*\\0&0&0&0&\boxed1\\0&0&0&0&0\end{pmatrix},$$
+with the **pivots** $p_1,p_2,p_3$ boxed (and, after scaling, equal to $1$). At a step with non-zero pivot $p$ in row $i$ and column $j$, an entry $q$ below it in row $k$ is eliminated by
+$$\mathbf R_k\mapsto\mathbf R_k-\frac qp\mathbf R_i.$$
+A row $(0,\dots,0\mid c)$ with $c\ne0$ signals inconsistency.
+- The variables in pivot columns are the **pivot variables**; the remaining **free variables** can be chosen arbitrarily.
+- The number of pivots is $\operatorname{rank}A$ (a consistent system has $n-\operatorname{rank}A$ free variables).
+
+**Cost.** For a dense $n\times n$ matrix, the update at pivot step $k$ has $(n-k)^2$ terms, so the total is
+$$\sum_{k=1}^{n-1}(n-k)^2=\frac{n(n-1)(2n-1)}6=O(n^3).$$
+
+### Separating pivot and free variables
+
+Let $r$ be the number of pivots. By reordering (the unknowns),
+$$\begin{pmatrix}U&B\\0&0\end{pmatrix}\begin{pmatrix}\mathbf y_p\\\mathbf y_f\end{pmatrix}=\begin{pmatrix}\mathbf d_p\\\mathbf d_0\end{pmatrix},\qquad U=\begin{pmatrix}u_{11}&u_{12}&\cdots&u_{1r}\\0&u_{22}&&\vdots\\\vdots&&\ddots&\\0&0&\cdots&u_{rr}\end{pmatrix},\quad u_{ii}\ne0,$$
+where the matrix has $m$ rows ($r$ of them in the top block) and $n$ columns ($r$ in $U$), and
+- $\mathbf y_p$ contains the $r$ pivot variables, $\mathbf y_f$ the $n-r$ free variables;
+- $B$ is of size $r\times(n-r)$.
+
+The bottom $m-r$ equations require $\mathbf d_0=\mathbf 0$. Then choose $\mathbf y_f$ arbitrarily and solve
+$$U\mathbf y_p=\mathbf d_p-B\mathbf y_f$$
+(by back-substitution, since $U$ is upper triangular with non-zero diagonal).
+- $r=n$: a consistent system has a unique solution.
+- $r<n$: a consistent system has infinitely many solutions.
+- $r=m$: the system is consistent for every right-hand side.
+
+### Proposition — Row rank equals column rank
+
+For an $m\times n$ matrix $A$,
+$$\operatorname{rank}A^{\mathsf T}=\operatorname{rank}A.$$
+
+> [!note] Explanation
+> In row-echelon form, the rows containing pivots are linearly independent and span the row space, and the pivot columns of the original $A$ form a basis of its column space. Both counts equal the number of pivots. Row operations do not change the row space, and they do not change which columns are linearly dependent on which.
+
+### Determinants by elimination
+
+For a square matrix $A$,
+$$\det A=(-1)^s\det E=(-1)^s\prod_{i=1}^nE_{ii}=(-1)^sp_1p_2\cdots p_n,$$
+where $E$ is the upper triangular matrix obtained from $A$ by elimination and $s$ is the number of row swaps.
+
+> [!note] Explanation
+> Adding a multiple of one row to another leaves $\det$ unchanged (property 4), and each swap multiplies it by $-1$ (property 2); no rows are rescaled. The determinant of the triangular $E$ is the product of its diagonal (property 12), i.e. of the pivots.
+
+### 3.5.5 Summary: how the ideas fit together
+
+### Summary — how the ideas fit together
+
+$$\underbrace{T(\mathbf x)=\mathbf b}_{\text{linear map}}\iff\underbrace{A\mathbf x=\mathbf b}_{\text{matrix equation}}\iff\underbrace{\sum_{j=1}^nA_{ij}x_j=b_i}_{\text{system of linear equations}}$$
+
+1. **Linear maps $\to$ matrices.** $\mathbf x=\sum_jx_j\mathbf e_j$ gives $T(\mathbf x)=\sum_jx_jT(\mathbf e_j)$; with $A\mathbf e_j=\mathbf C_j$, $A\mathbf x=x_1\mathbf C_1+\dots+x_n\mathbf C_n$. An $m\times n$ matrix takes $n$ inputs to $m$ outputs, and $(m\times n)(n\times p)=(m\times p)$.
+2. **Geometric examples.** They motivate two questions: which outputs can be reached, and which inputs are lost?
+3. **Images, kernels, ranks.** For $A\in\mathbb F^{m\times n}$: $\operatorname{Im}A=\operatorname{span}\{\mathbf C_1,\dots,\mathbf C_n\}\subseteq\mathbb F^m$, $\ker A=\{\mathbf x:A\mathbf x=\mathbf 0\}\subseteq\mathbb F^n$, $\dim\ker A=n-r$.
+4. **Transpose, adjoint, trace, special matrices.** $AB\ne BA$ in general, but $\operatorname{tr}(AB)=\operatorname{tr}(BA)$. Orthogonal matrices $\to$ geometric operations; Hermitian $\to$ quantum operations; unitary $\to$ evolution of isolated quantum systems.
