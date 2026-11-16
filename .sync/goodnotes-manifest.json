@@ -3353,7 +3353,8 @@
         "Pages 20-23: variation-of-parameters example, section 4 damping. k vs kappa resolved by dimensional check: spring constant k, damping parameter kappa (2kappa = b*w0/k = b/(m*w0); kappa = mu/(2*w0)); source e^{-kappa t}, e^{lambda t} in tau-variables normalized to tau. Figures: mass-spring-damper, three damping regimes (plotted from the formulas).",
         "Pages 23-28: steady-state P.I. (verified by solving the coefficient equations), impulses, Dirac delta, delta forcing and jump condition, example y''-y = 3 delta(x-pi/2) (verified). p.26 'a<t<b' read as a<t0<b. Figures plotted from the formulas.",
         "Review fixes: p.25 delta family qualified (unit area must concentrate at 0); p.27 general rule clarified (y'' carries delta, y' jumps); example caption slopes corrected to -3/2 and +3/2.",
-        "Pages 28-32: Heaviside, ramp, Heaviside forcing, section 6 discrete equations, Fibonacci (constants verified). p.28 lower limit of H integral written as infinity, normalized to -infinity; p.31 'p is a non-degenerate integer' read as non-negative."
+        "Pages 28-32: Heaviside, ramp, Heaviside forcing, section 6 discrete equations, Fibonacci (constants verified). p.28 lower limit of H integral written as infinity, normalized to -infinity; p.31 'p is a non-degenerate integer' read as non-negative.",
+        "Review fix: p.31 discrete P.I. table qualified with the n^m rule for resonant/repeated roots (worked check added)."
       ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",

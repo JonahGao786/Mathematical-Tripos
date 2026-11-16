@@ -792,6 +792,11 @@ $$y_n^{(c)}=\begin{cases}Ak_1^n+Bk_2^n&\text{if }k_1\ne k_2,\\Ak_1^n+Bnk_1^n&\te
 
 ($p$ a non-negative integer.)
 
+These trials assume no resonance beyond what the table shows (the row $k_1^n\to Ank_1^n$ is for a simple root $k_1$). In general, if the base of the forcing ($k$ in $k^n$, or $1$ for polynomial forcing $n^p$) is a root of the characteristic equation of multiplicity $m$, multiply the usual trial by $n^m$ — the discrete analogue of the factor $t$ for resonant ODEs.
+
+> [!note] Explanation
+> E.g. $y_{n+2}-4y_{n+1}+4y_n=2^n$ has the double root $k_1=k_2=2$: substituting $An2^n$ gives $A2^n\big[4(n+2)-8(n+1)+4n\big]=0$ for every $A$, so try $An^22^n$ instead (it gives $8A2^n=2^n$, $A=\frac18$). Similarly for $y_{n+2}-2y_{n+1}+y_n=1$, where $k=1$ is a double root, a constant trial gives $0$ and one needs $An^2$.
+
 ### Example — Fibonacci sequence
 
 $$y_0=y_1=1,\qquad y_n=y_{n-1}+y_{n-2}\ (n\ge2)\quad\Rightarrow\quad1,1,2,3,5,8,13,\dots$$
