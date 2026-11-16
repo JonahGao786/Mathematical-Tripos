@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Higher Order Linear ODEs.pdf
 drive_file_id: 1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB
 source_url: https://drive.google.com/file/d/1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB/view
-source_pages: 28
+source_pages: 32
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 5: Higher Order Linear ODEs
 
 > [!abstract] Overview
-> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition.
+> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition; the Heaviside step function and step forcing; and second-order discrete (difference) equations, with the Fibonacci sequence.
 > Prerequisite: [[Differential Equations - Chapter 4 First-Order Linear Differential Equations]] ($e^{\lambda x}$ as eigenfunction, CF + PI).
 
 ## Results index
@@ -42,6 +42,10 @@ tags: [lecture, differential-equations]
 | [[#Impulses and point forces]] | impulse $I=\int F\,dt$; $\lim m[\dot y]=I$: velocity jumps | 24–25 |
 | [[#Definition — Dirac delta function]] | $\delta(t)=\lim_{\varepsilon\to0}D(t;\varepsilon)$; $\int g(t)\delta(t-t_0)\,dt=g(t_0)$ | 25–26 |
 | [[#Delta-function forcing and the jump condition]] | $y''+py'+qy=\delta(x)$: $y$ continuous, $[y']=1$ | 27–28 |
+| [[#Definition — Heaviside step function]] | $H(x)=\int_{-\infty}^x\delta$; $H'=\delta$; ramp $r=\int H$ | 28 |
+| [[#Forcing with the Heaviside function]] | $y$ and $y'$ continuous, $y''$ jumps | 29 |
+| [[#Second-order discrete equations]] | $ay_{n+2}+by_{n+1}+cy_n=f_n$; $y_n\propto k^n$, $ak^2+bk+c=0$ | 30–31 |
+| [[#Example — Fibonacci sequence]] | $y_n=\frac{\varphi_1^{n+1}-\varphi_2^{n+1}}{\sqrt5}$; $\frac{y_{n+1}}{y_n}\to\varphi_1$ | 31–32 |
 
 Notes on scope:
 - We focus on second order, but many methods apply to higher order.
@@ -715,3 +719,95 @@ $$A=C=-\frac3{2\cosh\frac\pi2}.$$
 \end{document}
 ```
 *The solution is continuous with a corner at $x=\frac\pi2$ (where $y=-\frac32\tanh\frac\pi2$); the slope jumps by $3$, from $-\frac32$ to $+\frac32$.*
+
+## 5.3 Heaviside step function
+
+### Definition — Heaviside step function
+
+The **Heaviside step function** is
+$$H(x)=\int_{-\infty}^x\delta(x')\,dx',\qquad\text{so}\qquad H(x)=\begin{cases}0&\text{if }x<0,\\1&\text{if }x>0,\\\text{undefined}&\text{if }x=0.\end{cases}$$
+By the fundamental theorem of calculus,
+$$\frac d{dx}H(x)=\delta(x).$$
+The **ramp function** is $r(x)=\int_{-\infty}^xH(x')\,dx'$.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \begin{scope}
+    \draw[->] (-2,0) -- (2.4,0) node[right] {$x$};
+    \draw[->] (0,-0.3) -- (0,1.6) node[above] {$H(x)$};
+    \draw[blue,thick] (-2,0) -- (0,0); \draw[blue,thick] (0,1) -- (2.2,1);
+    \draw[blue,fill=white] (0,0) circle (1.5pt); \draw[blue,fill=white] (0,1) circle (1.5pt);
+    \node[left] at (0,1) {$1$};
+  \end{scope}
+  \begin{scope}[xshift=5.5cm]
+    \draw[->] (-2,0) -- (2.4,0) node[right] {$x$};
+    \draw[->] (0,-0.3) -- (0,1.9) node[above] {$r(x)$};
+    \draw[blue,thick] (-2,0) -- (0,0) -- (1.8,1.8);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*The Heaviside step $H(x)$ (left) and the ramp $r(x)=\max(x,0)$ (right).*
+
+**Note.** Functions get "smoother" as we integrate: $\delta\to H$ (a jump) $\to r$ (continuous, with a corner).
+
+### Forcing with the Heaviside function
+
+E.g. opening a switch in an electrical circuit:
+$$y''+p(x)y'+q(x)y=H(x),\tag{$*$}$$
+with $p,q$ continuous at $x=0$; the right-hand side is $0$ for $x<0$ and $1$ for $x>0$. By the same argument as before,
+$$\lim_{\varepsilon\to0^+}\int_{-\varepsilon}^\varepsilon(*)\,dx:\qquad\lim_{\varepsilon\to0^+}\big[y'\big]_{-\varepsilon}^\varepsilon=\lim_{\varepsilon\to0^+}\int_0^\varepsilon1\,dx=0.$$
+Therefore $y'$ is continuous at $x=0$, as is $y$, and $y''\sim H(x)$ around $x=0$. The "jump" conditions for Heaviside forcing are
+$$\lim_{\varepsilon\to0^+}\big[y'\big]_{-\varepsilon}^\varepsilon=0,\qquad\lim_{\varepsilon\to0^+}\big[y\big]_{-\varepsilon}^\varepsilon=0.$$
+
+**"Typical" situation:** $y=0$ for $x<0$. Solve for $x>0$ to get $2$ arbitrary constants, then determine these by matching $y$ and $y'$ at $x=0$.
+
+## 6. Higher-order discrete equations
+
+### Second-order discrete equations
+
+Consider a linear, discrete, second-order equation with constant coefficients $a,b,c$:
+$$ay_{n+2}+by_{n+1}+cy_n=f_n.$$
+E.g. this might arise when discretising a second-order ODE:
+$$\left.\frac{d^2y}{dx^2}\right|_{x_n}\approx\frac{\overbrace{y(x_n+h)}^{y_{n+1}}+\overbrace{y(x_n-h)}^{y_{n-1}}-2\overbrace{y(x_n)}^{y_n}}{h^2}.$$
+It can be solved with methods similar to those for ODEs: $y_n=y_n^{(c)}+y_n^{(p)}$ (C.F. + P.I.).
+
+**Complementary function.**
+$$ay_{n+2}^{(c)}+by_{n+1}^{(c)}+cy_n^{(c)}=0.$$
+Try $y_n^{(c)}\propto k^n$: $ak^{n+2}+bk^{n+1}+ck^n=0$, so
+$$ak^2+bk+c=0\qquad(\text{characteristic equation}).$$
+The general C.F. is
+$$y_n^{(c)}=\begin{cases}Ak_1^n+Bk_2^n&\text{if }k_1\ne k_2,\\Ak_1^n+Bnk_1^n&\text{if }k_1=k_2\end{cases}$$
+(compare $Ae^{\lambda x}+Bxe^{\lambda x}$ for a degenerate ODE).
+
+**Particular integral.**
+
+| $f_n$ | try $y_n^{(p)}$ |
+| --- | --- |
+| $k^n$ | $Ak^n$ (if $k\ne k_1,k_2$) |
+| $k_1^n$ | $Ank_1^n$ |
+| $n^p$ | $An^p+Bn^{p-1}+\dots+Cn+D$ |
+
+($p$ a non-negative integer.)
+
+### Example — Fibonacci sequence
+
+$$y_0=y_1=1,\qquad y_n=y_{n-1}+y_{n-2}\ (n\ge2)\quad\Rightarrow\quad1,1,2,3,5,8,13,\dots$$
+So $y_{n+2}-y_{n+1}-y_n=0$. Try $y_n\propto k^n$: $k^2-k-1=0$ (characteristic equation), so $k=\frac{1\pm\sqrt5}2$:
+$$\varphi_1=\frac{1+\sqrt5}2\approx1.618\ (\text{the "golden ratio"}),\qquad\varphi_2=\frac{1-\sqrt5}2=-\frac1{\varphi_1}.$$
+Therefore the general solution is $y_n=A\varphi_1^n+B\varphi_2^n$. Find $A$ and $B$ from the initial conditions:
+$$\begin{aligned}
+y_0=1&\Rightarrow A+B=1,\\
+y_1=1&\Rightarrow A\varphi_1+B\varphi_2=1\Rightarrow\tfrac12(A+B)+\tfrac{\sqrt5}2(A-B)=1\Rightarrow A-B=\tfrac1{\sqrt5},
+\end{aligned}$$
+so
+$$A=\frac12\Big(1+\frac1{\sqrt5}\Big)=\frac{\varphi_1}{\sqrt5},\qquad B=\frac12\Big(1-\frac1{\sqrt5}\Big)=-\frac{\varphi_2}{\sqrt5}=\frac1{\sqrt5\,\varphi_1}.$$
+Therefore
+$$y_n=\frac{\varphi_1^{n+1}-\varphi_2^{n+1}}{\sqrt5}=\frac{\varphi_1^{n+1}-\big(-\frac1{\varphi_1}\big)^{n+1}}{\sqrt5},$$
+an integer. Since $\varphi_1>1$, $y_n\sim\frac{\varphi_1^{n+1}}{\sqrt5}$ as $n\to\infty$, and
+$$\lim_{n\to\infty}\frac{y_{n+1}}{y_n}=\varphi_1.$$
+
+> [!note] Explanation
+> $|\varphi_2|=\frac1{\varphi_1}<1$, so the term $\varphi_2^{n+1}$ shrinks to $0$; the Fibonacci numbers are essentially a geometric sequence with ratio $\varphi_1$. Check: $n=0$ gives $\frac{\varphi_1-\varphi_2}{\sqrt5}=\frac{\sqrt5}{\sqrt5}=1$.

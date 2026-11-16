@@ -49,6 +49,10 @@ tags: [concept, differential-equations]
 - $y''-4y'+4y=0$: $\lambda=2$ (repeated), $y=\alpha e^{2x}+\beta xe^{2x}$ (also by reduction of order).
 - $\cos2x,\sin2x$ have Wronskian $2$, so they are independent.
 
+## Discrete analogue
+
+- $ay_{n+2}+by_{n+1}+cy_n=f_n$: try $y_n=k^n$, $ak^2+bk+c=0$; repeated root gives $nk^n$. Fibonacci: $y_n=\frac{\varphi_1^{n+1}-\varphi_2^{n+1}}{\sqrt5}$. → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Second-order discrete equations|lecture]] · [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Example — Fibonacci sequence|example]]
+
 ## Related
 
 [[First-Order Linear Differential Equations]] · [[Complex Exponential and Trigonometric Functions]] · [[Taylor Series and Taylor's Theorem]]
