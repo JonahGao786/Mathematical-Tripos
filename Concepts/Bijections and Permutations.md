@@ -29,6 +29,12 @@ tags: [concept, groups]
 - $f\circ g$ means "first $g$, then $f$".
 - $f^{-1}$ (inverse function) needs $f$ bijective; it is not $1/f$.
 
+## Cycles (Groups Ch.7)
+
+- **$k$-cycle** $(a_1\,\cdots\,a_k)$; multiply "from the right". Disjoint cycles commute. → [[Groups - Chapter 7 Permutations#Definition 7.1 — k-cycle|lecture]]
+- **Theorem 7.3.** Every $\sigma\in S_n$ is a product of disjoint cycles (the orbits of $\langle\sigma\rangle$), unique up to shifting, reordering and singletons; cycle type $\{k_1,\dots,k_\ell\}$, $\operatorname{ord}\sigma=\operatorname{lcm}(k_i)$. → [[Groups - Chapter 7 Permutations#Theorem 7.3 — Disjoint cycle decomposition|proof]]
+- **Theorem 7.6 / Lemma 7.8.** Transpositions generate $S_n$; adjacent ones $(i\ i{+}1)$ suffice, via $(i\,j)=(j{-}1\ j)(i\ j{-}1)(j{-}1\ j)$. → [[Groups - Chapter 7 Permutations#Theorem 7.6 — Transpositions generate S_n|proof]] · [[Groups - Chapter 7 Permutations#Lemma 7.8 — Adjacent transpositions suffice|proof]]
+
 ## Related
 
 [[Groups]] · [[Isometries and Dihedral Groups]] · [[Homomorphisms and Isomorphisms]]

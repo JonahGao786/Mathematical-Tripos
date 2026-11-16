@@ -24,6 +24,10 @@ tags: [concept, differential-equations]
 
 - $y''-y=3\delta(x-\frac\pi2)$, $y(0)=y(\pi)=0$: $y=A\sinh x$ then $A\sinh(\pi-x)$, with $A=-\frac3{2\cosh(\pi/2)}$.
 
+## Heaviside step
+
+- $H(x)=\int_{-\infty}^x\delta$ is $0$ for $x<0$, $1$ for $x>0$; $H'=\delta$; ramp $r=\int H$. Forcing with $H$ leaves $y$ and $y'$ continuous ($y''$ jumps). → [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Definition — Heaviside step function|lecture]] · [[Differential Equations - Chapter 5 Higher Order Linear ODEs#Forcing with the Heaviside function|lecture]]
+
 ## Related
 
 [[Second-Order Linear ODEs with Constant Coefficients]] · [[Riemann Integration and the Fundamental Theorem of Calculus]]
