@@ -22,7 +22,7 @@ tags: [concept, vectors-and-matrices]
 
 ## Examples
 
-- $\begin{pmatrix}2&i\-i&2\end{pmatrix}$: $\lambda=1$ with $(1,i)^{\mathsf T}$, $\lambda=3$ with $(1,-i)^{\mathsf T}$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Example — a complex matrix with real eigenvalues|lecture]]
+- $\begin{pmatrix}2&i\\-i&2\end{pmatrix}$: $\lambda=1$ with $(1,i)^{\mathsf T}$, $\lambda=3$ with $(1,-i)^{\mathsf T}$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Example — a complex matrix with real eigenvalues|lecture]]
 
 ## Related
 
