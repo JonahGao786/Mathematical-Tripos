@@ -3209,8 +3209,8 @@
       "source_file_name": "Ch.3 Matrices.pdf",
       "source_url": "https://drive.google.com/file/d/1iIWxXJono_3nn6eHinzhBzxxu_rR9iYA/view?usp=drivesdk",
       "drive_folder_path": "GoodNotes/Part IA/Vectors and Matrices",
-      "observed_source_modified_timestamp": "2026-11-14T13:57:17.367Z",
-      "processed_source_modified_timestamp": "2026-11-14T13:57:17.367Z",
+      "observed_source_modified_timestamp": "2026-11-17T16:05:44.450Z",
+      "processed_source_modified_timestamp": "2026-11-17T16:05:44.450Z",
       "markdown_paths": [
         "Part IA/Vectors and Matrices/Lecture Notes/Vectors and Matrices - Chapter 3 Matrices.md",
         "Concepts/Linear Maps and Matrices.md"
@@ -3220,7 +3220,7 @@
       "status": "processed",
       "classification": "study_material",
       "total_page_count": 48,
-      "visually_inspected_pages": "1-48 (44-48 viewed 2026-11-14; 1-43 matched baseline hashes)",
+      "visually_inspected_pages": "1-48 (2026-11-17: modifiedTime changed but all page hashes matched baseline; nothing to view)",
       "normalizations": [
         "Rank-nullity proof reordered into spanning then independence.",
         "Pages 5-8 added: rotations/reflections in R^2, Rodrigues formula, reflection/dilation/shear in R^3. Figures redrawn schematically.",
@@ -3286,9 +3286,9 @@
         "58a4af4cc2acc8b1be44",
         "cd6bdd2bc7e0ee17657b"
       ],
-      "source_sha256": "8ea530102b7c2cd78e77f61ec5f94b7f4f9e8d2e1c975f4aee63857e6234db6e",
-      "source_size_bytes": 8623290,
-      "last_successful_processing_at": "2026-11-14"
+      "source_sha256": "d1b10cdd4ea98b2b5c4f7e6da14bb4894feb73e94bfada70fd89d38fd98897a2",
+      "source_size_bytes": 8623373,
+      "last_successful_processing_at": "2026-11-17"
     },
     "1cD6n9aI-_mW-bAMZOGvUBNHr3V2QzJue": {
       "drive_file_id": "1cD6n9aI-_mW-bAMZOGvUBNHr3V2QzJue",
@@ -3490,14 +3490,15 @@
       "normalizations": [
         "p.3: ordered pair written (a,b) = {{a,b}, a}; written as the standard Kuratowski pair {{a},{a,b}}, for which (a,b)=(c,d) iff a=c, b=d.",
         "Venn diagram for union/intersection/difference added (not in source).",
-        "Pages 3-7: Russell's paradox, finite sets, Prop 1 (two proofs), binomial coefficients, Prop 2, Thm 3. p.7 final sum 'a^n b^{n-k}' normalized to a^{n-k} b^k; Pascal's triangle drawn with the missing '1 1' row."
+        "Pages 3-7: Russell's paradox, finite sets, Prop 1 (two proofs), binomial coefficients, Prop 2, Thm 3. p.7 final sum 'a^n b^{n-k}' normalized to a^{n-k} b^k; Pascal's triangle drawn with the missing '1 1' row.",
+        "Pages 7-11: (1+x)^n example ('n(n-2)/2' read as n(n-1)/2), inclusion-exclusion (Thm 4), indicator remark, functions, injective/surjective/bijective, image/preimage, observations (stated for finite A, B; explanation notes they fail for infinite sets). Function arrow figure schematic."
       ],
       "unresolved_todos": [],
       "diagram_note": "Venn figure added.",
-      "observed_source_modified_timestamp": "2026-11-14T13:56:29.476Z",
-      "processed_source_modified_timestamp": "2026-11-14T13:56:29.476Z",
-      "total_page_count": 7,
-      "visually_inspected_pages": "1-7 (3-7 viewed 2026-11-14; 1-2 matched baseline hashes)",
+      "observed_source_modified_timestamp": "2026-11-17T16:04:56.798Z",
+      "processed_source_modified_timestamp": "2026-11-17T16:04:56.798Z",
+      "total_page_count": 11,
+      "visually_inspected_pages": "1-11 (7-11 viewed 2026-11-17; 1-6 matched baseline hashes)",
       "page_hashes": [
         "a23bd60065476af87766",
         "3e1c1dc6179a52be0820",
@@ -3505,11 +3506,15 @@
         "64300d1b9904c8a31d0c",
         "ea63e7d4c9eda0c53f01",
         "07e76842c44b05f5ca0e",
-        "0362207ebc08ead6c696"
+        "7f85ba1d48dc2b9bbabf",
+        "43ff113547d9b627d33e",
+        "42bb630e052ca66f4079",
+        "cf8c41b1aaea09715e5f",
+        "0df8a06250587e949abd"
       ],
-      "source_sha256": "816e4aece90b0aaf67396954cecc0d8559c51818d343ded7ea8e0e07fa725353",
-      "source_size_bytes": 1793687,
-      "last_successful_processing_at": "2026-11-14",
+      "source_sha256": "f124514865db40f3b8cede8166d8d40131a90b026f393f38909c414013d31037",
+      "source_size_bytes": 2755454,
+      "last_successful_processing_at": "2026-11-17",
       "status": "processed"
     },
     "1HbJG7sgn41dEBzVvy_WrH_2_0PF8Gjf0": {
@@ -3543,22 +3548,55 @@
       "source_size_bytes": 887878,
       "last_successful_processing_at": "2026-11-16",
       "status": "processed"
+    },
+    "1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6": {
+      "drive_file_id": "1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6",
+      "source_file_name": "Ch.4 Eigenvalues and Eigenvectors.pdf",
+      "source_url": "https://drive.google.com/file/d/1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6/view?usp=drivesdk",
+      "drive_folder_path": "GoodNotes/Part IA/Vectors and Matrices",
+      "markdown_paths": [
+        "Part IA/Vectors and Matrices/Lecture Notes/Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors.md",
+        "Concepts/Eigenvalues and Eigenvectors.md"
+      ],
+      "material_type": "lecture notes",
+      "course": "Part IA Vectors and Matrices",
+      "classification": "study_material",
+      "normalizations": [
+        "Eigenvectors of the 2x2 Hermitian example verified."
+      ],
+      "unresolved_todos": [],
+      "diagram_note": "No diagrams in source.",
+      "observed_source_modified_timestamp": "2026-11-17T16:05:51.831Z",
+      "processed_source_modified_timestamp": "2026-11-17T16:05:51.831Z",
+      "total_page_count": 5,
+      "visually_inspected_pages": "1-5 (all, 2026-11-17)",
+      "page_hashes": [
+        "ff554edab589601a361a",
+        "f738cce5a36585915a88",
+        "f7748fdc03d7389f1e8f",
+        "05be5871062d373aac48",
+        "59fc6f3ea069bbb65d10"
+      ],
+      "source_sha256": "212a66962e016fd9bf403994c51586f753e028d6304cdb03560783e00c6dd9c0",
+      "source_size_bytes": 926122,
+      "last_successful_processing_at": "2026-11-17",
+      "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-16",
-    "completed_at": "2026-11-16T15:30:00Z",
+    "date": "2026-11-17",
+    "completed_at": "2026-11-17T18:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 0,
+    "new_source_count": 1,
     "modified_source_count": 2,
-    "processed_source_count": 2,
+    "processed_source_count": 3,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; pagediff.py selected pages: Groups Ch.7 pp.1-4, DE Ch.5 pp.28-32; others matched baseline hashes.",
-    "visually_inspected_page_count": 9,
+    "reading_method": "Service-account download; pagediff.py selected pages: N&S Ch.3 pp.7-11; V&M Ch.3 none (pixel-identical); new V&M Ch.4 (5 pp) viewed in full.",
+    "visually_inspected_page_count": 10,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-16"
+    "commit_message": "notes: process Goodnotes files from 2026-11-17"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

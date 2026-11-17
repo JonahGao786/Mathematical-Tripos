@@ -21,6 +21,8 @@ tags: [concept, numbers-and-sets]
 - **Proposition 2.** $\binom nk=\frac{n(n-1)\cdots(n-k+1)}{k!}=\frac{n!}{k!(n-k)!}$; e.g. $\binom n2\sim\frac{n^2}2$. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Proposition 2 — Formula for binomial coefficients|proof]]
 - **Theorem 3 — Binomial theorem.** $(a+b)^n=\sum_{k=0}^n\binom nka^{n-k}b^k$: choose the $k$ brackets that contribute $b$. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Theorem 3 — Binomial theorem|proof]]
 
+- **Theorem 4 — Inclusion–exclusion.** $|\bigcup_iS_i|=\sum_{r\ge1}(-1)^{r+1}\sum_{|A|=r}|\bigcap_{i\in A}S_i|$; an element in $k$ of the sets is counted $1-(1-1)^k=1$ time. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Theorem 4 — Inclusion–exclusion principle|proof]]
+
 ## Related
 
 [[Sets and Set Operations]] · [[Natural Numbers and Mathematical Induction]] · [[Bijections and Permutations]]

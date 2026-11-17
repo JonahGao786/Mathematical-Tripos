@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Sets, Functions - Relations.pdf
 drive_file_id: 1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ
 source_url: https://drive.google.com/file/d/1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ/view
-source_pages: 7
+source_pages: 11
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 3: Sets, Functions and Relations
 
 > [!abstract] Overview
-> The basic language of sets: membership, equality, subsets, set-builder notation, union, intersection and difference, the distributive laws, unions and intersections of families of sets, ordered pairs and Cartesian products, and power sets. Russell's paradox shows why sets must be built from known sets. Then finite sets: a set of size $n$ has $2^n$ subsets, binomial coefficients, Pascal's triangle and the binomial theorem.
+> The basic language of sets: membership, equality, subsets, set-builder notation, union, intersection and difference, the distributive laws, unions and intersections of families of sets, ordered pairs and Cartesian products, and power sets. Russell's paradox shows why sets must be built from known sets. Then finite sets: a set of size $n$ has $2^n$ subsets, binomial coefficients, Pascal's triangle and the binomial theorem, and the inclusion–exclusion principle. Then functions: injective, surjective and bijective maps, image and preimage.
 > Prerequisite: [[Logical Connectives and Quantifiers]].
 
 ## Results index
@@ -32,7 +32,12 @@ tags: [lecture, numbers-and-sets]
 | [[#Proposition 1 — Number of subsets]] | $\lvert A\rvert=n\Rightarrow\lvert\mathcal P(A)\rvert=2^n$ (two proofs) | 4–5 |
 | [[#Definition — Binomial coefficient]] | $\binom nk$ = number of $k$-subsets; symmetry; Pascal's rule | 5–6 |
 | [[#Proposition 2 — Formula for binomial coefficients]] | $\binom nk=\frac{n!}{k!(n-k)!}$ | 6–7 |
-| [[#Theorem 3 — Binomial theorem]] | $(a+b)^n=\sum_k\binom nka^{n-k}b^k$ | 7 |
+| [[#Theorem 3 — Binomial theorem]] | $(a+b)^n=\sum_k\binom nka^{n-k}b^k$; $(1+x)^n\approx1+nx$ | 7 |
+| [[#Theorem 4 — Inclusion–exclusion principle]] | $\lvert\bigcup S_i\rvert=\sum_r(-1)^{r+1}\sum_{\lvert A\rvert=r}\lvert S_A\rvert$ | 7–9 |
+| [[#Definition — Function]] | a subset $f\subseteq A\times B$ with a unique $y$ for each $x$ | 9–10 |
+| [[#Definition — Injective, surjective, bijective]] | one-to-one, onto, both | 10 |
+| [[#Definition — Domain, codomain, image, preimage]] | $f(A)$, $f^{-1}(Y)$ | 10 |
+| [[#Observations on finite sets]] | no surjection if $\lvert B\rvert>\lvert A\rvert$; injective $\iff$ surjective for $f:A\to A$ | 11 |
 
 ## 3.1 Sets
 
@@ -209,3 +214,94 @@ $$(a+b)^n=\binom n0a^n+\binom n1a^{n-1}b+\dots+\binom n{n-1}ab^{n-1}+\binom nnb^
 
 **Proof.** When we expand $(a+b)^n=(a+b)(a+b)\cdots(a+b)$, we obtain terms of the form $a^{n-k}b^k$, $0\le k\le n$, and the number of terms of the form $a^{n-k}b^k$ is $\binom nk$, as we must specify the $k$ brackets from which to pick $b$. Hence
 $$(a+b)^n=\sum_{k=0}^n\binom nka^{n-k}b^k.$$
+
+**Example.**
+$$(1+x)^n=1+nx+\frac{n(n-1)}2x^2+\dots+\binom n{n-1}x^{n-1}+x^n.$$
+For small $x$, a good approximation to $(1+x)^n$ is $1+nx$; a better approximation is $1+nx+\frac{n(n-1)}2x^2$.
+
+## 3.3 Inclusion–exclusion
+
+What can we say about the relationship between the sizes of unions and intersections of finite sets? For example,
+$$|A\cup B|=|A|+|B|-|A\cap B|$$
+(the elements in $A\cap B$ are counted twice in $|A|+|B|$), and
+$$|A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|.$$
+
+### Theorem 4 — Inclusion–exclusion principle
+
+Let $S_1,S_2,\dots,S_n$ be finite sets. Then
+$$|S_1\cup S_2\cup\dots\cup S_n|=\sum_{|A|=1}|S_A|-\sum_{|A|=2}|S_A|+\sum_{|A|=3}|S_A|-\dots+(-1)^{n+1}\sum_{|A|=n}|S_A|,$$
+where $S_A=\bigcap_{i\in A}S_i$ and $\sum_{|A|=k}$ is taken over all $A\subseteq\{1,2,\dots,n\}$ of size $k$. Equivalently,
+$$\Big|\bigcup_{i=1}^nS_i\Big|=\sum_{r=1}^n(-1)^{r+1}\sum_{\substack{A\subseteq\{1,\dots,n\}\\|A|=r}}\Big|\bigcap_{i\in A}S_i\Big|.$$
+
+**Proof.** Let $x\in S_1\cup S_2\cup\dots\cup S_n$, say $x\in S_i$ for $k$ of the $S_i$ ($k\ge1$). We want $x$ to be counted exactly once on the right-hand side. Indeed,
+$$\#\{A:|A|=1,\ x\in S_A\}=k,\qquad\#\{A:|A|=2,\ x\in S_A\}=\binom k2,$$
+and in general $\#\{A:|A|=r,\ x\in S_A\}=\binom kr$ for $r\le k$, and $0$ for $r>k$. Thus the number of times $x$ is counted on the RHS is
+$$\begin{aligned}
+k-\binom k2+\binom k3-\dots+(-1)^{k+1}\binom kk&=1-\Big(1-k+\binom k2-\binom k3+\dots+(-1)^k\binom kk\Big)\\
+&=1-\big(1+(-1)\big)^k &&(\text{binomial theorem})\\
+&=1\qquad\text{for }k\ge1.
+\end{aligned}$$
+
+> [!note] Explanation
+> $x\in S_A$ exactly when every $S_i$ with $i\in A$ contains $x$, i.e. when $A$ is a subset of the $k$ indices whose sets contain $x$; there are $\binom kr$ such $A$ of size $r$. The alternating sum $\sum_{r=0}^k(-1)^r\binom kr$ is $(1-1)^k=0$, so leaving out the $r=0$ term (which is $1$) gives exactly $1$.
+
+**Remark.** One can also prove this using the **indicator function**: if $A\subseteq X$, then
+$$i_A:X\to\{0,1\},\qquad x\mapsto\begin{cases}1,&x\in A,\\0,&x\notin A.\end{cases}$$
+Note that $|A|=\sum_{x\in X}i_A(x)$. One uses identities such as $i_{A\cap B}=i_A\cdot i_B$.
+
+## 3.4 Functions
+
+### Definition — Function
+
+Given sets $A$ and $B$, a **function** $f$ from $A$ to $B$ is a "rule" that assigns to every $x\in A$ a unique element $f(x)\in B$.
+
+More formally, a function from $A$ to $B$ is a subset $f\subseteq A\times B$ such that for all $x\in A$ there is a unique $y\in B$ with $(x,y)\in f$. If $f$ is a function from $A$ to $B$, we write $f:A\to B$; if $(x,y)\in f$, we write $f(x)=y$, or $x\mapsto y$.
+
+**Examples.**
+1. $f:\mathbb R\to\mathbb R$, $x\mapsto x^2$ is a function.
+2. $f:\mathbb R\to\mathbb R$, $x\mapsto\frac1x$ is not a function: $f(0)=\ ?$
+3. $f:\mathbb R\to\mathbb R$, $x\mapsto\pm\sqrt{|x|}$ is not a function (the value is not unique).
+4. $f:\mathbb R\to\mathbb R$, $x\mapsto\begin{cases}1&\text{if }x\in\mathbb Q,\\0&\text{otherwise}\end{cases}$ is a function.
+5. A function $f:\{1,2,3,4,5\}\to\{1,2,3,4\}$:
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw (0,0) ellipse (0.6 and 1.5); \draw (3,0) ellipse (0.6 and 1.3);
+  \foreach \i in {1,...,5} {\fill (0,{1.2-0.6*(\i-1)}) circle (1.5pt) node[left] {\small$\i$};}
+  \foreach \j in {1,...,4} {\fill (3,{0.9-0.6*(\j-1)}) circle (1.5pt) node[right] {\small$\j$};}
+  \foreach \i/\j in {1/2,2/1,3/4,4/3,5/3} {\draw[blue,->,shorten >=2pt] (0,{1.2-0.6*(\i-1)}) -- (3,{0.9-0.6*(\j-1)});}
+\end{tikzpicture}
+\end{document}
+```
+*A function from a $5$-element set to a $4$-element set: every point on the left sends exactly one arrow (here $4$ and $5$ both go to $3$).*
+
+### Definition — Injective, surjective, bijective
+
+- $f:A\to B$ is **injective** if for all $a,a'\in A$, $a\ne a'\Rightarrow f(a)\ne f(a')$. Equivalently, $f(a)=f(a')\Rightarrow a=a'$.
+- $f:A\to B$ is **surjective** if for all $b\in B$ there is $a\in A$ with $f(a)=b$.
+- $f:A\to B$ is **bijective** if it is both injective and surjective.
+
+If $f:A\to B$ is a bijection, then everything in $B$ is "hit" exactly once (i.e. $f$ pairs up the elements of $A$ and $B$). A **permutation** of $A$ is a bijection $A\to A$.
+
+### Definition — Domain, codomain, image, preimage
+
+Given $f:A\to B$, $A$ is the **domain** of $f$ and $B$ is the **range** (or **codomain**). The **image** of $f$ is the set
+$$f(A)=\{f(a):a\in A\}=\{b\in B:f(a)=b\text{ for some }a\in A\},$$
+often denoted $\operatorname{im}(f)$. If $Y\subseteq B$, the **preimage** of $Y$ under $f$ is $f^{-1}(Y)=\{a\in A:f(a)\in Y\}$.
+
+E.g. if $f:\mathbb R\to\mathbb R$, $x\mapsto x^2$, then $\operatorname{im}(f)=\{y\in\mathbb R:y\ge0\}$ and $f^{-1}(\{1\})=\{1,-1\}$.
+
+**Warning.** When specifying a function we must specify its domain and codomain. E.g. "Is the function $f(x)=x^2$ injective?" is meaningless, as $f:\mathbb N\to\mathbb N$, $x\mapsto x^2$ is injective but $f:\mathbb Z\to\mathbb Z$, $x\mapsto x^2$ is not.
+
+### Observations on finite sets
+
+For finite sets $A$ and $B$:
+1. $f$ is surjective if and only if $f(A)=B$. In particular, if $|B|>|A|$, there can be no surjective functions from $A$ to $B$.
+2. There is no injection from $A$ to $B$ if $|A|>|B|$.
+3. If $f:A\to A$, then $f$ is injective $\iff$ $f$ is surjective.
+4. There is no bijection from $A$ to any proper subset of $A$.
+
+> [!note] Explanation
+> These rely on $A$ being finite: $|f(A)|\le|A|$, with equality exactly when $f$ is injective. For infinite sets (3) and (4) fail: $n\mapsto n+1$ on $\mathbb N$ is injective but not surjective, and it is a bijection from $\mathbb N$ onto its proper subset $\mathbb N\setminus\{1\}$.
