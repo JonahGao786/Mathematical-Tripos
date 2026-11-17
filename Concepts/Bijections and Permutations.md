@@ -35,6 +35,10 @@ tags: [concept, groups]
 - **Theorem 7.3.** Every $\sigma\in S_n$ is a product of disjoint cycles (the orbits of $\langle\sigma\rangle$), unique up to shifting, reordering and singletons; cycle type $\{k_1,\dots,k_\ell\}$, $\operatorname{ord}\sigma=\operatorname{lcm}(k_i)$. → [[Groups - Chapter 7 Permutations#Theorem 7.3 — Disjoint cycle decomposition|proof]]
 - **Theorem 7.6 / Lemma 7.8.** Transpositions generate $S_n$; adjacent ones $(i\ i{+}1)$ suffice, via $(i\,j)=(j{-}1\ j)(i\ j{-}1)(j{-}1\ j)$. → [[Groups - Chapter 7 Permutations#Theorem 7.6 — Transpositions generate S_n|proof]] · [[Groups - Chapter 7 Permutations#Lemma 7.8 — Adjacent transpositions suffice|proof]]
 
+## Functions (Numbers and Sets Ch.3)
+
+- A function $f:A\to B$ is a subset of $A\times B$ with exactly one $(x,y)$ for each $x$; injective, surjective, bijective; image $f(A)$, preimage $f^{-1}(Y)$; domain and codomain matter. For finite sets: no surjection onto a bigger set, no injection into a smaller one, and for $f:A\to A$ injective $\iff$ surjective. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Definition — Injective, surjective, bijective|lecture]] · [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Observations on finite sets|lecture]]
+
 ## Related
 
 [[Groups]] · [[Isometries and Dihedral Groups]] · [[Homomorphisms and Isomorphisms]]
