@@ -3340,7 +3340,8 @@
       "drive_folder_path": "GoodNotes/Part IA/Differential Equations",
       "markdown_paths": [
         "Part IA/Differential Equations/Lecture Notes/Differential Equations - Chapter 5 Higher Order Linear ODEs.md",
-        "Concepts/Second-Order Linear ODEs with Constant Coefficients.md"
+        "Concepts/Second-Order Linear ODEs with Constant Coefficients.md",
+        "Concepts/Series Solutions of ODEs.md"
       ],
       "material_type": "lecture notes",
       "course": "Part IA Differential Equations",
@@ -3354,14 +3355,15 @@
         "Pages 23-28: steady-state P.I. (verified by solving the coefficient equations), impulses, Dirac delta, delta forcing and jump condition, example y''-y = 3 delta(x-pi/2) (verified). p.26 'a<t<b' read as a<t0<b. Figures plotted from the formulas.",
         "Review fixes: p.25 delta family qualified (unit area must concentrate at 0); p.27 general rule clarified (y'' carries delta, y' jumps); example caption slopes corrected to -3/2 and +3/2.",
         "Pages 28-32: Heaviside, ramp, Heaviside forcing, section 6 discrete equations, Fibonacci (constants verified). p.28 lower limit of H integral written as infinity, normalized to -infinity; p.31 'p is a non-degenerate integer' read as non-negative.",
-        "Review fix: p.31 discrete P.I. table qualified with the n^m rule for resonant/repeated roots (worked check added)."
+        "Review fix: p.31 discrete P.I. table qualified with the n^m rule for resonant/repeated roots (worked check added).",
+        "Pages 32-36: section 7 series solutions (singular points, two examples, Fuchs' theorem, Frobenius series, worked ordinary-point example; recurrence and closed form verified numerically)."
       ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",
-      "observed_source_modified_timestamp": "2026-11-16T13:24:18.492Z",
-      "processed_source_modified_timestamp": "2026-11-16T13:24:18.492Z",
-      "total_page_count": 32,
-      "visually_inspected_pages": "1-32 (28-32 viewed 2026-11-16; 1-27 matched baseline hashes)",
+      "observed_source_modified_timestamp": "2026-11-18T15:41:46.521Z",
+      "processed_source_modified_timestamp": "2026-11-18T15:41:46.521Z",
+      "total_page_count": 36,
+      "visually_inspected_pages": "1-36 (32-36 viewed 2026-11-18; 1-31 matched baseline hashes)",
       "page_hashes": [
         "016dda0da4bc868b5152",
         "a81b04bbdd354879b1a9",
@@ -3394,11 +3396,15 @@
         "72f3d295b81466c690e8",
         "4cabdddd2da89762c4d1",
         "28c950668ce09908e94d",
-        "1b529ad4a6520e0170c8"
+        "20b148a934abb885855e",
+        "3d0c25eebdd74ed53226",
+        "50a23a8acac6c930e3b0",
+        "eff75d4f92d5b143817f",
+        "62c95a5de78f7f7eaf0c"
       ],
-      "source_sha256": "8effc2f699358867b8d177bd8e716b4d8f3b76dd8a71455c4385eed6e97a1348",
-      "source_size_bytes": 6337408,
-      "last_successful_processing_at": "2026-11-16",
+      "source_sha256": "0ec3fa4a3a38ec1c9b9cb3dfcd4cf15e8451dbb0452d225ae1ff263b471cb016",
+      "source_size_bytes": 7298059,
+      "last_successful_processing_at": "2026-11-18",
       "status": "processed"
     },
     "1ELnkPWzlB1-HPs9ERuMIKGAXEJi70axO": {
@@ -3530,23 +3536,29 @@
       "course": "Part IA Groups",
       "classification": "study_material",
       "normalizations": [
-        "Pages 1-4: cycles, Defs 7.1-7.2, 7.4, 7.5, 7.7, Thms 7.3, 7.6, Lemma 7.8 (cycle products verified). Third map on p.1 labelled 'e' in source but is a non-bijection; labelled f. Lemma 7.8 'product of transpositions' in the IH read as adjacent transpositions."
+        "Pages 1-4: cycles, Defs 7.1-7.2, 7.4, 7.5, 7.7, Thms 7.3, 7.6, Lemma 7.8 (cycle products verified). Third map on p.1 labelled 'e' in source but is a non-bijection; labelled f. Lemma 7.8 'product of transpositions' in the IH read as adjacent transpositions.",
+        "Pages 5-9: N(sigma), Lemma 7.9, Thm 7.10 sign, Def 7.11 A_n, Lemma 7.12, Thm 7.13 conjugacy. Lemma 7.9 case A: 'b2 = a2' read as b2 = a_i (as the displayed formula uses). Cycle identities verified by computation."
       ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",
-      "observed_source_modified_timestamp": "2026-11-16T13:24:26.838Z",
-      "processed_source_modified_timestamp": "2026-11-16T13:24:26.838Z",
-      "total_page_count": 4,
-      "visually_inspected_pages": "1-4 (all viewed 2026-11-16; p.1 re-edited)",
+      "observed_source_modified_timestamp": "2026-11-18T15:42:00.520Z",
+      "processed_source_modified_timestamp": "2026-11-18T15:42:00.520Z",
+      "total_page_count": 9,
+      "visually_inspected_pages": "1-9 (5-9 viewed 2026-11-18; 1-4 matched baseline hashes)",
       "page_hashes": [
         "63b2463834a2c7fc8ca1",
         "92cbd614552f192a12c0",
         "9fae21cd4db33639c269",
-        "03aaff5790f775cbf632"
+        "03aaff5790f775cbf632",
+        "49a3d101ec63db50dfc7",
+        "5ebb0ebe8689870dd340",
+        "b9f2ae0ca9978a8f6378",
+        "590d48e0f2109da0333b",
+        "d6c9abc4fa387f7ed95a"
       ],
-      "source_sha256": "be3d282d33a678ba08c99e5ede4f91bc1c100e03f3fa8feff19e63c3b5a7ec8d",
-      "source_size_bytes": 887878,
-      "last_successful_processing_at": "2026-11-16",
+      "source_sha256": "45f8305d9218732c1a8e4d3bc72e2edb2c8e6dfd047c2c52360cb18f81bda418",
+      "source_size_bytes": 1887793,
+      "last_successful_processing_at": "2026-11-18",
       "status": "processed"
     },
     "1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6": {
@@ -3586,17 +3598,17 @@
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-17",
-    "completed_at": "2026-11-17T18:00:00Z",
+    "date": "2026-11-18",
+    "completed_at": "2026-11-18T18:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 1,
+    "new_source_count": 0,
     "modified_source_count": 2,
-    "processed_source_count": 3,
+    "processed_source_count": 2,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; pagediff.py selected pages: N&S Ch.3 pp.7-11; V&M Ch.3 none (pixel-identical); new V&M Ch.4 (5 pp) viewed in full.",
+    "reading_method": "Service-account download; pagediff.py selected pages: Groups Ch.7 pp.5-9, DE Ch.5 pp.32-36; others matched baseline hashes.",
     "visually_inspected_page_count": 10,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-17"
+    "commit_message": "notes: process Goodnotes files from 2026-11-18"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,
