@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Higher Order Linear ODEs.pdf
 drive_file_id: 1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB
 source_url: https://drive.google.com/file/d/1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB/view
-source_pages: 32
+source_pages: 36
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 5: Higher Order Linear ODEs
 
 > [!abstract] Overview
-> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition; the Heaviside step function and step forcing; and second-order discrete (difference) equations, with the Fibonacci sequence.
+> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition; the Heaviside step function and step forcing; second-order discrete (difference) equations, with the Fibonacci sequence; and series solutions: ordinary and singular points, Fuchs' theorem and Frobenius series.
 > Prerequisite: [[Differential Equations - Chapter 4 First-Order Linear Differential Equations]] ($e^{\lambda x}$ as eigenfunction, CF + PI).
 
 ## Results index
@@ -46,6 +46,9 @@ tags: [lecture, differential-equations]
 | [[#Forcing with the Heaviside function]] | $y$ and $y'$ continuous, $y''$ jumps | 29 |
 | [[#Second-order discrete equations]] | $ay_{n+2}+by_{n+1}+cy_n=f_n$; $y_n\propto k^n$, $ak^2+bk+c=0$ | 30–31 |
 | [[#Example — Fibonacci sequence]] | $y_n=\frac{\varphi_1^{n+1}-\varphi_2^{n+1}}{\sqrt5}$; $\frac{y_{n+1}}{y_n}\to\varphi_1$ | 31–32 |
+| [[#Definition — Ordinary, regular singular and irregular singular points]] | via analyticity of $\frac qp,\frac rp$ and of $(x-x_0)\frac qp,(x-x_0)^2\frac rp$ | 32–34 |
+| [[#Fuchs' theorem]] | ordinary point: two Taylor-series solutions; regular singular: at least one Frobenius series | 34 |
+| [[#Example — series solution about an ordinary point]] | $(1-x^2)y''-2xy'+2y=0$: $y=a_1x+a_0\big(1-\frac12x\ln\frac{1+x}{1-x}\big)$ | 35–36 |
 
 Notes on scope:
 - We focus on second order, but many methods apply to higher order.
@@ -816,3 +819,81 @@ $$\lim_{n\to\infty}\frac{y_{n+1}}{y_n}=\varphi_1.$$
 
 > [!note] Explanation
 > $|\varphi_2|=\frac1{\varphi_1}<1$, so the term $\varphi_2^{n+1}$ shrinks to $0$; the Fibonacci numbers are essentially a geometric sequence with ratio $\varphi_1$. Check: $n=0$ gives $\frac{\varphi_1-\varphi_2}{\sqrt5}=\frac{\sqrt5}{\sqrt5}=1$.
+
+## 7. Series solutions
+
+When we can't find simple closed-form solutions, series solutions may be useful. Consider
+$$p(x)y''+q(x)y'+r(x)y=0.\tag{$*$}$$
+The feasibility of finding a series solution around $x=x_0$ depends on the nature of $p(x),q(x),r(x)$ around $x_0$.
+
+## 7.1 Classification of singular points
+
+### Definition — Ordinary, regular singular and irregular singular points
+
+The point $x=x_0$ is an **ordinary point** of $(*)$ if $q(x)/p(x)$ and $r(x)/p(x)$ are analytic at $x_0$, i.e. they have Taylor series about $x=x_0$ (which converge in a region around $x_0$). Otherwise $x_0$ is a **singular point**.
+
+If $x_0$ is a singular point, but
+$$(x-x_0)\frac{q(x)}{p(x)}\qquad\text{and}\qquad(x-x_0)^2\frac{r(x)}{p(x)}$$
+are analytic, then $x_0$ is a **regular singular point**. Otherwise, $x_0$ is an **irregular singular point**.
+
+(Compare the [[#Definition — Equidimensional ODE|equidimensional equation]] $ax^2y''+bxy'+cy=0$: a regular singular point is no more singular than $x=0$ in an equidimensional equation.)
+
+**Example.** $\underbrace{(1-x^2)}_{p(x)}y''\underbrace{-2x}_{q(x)}y'+\underbrace{2}_{r(x)}y=0$. Here
+$$\frac qp=-\frac{2x}{1-x^2}=\frac{2x}{(x-1)(x+1)},\qquad\lim_{x\to\pm1}\frac qp=\infty,\qquad\frac rp=-\frac2{(x-1)(x+1)}\ (\text{similar}),$$
+so $x=\pm1$ are singular points. But
+$$(x-1)\frac qp=\frac{2x}{x+1}=1\text{ at }x=1,\qquad(x-1)^2\frac rp=-\frac{2(x-1)}{x+1}=0\text{ at }x=1,$$
+and we can write Taylor series about $x=1$; similarly for $x=-1$. So $x=\pm1$ are **regular singular points**.
+
+**Example.** $\underbrace{(1+\sqrt x)}_{p(x)}y''\underbrace{-2x}_{q(x)}y'+\underbrace{2}_{r(x)}y=0$. Here $\frac qp=-\frac{2x}{1+\sqrt x}$, so $x=0$ is a singular point (try a Taylor series). And
+$$x\frac qp=-\frac{2x^2}{1+\sqrt x}$$
+doesn't have a Taylor series about $x=0$, so $x=0$ is an **irregular singular point**.
+
+> [!note] Explanation
+> The test multiplies $\frac qp$ by $(x-x_0)$ and $\frac rp$ by $(x-x_0)^2$ because those are exactly the powers that appear in an equidimensional equation, $y''+\frac bax^{-1}y'+\frac cax^{-2}y=0$. A regular singular point allows poles up to those orders and no worse. In the second example the trouble is $\sqrt x$, which has no power series at $0$ however we multiply by powers of $x$.
+
+## 7.2 Method of Frobenius
+
+### Fuchs' theorem
+
+1. If $x=x_0$ is an **ordinary point** of $(*)$, there are two linearly independent solutions of the form
+$$y(x)=\sum_{n=0}^\infty a_n(x-x_0)^n,$$
+convergent in some neighbourhood of $x_0$ (Taylor series).
+2. If $x=x_0$ is a **regular singular point** of $(*)$, there is at least one solution of the form
+$$y(x)=\sum_{n=0}^\infty a_n(x-x_0)^{n+\sigma}=(x-x_0)^\sigma\sum_{n=0}^\infty a_n(x-x_0)^n$$
+(a **Frobenius series**), where $a_0\ne0$ (so $\sigma$ is unique).
+
+**Note.** There is no guarantee that we obtain two such linearly independent solutions. The series solution method may fail completely for an irregular singular point.
+
+### Example — series solution about an ordinary point
+
+Find series solutions about $x=0$ of
+$$(1-x^2)y''-2xy'+2y=0.\tag{$*$}$$
+$x=0$ is an ordinary point, so we expect two linearly independent series solutions. Try
+$$y=\sum_{n=0}^\infty a_nx^n,\qquad y'=\sum_{n=0}^\infty na_nx^{n-1},\qquad y''=\sum_{n=0}^\infty n(n-1)a_nx^{n-2}.$$
+Multiply $(*)$ by $x^2$ for convenience: $(1-x^2)x^2y''-2x^2(xy')+2x^2y=0$, i.e.
+$$\sum_{n=2}^\infty a_n(1-x^2)n(n-1)x^n-2\sum_{n=1}^\infty a_nn\,x^2x^n+2\sum_{n=0}^\infty a_nx^{n+2}=0.$$
+Shifting $n\mapsto n-2$ in the terms carrying an extra $x^2$,
+$$\sum_{n=2}^\infty a_nn(n-1)x^n-\sum_{n=2}^\infty a_{n-2}(n-2)(n-3)x^n-2\sum_{n=2}^\infty a_{n-2}(n-2)x^n+2\sum_{n=2}^\infty a_{n-2}x^n=0$$
+(the extra terms at the bottom of the shifted ranges are zero). Equating coefficients of $x^n$ for $n\ge2$:
+$$\begin{aligned}
+0&=a_nn(n-1)-a_{n-2}(n-2)(n-3)-2a_{n-2}(n-2)+2a_{n-2}\\
+\Rightarrow\quad n(n-1)a_n&=(n^2-5n+6+2n-4-2)a_{n-2}=n(n-3)a_{n-2},
+\end{aligned}$$
+so
+$$a_n=\frac{n-3}{n-1}a_{n-2}\qquad(n\ge2),$$
+the **recurrence relation**. $a_0$ and $a_1$ are not determined: they are the arbitrary constants in the general solution.
+
+*Odd terms:* $a_3=0\Rightarrow a_5=a_7=\dots=0$. So one solution is $y=a_1x$ (an odd function of $x$).
+
+*Even terms:*
+$$a_n=\frac{n-3}{n-1}a_{n-2}=\frac{(n-3)(n-5)}{(n-1)(n-3)}a_{n-4}=\dots=-\frac1{n-1}a_0,$$
+so
+$$y=a_0\Big(1-x^2-\frac{x^4}3-\frac{x^6}5-\cdots\Big)\qquad(\text{an even function of }x).$$
+Note $\ln(1\pm x)=\pm x-\frac{x^2}2\pm\frac{x^3}3-\frac{x^4}4\pm\cdots$, so
+$$y=a_0\Big(1-\frac12x\ln\Big(\frac{1+x}{1-x}\Big)\Big).$$
+General solution:
+$$y=a_1x+a_0\Big(1-\frac12x\ln\Big(\frac{1+x}{1-x}\Big)\Big),$$
+a closed-form solution. Note the behaviour near $x=\pm1$ (the regular singular points).
+
+> [!note] Explanation
+> The product telescopes: for even $n$, $\frac{n-3}{n-1}\cdot\frac{n-5}{n-3}\cdots\frac{-1}{1}=\frac{-1}{n-1}$. Subtracting the two logarithm series gives $\ln\frac{1+x}{1-x}=2\big(x+\frac{x^3}3+\frac{x^5}5+\cdots\big)$, so $\frac12x\ln\frac{1+x}{1-x}=x^2+\frac{x^4}3+\frac{x^6}5+\cdots$. The logarithm blows up at $x=\pm1$, which is the signature of the singular points; the series converges only for $|x|<1$.
