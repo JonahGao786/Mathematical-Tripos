@@ -15,6 +15,7 @@ tags: [concept, vectors-and-matrices]
 - **Linear map:** $T(\lambda\mathbf x+\mu\mathbf y)=\lambda T\mathbf x+\mu T\mathbf y$. → [[Vectors and Matrices - Chapter 3 Matrices#Definition — Linear map|lecture]]
 - **Image, kernel, rank, nullity:** $\operatorname{Im}T$, $\ker T$, $\operatorname{rank}T=\dim\operatorname{Im}T$, $\operatorname{null}T=\dim\ker T$. Injective $\iff\ker T=\{\mathbf 0\}$; surjective $\iff\operatorname{Im}T=W$. → [[Vectors and Matrices - Chapter 3 Matrices#Definition — Image, kernel, rank and nullity|lecture]]
 - **Matrix of $T$** in bases $B$, $C$: $T(\mathbf e_j)=\sum_iM_{ij}\mathbf f_i$. → [[Vectors and Matrices - Chapter 3 Matrices#Definition — Matrix of a linear map|lecture]]
+- **Change of basis:** $[\mathbf v]_{\mathcal B}=P[\mathbf v]_{\mathcal C}$ with $P=S_{\mathcal B}^{-1}S_{\mathcal C}$; the matrix of $T$ changes as $A_{\mathcal C}=P^{-1}A_{\mathcal B}P$ (similar matrices). → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Change between two arbitrary bases|lecture]] · [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Definition — Similar matrices|lecture]]
 
 ## Key results
 
