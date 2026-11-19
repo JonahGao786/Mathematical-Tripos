@@ -3497,14 +3497,15 @@
         "p.3: ordered pair written (a,b) = {{a,b}, a}; written as the standard Kuratowski pair {{a},{a,b}}, for which (a,b)=(c,d) iff a=c, b=d.",
         "Venn diagram for union/intersection/difference added (not in source).",
         "Pages 3-7: Russell's paradox, finite sets, Prop 1 (two proofs), binomial coefficients, Prop 2, Thm 3. p.7 final sum 'a^n b^{n-k}' normalized to a^{n-k} b^k; Pascal's triangle drawn with the missing '1 1' row.",
-        "Pages 7-11: (1+x)^n example ('n(n-2)/2' read as n(n-1)/2), inclusion-exclusion (Thm 4), indicator remark, functions, injective/surjective/bijective, image/preimage, observations (stated for finite A, B; explanation notes they fail for infinite sets). Function arrow figure schematic."
+        "Pages 7-11: (1+x)^n example ('n(n-2)/2' read as n(n-1)/2), inclusion-exclusion (Thm 4), indicator remark, functions, injective/surjective/bijective, image/preimage, observations (stated for finite A, B; explanation notes they fail for infinite sets). Function arrow figure schematic.",
+        "Infinite-set counterexamples a)-c) on p.11 replace the earlier explanatory remark."
       ],
       "unresolved_todos": [],
-      "diagram_note": "Venn figure added.",
-      "observed_source_modified_timestamp": "2026-11-17T16:04:56.798Z",
-      "processed_source_modified_timestamp": "2026-11-17T16:04:56.798Z",
-      "total_page_count": 11,
-      "visually_inspected_pages": "1-11 (7-11 viewed 2026-11-17; 1-6 matched baseline hashes)",
+      "diagram_note": "Venn figure added. TikZ: left/right inverse diagrams (p.14).",
+      "observed_source_modified_timestamp": "2026-11-19T11:57:17.374Z",
+      "processed_source_modified_timestamp": "2026-11-19T11:57:17.374Z",
+      "total_page_count": 15,
+      "visually_inspected_pages": "pp.11-15 (2026-11-19); pp.1-10 matched baseline hashes",
       "page_hashes": [
         "a23bd60065476af87766",
         "3e1c1dc6179a52be0820",
@@ -3516,11 +3517,15 @@
         "43ff113547d9b627d33e",
         "42bb630e052ca66f4079",
         "cf8c41b1aaea09715e5f",
-        "0df8a06250587e949abd"
+        "fcc1ed81f5bd18894393",
+        "f8c9f5b5ad3231bf8842",
+        "1f543c288fe9645a9805",
+        "6db14af011a6f3dcb95e",
+        "af39dff07b18aee1791f"
       ],
-      "source_sha256": "f124514865db40f3b8cede8166d8d40131a90b026f393f38909c414013d31037",
-      "source_size_bytes": 2755454,
-      "last_successful_processing_at": "2026-11-17",
+      "source_sha256": "a935c01f905b5688e57ee8c237dda36e27f2c6a07d5678c91952ca546b02a10f",
+      "source_size_bytes": 3654219,
+      "last_successful_processing_at": "2026-11-19",
       "status": "processed"
     },
     "1HbJG7sgn41dEBzVvy_WrH_2_0PF8Gjf0": {
@@ -3574,41 +3579,50 @@
       "course": "Part IA Vectors and Matrices",
       "classification": "study_material",
       "normalizations": [
-        "Eigenvectors of the 2x2 Hermitian example verified."
+        "Eigenvectors of the 2x2 Hermitian example verified.",
+        "p.8: inner sum written P_ij y_i read as P_ij y_j.",
+        "p.9: symmetry step A = Q^{-1} B Q^{-1} read as A = Q^{-1} B Q (Q = P^{-1}).",
+        "p.8: unlabelled relation [v]_B = P[v]_C tagged (2) to match the source reference (*2).",
+        "Change-of-basis examples checked numerically (P = S_B^{-1} S_C)."
       ],
       "unresolved_todos": [],
-      "diagram_note": "No diagrams in source.",
-      "observed_source_modified_timestamp": "2026-11-17T16:05:51.831Z",
-      "processed_source_modified_timestamp": "2026-11-17T16:05:51.831Z",
-      "total_page_count": 5,
-      "visually_inspected_pages": "1-5 (all, 2026-11-17)",
+      "diagram_note": "TikZ: vector v against the standard and the new basis (p.7).",
+      "observed_source_modified_timestamp": "2026-11-19T11:57:29.529Z",
+      "processed_source_modified_timestamp": "2026-11-19T11:57:29.529Z",
+      "total_page_count": 10,
+      "visually_inspected_pages": "pp.6-10 (2026-11-19); pp.1-5 matched baseline hashes",
       "page_hashes": [
         "ff554edab589601a361a",
         "f738cce5a36585915a88",
         "f7748fdc03d7389f1e8f",
         "05be5871062d373aac48",
-        "59fc6f3ea069bbb65d10"
+        "59fc6f3ea069bbb65d10",
+        "5e32b1d54e3c47422445",
+        "963e64336a40cdc4af7b",
+        "cdaac94cacaa8ce276a3",
+        "e5a1356ed2ea8d56d3b9",
+        "268a7a956225aff6f162"
       ],
-      "source_sha256": "212a66962e016fd9bf403994c51586f753e028d6304cdb03560783e00c6dd9c0",
-      "source_size_bytes": 926122,
-      "last_successful_processing_at": "2026-11-17",
+      "source_sha256": "e8f0e9bee98f532860b9a83743be5b104a91b56822ec96ab53c28e4305eea1e6",
+      "source_size_bytes": 1820192,
+      "last_successful_processing_at": "2026-11-19",
       "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-18",
-    "completed_at": "2026-11-18T18:00:00Z",
+    "date": "2026-11-19",
+    "completed_at": "2026-11-19T13:30:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
     "new_source_count": 0,
     "modified_source_count": 2,
     "processed_source_count": 2,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; pagediff.py selected pages: Groups Ch.7 pp.5-9, DE Ch.5 pp.32-36; others matched baseline hashes.",
+    "reading_method": "Service-account download; pagediff.py selected pages: N&S Ch.3 pp.11-15, V&M Ch.4 pp.6-10; others matched baseline hashes.",
     "visually_inspected_page_count": 10,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-18"
+    "commit_message": "notes: process Goodnotes files from 2026-11-19"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

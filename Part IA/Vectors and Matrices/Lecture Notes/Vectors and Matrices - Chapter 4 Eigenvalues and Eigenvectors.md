@@ -6,14 +6,14 @@ chapter: 4
 source_file: Ch.4 Eigenvalues and Eigenvectors.pdf
 drive_file_id: 1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6
 source_url: https://drive.google.com/file/d/1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6/view
-source_pages: 5
+source_pages: 10
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 4: Eigenvalues and Eigenvectors
 
 > [!abstract] Overview
-> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal.
+> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Finally eigenspaces $E_\lambda$ and the algebraic and geometric multiplicities of an eigenvalue.
 > Prerequisite: [[Vectors and Matrices - Chapter 3 Matrices]] (determinants, trace, kernels).
 
 ## Results index
@@ -26,6 +26,12 @@ tags: [lecture, vectors-and-matrices]
 | [[#Proposition — Trace and determinant from eigenvalues]] | $\operatorname{tr}A=\sum\lambda_j$, $\det A=\prod\lambda_j$; conjugate pairs for real $A$ | 2–4 |
 | [[#Triangular and diagonal matrices]] | eigenvalues are the diagonal entries | 4–5 |
 | [[#Example — a complex matrix with real eigenvalues]] | $\begin{pmatrix}2&i\\-i&2\end{pmatrix}$: $\lambda=1,3$ | 5 |
+| [[#Definition — Change of basis matrix]] | columns $\mathbf p_j$; $[\mathbf v]_{\mathcal E}=P[\mathbf v]_{\mathcal P}$; $B=P^{-1}AP$ | 6–7 |
+| [[#Change between two arbitrary bases]] | $[\mathbf v]_{\mathcal B}=P[\mathbf v]_{\mathcal C}$, $P=S_{\mathcal B}^{-1}S_{\mathcal C}$, $A_{\mathcal C}=P^{-1}A_{\mathcal B}P$ | 8–9 |
+| [[#Definition — Similar matrices]] | $B=P^{-1}AP$, $P$ invertible | 9 |
+| [[#Proposition — Similarity is an equivalence relation]] | reflexive, symmetric, transitive | 9 |
+| [[#Definition — Eigenspace]] | $E_\lambda=\ker(A-\lambda I)$ | 10 |
+| [[#Definition — Algebraic and geometric multiplicity]] | root multiplicity in $\chi_A$; $m_\lambda=\dim E_\lambda=n-\operatorname{rank}(A-\lambda I)$ | 10 |
 
 ## 4.1 Eigenvalues and the characteristic polynomial
 
@@ -115,3 +121,111 @@ So $A\mathbf v_1=\lambda_1\mathbf v_1$ with $\lambda_1=1$, and $A\mathbf v_2=\la
 
 > [!note] Explanation
 > $A$ is Hermitian ($A^\dagger=A$), which is why its eigenvalues come out real even though its entries are complex. Check: $\operatorname{tr}A=4=1+3$ and $\det A=4-1=3=1\cdot3$, as the Proposition predicts.
+
+## 4.2 Similarity and change of basis
+
+### Definition — Change of basis matrix
+
+Let $T$ be a linear map represented by $A$ in the standard basis $\mathcal E=\{\mathbf e_1,\dots,\mathbf e_n\}$, and choose a new basis $\mathcal P=\{\mathbf p_1,\dots,\mathbf p_n\}$. The **change of basis matrix** $P$ has as its columns the coordinates of the new basis vectors in the original basis:
+$$\mathbf p_j=\sum_{i=1}^nP_{ij}\mathbf e_i,\qquad P=\begin{pmatrix}|&|&&|\\\mathbf p_1&\mathbf p_2&\cdots&\mathbf p_n\\|&|&&|\end{pmatrix},\qquad(P)_{ij}=P_{ij}.\tag{$*$}$$
+Conversely, $\mathbf e_j=\sum_i(P^{-1})_{ij}\mathbf p_i$.
+
+Write a vector $\mathbf v$ in both bases:
+$$\mathbf v=\underbrace{\sum_{i=1}^nx_i\mathbf e_i}_{\text{basis }\mathcal E}=\underbrace{\sum_{j=1}^ny_j\mathbf p_j}_{\text{basis }\mathcal P}\overset{(*)}=\sum_{i=1}^n\Big(\sum_{j=1}^nP_{ij}y_j\Big)\mathbf e_i.$$
+Comparing coefficients in $\mathcal E$,
+$$\mathbf x=P\mathbf y\iff\mathbf y=P^{-1}\mathbf x,\qquad\text{where }\mathbf x=[\mathbf v]_{\mathcal E},\ \mathbf y=[\mathbf v]_{\mathcal P}.$$
+So $P$ converts **new coordinates to original coordinates**, and $P^{-1}$ converts **original to new**.
+
+> [!note] Explanation
+> The formula for $\mathbf e_j$: substituting $(*)$, $\sum_i(P^{-1})_{ij}\mathbf p_i=\sum_k\big(\sum_iP_{ki}(P^{-1})_{ij}\big)\mathbf e_k=\sum_k(PP^{-1})_{kj}\mathbf e_k=\mathbf e_j$. $P$ is invertible because its columns $\mathbf p_1,\dots,\mathbf p_n$ form a basis.
+
+**Example.** $\mathbf v=(3,1)^T$, with new basis $\mathbf p_1=(1,1)^T=\mathbf e_1+\mathbf e_2$ and $\mathbf p_2=(1,-1)^T=\mathbf e_1-\mathbf e_2$.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=0.9]
+  \draw[->] (-0.5,0) -- (3.6,0); \draw[->] (0,-0.5) -- (0,2.2);
+  \draw[->,very thick,red] (0,0) -- (1,0) node[below] {$e_1$};
+  \draw[->,very thick,red] (0,0) -- (0,1) node[left] {$e_2$};
+  \draw[->,thick,blue] (0,0) -- (3,1) node[above] {$v$};
+  \node at (1.8,-1.9) {original basis $\mathcal{E}$};
+  \begin{scope}[xshift=5.5cm]
+  \draw[->] (-0.5,0) -- (3.6,0); \draw[->] (0,-1.4) -- (0,2.2);
+  \draw[->,very thick,red] (0,0) -- (1,1) node[above left] {$p_1$};
+  \draw[->,very thick,red] (0,0) -- (1,-1) node[below right] {$p_2$};
+  \draw[->,thick,blue] (0,0) -- (3,1) node[above] {$v$};
+  \node at (1.8,-1.9) {new basis $\mathcal{P}$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*The same vector $\mathbf v$ against the standard basis and against the new basis $\mathbf p_1,\mathbf p_2$.*
+
+Here
+$$P=\begin{pmatrix}1&1\\1&-1\end{pmatrix},\qquad\mathbf v=3\mathbf e_1+\mathbf e_2=2\mathbf p_1+\mathbf p_2,\qquad\underbrace{\begin{pmatrix}3\\1\end{pmatrix}}_{[\mathbf v]_{\mathcal E}}=P\underbrace{\begin{pmatrix}2\\1\end{pmatrix}}_{[\mathbf v]_{\mathcal P}}.$$
+
+**The matrix of $T$ in the new basis.** To apply $T$ when the input is in new coordinates, convert to original coordinates, apply $A$, and convert back:
+$$\mathbf y\ \xrightarrow{\;P\;}\ \mathbf x=P\mathbf y\ \xrightarrow{\;A\;}\ A\mathbf x=AP\mathbf y\ \xrightarrow{\;P^{-1}\;}\ P^{-1}AP\mathbf y.$$
+So
+$$[T(\mathbf v)]_{\mathcal P}=B[\mathbf v]_{\mathcal P},\qquad B=P^{-1}AP\iff PB=AP.$$
+$A$ and $B$ describe the same map; the $j$th column of $B$ contains the coefficients of $T(\mathbf p_j)$ in the new basis.
+
+### Change between two arbitrary bases
+
+Let $\mathcal B=\{\mathbf b_1,\dots,\mathbf b_n\}$ and $\mathcal C=\{\mathbf c_1,\dots,\mathbf c_n\}$ be bases. The change of basis matrix is defined by
+$$\mathbf c_j=\sum_{i=1}^nP_{ij}\mathbf b_i,\qquad P=\begin{pmatrix}|&&|\\{[\mathbf c_1]_{\mathcal B}}&\cdots&{[\mathbf c_n]_{\mathcal B}}\\|&&|\end{pmatrix}:$$
+the columns of $P$ are the coordinates of the $\mathbf c_j$ relative to $\mathcal B$. For $\mathbf v\in V$,
+$$\mathbf v=\sum_{j=1}^ny_j\mathbf c_j=\sum_{i=1}^n\Big(\sum_{j=1}^nP_{ij}y_j\Big)\mathbf b_i,$$
+so
+$$[\mathbf v]_{\mathcal B}=P[\mathbf v]_{\mathcal C},\qquad[\mathbf v]_{\mathcal C}=P^{-1}[\mathbf v]_{\mathcal B}.\tag{2}$$
+
+Now represent $\mathcal B$ and $\mathcal C$ in terms of the standard basis $\mathcal E$:
+$$S_{\mathcal B}=\begin{pmatrix}|&&|\\\mathbf b_1&\cdots&\mathbf b_n\\|&&|\end{pmatrix},\qquad S_{\mathcal C}=\begin{pmatrix}|&&|\\\mathbf c_1&\cdots&\mathbf c_n\\|&&|\end{pmatrix},\qquad S_{\mathcal B}[\mathbf v]_{\mathcal B}=S_{\mathcal C}[\mathbf v]_{\mathcal C}.\tag{1}$$
+Comparing (1) and (2),
+$$P=S_{\mathcal B}^{-1}S_{\mathcal C}.$$
+
+> [!note] Explanation
+> Both sides of (1) equal $\mathbf v$ in standard coordinates. Substituting (2) into (1) gives $S_{\mathcal B}P[\mathbf v]_{\mathcal C}=S_{\mathcal C}[\mathbf v]_{\mathcal C}$ for every $\mathbf v$, so $S_{\mathcal B}P=S_{\mathcal C}$.
+
+**Example.**
+$$\mathcal B=\Big(\underbrace{\begin{pmatrix}1\\1\end{pmatrix}}_{\mathbf b_1},\underbrace{\begin{pmatrix}1\\-1\end{pmatrix}}_{\mathbf b_2}\Big),\qquad\mathcal C=\Big(\underbrace{\begin{pmatrix}2\\0\end{pmatrix}}_{\mathbf c_1},\underbrace{\begin{pmatrix}1\\3\end{pmatrix}}_{\mathbf c_2}\Big).$$
+Then $\mathbf c_1=\mathbf b_1+\mathbf b_2$ and $\mathbf c_2=2\mathbf b_1-\mathbf b_2$, so
+$$P=\begin{pmatrix}1&2\\1&-1\end{pmatrix}.$$
+Take $\mathbf v=(3,3)^T=\mathbf c_1+\mathbf c_2=3\mathbf b_1$: $\mathbf v$ has coordinates $(1,1)^T$ in $\mathcal C$ and $(3,0)^T$ in $\mathcal B$. Indeed
+$$P\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}3\\0\end{pmatrix},$$
+and in standard coordinates $\mathbf v=(3,3)^T$.
+
+**Matrices of a map.** If $T:V\to V$ is represented by $A_{\mathcal B}$ in $\mathcal B$ and by $A_{\mathcal C}$ in $\mathcal C$, then
+$$[T(\mathbf v)]_{\mathcal C}=P^{-1}A_{\mathcal B}P[\mathbf v]_{\mathcal C},\qquad A_{\mathcal C}=P^{-1}A_{\mathcal B}P.$$
+
+### Definition — Similar matrices
+
+$A,B\in\mathbb F^{n\times n}$ are **similar** over $\mathbb F$ if $B=P^{-1}AP$ for some invertible $P\in\mathbb F^{n\times n}$.
+
+### Proposition — Similarity is an equivalence relation
+
+Similarity of matrices is reflexive, symmetric and transitive.
+
+**Proof.**
+- *Reflexivity:* $I^{-1}AI=A$.
+- *Symmetry:* if $A$ is similar to $B$, then $B=P^{-1}AP$, so $A=PBP^{-1}$. With $Q=P^{-1}$ this is $A=Q^{-1}BQ$ ($P,Q$ invertible).
+- *Transitivity:* if $A$ is similar to $B$, $B=P^{-1}AP$; if $B$ is similar to $C$, $C=Q^{-1}BQ$. Then
+$$C=Q^{-1}BQ=\underbrace{Q^{-1}P^{-1}}_{(PQ)^{-1}}APQ=(PQ)^{-1}A(PQ).$$
+
+## 4.3 Eigenspaces, multiplicity and independence
+
+### Definition — Eigenspace
+
+For $\lambda\in\mathbb F$ an eigenvalue of $A\in\mathbb F^{n\times n}$, define the **eigenspace** associated with $\lambda$:
+$$E_\lambda:=\ker(A-\lambda I)\subseteq\mathbb F^n.$$
+The non-zero elements of $E_\lambda$ are the eigenvectors of $\lambda$.
+
+### Definition — Algebraic and geometric multiplicity
+
+- The **algebraic multiplicity** of $\lambda$ is the multiplicity of $\lambda$ as a root of $\chi_A$.
+- The **geometric multiplicity** of $\lambda$ is the dimension of $E_\lambda$:
+$$m_\lambda:=\dim E_\lambda=n-\operatorname{rank}(A-\lambda I).$$
+
+> [!note] Explanation
+> The second equality is the rank–nullity theorem applied to $A-\lambda I$: $\dim\ker+\operatorname{rank}=n$.

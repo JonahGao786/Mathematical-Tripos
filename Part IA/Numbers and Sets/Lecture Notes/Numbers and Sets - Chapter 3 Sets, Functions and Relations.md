@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Sets, Functions - Relations.pdf
 drive_file_id: 1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ
 source_url: https://drive.google.com/file/d/1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ/view
-source_pages: 11
+source_pages: 15
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 3: Sets, Functions and Relations
 
 > [!abstract] Overview
-> The basic language of sets: membership, equality, subsets, set-builder notation, union, intersection and difference, the distributive laws, unions and intersections of families of sets, ordered pairs and Cartesian products, and power sets. Russell's paradox shows why sets must be built from known sets. Then finite sets: a set of size $n$ has $2^n$ subsets, binomial coefficients, Pascal's triangle and the binomial theorem, and the inclusion–exclusion principle. Then functions: injective, surjective and bijective maps, image and preimage.
+> The basic language of sets: membership, equality, subsets, set-builder notation, union, intersection and difference, the distributive laws, unions and intersections of families of sets, ordered pairs and Cartesian products, and power sets. Russell's paradox shows why sets must be built from known sets. Then finite sets: a set of size $n$ has $2^n$ subsets, binomial coefficients, Pascal's triangle and the binomial theorem, and the inclusion–exclusion principle. Then functions: injective, surjective and bijective maps, image and preimage, composition, and inverses (invertible $\iff$ bijective). Finally, relations.
 > Prerequisite: [[Logical Connectives and Quantifiers]].
 
 ## Results index
@@ -37,7 +37,13 @@ tags: [lecture, numbers-and-sets]
 | [[#Definition — Function]] | a subset $f\subseteq A\times B$ with a unique $y$ for each $x$ | 9–10 |
 | [[#Definition — Injective, surjective, bijective]] | one-to-one, onto, both | 10 |
 | [[#Definition — Domain, codomain, image, preimage]] | $f(A)$, $f^{-1}(Y)$ | 10 |
-| [[#Observations on finite sets]] | no surjection if $\lvert B\rvert>\lvert A\rvert$; injective $\iff$ surjective for $f:A\to A$ | 11 |
+| [[#Observations on finite sets]] | no surjection if $\lvert B\rvert>\lvert A\rvert$; injective $\iff$ surjective for $f:A\to A$; fails for infinite sets | 11 |
+| [[#Further examples — identity and indicator functions]] | $\mathrm{id}_X$, indicator $i_A$, sequences, $+$, size via bijection | 12 |
+| [[#Definition — Composition]] | $g\circ f:a\mapsto g(f(a))$; not commutative | 12 |
+| [[#Proposition — Composition is associative]] | $h\circ(g\circ f)=(h\circ g)\circ f$ | 13 |
+| [[#Definition — Invertible function]] | $g\circ f=\mathrm{id}_A$ and $f\circ g=\mathrm{id}_B$; inverse $f^{-1}$ | 13–14 |
+| [[#Theorem — Left and right inverses]] | left inverse $\iff$ injective, right inverse $\iff$ surjective; invertible $\iff$ bijective | 13–14 |
+| [[#Definition — Relation]] | $R\subseteq X\times X$, $aRb$ | 15 |
 
 ## 3.1 Sets
 
@@ -303,5 +309,108 @@ For finite sets $A$ and $B$:
 3. If $f:A\to A$, then $f$ is injective $\iff$ $f$ is surjective.
 4. There is no bijection from $A$ to any proper subset of $A$.
 
+**(3) and (4) fail for infinite sets.**
+1. $f:\mathbb N\to\mathbb N$, $x\mapsto x+1$ is injective but not surjective.
+2. $g:\mathbb N\to\mathbb N$, $x\mapsto\begin{cases}x-1&\text{if }x\ne1,\\1&\text{if }x=1\end{cases}$ is surjective but not injective.
+3. $h:\mathbb N\to\mathbb N\setminus\{1\}$, $x\mapsto x+1$ is a bijection from $\mathbb N$ to a proper subset.
+
 > [!note] Explanation
-> These rely on $A$ being finite: $|f(A)|\le|A|$, with equality exactly when $f$ is injective. For infinite sets (3) and (4) fail: $n\mapsto n+1$ on $\mathbb N$ is injective but not surjective, and it is a bijection from $\mathbb N$ onto its proper subset $\mathbb N\setminus\{1\}$.
+> The observations rely on $A$ being finite: $|f(A)|\le|A|$, with equality exactly when $f$ is injective. In example 2, $g(1)=g(2)=1$, and every $n$ is hit since $n=g(n+1)$.
+
+### Further examples — identity and indicator functions
+
+1. For any set $X$, the **identity function** on $X$ is $\mathrm{id}_X:X\to X$, $x\mapsto x$.
+2. Given a set $X$ and $A\subseteq X$, the **indicator function** (or **characteristic function**) of $A$ is
+$$i_A:X\to\{0,1\},\qquad x\mapsto\begin{cases}1&\text{if }x\in A,\\0&\text{otherwise.}\end{cases}$$
+3. A sequence of reals $x_1,x_2,\dots$ is a function $\mathbb N\to\mathbb R$, $n\mapsto x_n$.
+4. The operation $+$ on $\mathbb N$ is a function $\mathbb N\times\mathbb N\to\mathbb N$, sending $(a,b)\mapsto a+b$.
+5. A set $X$ has size $n$ if and only if there is a bijection $\{1,2,\dots,n\}\to X=\{a_1,a_2,\dots,a_n\}$, $i\mapsto a_i$.
+
+### Definition — Composition
+
+Given $f:A\to B$ and $g:B\to C$, the **composition** is
+$$g\circ f:A\to C,\qquad a\mapsto g(f(a)).$$
+
+**Example.** If $f:\mathbb R\to\mathbb R$, $x\mapsto2x$ and $g:\mathbb R\to\mathbb R$, $x\mapsto x+1$, then
+$$g\circ f(x)=g(f(x))=2x+1,\qquad f\circ g(x)=f(g(x))=2x+2.$$
+So in general $\circ$ is not commutative: here $f\circ g\ne g\circ f$, since $f\circ g(1)=4\ne3=g\circ f(1)$.
+
+### Proposition — Composition is associative
+
+Given $f:A\to B$, $g:B\to C$ and $h:C\to D$,
+$$h\circ(g\circ f)=(h\circ g)\circ f.$$
+
+**Proof.** For every $x\in A$,
+$$\begin{aligned}
+\big(h\circ(g\circ f)\big)(x)&=h\big((g\circ f)(x)\big)=h\big(g(f(x))\big),\\
+\big((h\circ g)\circ f\big)(x)&=(h\circ g)\big(f(x)\big)=h\big(g(f(x))\big).
+\end{aligned}$$
+
+We may therefore drop the brackets and write $h\circ g\circ f$ without ambiguity.
+
+### Definition — Invertible function
+
+$f:A\to B$ is **invertible** if there exists $g:B\to A$ such that $g\circ f=\mathrm{id}_A$ and $f\circ g=\mathrm{id}_B$. We write $f^{-1}:B\to A$ for the inverse of $f$ when it exists.
+
+**Example.** $f:\mathbb R\to\mathbb R$, $x\mapsto2x+1$ and $g:\mathbb R\to\mathbb R$, $x\mapsto\frac{x-1}2$. For all $x\in\mathbb R$,
+$$(g\circ f)(x)=g(2x+1)=x,\qquad(f\circ g)(x)=f\Big(\frac{x-1}2\Big)=x,$$
+so $g\circ f=\mathrm{id}_{\mathbb R}$ and $f\circ g=\mathrm{id}_{\mathbb R}$. Hence $f$ is invertible with inverse $g$.
+
+**Warning.** Both conditions are needed. For $f:\mathbb N\to\mathbb N$, $x\mapsto x+1$ and $g:\mathbb N\to\mathbb N$, $x\mapsto\begin{cases}x-1&\text{if }x\ne1,\\1&\text{if }x=1,\end{cases}$ we have $g\circ f=\mathrm{id}_{\mathbb N}$ but $f\circ g\ne\mathrm{id}_{\mathbb N}$, because $f\circ g(1)=2\ne1$.
+
+**Warning.** The preimage $f^{-1}(Y)$ of a set always exists, but the inverse function $f^{-1}$ may not.
+
+### Theorem — Left and right inverses
+
+Let $f:A\to B$.
+1. There is $g:B\to A$ with $g\circ f=\mathrm{id}_A$ if and only if $f$ is injective.
+2. There is $g:B\to A$ with $f\circ g=\mathrm{id}_B$ if and only if $f$ is surjective.
+
+It follows that $f:A\to B$ is invertible if and only if $f$ is bijective.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw (0,0) ellipse (0.5 and 0.9); \draw (2.6,0) ellipse (0.5 and 0.9);
+  \node at (0,1.2) {$A$}; \node at (2.6,1.2) {$B$};
+  \draw[red] (2.6,0.25) circle (0.32); \fill (2.5,0.25) circle (1.3pt) node[right=0pt] {\scriptsize$b$};
+  \draw[red,<-] (2.92,0.32) -- (3.5,0.5) node[right] {\small$f(A)$};
+  \draw[blue,->] (0.7,0.9) to[bend left=20] node[above] {\small$f$} (1.9,0.9);
+  \draw[blue,->] (1.9,-0.9) to[bend left=20] node[below] {\small$g\,?$} (0.7,-0.9);
+  \node at (1.3,-1.8) {\small $g\circ f=\mathrm{id}_A$};
+  \begin{scope}[xshift=6cm]
+  \draw (0,0) ellipse (0.5 and 0.9); \draw (2.6,0) ellipse (0.5 and 0.9);
+  \node at (0,1.2) {$A$}; \node at (2.6,1.2) {$B$};
+  \draw[blue,->] (0.7,0.9) to[bend left=20] node[above] {\small$f$} (1.9,0.9);
+  \draw[blue,->] (1.9,-0.9) to[bend left=20] node[below] {\small$g\,?$} (0.7,-0.9);
+  \node at (1.3,-1.8) {\small $f\circ g=\mathrm{id}_B$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*Left: a left inverse must send each $b\in f(A)$ back to the point it came from. Right: a right inverse must pick, for each $b\in B$, a point of $A$ mapping to it.*
+
+**Proof.**
+1. ($\Rightarrow$) If such a $g$ exists and $a,a'\in A$ with $f(a)=f(a')$, then $g(f(a))=g(f(a'))$, so $a=a'$. Thus $f$ must be injective.
+   ($\Leftarrow$) If $f$ is injective, define $g$ as follows. If $b\in f(A)$, let $g(b)=a$, where $a$ is the unique element of $A$ with $f(a)=b$. If $b\notin f(A)$, let $g(b)$ be anything you like.
+2. ($\Rightarrow$) We need $f(g(B))=B$, so $f$ must be surjective.
+   ($\Leftarrow$) If $f$ is surjective, then for each $b\in B$ pick some $a\in A$ with $f(a)=b$ and put $g(b)=a$. Then $f\circ g=\mathrm{id}_B$.
+
+For the last statement: if $f$ is bijective, the $g$ from 1 sends each $b$ to its unique preimage, so it also satisfies $f\circ g=\mathrm{id}_B$; conversely an inverse is both a left and a right inverse, so $f$ is injective and surjective.
+
+> [!note] Explanation
+> In 1, "anything you like" needs $A$ to have at least one element: if $A=\varnothing$ and $B\ne\varnothing$ there is no function $B\to A$ at all. In 2, $f(g(B))\subseteq f(A)$, so $f(g(B))=B$ forces $f(A)=B$.
+
+## 3.5 Relations
+
+### Definition — Relation
+
+A **relation** on a set $X$ is a subset $R\subseteq X\times X$. We usually write $aRb$ ("$a$ is related to $b$") for $(a,b)\in R$.
+
+**Examples of relations on $\mathbb N$.**
+1. $aRb$ if $a,b$ have the same final digit.
+2. $aRb$ if $a\mid b$.
+3. $aRb$ if $a\ne b$.
+4. $aRb$ if $a=b=1$.
+5. $aRb$ if $|a-b|\le3$.
