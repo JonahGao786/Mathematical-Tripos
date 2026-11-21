@@ -6,14 +6,14 @@ chapter: 5
 source_file: Ch.5 Higher Order Linear ODEs.pdf
 drive_file_id: 1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB
 source_url: https://drive.google.com/file/d/1zZMeu0U4PjDGE0fJuLsDnVFj5p1KfLcB/view
-source_pages: 36
+source_pages: 41
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 5: Higher Order Linear ODEs
 
 > [!abstract] Overview
-> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition; the Heaviside step function and step forcing; second-order discrete (difference) equations, with the Fibonacci sequence; and series solutions: ordinary and singular points, Fuchs' theorem and Frobenius series.
+> Second-order linear ODEs with constant coefficients. Linearity of the differential operator gives the general solution as complementary function plus particular integral. Complementary functions come from $e^{\lambda x}$ and the characteristic equation; complex roots give oscillations, and repeated roots are handled by detuning, which produces $xe^{\lambda x}$. For non-constant coefficients: reduction of order finds a second solution from a first; phase space and solution vectors; the Wronskian tests linear independence, and Abel's identity gives it without solving the ODE. Equidimensional equations reduce to constant coefficients. For forced equations: trial particular integrals, resonance (handled by detuning, giving a factor $t$, or $\ln x$ for equidimensional equations), and variation of parameters. Finally the damped, forced mass–spring system: light, critical and heavy damping, and the transient and steady-state forced response; impulses, the Dirac delta function, and delta-function forcing with its jump condition; the Heaviside step function and step forcing; second-order discrete (difference) equations, with the Fibonacci sequence; and series solutions: ordinary and singular points, Fuchs' theorem, Frobenius series and the indicial equation, and when a second solution needs a logarithm.
 > Prerequisite: [[Differential Equations - Chapter 4 First-Order Linear Differential Equations]] ($e^{\lambda x}$ as eigenfunction, CF + PI).
 
 ## Results index
@@ -49,6 +49,8 @@ tags: [lecture, differential-equations]
 | [[#Definition — Ordinary, regular singular and irregular singular points]] | via analyticity of $\frac qp,\frac rp$ and of $(x-x_0)\frac qp,(x-x_0)^2\frac rp$ | 32–34 |
 | [[#Fuchs' theorem]] | ordinary point: two Taylor-series solutions; regular singular: at least one Frobenius series | 34 |
 | [[#Example — series solution about an ordinary point]] | $(1-x^2)y''-2xy'+2y=0$: $y=a_1x+a_0\big(1-\frac12x\ln\frac{1+x}{1-x}\big)$ | 35–36 |
+| [[#Example — Frobenius series about a regular singular point]] | $4xy''+2(1-x^2)y'-xy=0$: indicial $\sigma=0,\frac12$, two series | 37–38 |
+| [[#Second solutions about a regular singular point]] | $\sigma_2-\sigma_1\notin\mathbb Z$: two series; integer: possible $c\,y_1\ln(x-x_0)$; repeated: $\ln$ always | 39–41 |
 
 Notes on scope:
 - We focus on second order, but many methods apply to higher order.
@@ -897,3 +899,69 @@ a closed-form solution. Note the behaviour near $x=\pm1$ (the regular singular p
 
 > [!note] Explanation
 > The product telescopes: for even $n$, $\frac{n-3}{n-1}\cdot\frac{n-5}{n-3}\cdots\frac{-1}{1}=\frac{-1}{n-1}$. Subtracting the two logarithm series gives $\ln\frac{1+x}{1-x}=2\big(x+\frac{x^3}3+\frac{x^5}5+\cdots\big)$, so $\frac12x\ln\frac{1+x}{1-x}=x^2+\frac{x^4}3+\frac{x^6}5+\cdots$. The logarithm blows up at $x=\pm1$, which is the signature of the singular points; the series converges only for $|x|<1$.
+
+### Example — Frobenius series about a regular singular point
+
+$$4xy''+2(1-x^2)y'-xy=0.\tag{$*$}$$
+$x=0$ is a regular singular point. Multiply $(*)$ by $x$ (for convenience):
+$$4x^2y''+2x(1-x^2)y'-x^2y=0.$$
+Try $y=\sum_{n=0}^\infty a_nx^{n+\sigma}$ ($a_0\ne0$):
+$$\sum_{n=0}^\infty a_nx^{n+\sigma}\Big(4(n+\sigma)(n+\sigma-1)+2(1-x^2)(n+\sigma)-x^2\Big)=0.$$
+
+- *Lowest power of $x$*, which determines $\sigma$: $x^\sigma$ ($n=0$):
+$$a_0\big(4\sigma(\sigma-1)+2\sigma\big)=0\ \Rightarrow\ 2a_0\sigma(2\sigma-1)=0,$$
+the **indicial equation**. Since $a_0\ne0$, $\sigma=0$ or $\frac12$.
+- *Next lowest power*, $x^{\sigma+1}$ ($n=1$):
+$$a_1\big(4(\sigma+1)\sigma+2(\sigma+1)\big)=0\ \Rightarrow\ 2a_1(\sigma+1)(2\sigma+1)=0.$$
+Since $\sigma$ is $0$ or $\frac12$, we must have $a_1=0$.
+- *$x^{n+\sigma}$ for $n\ge2$:*
+$$a_n\,4(n+\sigma)(n+\sigma-1)+2(n+\sigma)a_n-2a_{n-2}(n+\sigma-2)-a_{n-2}=0,$$
+$$\Rightarrow\quad2(n+\sigma)(2n+2\sigma-1)a_n=(2n+2\sigma-3)a_{n-2},\tag{$\dagger$}$$
+the recurrence relation.
+
+1. $\sigma=0$: $(\dagger)$ gives $a_n=\dfrac{2n-3}{2n(2n-1)}a_{n-2}$, so
+$$a_2=\frac1{4\times3}a_0,\qquad a_4=\frac5{8\times7}a_2=\frac{5\times1}{8\times7\times4\times3}a_0,\ \dots$$
+and $a_1=0$ gives $a_3=a_5=\dots=0$. So
+$$y_1=a_0\Big[1+\frac{x^2}{4\times3}+\frac{5x^4}{8\times7\times4\times3}+\cdots\Big]\qquad(\text{a Taylor series}).$$
+2. $\sigma=\frac12$: $(\dagger)$ gives $a_n=\dfrac{2(n-1)}{2n(2n+1)}a_{n-2}$, so
+$$a_2=\frac1{2\times5}a_0,\qquad a_4=\frac3{4\times9}a_2=\frac3{4\times9\times2\times5}a_0,\ \dots$$
+and again $a_1=a_3=a_5=\dots=0$. Writing $b_0$ for the leading coefficient of this second solution,
+$$y_2=b_0x^{1/2}\Big[1+\frac{x^2}{2\times5}+\frac{3x^4}{4\times9\times2\times5}+\cdots\Big]\qquad(\text{a Frobenius series}).$$
+
+**Note.** In this example we have found two independent solutions, but this is not generally the case.
+
+> [!note] Explanation
+> In the bracket, $2(1-x^2)(n+\sigma)$ and $-x^2$ carry an extra $x^2$, so their contribution to $x^{n+\sigma}$ comes from $a_{n-2}$, with $n+\sigma$ replaced by $n-2+\sigma$. That is why the recurrence links $a_n$ to $a_{n-2}$, and the odd coefficients vanish once $a_1=0$.
+
+## 7.3 Second solutions
+
+### Second solutions about a regular singular point
+
+We are guaranteed one series solution about a regular singular point $x_0$, but whether we get a second such solution depends on the roots $\sigma_1,\sigma_2$ of the indicial equation.
+
+1. **$\sigma_2-\sigma_1$ not an integer** $\Rightarrow$ two linearly independent solutions
+$$y_1=(x-x_0)^{\sigma_1}\sum_{n=0}^\infty a_n(x-x_0)^n,\qquad y_2=(x-x_0)^{\sigma_2}\sum_{n=0}^\infty b_n(x-x_0)^n.$$
+2. **$\sigma_2-\sigma_1$ a non-zero integer** $\Rightarrow$ one series solution, involving the larger root, say $\sigma_2$:
+$$y_1=(x-x_0)^{\sigma_2}\sum_{n=0}^\infty a_n(x-x_0)^n.$$
+The second solution has the form
+$$y_2=(x-x_0)^{\sigma_1}\sum_{n=0}^\infty b_n(x-x_0)^n+c\,y_1(x)\ln(x-x_0),$$
+where $c$ may or may not be zero. $c$ is determined in terms of $a_0$ and $b_0$, leaving two arbitrary constants ($a_0$ and $b_0$), as required.
+3. **$\sigma_1=\sigma_2=\sigma$**: as in case 2, but the $\ln$ term is always required, $c\ne0$.
+
+**Example (case 2).**
+$$x^2y''-xy=0.\tag{$*$}$$
+$x=0$ is a regular singular point. Try $y=\sum_{n=0}^\infty a_nx^{n+\sigma}$ ($a_0\ne0$):
+$$(*)\ \Rightarrow\ \sum_{n=0}^\infty\Big[a_n(n+\sigma)(n+\sigma-1)x^{n+\sigma}-a_nx^{n+\sigma+1}\Big]=0.$$
+- Lowest power is $x^\sigma$ ($n=0$): $a_0\sigma(\sigma-1)=0$ (indicial equation) $\Rightarrow\sigma_1=0$, $\sigma_2=1$. So $\sigma_2-\sigma_1=1$ is a non-zero integer (case 2).
+- For $n\ge1$: $a_n(n+\sigma)(n+\sigma-1)=a_{n-1}$.
+
+*$\sigma_2=1$ (larger root):*
+$$a_n=\frac{a_{n-1}}{n(n+1)}\ \Rightarrow\ a_n=\frac{a_0}{n!\,(n+1)!},\qquad\therefore\ y_1=a_0x\Big(1+\frac x2+\frac{x^2}{12}+\cdots\Big).$$
+*$\sigma_1=0$:* $a_nn(n-1)=a_{n-1}$, and $n=1$ gives $a_1\cdot0=a_0$, contradicting $a_0\ne0$. Therefore
+$$y_2=\sum_{n=0}^\infty b_nx^n+c\,y_1(x)\ln x$$
+is the second independent solution. Determine $\{b_n\}$ and $c$ by substituting into the ODE, or by the method of [[#Reduction of order|reduction of order]], or otherwise.
+
+**Example (case 3).** $(1-x^2)y''-2xy'+2y=0$. We found the series solution about $x=0$ [[#Example — series solution about an ordinary point|earlier]]. What about around $x=-1$? Substitute $z=1+x$ and expand about $z=0$ $\Rightarrow$ indicial equation $\sigma^2=0$, so $\sigma_1=\sigma_2=0$ (repeated root).
+
+> [!note] Explanation
+> With $x=z-1$, $1-x^2=z(2-z)$ and $-2x=2-2z$, so the equation becomes $z(2-z)y''+(2-2z)y'+2y=0$. Near $z=0$ the leading terms are $2zy''+2y'$; with $y\approx z^\sigma$ they give $2\sigma(\sigma-1)+2\sigma=2\sigma^2$, hence $\sigma^2=0$. By case 3 the second solution about $x=-1$ contains $\ln(1+x)$, matching the closed form found at $x=0$.
