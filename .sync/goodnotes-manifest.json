@@ -3509,7 +3509,8 @@
         "Pages 7-11: (1+x)^n example ('n(n-2)/2' read as n(n-1)/2), inclusion-exclusion (Thm 4), indicator remark, functions, injective/surjective/bijective, image/preimage, observations (stated for finite A, B; explanation notes they fail for infinite sets). Function arrow figure schematic.",
         "Infinite-set counterexamples a)-c) on p.11 replace the earlier explanatory remark.",
         "p.17: [y] subset [x] step written with w ~ y, y ~ x (source: y ~ w, x ~ y; same by symmetry).",
-        "Relations property table (1)-(5) checked."
+        "Relations property table (1)-(5) checked.",
+        "p.16: partition parts required to be non-empty (needed for the converse of Thm 5; review fix)."
       ],
       "unresolved_todos": [],
       "diagram_note": "Venn figure added. TikZ: left/right inverse diagrams (p.14). TikZ: overlapping classes and quotient map (pp.16-17).",

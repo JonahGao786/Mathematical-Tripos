@@ -14,7 +14,7 @@ tags: [concept, numbers-and-sets]
 
 - **Relation** $R\subseteq X\times X$, written $aRb$. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Definition — Relation|lecture]]
 - **Reflexive, symmetric, transitive.** → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Definition — Reflexive, symmetric, transitive|lecture]]
-- **Equivalence relation** (all three), **equivalence class** $[x]$, **partition** (pairwise disjoint parts with union $X$). → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Definition — Equivalence relation and equivalence class|lecture]]
+- **Equivalence relation** (all three), **equivalence class** $[x]$, **partition** (non-empty, pairwise disjoint parts with union $X$). → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Definition — Equivalence relation and equivalence class|lecture]]
 - **Quotient** $X/R=\{[x]:x\in X\}$ and **quotient map** $q:X\to X/R$. → [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Definition — Quotient and quotient map|lecture]]
 
 ## Key results

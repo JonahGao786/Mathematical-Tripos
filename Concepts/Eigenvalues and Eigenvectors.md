@@ -28,7 +28,7 @@ tags: [concept, vectors-and-matrices]
 
 - A map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, where $P$ has the new basis vectors (in old coordinates) as columns and $[\mathbf v]_{\text{old}}=P[\mathbf v]_{\text{new}}$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Definition — Change of basis matrix|lecture]] · [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Change between two arbitrary bases|lecture]]
 - $A$ and $B$ are **similar** if $B=P^{-1}AP$ with $P$ invertible; similarity is an equivalence relation. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Definition — Similar matrices|lecture]] · [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Proposition — Similarity is an equivalence relation|proof]]
-- Similar matrices share $\chi$, trace, det, $M_\lambda$ and $m_\lambda$; the converse fails ($I_2$ and a shear). → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Proposition — Quantities preserved by similarity|lecture]]
+- Similar matrices share $\chi$, trace, det, $M_\lambda$ and $m_\lambda$. Equal characteristic polynomials alone do not imply similarity: $I_2$ and a shear share $\chi=(1-t)^2$ but have $m_1=2$ and $m_1=1$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Proposition — Quantities preserved by similarity|lecture]]
 
 ## Diagonalisation
 

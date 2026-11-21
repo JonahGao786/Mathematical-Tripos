@@ -444,7 +444,7 @@ A relation $R$ is an **equivalence relation** if it is reflexive, symmetric and 
 **Example (6).** $X=\mathbb Z$ with $a\sim b$ if $a\equiv b\pmod 5$. This equivalence relation partitions $\mathbb Z$ into "pieces" consisting of related elements, namely
 $$\{x\in\mathbb Z:x\equiv0\pmod5\},\ \{x\in\mathbb Z:x\equiv1\pmod5\},\ \dots,\ \{x\in\mathbb Z:x\equiv4\pmod5\}.$$
 
-Given a set $X$, a **partition** of $X$ is a collection of pairwise disjoint subsets (called "parts") whose union is $X$.
+Given a set $X$, a **partition** of $X$ is a collection of non-empty, pairwise disjoint subsets (called "parts") whose union is $X$.
 
 If $\sim$ is an equivalence relation on $X$, then the **equivalence class** of $x\in X$ is
 $$[x]=\{y\in X:y\sim x\}.$$
