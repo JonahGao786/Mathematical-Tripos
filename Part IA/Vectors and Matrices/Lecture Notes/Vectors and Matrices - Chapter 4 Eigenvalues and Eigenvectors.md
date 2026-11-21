@@ -6,14 +6,14 @@ chapter: 4
 source_file: Ch.4 Eigenvalues and Eigenvectors.pdf
 drive_file_id: 1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6
 source_url: https://drive.google.com/file/d/1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6/view
-source_pages: 10
+source_pages: 14
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 4: Eigenvalues and Eigenvectors
 
 > [!abstract] Overview
-> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Finally eigenspaces $E_\lambda$ and the algebraic and geometric multiplicities of an eigenvalue.
+> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Then eigenspaces $E_\lambda$, algebraic and geometric multiplicities $M_\lambda\ge m_\lambda$, and the independence of eigenvectors for distinct eigenvalues. Finally diagonalisation: $A$ is diagonalisable iff $\chi_A$ splits and $m_\lambda=M_\lambda$ for every eigenvalue.
 > Prerequisite: [[Vectors and Matrices - Chapter 3 Matrices]] (determinants, trace, kernels).
 
 ## Results index
@@ -31,7 +31,14 @@ tags: [lecture, vectors-and-matrices]
 | [[#Definition — Similar matrices]] | $B=P^{-1}AP$, $P$ invertible | 9 |
 | [[#Proposition — Similarity is an equivalence relation]] | reflexive, symmetric, transitive | 9 |
 | [[#Definition — Eigenspace]] | $E_\lambda=\ker(A-\lambda I)$ | 10 |
-| [[#Definition — Algebraic and geometric multiplicity]] | root multiplicity in $\chi_A$; $m_\lambda=\dim E_\lambda=n-\operatorname{rank}(A-\lambda I)$ | 10 |
+| [[#Definition — Algebraic and geometric multiplicity]] | $M_\lambda$: root multiplicity in $\chi_A$; $m_\lambda=\dim E_\lambda=n-\operatorname{rank}(A-\lambda I)$ | 10 |
+| [[#Proposition — Quantities preserved by similarity]] | same $\chi$, trace, det, $M_\lambda$, $m_\lambda$; converse false ($I_2$ vs shear) | 10–11 |
+| [[#Proposition — Geometric multiplicity is at most algebraic multiplicity]] | $1\le m_\lambda\le M_\lambda$ | 11 |
+| [[#Definition — Defect]] | $\Delta_\lambda=M_\lambda-m_\lambda\ge0$ | 11 |
+| [[#Theorem — Eigenvectors for distinct eigenvalues are independent]] | bases of distinct eigenspaces together are independent | 11–12 |
+| [[#4.3.2 Examples and geometric interpretations]] | $\Delta=0$, $\Delta_{-2}=1$, $\Delta_4=2$ examples | 12–13 |
+| [[#Proposition — Diagonalisable matrices]] | basis of eigenvectors $\iff P^{-1}AP=D$ | 14 |
+| [[#Theorem — Criterion for diagonalisation]] | $\chi_A$ splits and $m_\lambda=M_\lambda$ for all $\lambda$ | 14 |
 
 ## 4.1 Eigenvalues and the characteristic polynomial
 
@@ -223,9 +230,109 @@ The non-zero elements of $E_\lambda$ are the eigenvectors of $\lambda$.
 
 ### Definition — Algebraic and geometric multiplicity
 
-- The **algebraic multiplicity** of $\lambda$ is the multiplicity of $\lambda$ as a root of $\chi_A$.
+- The **algebraic multiplicity** $M_\lambda$ of $\lambda$ is the multiplicity of $\lambda$ as a root of $\chi_A$.
 - The **geometric multiplicity** of $\lambda$ is the dimension of $E_\lambda$:
 $$m_\lambda:=\dim E_\lambda=n-\operatorname{rank}(A-\lambda I).$$
 
 > [!note] Explanation
 > The second equality is the rank–nullity theorem applied to $A-\lambda I$: $\dim\ker+\operatorname{rank}=n$.
+
+### Proposition — Quantities preserved by similarity
+
+Similar matrices have the same characteristic polynomial, trace and determinant. For each eigenvalue, they also have the same algebraic and geometric multiplicities.
+
+**Proof (idea).** If $B=P^{-1}AP$, then
+$$B-tI=P^{-1}AP-tP^{-1}P=P^{-1}(A-tI)P,$$
+so
+$$\underbrace{\det(B-tI)}_{\chi_B(t)}=\det\big(P^{-1}(A-tI)P\big)=\det(P^{-1})\underbrace{\det(A-tI)}_{\chi_A(t)}\det(P)=\chi_A(t).$$
+
+> [!note] Explanation
+> The rest follows from $\chi_B=\chi_A$ and $B-\lambda I=P^{-1}(A-\lambda I)P$. The trace and determinant are, up to sign, coefficients of $\chi$ (they are the sum and product of its roots, by the [[#Proposition — Trace and determinant from eigenvalues|earlier proposition]]), and the algebraic multiplicities are multiplicities of its roots. For the geometric multiplicity: $(B-\lambda I)\mathbf v=\mathbf 0\iff(A-\lambda I)P\mathbf v=\mathbf 0$, so $\mathbf v\mapsto P\mathbf v$ maps $E_\lambda(B)$ bijectively onto $E_\lambda(A)$ ($P$ is invertible), and the two eigenspaces have the same dimension.
+
+**Remark.** The converse is false: equality of the characteristic polynomials does not imply similarity.
+
+**Example ($\mathbb R^{2\times2}$): identity and shear.**
+$$I_2=\begin{pmatrix}1&0\\0&1\end{pmatrix},\qquad S_\lambda=\begin{pmatrix}1&\lambda\\0&1\end{pmatrix},\quad\lambda\ne0.$$
+Both have characteristic polynomial $(1-t)^2$, but they are not similar: $P^{-1}I_2P=M\Rightarrow M=I_2$ for any invertible $P$.
+
+**Remark.** The sum of the algebraic multiplicities is $n$ over $\mathbb C$, by the [[Fundamental Theorem of Algebra]]; also over $\mathbb R$ if all roots of $\chi_A$ are real.
+
+### Proposition — Geometric multiplicity is at most algebraic multiplicity
+
+For every eigenvalue $\lambda\in\mathbb F$,
+$$1\le m_\lambda\le M_\lambda.$$
+
+### Definition — Defect
+
+The **defect** of an eigenvalue $\lambda$ is
+$$\Delta_\lambda:=M_\lambda-m_\lambda\ge0.$$
+An eigenvalue with algebraic multiplicity $1$ necessarily has a one-dimensional eigenspace.
+
+### 4.3.1 Independent eigenvectors from different eigenspaces
+
+### Theorem — Eigenvectors for distinct eigenvalues are independent
+
+Eigenvectors corresponding to distinct eigenvalues are linearly independent. More generally, the union of a basis from each of several distinct eigenspaces is linearly independent.
+
+**Proof (idea, two eigenvectors).** Let $\lambda_1\ne\lambda_2$, and let $\mathbf v_1,\mathbf v_2\ne\mathbf 0$ be eigenvectors associated to $\lambda_1,\lambda_2$ respectively. Suppose $\mathbf v_1,\mathbf v_2$ are linearly dependent:
+$$a_1\mathbf v_1+a_2\mathbf v_2=\mathbf 0\qquad\text{for some }a_1,a_2\text{ not both }0.$$
+Then $a_2\ne0$ (otherwise $a_1\mathbf v_1=\mathbf 0$ with $a_1\ne0$). Apply $A-\lambda_1I$:
+$$(A-\lambda_1I)(a_1\mathbf v_1+a_2\mathbf v_2)=a_2(\lambda_2-\lambda_1)\mathbf v_2=\mathbf 0\ \Rightarrow\ \lambda_1=\lambda_2,$$
+a contradiction.
+
+> [!note] Explanation
+> For $k$ eigenvectors with distinct eigenvalues, the same idea works by induction on $k$. Take a shortest dependence $\sum_ia_i\mathbf v_i=\mathbf 0$ with every $a_i\ne0$ and apply $A-\lambda_1I$. This kills the $\mathbf v_1$ term and leaves $\sum_{i\ge2}a_i(\lambda_i-\lambda_1)\mathbf v_i=\mathbf 0$, a shorter dependence with non-zero coefficients, which contradicts minimality. For the version with bases: in a dependence among the basis vectors, group the terms by eigenspace. Each group is a vector in $E_{\lambda_i}$, and these vectors sum to $\mathbf 0$. By the first part, every group is $\mathbf 0$, and then each group's coefficients vanish because they come from a basis.
+
+Consequently,
+$$\dim\operatorname{span}(\text{all eigenvectors})=\sum_\lambda m_\lambda,$$
+and each vector in the span has a unique decomposition as a sum of vectors from the distinct eigenspaces.
+
+### 4.3.2 Examples and geometric interpretations
+
+**Example.**
+$$A=\begin{pmatrix}-2&2&-3\\2&1&-6\\-1&-2&0\end{pmatrix},\qquad\chi_A(t)=\det(A-tI)=(5-t)(t+3)^2.$$
+- $\lambda=5$: $M_5=1=m_5$. Solving $(A-5I)\mathbf v=\mathbf 0$,
+$$\begin{pmatrix}-7&2&-3\\2&-4&-6\\-1&-2&-5\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}0\\0\\0\end{pmatrix}\ \Rightarrow\ \begin{cases}y=2x,\\x=-z,\end{cases}\qquad E_5=\operatorname{span}\{(1,2,-1)^{\mathsf T}\}.$$
+- $\lambda=-3$: $M_{-3}=2$, so $m_{-3}$ is $1$ or $2$. Solving
+$$\begin{pmatrix}1&2&-3\\2&4&-6\\-1&-2&3\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}0\\0\\0\end{pmatrix}\ \Rightarrow\ x+2y-3z=0,$$
+$$E_{-3}=\operatorname{span}\{(3,0,1)^{\mathsf T},(-2,1,0)^{\mathsf T}\},$$
+so $m_{-3}=2$: the eigenspace is the plane $x+2y-3z=0$.
+
+**Example.**
+$$B=\begin{pmatrix}-3&-1&1\\-1&-3&1\\-2&-2&0\end{pmatrix},\qquad\chi_B(t)=-(t+2)^3.$$
+For $\lambda=-2$, every row of $B+2I$ reduces to $z=x+y$, so
+$$E_{-2}=\operatorname{span}\{(1,0,1)^{\mathsf T},(0,1,1)^{\mathsf T}\},\qquad M_{-2}=3,\ m_{-2}=2,\ \Delta_{-2}=1.$$
+
+**Example.**
+$$J=\begin{pmatrix}4&1&0\\0&4&1\\0&0&4\end{pmatrix},\qquad\chi_J(t)=(4-t)^3.$$
+$(J-4I)\mathbf v=\mathbf 0\Rightarrow y=0,\ z=0$, so $E_4=\operatorname{span}\{\mathbf e_1\}$ and
+$$M_4=3,\qquad m_4=1,\qquad\Delta_4=2.$$
+
+## 4.4 Diagonalisation
+
+### Proposition — Diagonalisable matrices
+
+For $A\in\mathbb F^{n\times n}$, the following are equivalent:
+1. $\mathbb F^n$ has a basis of eigenvectors $\{\mathbf v_1,\dots,\mathbf v_n\}$ of $A$;
+2. there is an invertible $P\in\mathbb F^{n\times n}$ such that $P^{-1}AP=D=\operatorname{diag}(\lambda_1,\dots,\lambda_n)$.
+
+If these hold, $A$ is **diagonalisable** over $\mathbb F$.
+
+**Remark.** In
+$$D=\begin{pmatrix}\lambda_1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\lambda_n\end{pmatrix},$$
+$\lambda_1,\dots,\lambda_n$ are the eigenvalues of $A$. The order of the columns of $P$ must agree with the order of the corresponding eigenvalues in $D$.
+
+> [!note] Explanation
+> $P^{-1}AP=D\iff AP=PD$. The $j$th column of $AP$ is $A\mathbf v_j$ and the $j$th column of $PD$ is $\lambda_j\mathbf v_j$, where $\mathbf v_j$ is the $j$th column of $P$. So $P^{-1}AP=D$ says exactly that each column $\mathbf v_j$ is an eigenvector with eigenvalue $\lambda_j$. $P$ is invertible exactly when its columns form a basis.
+
+### Theorem — Criterion for diagonalisation
+
+A matrix $A\in\mathbb F^{n\times n}$ is diagonalisable over $\mathbb F$ if and only if $\chi_A$ splits into linear factors over $\mathbb F$ and $m_\lambda=M_\lambda$ for every eigenvalue $\lambda$.
+
+**Remarks.**
+- Over $\mathbb C$ the splitting condition is automatic; over $\mathbb R$ we need the roots to be real.
+- If $A$ has $n$ distinct eigenvalues, then $A$ is diagonalisable.
+- If a diagonalisable matrix $A$ has only one eigenvalue $\lambda$, then $A=\lambda I$.
+
+> [!note] Explanation
+> Why the criterion holds: by the [[#Theorem — Eigenvectors for distinct eigenvalues are independent|theorem above]], joining bases of the eigenspaces gives $\sum_\lambda m_\lambda$ independent eigenvectors. Also $\sum_\lambda m_\lambda\le\sum_\lambda M_\lambda\le n$, with equality throughout exactly when $\chi_A$ splits and $m_\lambda=M_\lambda$ for every $\lambda$. With $n$ distinct eigenvalues, every $M_\lambda=1$, which forces $m_\lambda=1$. With a single eigenvalue, $P^{-1}AP=\lambda I$ gives $A=P(\lambda I)P^{-1}=\lambda I$. So the shear $S_\lambda$ and $J$ above are not diagonalisable, and neither is $B$.

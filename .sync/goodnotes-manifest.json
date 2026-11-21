@@ -3496,7 +3496,8 @@
       "markdown_paths": [
         "Part IA/Numbers and Sets/Lecture Notes/Numbers and Sets - Chapter 3 Sets, Functions and Relations.md",
         "Concepts/Sets and Set Operations.md",
-        "Concepts/Binomial Coefficients.md"
+        "Concepts/Binomial Coefficients.md",
+        "Concepts/Equivalence Relations.md"
       ],
       "material_type": "lecture notes",
       "course": "Part IA Numbers and Sets",
@@ -3506,14 +3507,16 @@
         "Venn diagram for union/intersection/difference added (not in source).",
         "Pages 3-7: Russell's paradox, finite sets, Prop 1 (two proofs), binomial coefficients, Prop 2, Thm 3. p.7 final sum 'a^n b^{n-k}' normalized to a^{n-k} b^k; Pascal's triangle drawn with the missing '1 1' row.",
         "Pages 7-11: (1+x)^n example ('n(n-2)/2' read as n(n-1)/2), inclusion-exclusion (Thm 4), indicator remark, functions, injective/surjective/bijective, image/preimage, observations (stated for finite A, B; explanation notes they fail for infinite sets). Function arrow figure schematic.",
-        "Infinite-set counterexamples a)-c) on p.11 replace the earlier explanatory remark."
+        "Infinite-set counterexamples a)-c) on p.11 replace the earlier explanatory remark.",
+        "p.17: [y] subset [x] step written with w ~ y, y ~ x (source: y ~ w, x ~ y; same by symmetry).",
+        "Relations property table (1)-(5) checked."
       ],
       "unresolved_todos": [],
-      "diagram_note": "Venn figure added. TikZ: left/right inverse diagrams (p.14).",
-      "observed_source_modified_timestamp": "2026-11-19T11:57:17.374Z",
-      "processed_source_modified_timestamp": "2026-11-19T11:57:17.374Z",
-      "total_page_count": 15,
-      "visually_inspected_pages": "pp.11-15 (2026-11-19); pp.1-10 matched baseline hashes",
+      "diagram_note": "Venn figure added. TikZ: left/right inverse diagrams (p.14). TikZ: overlapping classes and quotient map (pp.16-17).",
+      "observed_source_modified_timestamp": "2026-11-21T17:26:45.187Z",
+      "processed_source_modified_timestamp": "2026-11-21T17:26:45.187Z",
+      "total_page_count": 18,
+      "visually_inspected_pages": "pp.15-18 (2026-11-21); pp.1-14 matched baseline hashes",
       "page_hashes": [
         "a23bd60065476af87766",
         "3e1c1dc6179a52be0820",
@@ -3529,11 +3532,14 @@
         "f8c9f5b5ad3231bf8842",
         "1f543c288fe9645a9805",
         "6db14af011a6f3dcb95e",
-        "af39dff07b18aee1791f"
+        "5d8897dd0b8c327e5986",
+        "b7b78044b6883138665f",
+        "72ade6813b9c73f936d1",
+        "7ad21e78555efe2ecaa9"
       ],
-      "source_sha256": "a935c01f905b5688e57ee8c237dda36e27f2c6a07d5678c91952ca546b02a10f",
-      "source_size_bytes": 3654219,
-      "last_successful_processing_at": "2026-11-19",
+      "source_sha256": "f69798f8d911f4c3ba6d220ed0f251a5e3ddd3af3b35c24b8a41dede858a8526",
+      "source_size_bytes": 4462375,
+      "last_successful_processing_at": "2026-11-21",
       "status": "processed"
     },
     "1HbJG7sgn41dEBzVvy_WrH_2_0PF8Gjf0": {
@@ -3598,14 +3604,20 @@
         "p.8: inner sum written P_ij y_i read as P_ij y_j.",
         "p.9: symmetry step A = Q^{-1} B Q^{-1} read as A = Q^{-1} B Q (Q = P^{-1}).",
         "p.8: unlabelled relation [v]_B = P[v]_C tagged (2) to match the source reference (*2).",
-        "Change-of-basis examples checked numerically (P = S_B^{-1} S_C)."
+        "Change-of-basis examples checked numerically (P = S_B^{-1} S_C).",
+        "p.11: algebraic multiplicity notation M_lambda introduced in source; added to the definition on p.10.",
+        "p.12: 'a1 v1 + a2 v2 = 0 for a1 != a2' read as 'a1, a2 not both zero'.",
+        "p.13: '2 = x + y' for B + 2I read as z = x + y.",
+        "p.14: 'If a diag. matrix has only one eigenvalue' read as diagonalisable.",
+        "p.10, p.12: references to proofs in the printed notes replaced by short explanation callouts.",
+        "Characteristic polynomials and eigenspaces of A, B checked numerically."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: vector v against the standard and the new basis (p.7).",
-      "observed_source_modified_timestamp": "2026-11-19T11:57:29.529Z",
-      "processed_source_modified_timestamp": "2026-11-19T11:57:29.529Z",
-      "total_page_count": 10,
-      "visually_inspected_pages": "pp.6-10 (2026-11-19); pp.1-5 matched baseline hashes",
+      "observed_source_modified_timestamp": "2026-11-21T17:27:05.945Z",
+      "processed_source_modified_timestamp": "2026-11-21T17:27:05.945Z",
+      "total_page_count": 14,
+      "visually_inspected_pages": "pp.10-14 (2026-11-21); pp.1-9 matched baseline hashes",
       "page_hashes": [
         "ff554edab589601a361a",
         "f738cce5a36585915a88",
@@ -3616,28 +3628,61 @@
         "963e64336a40cdc4af7b",
         "cdaac94cacaa8ce276a3",
         "e5a1356ed2ea8d56d3b9",
-        "268a7a956225aff6f162"
+        "e5f99437128443079612",
+        "561d511c0a7620cdae12",
+        "b28839f8441975b11ff9",
+        "e6a08a5fda58ff2c2f14",
+        "b2424260e953f429b17b"
       ],
-      "source_sha256": "e8f0e9bee98f532860b9a83743be5b104a91b56822ec96ab53c28e4305eea1e6",
-      "source_size_bytes": 1820192,
-      "last_successful_processing_at": "2026-11-19",
+      "source_sha256": "64b51f0ce4f786c370fcee181f8af5b20f8e8ae76999a098c338d30a3341a47b",
+      "source_size_bytes": 2771248,
+      "last_successful_processing_at": "2026-11-21",
+      "status": "processed"
+    },
+    "1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh": {
+      "drive_file_id": "1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh",
+      "source_file_name": "Ch4. Countability.pdf",
+      "source_url": "https://drive.google.com/file/d/1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh/view?usp=drivesdk",
+      "drive_folder_path": "GoodNotes/Part IA/Numbers and Sets",
+      "markdown_paths": [
+        "Part IA/Numbers and Sets/Lecture Notes/Numbers and Sets - Chapter 4 Countability.md",
+        "Concepts/Countable Sets.md"
+      ],
+      "material_type": "lecture notes",
+      "course": "Part IA Numbers and Sets",
+      "classification": "study_material",
+      "normalizations": [
+        "Lemma 1 stated only; source page ends before its proof."
+      ],
+      "unresolved_todos": [],
+      "diagram_note": "TikZ: zig-zag listing of Z (p.1).",
+      "page_hashes": [
+        "b96303e52b203c9ab686"
+      ],
+      "observed_source_modified_timestamp": "2026-11-21T17:26:48.293Z",
+      "processed_source_modified_timestamp": "2026-11-21T17:26:48.293Z",
+      "total_page_count": 1,
+      "visually_inspected_pages": "p.1 (all, 2026-11-21)",
+      "source_sha256": "91fd8b25f71989f375ae119e1921fff5974f6ce2fb13be023f2cdcf3bb352d62",
+      "source_size_bytes": 214161,
+      "last_successful_processing_at": "2026-11-21",
       "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-20",
-    "completed_at": "2026-11-20T18:00:00Z",
+    "date": "2026-11-21",
+    "completed_at": "2026-11-21T18:30:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 0,
-    "modified_source_count": 3,
+    "new_source_count": 1,
+    "modified_source_count": 2,
     "processed_source_count": 3,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; pagediff.py selected pages: Groups Ch.3 p.14, Groups Ch.7 pp.9-12, DE Ch.5 pp.37-41; others matched baseline hashes.",
+    "reading_method": "Service-account download; new N&S Ch.4 viewed in full (1 page); pagediff.py selected N&S Ch.3 pp.15-18, V&M Ch.4 pp.10-14; others matched baseline hashes.",
     "visually_inspected_page_count": 10,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-20"
+    "commit_message": "notes: process Goodnotes files from 2026-11-21"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

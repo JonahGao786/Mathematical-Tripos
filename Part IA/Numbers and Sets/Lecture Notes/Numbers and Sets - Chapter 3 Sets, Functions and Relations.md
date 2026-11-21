@@ -6,14 +6,14 @@ chapter: 3
 source_file: Ch.3 Sets, Functions - Relations.pdf
 drive_file_id: 1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ
 source_url: https://drive.google.com/file/d/1iMCFeTADIaJQqZXQzoe5nH-xhyhu1dEZ/view
-source_pages: 15
+source_pages: 18
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 3: Sets, Functions and Relations
 
 > [!abstract] Overview
-> The basic language of sets: membership, equality, subsets, set-builder notation, union, intersection and difference, the distributive laws, unions and intersections of families of sets, ordered pairs and Cartesian products, and power sets. Russell's paradox shows why sets must be built from known sets. Then finite sets: a set of size $n$ has $2^n$ subsets, binomial coefficients, Pascal's triangle and the binomial theorem, and the inclusion–exclusion principle. Then functions: injective, surjective and bijective maps, image and preimage, composition, and inverses (invertible $\iff$ bijective). Finally, relations.
+> The basic language of sets: membership, equality, subsets, set-builder notation, union, intersection and difference, the distributive laws, unions and intersections of families of sets, ordered pairs and Cartesian products, and power sets. Russell's paradox shows why sets must be built from known sets. Then finite sets: a set of size $n$ has $2^n$ subsets, binomial coefficients, Pascal's triangle and the binomial theorem, and the inclusion–exclusion principle. Then functions: injective, surjective and bijective maps, image and preimage, composition, and inverses (invertible $\iff$ bijective). Finally, relations: equivalence relations, equivalence classes and partitions, and quotients.
 > Prerequisite: [[Logical Connectives and Quantifiers]].
 
 ## Results index
@@ -44,6 +44,10 @@ tags: [lecture, numbers-and-sets]
 | [[#Definition — Invertible function]] | $g\circ f=\mathrm{id}_A$ and $f\circ g=\mathrm{id}_B$; inverse $f^{-1}$ | 13–14 |
 | [[#Theorem — Left and right inverses]] | left inverse $\iff$ injective, right inverse $\iff$ surjective; invertible $\iff$ bijective | 13–14 |
 | [[#Definition — Relation]] | $R\subseteq X\times X$, $aRb$ | 15 |
+| [[#Definition — Reflexive, symmetric, transitive]] | $xRx$; $xRy\Rightarrow yRx$; $xRy,yRz\Rightarrow xRz$ | 15 |
+| [[#Definition — Equivalence relation and equivalence class]] | reflexive + symmetric + transitive; $[x]=\{y:y\sim x\}$; partition | 16 |
+| [[#Theorem 5 — Equivalence classes partition X]] | classes are disjoint or equal; partitions $\leftrightarrow$ equivalence relations | 16–17 |
+| [[#Definition — Quotient and quotient map]] | $X/R=\{[x]\}$, $q:x\mapsto[x]$; $\mathbb Z/5\mathbb Z$; $\mathbb Q$ from $\mathbb Z\times\mathbb N$ | 17–18 |
 
 ## 3.1 Sets
 
@@ -414,3 +418,107 @@ A **relation** on a set $X$ is a subset $R\subseteq X\times X$. We usually write
 3. $aRb$ if $a\ne b$.
 4. $aRb$ if $a=b=1$.
 5. $aRb$ if $|a-b|\le3$.
+
+### Definition — Reflexive, symmetric, transitive
+
+There are three properties a relation $R$ on $X$ might satisfy that are of special interest:
+- $R$ is **reflexive** if $\forall x\in X$, $xRx$;
+- $R$ is **symmetric** if $\forall x,y\in X$, $xRy\Rightarrow yRx$;
+- $R$ is **transitive** if $\forall x,y,z\in X$, $xRy$ and $yRz\Rightarrow xRz$.
+
+**Example.** For the relations (1)–(5) above:
+
+|  | (1) | (2) | (3) | (4) | (5) |
+| --- | --- | --- | --- | --- | --- |
+| reflexive | ✓ | ✓ | ✗ | ✗ | ✓ |
+| symmetric | ✓ | ✗ | ✓ | ✓ | ✓ |
+| transitive | ✓ | ✓ | ✗ | ✓ | ✗ |
+
+> [!note] Explanation
+> A few of the ✗'s: (2) is not symmetric since $1\mid2$ but $2\nmid1$. (3) is not transitive since $1\ne2$ and $2\ne1$ but not $1\ne1$. (4) is not reflexive since $2R2$ fails. (5) is not transitive since $1R4$ and $4R7$ but $|1-7|=6>3$.
+
+### Definition — Equivalence relation and equivalence class
+
+A relation $R$ is an **equivalence relation** if it is reflexive, symmetric and transitive. We often write $a\sim b$ for $aRb$. So (1) is an equivalence relation.
+
+**Example (6).** $X=\mathbb Z$ with $a\sim b$ if $a\equiv b\pmod 5$. This equivalence relation partitions $\mathbb Z$ into "pieces" consisting of related elements, namely
+$$\{x\in\mathbb Z:x\equiv0\pmod5\},\ \{x\in\mathbb Z:x\equiv1\pmod5\},\ \dots,\ \{x\in\mathbb Z:x\equiv4\pmod5\}.$$
+
+Given a set $X$, a **partition** of $X$ is a collection of pairwise disjoint subsets (called "parts") whose union is $X$.
+
+If $\sim$ is an equivalence relation on $X$, then the **equivalence class** of $x\in X$ is
+$$[x]=\{y\in X:y\sim x\}.$$
+E.g. in (1), $[376]=\{\text{all natural numbers ending in }6\}$; in (6), $[12]=\{y\in\mathbb Z:y\equiv2\pmod5\}$.
+
+### Theorem 5 — Equivalence classes partition X
+
+Let $\sim$ be any equivalence relation on $X$. Then the equivalence classes form a partition of $X$.
+
+**Proof.** Since $\sim$ is reflexive, $x\in[x]$ for all $x\in X$. Thus $\bigcup_{x\in X}[x]=X$.
+
+It remains to show that for all $x,y\in X$, either $[x]\cap[y]=\varnothing$ or $[x]=[y]$. Suppose $[x]\cap[y]\ne\varnothing$, and let $z\in[x]\cap[y]$. Then $z\sim x$, so by symmetry $x\sim z$; and $z\sim y$. Then by transitivity, $x\sim y$.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,0) ellipse (2.2 and 1.2); \node at (2.3,0.9) {$X$};
+  \draw[blue] (-0.55,0) circle (0.75); \draw[blue] (0.45,-0.05) circle (0.75);
+  \node[blue] at (-1.05,0.85) {\small$[x]$}; \node[blue] at (1.1,0.8) {\small$[y]$};
+  \fill (-0.85,0) circle (1.2pt) node[below] {\small$x$};
+  \fill (-0.05,0) circle (1.2pt) node[below] {\small$z$};
+  \fill (0.75,0.05) circle (1.2pt) node[below] {\small$y$};
+\end{tikzpicture}
+\end{document}
+```
+*If the classes $[x]$ and $[y]$ share a point $z$, then $x\sim z\sim y$, and the two classes turn out to be equal.*
+
+We want to prove $[y]\subseteq[x]$. Let $w\in[y]$, so $w\sim y$. Since $y\sim x$ (by symmetry), transitivity gives $w\sim x$. Thus $w\in[x]$.
+
+Hence if $[x]\cap[y]\ne\varnothing$, then $[y]\subseteq[x]$; similarly $[x]\subseteq[y]$. So $[x]=[y]$.
+
+**Conversely**, given any partition of $X$, there is an equivalence relation $R$ whose equivalence classes are precisely the parts of the partition: just define $aRb$ if $a$ and $b$ lie in the same part.
+
+This is a useful viewpoint. E.g. it is now easy to see that there is an equivalence relation on $\mathbb N$ with $3$ equivalence classes, of which one is infinite and two are finite: simply take a partition of $\mathbb N$ with this property.
+
+> [!note] Explanation
+> For example, the parts $\{1\}$, $\{2\}$ and $\{3,4,5,\dots\}$ give such a relation: $aRb$ exactly when $a=b$, or when $a,b\ge3$.
+
+### Definition — Quotient and quotient map
+
+Given an equivalence relation $R$ on a set $X$, the **quotient of $X$ by $R$** is
+$$X/R=\{[x]:x\in X\}.$$
+The map
+$$q:X\to X/R,\qquad x\mapsto[x]$$
+is the **quotient map** (or projection map).
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw (0,0) ellipse (1.6 and 1.1); \node at (1.6,1.1) {$X$};
+  \draw (-1.25,0.7) .. controls (-0.6,0.2) .. (-0.9,-0.8);
+  \draw (0.1,1.1) .. controls (0.3,0) .. (0.05,-1.1);
+  \draw (0.4,0.2) -- (1.55,0.3);
+  \fill[red] (-0.25,-0.1) circle (1.2pt) node[left] {\small$a$};
+  \fill[red] (-0.15,-0.45) circle (1.2pt) node[left] {\small$b$};
+  \begin{scope}[xshift=5.2cm]
+    \draw[blue] (0,0) ellipse (0.7 and 1.1); \node[blue] at (0.1,1.35) {$X/R$};
+    \fill[red] (0,-0.1) circle (1.2pt) node[below] {\small$[a]=[b]$};
+  \end{scope}
+  \draw[red,->] (0.05,-0.2) to[bend left=25] node[above] {$q$} (5.1,-0.05);
+\end{tikzpicture}
+\end{document}
+```
+*Left: a partition of $X$ into parts; $a$ and $b$ lie in the same part, so $aRb$. Right: $q$ sends every point of a part to that part, viewed as a single element of $X/R$.*
+
+**Examples.**
+- In (1), $X/R=\{[0],[1],\dots,[9]\}$ has size $10$.
+- In (6), $X/R$ has size $5$. In fact, this explains why we sometimes write $\mathbb Z/5\mathbb Z$ instead of $\mathbb Z_5$.
+- On $\mathbb Z\times\mathbb N$, define $(a,b)R(c,d)$ if $ad=bc$. It is easy to see that $R$ is an equivalence relation. So we have
+$$[(1,2)]=\{(1,2),(2,4),(3,6),\dots\}.$$
+So we could regard $(\mathbb Z\times\mathbb N)/R$ as a copy of $\mathbb Q$, by identifying $[(a,b)]$ with $\frac ab\in\mathbb Q$. The quotient map is then
+$$q:\mathbb Z\times\mathbb N\to(\mathbb Z\times\mathbb N)/R,\qquad(a,b)\mapsto\frac ab.$$
+
+> [!note] Explanation
+> Transitivity of $ad=bc$: if $(a,b)R(c,d)$ and $(c,d)R(e,f)$, then $adf=bcf=bde$, and cancelling $d\ne0$ gives $af=be$. Since $b,d\in\mathbb N$ are non-zero, $(a,b)R(c,d)$ says exactly that $\frac ab=\frac cd$.
