@@ -36,6 +36,7 @@ tags: [concept, groups]
 - Trivial action; $\operatorname{Sym}(X)$ and its subgroups act on $X$; $\operatorname{Isom}(X)$ acts on $X\subseteq\mathbb C$; $D_{2n}$ acts on the regular $n$-gon and on its vertices $\{z:z^n=1\}$.
 - **Regular action:** $G$ acts on itself by $g\gamma=g\cdot\gamma$.
 - $D_{2n}$ acting on the vertex $1$ of $X_n$: stabiliser $\{e,s\}$, orbit of size $n$.
+- **Conjugation of matrices:** $GL_n(\mathbb R)$ acts on $M_n(\mathbb R)$ by $P\cdot A=PAP^{-1}$; the orbit of a matrix of $\alpha$ is the set of matrices of $\alpha$ in all bases (Prop 8.5). → [[Groups - Chapter 8 Matrices#Proposition 8.5 — Orbits under conjugation are changes of basis|proof]]
 
 ## Related
 

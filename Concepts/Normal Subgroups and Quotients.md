@@ -22,6 +22,8 @@ tags: [concept, groups]
 - **Examples of quotients:** $\mathbb Z/n\mathbb Z\cong C_n$; an index-$2$ subgroup is automatically normal with quotient $C_2$ (e.g. $D_{2n}/C_n$); $Q_8/\langle\pm1\rangle\cong C_2\times C_2$. Warning: $A/B\cong C$ does not give $A\cong B\times C$ ($C_4$ vs $K_4$). → [[Groups - Chapter 6 Quotients#Definition 6.4 — Quotient of G by H|lecture]]
 - **Theorem 6.5 — Isomorphism theorem.** $G/\ker\varphi\cong\operatorname{Im}\varphi$ via $g\ker\varphi\mapsto\varphi(g)$: "quotient groups are images", e.g. $\mathbb R/\mathbb Z\cong U(1)$. → [[Groups - Chapter 6 Quotients#Theorem 6.5 — Isomorphism theorem|proof]]
 - **Simple groups** have no normal subgroups except $1$, $G$; every homomorphism out of one is trivial or injective; $C_p$ is simple. → [[Groups - Chapter 6 Quotients#Definition 6.6 — Simple group|lecture]]
+- **Theorem 7.15.** $A_5$ is simple: its classes have sizes $1,20,15,12,12$, a normal subgroup is a union of classes containing $e$, and the only such sums dividing $60$ are $1$ and $60$. → [[Groups - Chapter 7 Permutations#Theorem 7.15 — A_5 is simple|proof]]
+- $SL_n(\mathbb R)=\ker(\det)\trianglelefteq GL_n(\mathbb R)$ and $GL_n(\mathbb R)/SL_n(\mathbb R)\cong\mathbb R^\times$ (also over $\mathbb C$). → [[Groups - Chapter 8 Matrices#Definition 8.4 — Special linear group|lecture]]
 
 ## Related
 

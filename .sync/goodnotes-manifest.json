@@ -3561,14 +3561,17 @@
         "p.10 (*): factor 2 restored, |ccl_Sn| = 2|C_An|/|C_Sn| |ccl_An| (consistent with the following lines).",
         "p.11: (tau alpha) sigma (tau alpha)^{-1} = sigma read as (tau^{-1} alpha) sigma (tau^{-1} alpha)^{-1} = sigma.",
         "p.12: heading 'E.g. conjugacy in A5' has no content yet; omitted.",
-        "S4, A4, S5 class/centraliser tables verified by enumeration."
+        "S4, A4, S5 class/centraliser tables verified by enumeration.",
+        "p.12 re-rendered (A5 heading moved to p.13); content already in note.",
+        "p.13: 'By ES3 Q5' (normal subgroup is a union of classes) explained in a callout.",
+        "A5 class sizes and the 12 subset sums for Thm 7.15 checked."
       ],
       "unresolved_todos": [],
       "diagram_note": "No diagrams in source.",
-      "observed_source_modified_timestamp": "2026-11-20T16:52:01.318Z",
-      "processed_source_modified_timestamp": "2026-11-20T16:52:01.318Z",
-      "total_page_count": 12,
-      "visually_inspected_pages": "pp.9-12 (2026-11-20); pp.1-8 matched baseline hashes",
+      "observed_source_modified_timestamp": "2026-11-23T13:11:45.412Z",
+      "processed_source_modified_timestamp": "2026-11-23T13:11:45.412Z",
+      "total_page_count": 14,
+      "visually_inspected_pages": "pp.12-14 (2026-11-23); pp.1-11 matched baseline hashes",
       "page_hashes": [
         "63b2463834a2c7fc8ca1",
         "92cbd614552f192a12c0",
@@ -3581,11 +3584,13 @@
         "4516967e8f4a1c5be38a",
         "faa0206f658a167ad801",
         "ee8fb435c51b22c6000a",
-        "b625c96a46ca18e20055"
+        "9eb02d407828a0a99963",
+        "6d9137c87ae5bb7c1ff0",
+        "2dbc660e2f7b6cf28157"
       ],
-      "source_sha256": "aca5e73246345a25162313d2eb6c18db170846f1bf914e429d16748a5fe5bab9",
-      "source_size_bytes": 2530244,
-      "last_successful_processing_at": "2026-11-20",
+      "source_sha256": "6d8452d390d1d00a383b6653d5bfc7532b940060383ec4b633506b00772ceb4f",
+      "source_size_bytes": 2804010,
+      "last_successful_processing_at": "2026-11-23",
       "status": "processed"
     },
     "1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6": {
@@ -3668,22 +3673,85 @@
       "source_size_bytes": 214161,
       "last_successful_processing_at": "2026-11-21",
       "status": "processed"
+    },
+    "1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG": {
+      "drive_file_id": "1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG",
+      "source_file_name": "Ch.8 Matrices.pdf",
+      "source_url": "https://drive.google.com/file/d/1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG/view?usp=drivesdk",
+      "drive_folder_path": "GoodNotes/Part IA/Groups",
+      "markdown_paths": [
+        "Part IA/Groups/Lecture Notes/Groups - Chapter 8 Matrices.md"
+      ],
+      "material_type": "lecture notes",
+      "course": "Part IA Groups",
+      "classification": "study_material",
+      "normalizations": [
+        "p.3: the two basis isomorphisms read as phi (first basis) and psi (second), confirmed by zoom; new basis vectors written u_i."
+      ],
+      "unresolved_todos": [],
+      "diagram_note": "TikZ: commuting square for Prop 8.5 (p.3).",
+      "page_hashes": [
+        "784bf1a14e25d0c5e923",
+        "46779f3c48c14fe94764",
+        "eff1bbf9357e310b74a8"
+      ],
+      "observed_source_modified_timestamp": "2026-11-23T13:11:54.901Z",
+      "processed_source_modified_timestamp": "2026-11-23T13:11:54.901Z",
+      "total_page_count": 3,
+      "visually_inspected_pages": "pp.1-3 (all, 2026-11-23)",
+      "source_sha256": "8cdc2f062353c555bf1a06ea0e75c1e26d021083d9104032eb8eeb7cc8a06f8f",
+      "source_size_bytes": 670229,
+      "last_successful_processing_at": "2026-11-23",
+      "status": "processed"
+    },
+    "19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi": {
+      "drive_file_id": "19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi",
+      "source_file_name": "Ch.6 Multivariate Functions Application.pdf",
+      "source_url": "https://drive.google.com/file/d/19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi/view?usp=drivesdk",
+      "drive_folder_path": "GoodNotes/Part IA/Differential Equations",
+      "markdown_paths": [
+        "Part IA/Differential Equations/Lecture Notes/Differential Equations - Chapter 6 Multivariate Functions Applications.md",
+        "Concepts/Gradient and Stationary Points.md"
+      ],
+      "material_type": "lecture notes",
+      "course": "Part IA Differential Equations",
+      "classification": "study_material",
+      "normalizations": [
+        "Outline lists coupled ODE systems and PDEs; source covers sections 1-3.1 so far."
+      ],
+      "unresolved_todos": [],
+      "diagram_note": "TikZ: contours with ds (p.1); max/min/saddle contour panels with gradient arrows (pp.3-4; 3D surface sketches not redrawn); line x0 + s s-hat through contours (p.4).",
+      "page_hashes": [
+        "02c62c99978056ae03ed",
+        "d78146fabaf53ce66436",
+        "e83755f2e46e4180272c",
+        "f555b97845e9bb295211",
+        "29b6633a595f3f755d49"
+      ],
+      "observed_source_modified_timestamp": "2026-11-23T13:11:27.212Z",
+      "processed_source_modified_timestamp": "2026-11-23T13:11:27.212Z",
+      "total_page_count": 5,
+      "visually_inspected_pages": "pp.1-5 (all, 2026-11-23)",
+      "source_sha256": "f6f4acc3049de6b209984de645ba408f8ec8999ac1c41cc88f32753e536428c0",
+      "source_size_bytes": 979149,
+      "last_successful_processing_at": "2026-11-23",
+      "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-21",
-    "completed_at": "2026-11-21T18:30:00Z",
+    "date": "2026-11-23",
+    "completed_at": "2026-11-23T15:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 1,
-    "modified_source_count": 2,
+    "new_source_count": 2,
+    "modified_source_count": 1,
     "processed_source_count": 3,
     "pending_source_count": 0,
-    "reading_method": "Service-account download; new N&S Ch.4 viewed in full (1 page); pagediff.py selected N&S Ch.3 pp.15-18, V&M Ch.4 pp.10-14; others matched baseline hashes.",
-    "visually_inspected_page_count": 10,
+    "reading_method": "Drive connector (service-account key not present in this container): full listing via ancestors search; downloads via download_file_content, sizes matched Drive. New Groups Ch.8 and DE Ch.6 viewed in full; pagediff.py selected Groups Ch.7 pp.12-14.",
+    "visually_inspected_page_count": 11,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-21"
+    "commit_message": "notes: process Goodnotes files from 2026-11-23"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,
