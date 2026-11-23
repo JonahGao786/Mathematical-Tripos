@@ -166,7 +166,7 @@ s^2(\hat{\mathbf s}\cdot\nabla)(\hat{\mathbf s}\cdot\nabla f)&=s^2\Big(\hat s_x\
 > [!note] Explanation
 > Together,
 > $$f(\mathbf x_0+\delta\mathbf x)=f(\mathbf x_0)+\delta\mathbf x\cdot\nabla f\big|_{\mathbf x_0}+\tfrac12\,\delta\mathbf x^{\mathsf T}H\,\delta\mathbf x+\cdots,$$
-> with $H$ the Hessian below, evaluated at $\mathbf x_0$. At a stationary point the first-order term vanishes ($\nabla f=\mathbf 0$), so near it the behaviour of $f$ is governed by the quadratic term. This is what will classify the stationary point. The two mixed terms are equal by [[Differential Equations - Chapter 3 Partial Differentiation#Theorem — Schwarz's theorem|Schwarz's theorem]].
+> with $H$ the Hessian below, evaluated at $\mathbf x_0$. At a stationary point the first-order term vanishes ($\nabla f=\mathbf 0$), so near it the behaviour of $f$ is governed by the quadratic term, and this is what will classify the stationary point, provided $H$ is non-singular there. If $H$ is singular, higher-order terms are needed. For example, $x^4+y^4$ (a minimum) and $x^4-y^4$ (a saddle) both have $H=0$ at the origin. The two mixed terms are equal by [[Differential Equations - Chapter 3 Partial Differentiation#Theorem — Schwarz's theorem|Schwarz's theorem]].
 
 ### Definition — Hessian matrix
 

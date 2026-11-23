@@ -8,7 +8,7 @@ tags: [concept, differential-equations]
 # Gradient and Stationary Points
 
 > [!abstract] In one paragraph
-> The gradient $\nabla f=(f_x,f_y)$ packages the partial derivatives: the change of $f$ along $d\mathbf s$ is $df=d\mathbf s\cdot\nabla f$, and the rate of change in a unit direction $\hat{\mathbf s}$ is $\hat{\mathbf s}\cdot\nabla f=|\nabla f|\cos\theta$. So $\nabla f$ points uphill fastest and is perpendicular to the contours. Stationary points are where $\nabla f=\mathbf 0$. Near one, the Taylor expansion is $f(\mathbf x_0)+\frac12\delta\mathbf x^{\mathsf T}H\delta\mathbf x+\cdots$, with $H$ the Hessian, and this quadratic term decides between maximum, minimum and saddle.
+> The gradient $\nabla f=(f_x,f_y)$ packages the partial derivatives: the change of $f$ along $d\mathbf s$ is $df=d\mathbf s\cdot\nabla f$, and the rate of change in a unit direction $\hat{\mathbf s}$ is $\hat{\mathbf s}\cdot\nabla f=|\nabla f|\cos\theta$. So $\nabla f$ points uphill fastest and is perpendicular to the contours. Stationary points are where $\nabla f=\mathbf 0$. Near one, the Taylor expansion is $f(\mathbf x_0)+\frac12\delta\mathbf x^{\mathsf T}H\delta\mathbf x+\cdots$, with $H$ the Hessian. When $H$ is non-singular, this quadratic term decides between maximum, minimum and saddle. When $H$ is singular, the second-order test is inconclusive: $x^4+y^4$ (minimum) and $x^4-y^4$ (saddle) both have $H=0$ at the origin.
 
 ## Definitions
 
