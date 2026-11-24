@@ -13,7 +13,7 @@ tags: [lecture, numbers-and-sets]
 # Numbers and Sets — Chapter 4: Countability
 
 > [!abstract] Overview
-> Comparing the sizes of infinite sets. A set is countable if it is finite or in bijection with $\mathbb N$, i.e. if its elements can be listed $x_1,x_2,\dots$. Finite sets, $\mathbb N$ and $\mathbb Z$ are countable, and so is every subset of $\mathbb N$. Equivalently, $X$ is countable if it injects into $\mathbb N$, or if $\mathbb N$ maps onto it. Subsets of countable sets, $\mathbb N\times\mathbb N$, $\mathbb Z^k$, countable unions of countable sets, $\mathbb Q$ and the algebraic numbers are all countable.
+> Comparing the sizes of infinite sets. A set is countable if it is finite or in bijection with $\mathbb N$, i.e. if its elements can be listed $x_1,x_2,\dots$. Finite sets, $\mathbb N$ and $\mathbb Z$ are countable, and so is every subset of $\mathbb N$. Equivalently, $X$ is countable if it injects into $\mathbb N$, or if it is empty or $\mathbb N$ maps onto it. Subsets of countable sets, $\mathbb N\times\mathbb N$, $\mathbb Z^k$, countable unions of countable sets, $\mathbb Q$ and the algebraic numbers are all countable.
 > Prerequisite: [[Numbers and Sets - Chapter 3 Sets, Functions and Relations]] (bijections, finite sets).
 
 ## Results index
