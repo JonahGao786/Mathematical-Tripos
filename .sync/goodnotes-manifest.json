@@ -3616,14 +3616,20 @@
         "p.13: '2 = x + y' for B + 2I read as z = x + y.",
         "p.14: 'If a diag. matrix has only one eigenvalue' read as diagonalisable.",
         "p.10, p.12: references to proofs in the printed notes replaced by short explanation callouts.",
-        "Characteristic polynomials and eigenspaces of A, B checked numerically."
+        "Characteristic polynomials and eigenspaces of A, B checked numerically.",
+        "p.16: A = P^{-1}DP read as A = PDP^{-1} (consistent with P^{-1}AP = D); powers and p(A) adjusted accordingly.",
+        "p.17: case 1 matrix diag(lambda1, lambda1) read as diag(lambda1, lambda2).",
+        "p.18: chain relation (A - lambda I)v_j = v_j read as v_{j-1}.",
+        "p.19: diag(J2(lambda), lambda) drawn with a 1 in position (2,3); written with 0 there.",
+        "p.19: 6x6 example: the ragged layout suggests A_46 = 1, but the lecturer's chains and P^{-1}AP = diag(J3(2), J2(2), J1(-1)) hold only with A_46 = 0; written with 0 (checked numerically).",
+        "p.15 P^{-1} and P^{-1}AP = D checked numerically."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: vector v against the standard and the new basis (p.7).",
-      "observed_source_modified_timestamp": "2026-11-21T17:27:05.945Z",
-      "processed_source_modified_timestamp": "2026-11-21T17:27:05.945Z",
-      "total_page_count": 14,
-      "visually_inspected_pages": "pp.10-14 (2026-11-21); pp.1-9 matched baseline hashes",
+      "observed_source_modified_timestamp": "2026-11-24T13:18:06.971Z",
+      "processed_source_modified_timestamp": "2026-11-24T13:18:06.971Z",
+      "total_page_count": 21,
+      "visually_inspected_pages": "pp.15-21 (2026-11-24); pp.1-14 matched baseline hashes",
       "page_hashes": [
         "ff554edab589601a361a",
         "f738cce5a36585915a88",
@@ -3638,11 +3644,18 @@
         "561d511c0a7620cdae12",
         "b28839f8441975b11ff9",
         "e6a08a5fda58ff2c2f14",
-        "b2424260e953f429b17b"
+        "b2424260e953f429b17b",
+        "b03da16b6d14cd2d2fd6",
+        "f1d9df6ab389cf2890cf",
+        "974a9f95d1d2a794603f",
+        "826cda4319c7cbdb941d",
+        "38ea2bb008b98a43b03b",
+        "0ac2e39325e050b4c31c",
+        "b200d3d9d642046cd98c"
       ],
-      "source_sha256": "64b51f0ce4f786c370fcee181f8af5b20f8e8ae76999a098c338d30a3341a47b",
-      "source_size_bytes": 2771248,
-      "last_successful_processing_at": "2026-11-21",
+      "source_sha256": "5389aa9fe22ad467c86b00316c2a37d8905da3b1f6690ec5cb5e56d718873252",
+      "source_size_bytes": 3936805,
+      "last_successful_processing_at": "2026-11-24",
       "status": "processed"
     },
     "1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh": {
@@ -3658,20 +3671,25 @@
       "course": "Part IA Numbers and Sets",
       "classification": "study_material",
       "normalizations": [
-        "Lemma 1 stated only; source page ends before its proof."
+        "p.4 Thm 6: 'included by N' read as 'indexed by N'.",
+        "p.4 Thm 7: degree written d and alpha in source; d used throughout.",
+        "Diagonal enumeration of N x N redrawn (p.3)."
       ],
       "unresolved_todos": [],
-      "diagram_note": "TikZ: zig-zag listing of Z (p.1).",
+      "diagram_note": "TikZ: zig-zag listing of Z (p.1); diagonal listing of N x N (p.3).",
       "page_hashes": [
-        "b96303e52b203c9ab686"
+        "c6ccbd6c7dc4fb6567b8",
+        "8f16b4fa6f2e7df4ea12",
+        "3e9249dab665f6d9ef32",
+        "3f77d1fcd5299951869c"
       ],
-      "observed_source_modified_timestamp": "2026-11-21T17:26:48.293Z",
-      "processed_source_modified_timestamp": "2026-11-21T17:26:48.293Z",
-      "total_page_count": 1,
-      "visually_inspected_pages": "p.1 (all, 2026-11-21)",
-      "source_sha256": "91fd8b25f71989f375ae119e1921fff5974f6ce2fb13be023f2cdcf3bb352d62",
-      "source_size_bytes": 214161,
-      "last_successful_processing_at": "2026-11-21",
+      "observed_source_modified_timestamp": "2026-11-24T12:54:40.335Z",
+      "processed_source_modified_timestamp": "2026-11-24T12:54:40.335Z",
+      "total_page_count": 4,
+      "visually_inspected_pages": "pp.1-4 (2026-11-24; p.1 edited, pp.2-4 new)",
+      "source_sha256": "07200d888f607d2479896532ad7abf4262d041dd197268669f5b3993d6e625e8",
+      "source_size_bytes": 1169751,
+      "last_successful_processing_at": "2026-11-24",
       "status": "processed"
     },
     "1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG": {
@@ -3741,17 +3759,17 @@
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-23",
-    "completed_at": "2026-11-23T15:00:00Z",
+    "date": "2026-11-24",
+    "completed_at": "2026-11-24T15:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 2,
-    "modified_source_count": 1,
-    "processed_source_count": 3,
+    "new_source_count": 0,
+    "modified_source_count": 2,
+    "processed_source_count": 2,
     "pending_source_count": 0,
-    "reading_method": "Drive connector (service-account key not present in this container): full listing via ancestors search; downloads via download_file_content, sizes matched Drive. New Groups Ch.8 and DE Ch.6 viewed in full; pagediff.py selected Groups Ch.7 pp.12-14.",
+    "reading_method": "Drive connector (no service-account key in container): changed-file search on modifiedTime/createdTime since the last full listing; downloads matched Drive sizes. pagediff.py selected V&M Ch.4 pp.15-21 and N&S Ch.4 pp.1-4.",
     "visually_inspected_page_count": 11,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-23"
+    "commit_message": "notes: process Goodnotes files from 2026-11-24"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

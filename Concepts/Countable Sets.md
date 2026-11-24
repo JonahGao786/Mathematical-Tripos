@@ -8,7 +8,7 @@ tags: [concept, numbers-and-sets]
 # Countable Sets
 
 > [!abstract] In one paragraph
-> A set is countable if it is finite or there is a bijection with $\mathbb N$, which means its elements can be listed $x_1,x_2,\dots$. It is countably infinite if it is countable but not finite. Listing cleverly shows that sets which "look bigger" than $\mathbb N$, such as $\mathbb Z$, are still countable.
+> A set is countable if it is finite or there is a bijection with $\mathbb N$, which means its elements can be listed $x_1,x_2,\dots$. It is countably infinite if it is countable but not finite. Listing cleverly, or injecting into $\mathbb N$, shows that sets which "look bigger" than $\mathbb N$, such as $\mathbb Z$, $\mathbb N\times\mathbb N$, $\mathbb Q$ and the algebraic numbers, are still countable.
 
 ## Definitions
 
@@ -16,7 +16,11 @@ tags: [concept, numbers-and-sets]
 
 ## Key results
 
-- **Lemma 1.** Every subset of $\mathbb N$ is countable. → [[Numbers and Sets - Chapter 4 Countability#Lemma 1 — Subsets of N are countable|lecture]]
+- **Lemma 1.** Every subset of $\mathbb N$ is countable. *Idea:* list it in increasing order using WOP. → [[Numbers and Sets - Chapter 4 Countability#Lemma 1 — Subsets of N are countable|proof]]
+- **Theorem 2.** $X$ countable $\iff$ there is an injection $X\to\mathbb N$ $\iff$ $X=\varnothing$ or there is a surjection $\mathbb N\to X$. So subsets of countable sets are countable (Cor 3). → [[Numbers and Sets - Chapter 4 Countability#Theorem 2 — Characterisations of countability|proof]] · [[Numbers and Sets - Chapter 4 Countability#Corollary 3 — Subsets of countable sets|proof]]
+- **Theorem 4 / Corollary 5.** $\mathbb N\times\mathbb N$ is countable (diagonal list, or $2^x3^y$), hence so are $\mathbb Z\times\mathbb Z$ and $\mathbb Z^k$. → [[Numbers and Sets - Chapter 4 Countability#Theorem 4 — N × N is countable|proof]] · [[Numbers and Sets - Chapter 4 Countability#Corollary 5 — Z × Z is countable|proof]]
+- **Theorem 6.** A countable union of countable sets is countable ($a_j^{(i)}\mapsto2^i3^j$); so $\mathbb Q$ is countable. → [[Numbers and Sets - Chapter 4 Countability#Theorem 6 — Countable unions of countable sets|proof]]
+- **Theorem 7.** The algebraic numbers are countable (countably many integer polynomials, each with finitely many roots). → [[Numbers and Sets - Chapter 4 Countability#Theorem 7 — Algebraic numbers are countable|proof]]
 
 ## Examples
 
