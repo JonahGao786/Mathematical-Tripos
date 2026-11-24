@@ -34,6 +34,13 @@ tags: [concept, vectors-and-matrices]
 
 - $A$ is **diagonalisable** if $P^{-1}AP=D$ is diagonal, i.e. $\mathbb F^n$ has a basis of eigenvectors (the columns of $P$, in the order of the eigenvalues in $D$). → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Proposition — Diagonalisable matrices|lecture]]
 - **Criterion:** diagonalisable iff $\chi_A$ splits over $\mathbb F$ and $m_\lambda=M_\lambda$ for every $\lambda$. $n$ distinct eigenvalues suffice; a diagonalisable matrix with one eigenvalue $\lambda$ is $\lambda I$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Theorem — Criterion for diagonalisation|lecture]]
+- **Building $P$:** eigenvectors as columns, eigenvalues in the same order in $D$; check $AP=PD$. **Powers:** $A^k=PD^kP^{-1}$ and $p(A)=P\,p(D)P^{-1}$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#4.4.1 Constructing a diagonalising matrix|lecture]] · [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#4.4.2 Powers and polynomials of a matrix|lecture]]
+
+## Jordan canonical form
+
+- Every complex $2\times2$ matrix is similar to $\operatorname{diag}(\lambda_1,\lambda_2)$, $\lambda I$ or $\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}$. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Proposition — Jordan forms in dimension 2|proof]]
+- **Jordan canonical form:** every $A\in\mathbb C^{n\times n}$ is similar to $\operatorname{diag}(J_{p_1}(\lambda_1),\dots,J_{p_s}(\lambda_s))$. For each $\lambda$ the block sizes add up to $M_\lambda$ and the number of blocks is $m_\lambda$; the columns of $P$ form chains $(A-\lambda I)\mathbf v_j=\mathbf v_{j-1}$ of generalised eigenvectors. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Definition — Jordan block|lecture]] · [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Theorem — Jordan canonical form|lecture]]
+- **Hermitian matrices** have real eigenvalues; eigenvectors for $n$ distinct eigenvalues form an orthogonal basis; real symmetric matrices have real eigenvectors. → [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Theorem — Eigenvalues of Hermitian matrices|lecture]]
 
 ## Examples
 

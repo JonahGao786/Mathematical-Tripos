@@ -6,14 +6,14 @@ chapter: 4
 source_file: Ch.4 Eigenvalues and Eigenvectors.pdf
 drive_file_id: 1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6
 source_url: https://drive.google.com/file/d/1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6/view
-source_pages: 14
+source_pages: 21
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 4: Eigenvalues and Eigenvectors
 
 > [!abstract] Overview
-> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Then eigenspaces $E_\lambda$, algebraic and geometric multiplicities $M_\lambda\ge m_\lambda$, and the independence of eigenvectors for distinct eigenvalues. Finally diagonalisation: $A$ is diagonalisable iff $\chi_A$ splits and $m_\lambda=M_\lambda$ for every eigenvalue.
+> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Then eigenspaces $E_\lambda$, algebraic and geometric multiplicities $M_\lambda\ge m_\lambda$, and the independence of eigenvectors for distinct eigenvalues. Then diagonalisation: $A$ is diagonalisable iff $\chi_A$ splits and $m_\lambda=M_\lambda$ for every eigenvalue, how to build $P$, and powers $A^k=PD^kP^{-1}$. When there are too few eigenvectors, the Jordan canonical form uses Jordan blocks and chains of generalised eigenvectors. Finally, Hermitian matrices have real eigenvalues.
 > Prerequisite: [[Vectors and Matrices - Chapter 3 Matrices]] (determinants, trace, kernels).
 
 ## Results index
@@ -39,6 +39,12 @@ tags: [lecture, vectors-and-matrices]
 | [[#4.3.2 Examples and geometric interpretations]] | $\Delta=0$, $\Delta_{-2}=1$, $\Delta_4=2$ examples | 12–13 |
 | [[#Proposition — Diagonalisable matrices]] | basis of eigenvectors $\iff P^{-1}AP=D$ | 14 |
 | [[#Theorem — Criterion for diagonalisation]] | $\chi_A$ splits and $m_\lambda=M_\lambda$ for all $\lambda$ | 14 |
+| [[#4.4.1 Constructing a diagonalising matrix]] | eigenvectors as columns of $P$; check $AP=PD$ | 15 |
+| [[#4.4.2 Powers and polynomials of a matrix]] | $A^k=PD^kP^{-1}$, $p(A)=P\,p(D)P^{-1}$ | 16 |
+| [[#Proposition — Jordan forms in dimension 2]] | $\operatorname{diag}(\lambda_1,\lambda_2)$, $\lambda I$ or $\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}$ | 16–18 |
+| [[#Definition — Jordan block]] | $J_p(\lambda)$: $\lambda$ on the diagonal, $1$ above | 18 |
+| [[#Theorem — Jordan canonical form]] | $P^{-1}AP=\operatorname{diag}(J_{p_i}(\lambda_i))$; chains, block counts, examples | 18–20 |
+| [[#Theorem — Eigenvalues of Hermitian matrices]] | real eigenvalues; orthogonal eigenvectors; real eigenvectors if real symmetric | 21 |
 
 ## 4.1 Eigenvalues and the characteristic polynomial
 
@@ -336,3 +342,104 @@ A matrix $A\in\mathbb F^{n\times n}$ is diagonalisable over $\mathbb F$ if and o
 
 > [!note] Explanation
 > Why the criterion holds: by the [[#Theorem — Eigenvectors for distinct eigenvalues are independent|theorem above]], joining bases of the eigenspaces gives $\sum_\lambda m_\lambda$ independent eigenvectors. Also $\sum_\lambda m_\lambda\le\sum_\lambda M_\lambda\le n$, with equality throughout exactly when $\chi_A$ splits and $m_\lambda=M_\lambda$ for every $\lambda$. With $n$ distinct eigenvalues, every $M_\lambda=1$, which forces $m_\lambda=1$. With a single eigenvalue, $P^{-1}AP=\lambda I$ gives $A=P(\lambda I)P^{-1}=\lambda I$. So the shear $S_\lambda$ and $J$ above are not diagonalisable, and neither is $B$.
+
+### 4.4.1 Constructing a diagonalising matrix
+
+Given a matrix $A$:
+1. Compute the roots of $\chi_A$ and their multiplicities.
+2. Solve each of the homogeneous systems $(A-\lambda I)\mathbf v=\mathbf 0$.
+3. Count the basis vectors obtained.
+4. If there are $n$ vectors, place them in the columns of $P$, and put their corresponding eigenvalues in the same order on the diagonal of $D$.
+5. Checking $AP=PD$ verifies the calculation without computing $P^{-1}$.
+
+**Example.** For the matrix $A$ of the [[#4.3.2 Examples and geometric interpretations|first example above]]: $\mathbf v_1=(1,2,-1)^{\mathsf T}$ is an eigenvector associated to $\lambda=5$, and $\mathbf v_2=(-2,1,0)^{\mathsf T}$, $\mathbf v_3=(3,0,1)^{\mathsf T}$ are eigenvectors associated to $\lambda=-3$. So
+$$P=\begin{pmatrix}1&-2&3\\2&1&0\\-1&0&1\end{pmatrix},\qquad D=\begin{pmatrix}5&0&0\\0&-3&0\\0&0&-3\end{pmatrix},$$
+and $AP=PD$. With
+$$P^{-1}=\frac18\begin{pmatrix}1&2&-3\\-2&4&6\\1&2&5\end{pmatrix},\qquad P^{-1}AP=D=\operatorname{diag}(5,-3,-3).$$
+
+### 4.4.2 Powers and polynomials of a matrix
+
+If $A$ is diagonalisable, $P^{-1}AP=D$, then $A=PDP^{-1}$ and
+$$A^2=(PDP^{-1})^2=PDP^{-1}PDP^{-1}=PD^2P^{-1},$$
+where
+$$D^2=\begin{pmatrix}d_1&&0\\&\ddots&\\0&&d_n\end{pmatrix}\begin{pmatrix}d_1&&0\\&\ddots&\\0&&d_n\end{pmatrix}=\begin{pmatrix}d_1^2&&0\\&\ddots&\\0&&d_n^2\end{pmatrix}.$$
+For a polynomial $p(t)=\sum_{j=0}^da_jt^j$, define
+$$p(A):=a_0I+a_1A+\dots+a_dA^d.$$
+Then
+$$p(A)=P\,p(D)\,P^{-1},\qquad p(D)=\begin{pmatrix}p(d_1)&&0\\&\ddots&\\0&&p(d_n)\end{pmatrix}.$$
+
+> [!note] Explanation
+> In $A^k=(PDP^{-1})(PDP^{-1})\cdots(PDP^{-1})$ every inner $P^{-1}P$ cancels, leaving $PD^kP^{-1}$; and $D^k=\operatorname{diag}(d_1^k,\dots,d_n^k)$. Adding up the terms of $p$ gives the formula for $p(A)$.
+
+## 4.5 Canonical form and Jordan blocks
+
+- Diagonalisation requires a basis of eigenvectors.
+- If there are too few eigenvectors, we can still seek a basis making the matrix "as simple as possible".
+
+### 4.5.1 The complete 2-dimensional case
+
+### Proposition — Jordan forms in dimension 2
+
+Every complex $2\times2$ matrix is similar to one of
+$$1.\ \begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}\ (\lambda_1\ne\lambda_2),\qquad2.\ \begin{pmatrix}\lambda&0\\0&\lambda\end{pmatrix},\qquad3.\ \begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}.$$
+
+**Proof.**
+1. $\lambda_1\ne\lambda_2\Rightarrow M_{\lambda_1}=M_{\lambda_2}=1\Rightarrow m_{\lambda_1}=m_{\lambda_2}=1$, so $A$ is diagonalisable with $D=\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}$.
+2. Otherwise there is one eigenvalue $\lambda$ with $M_\lambda=2$, and $m_\lambda=1$ or $m_\lambda=2$. If $m_\lambda=2$, then $A$ is diagonalisable with $D=\begin{pmatrix}\lambda&0\\0&\lambda\end{pmatrix}$.
+3. If $m_\lambda=1$, take an eigenvector $\mathbf v$ associated with $\lambda$, so $A\mathbf v=\lambda\mathbf v$, and extend it to a basis $\{\mathbf v,\mathbf w\}$. Write $A\mathbf w=\alpha\mathbf v+\beta\mathbf w$. In this basis
+$$A\longmapsto\begin{pmatrix}\lambda&\alpha\\0&\beta\end{pmatrix}\ \Rightarrow\ \beta=\lambda,$$
+so $A$ becomes $\begin{pmatrix}\lambda&\alpha\\0&\lambda\end{pmatrix}$ with $\alpha\ne0$. Define $\mathbf u=\alpha\mathbf v$. Then $A\mathbf u=\lambda\mathbf u$ and $A\mathbf w=\mathbf u+\lambda\mathbf w$, so
+$$A\ \overset{\{\mathbf u,\mathbf w\}}{\longmapsto}\ \begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}.$$
+
+> [!note] Explanation
+> $\beta=\lambda$ because the matrix in the new basis is similar to $A$, so it has the same characteristic polynomial $(\lambda-t)^2$; for a triangular matrix that polynomial is $(\lambda-t)(\beta-t)$. And $\alpha\ne0$, since $\alpha=0$ would make $A$ diagonalisable, i.e. $m_\lambda=2$.
+
+### 4.5.2 Jordan blocks and chains
+
+### Definition — Jordan block
+
+The **Jordan block** of size $p$ is
+$$J_p(\lambda)=\begin{pmatrix}\lambda&1&&0\\&\lambda&\ddots&\\&&\ddots&1\\0&&&\lambda\end{pmatrix},\qquad J_1(\lambda)=\lambda,$$
+with $\lambda$ on the diagonal, $1$'s just above it, and $0$ elsewhere.
+
+### Theorem — Jordan canonical form
+
+Every $A\in\mathbb C^{n\times n}$ is similar to a block diagonal matrix
+$$P^{-1}AP=\operatorname{diag}\big(J_{p_1}(\lambda_1),\dots,J_{p_s}(\lambda_s)\big)=\begin{pmatrix}J_{p_1}(\lambda_1)&&0\\&\ddots&\\0&&J_{p_s}(\lambda_s)\end{pmatrix},\qquad p_1+p_2+\dots+p_s=n.$$
+
+Fix one block, with eigenvalue $\lambda$ and size $p$, and let $\{\mathbf v_1,\dots,\mathbf v_p\}$ be the columns of $P$ belonging to it. Then
+$$(A-\lambda I)\mathbf v_1=\mathbf 0,\qquad(A-\lambda I)\mathbf v_j=\mathbf v_{j-1}\quad(2\le j\le p).$$
+$\mathbf v_2,\dots,\mathbf v_p$ are **generalised eigenvectors**: they are not eigenvectors, but there is a power $k_j$ such that $(A-\lambda I)^{k_j}\mathbf v_j=\mathbf 0$ for every $j$ between $2$ and $p$.
+
+> [!note] Explanation
+> The chain relations are the columns of $AP=P\,J_p(\lambda)$ read off one at a time: column $j$ of $J_p(\lambda)$ has $\lambda$ in row $j$ and $1$ in row $j-1$, so $A\mathbf v_j=\lambda\mathbf v_j+\mathbf v_{j-1}$. Applying $A-\lambda I$ repeatedly walks down the chain $\mathbf v_j\mapsto\mathbf v_{j-1}\mapsto\dots\mapsto\mathbf v_1\mapsto\mathbf 0$, so $k_j=j$ works.
+
+**Conclusions.**
+- The sum of the sizes of the blocks for $\lambda$ is $M_\lambda$.
+- The number of blocks for $\lambda$ is $m_\lambda=\dim E_\lambda$.
+- $A$ is diagonalisable exactly when every block has size $1$.
+
+**Example.** The matrices
+$$J_3(\lambda)=\begin{pmatrix}\lambda&1&0\\0&\lambda&1\\0&0&\lambda\end{pmatrix},\qquad\operatorname{diag}(J_2(\lambda),\lambda)=\begin{pmatrix}\lambda&1&0\\0&\lambda&0\\0&0&\lambda\end{pmatrix},\qquad\lambda I_3=\begin{pmatrix}\lambda&0&0\\0&\lambda&0\\0&0&\lambda\end{pmatrix}$$
+all have the same characteristic polynomial $(\lambda-t)^3$, but they are **not similar**.
+
+> [!note] Explanation
+> Their geometric multiplicities differ: $m_\lambda=1$, $2$ and $3$ respectively (one eigenvector per block), and similar matrices have the same $m_\lambda$ by the [[#Proposition — Quantities preserved by similarity|proposition above]].
+
+**Example.** In the standard basis $\{\mathbf e_1,\dots,\mathbf e_6\}$,
+$$A=\begin{pmatrix}2&0&1&0&0&0\\0&2&0&1&0&0\\0&0&2&0&1&0\\0&0&0&2&0&0\\0&0&0&0&2&0\\0&0&0&0&0&-1\end{pmatrix}.$$
+The eigenvalues are $\{2,-1\}$, with $M_2=5$ and $M_{-1}=1$. To find the blocks of $2$, apply $A-2I$ to the basis vectors:
+$$\left.\begin{aligned}(A-2I)\mathbf e_5&=\mathbf e_3\\(A-2I)\mathbf e_3&=\mathbf e_1\\(A-2I)\mathbf e_1&=\mathbf 0\end{aligned}\right\}\text{size }3,\qquad\left.\begin{aligned}(A-2I)\mathbf e_4&=\mathbf e_2\\(A-2I)\mathbf e_2&=\mathbf 0\end{aligned}\right\}\text{size }2.$$
+So $P^{-1}AP=\operatorname{diag}\big(J_3(2),J_2(2),J_1(-1)\big)$ with
+$$P=\big(\,\mathbf e_1\ \mathbf e_3\ \mathbf e_5\ \big|\ \mathbf e_2\ \mathbf e_4\ \big|\ \mathbf e_6\,\big).$$
+
+## 4.6 Hermitian and symmetric matrices
+
+Recall $A^\dagger=\bar A^{\mathsf T}$ and $\langle\mathbf v,\mathbf w\rangle=\mathbf v^\dagger\mathbf w$. $A$ is [[Vectors and Matrices - Chapter 3 Matrices#Definition — Hermitian and anti-Hermitian matrices|Hermitian]] when $A=A^\dagger$; for a real matrix this means $A=A^{\mathsf T}$ (symmetric).
+
+### Theorem — Eigenvalues of Hermitian matrices
+
+Let $A\in\mathbb C^{n\times n}$ be Hermitian.
+- Every eigenvalue of $A$ is real.
+- In particular, if $A$ has $n$ distinct eigenvalues, choosing one eigenvector for each gives an orthogonal basis of $\mathbb C^n$.
+- If $A$ is real symmetric, each eigenvalue has a non-zero real eigenvector.
