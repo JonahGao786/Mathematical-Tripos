@@ -29,7 +29,7 @@ tags: [concept, groups]
 
 - **Conjugate** of $g$ by $h$: $hgh^{-1}$; $G$ acts on itself by conjugation $(g,\gamma)\mapsto g\gamma g^{-1}$ (not the regular action). → [[Groups - Chapter 3 Group Actions#Definition 3.9 — Conjugate|lecture]]
 - **Conjugacy class** $\operatorname{ccl}(g)=\{hgh^{-1}\}$, the orbit under conjugation. Conjugate elements have the same "shape": $gfg^{-1}$ is $f$ with the space relabelled by $g$. In $D_{2n}$ the reflections form one class ($n$ odd) or two ($n$ even). → [[Groups - Chapter 3 Group Actions#Definition 3.10 — Conjugacy classes|lecture]]
-- **Centraliser** $C_G(g)=\{h:hg=gh\}$, the stabiliser under conjugation; **centre** $Z(G)=\bigcap_gC_G(g)$. → [[Groups - Chapter 3 Group Actions#Definition 3.11 — Centraliser|lecture]] · [[Groups - Chapter 3 Group Actions#Definition 3.12 — Centre|lecture]]
+- **Centraliser** $C_G(g)=\{h:hg=gh\}$, the stabiliser under conjugation; **centre** $Z(G)=\bigcap_gC_G(g)$, a subgroup as an intersection of subgroups. → [[Groups - Chapter 3 Group Actions#Definition 3.11 — Centraliser|lecture]] · [[Groups - Chapter 3 Group Actions#Definition 3.12 — Centre|lecture]]
 
 ## Examples
 
