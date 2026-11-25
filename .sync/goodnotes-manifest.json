@@ -3745,7 +3745,8 @@
       "classification": "study_material",
       "normalizations": [
         "p.6: 'H indefinite => may be max, min or saddle' kept with the lecturer's broad meaning of indefinite; callout explains.",
-        "Worked example f = 4x^3 - 12xy + y^2 + 10y + 6 checked (stationary points, minors -96 and 96)."
+        "Worked example f = 4x^3 - 12xy + y^2 + 10y + 6 checked (stationary points, minors -96 and 96).",
+        "p.6: 'all eigenvalues non-zero but mixed signs => saddle; any zero => higher terms' sharpened to: eigenvalues of both signs => saddle; zeros with the rest of one sign => higher terms (review fix)."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: contours with ds (p.1); max/min/saddle contour panels with gradient arrows (pp.3-4; 3D surface sketches not redrawn); line x0 + s s-hat through contours (p.4).",

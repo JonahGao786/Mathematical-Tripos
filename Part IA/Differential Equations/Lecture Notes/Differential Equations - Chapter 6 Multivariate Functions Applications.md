@@ -209,11 +209,11 @@ $H$ is a real symmetric matrix, so it can be diagonalised by an orthogonal trans
 $$\delta\mathbf x^{\mathsf T}H\,\delta\mathbf x=(\delta x_1,\delta x_2,\dots,\delta x_N)\begin{pmatrix}\lambda_1&&&0\\&\lambda_2&&\\&&\ddots&\\0&&&\lambda_N\end{pmatrix}\begin{pmatrix}\delta x_1\\\delta x_2\\\vdots\\\delta x_N\end{pmatrix}=\lambda_1(\delta x_1)^2+\lambda_2(\delta x_2)^2+\dots+\lambda_N(\delta x_N)^2.$$
 - $H$ positive definite $\iff$ all $\lambda_i>0$ (minimum).
 - $H$ negative definite $\iff$ all $\lambda_i<0$ (maximum).
-- If all eigenvalues are non-zero but of mixed signs $\Rightarrow$ saddle point.
-- If any of the eigenvalues are zero, we need higher terms in the Taylor series to classify the stationary point.
+- If there are eigenvalues of both signs $\Rightarrow$ saddle point (in particular, all eigenvalues non-zero but of mixed signs).
+- If some eigenvalues are zero and all the others have the same sign, we need higher terms in the Taylor series to classify the stationary point.
 
 > [!note] Explanation
-> In these coordinates $\delta x_i$ means the component along the $i$th eigenvector. The real eigenvalues and the orthogonal diagonalisation come from the [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Theorem — Eigenvalues of Hermitian matrices|theorem on Hermitian and symmetric matrices]].
+> In these coordinates $\delta x_i$ means the component along the $i$th eigenvector. One positive and one negative eigenvalue already give a direction in which $f$ rises and one in which it falls, so a zero eigenvalue elsewhere does not matter: e.g. $x^2-y^2+z^4$ has $H=\operatorname{diag}(2,-2,0)$ at the origin and is a saddle there. The real eigenvalues and the orthogonal diagonalisation come from the [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Theorem — Eigenvalues of Hermitian matrices|theorem on Hermitian and symmetric matrices]].
 
 **Example.** $f(x,y)=x^2+y^4$ has a (global) minimum at $(x,y)=(0,0)$. Here $\nabla f=(2x,4y^3)$ and
 $$H=\begin{pmatrix}2&0\\0&12y^2\end{pmatrix}=\begin{pmatrix}2&0\\0&0\end{pmatrix}\ \text{at }(0,0)\ \Rightarrow\ \lambda_1=2,\ \lambda_2=0.$$
