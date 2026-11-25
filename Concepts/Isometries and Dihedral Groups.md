@@ -33,6 +33,7 @@ tags: [concept, groups]
 ## Pitfalls
 
 - $D_{2n}$ has $2n$ elements (notation by order; some texts write $D_n$).
+- **Orthogonal groups.** $O(n)$ = matrices preserving length $\iff$ preserving dot products (polarisation) $\iff$ orthonormal columns $\iff A^{\mathsf T}A=I$; $\det A=\pm1$; $SO(n)$ = determinant $1$. Reflections $S_{\mathbf v}(\mathbf x)=\mathbf x-2(\mathbf x\cdot\mathbf v)\mathbf v$ ($\|\mathbf v\|=1$) satisfy $S_{\mathbf v}^2=I$ and have $\det=-1$. → [[Groups - Chapter 8 Matrices#Lemma 8.10 — Characterisations of orthogonal matrices|proof]] · [[Groups - Chapter 8 Matrices#Lemma 8.13 — Reflections are orthogonal involutions|proof]]
 
 ## Related
 
