@@ -6,14 +6,14 @@ chapter: 4
 source_file: Ch4. Countability.pdf
 drive_file_id: 1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh
 source_url: https://drive.google.com/file/d/1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh/view
-source_pages: 4
+source_pages: 7
 tags: [lecture, numbers-and-sets]
 ---
 
 # Numbers and Sets — Chapter 4: Countability
 
 > [!abstract] Overview
-> Comparing the sizes of infinite sets. A set is countable if it is finite or in bijection with $\mathbb N$, i.e. if its elements can be listed $x_1,x_2,\dots$. Finite sets, $\mathbb N$ and $\mathbb Z$ are countable, and so is every subset of $\mathbb N$. Equivalently, $X$ is countable if it injects into $\mathbb N$, or if it is empty or $\mathbb N$ maps onto it. Subsets of countable sets, $\mathbb N\times\mathbb N$, $\mathbb Z^k$, countable unions of countable sets, $\mathbb Q$ and the algebraic numbers are all countable.
+> Comparing the sizes of infinite sets. A set is countable if it is finite or in bijection with $\mathbb N$, i.e. if its elements can be listed $x_1,x_2,\dots$. Finite sets, $\mathbb N$ and $\mathbb Z$ are countable, and so is every subset of $\mathbb N$. Equivalently, $X$ is countable if it injects into $\mathbb N$, or if it is empty or $\mathbb N$ maps onto it. Subsets of countable sets, $\mathbb N\times\mathbb N$, $\mathbb Z^k$, countable unions of countable sets, $\mathbb Q$ and the algebraic numbers are all countable. But $\mathbb R$ is uncountable (diagonal argument), so there are uncountably many transcendental numbers; $\mathcal P(\mathbb N)$ is uncountable, and no set is in bijection with its power set.
 > Prerequisite: [[Numbers and Sets - Chapter 3 Sets, Functions and Relations]] (bijections, finite sets).
 
 ## Results index
@@ -29,6 +29,10 @@ tags: [lecture, numbers-and-sets]
 | [[#Corollary 5 — Z × Z is countable]] | and $\mathbb Z^k$ by induction | 3 |
 | [[#Theorem 6 — Countable unions of countable sets]] | $x=a_j^{(i)}\mapsto2^i3^j$; $\mathbb Q$ countable | 4 |
 | [[#Theorem 7 — Algebraic numbers are countable]] | integer polynomials of degree $d$ inject into $\mathbb Z^{d+1}$ | 4 |
+| [[#Theorem 8 — R is uncountable]] | diagonal argument on decimal expansions; $(0,1)$ uncountable | 5 |
+| [[#Corollary 9 — Transcendental numbers]] | $\mathbb R\setminus\mathbb A$ is uncountable | 5 |
+| [[#Theorem 10 — P(N) is uncountable]] | $S=\{n:n\notin S_n\}$; or inject $(0,1)$ via binary | 6 |
+| [[#Theorem 11 — No bijection between X and P(X)]] | $S=\{x:x\notin f(x)\}$ is never hit; no universal set; disjoint open intervals | 6–7 |
 
 ## 4.1 Countable sets
 
@@ -175,3 +179,72 @@ The set $\mathbb A$ of [[Numbers and Sets - Chapter 2 The Reals|algebraic number
 In fact, it suffices to show that for each $d\in\mathbb N$ the set $P_d$ of all integer polynomials of degree $d$ is countable, again by Theorem 6. But the map $P_d\to\mathbb Z^{d+1}$,
 $$p(x)=a_dx^d+a_{d-1}x^{d-1}+\dots+a_1x+a_0\ \longmapsto\ (a_d,\dots,a_0),$$
 is an injection, so since $\mathbb Z^{d+1}$ is countable (Corollary 5), $P_d$ is also countable.
+
+## 4.2 Uncountable sets
+
+A set is **uncountable** if it is not countable. Do uncountable sets exist?
+
+### Theorem 8 — R is uncountable
+
+$\mathbb R$ is uncountable.
+
+**Proof.** If $\mathbb R$ were countable, we would be able to list all the reals as $r_1,r_2,r_3,\dots$. Write each $r_n$ in [[Numbers and Sets - Chapter 2 The Reals#Definition — Decimal expansion|decimal form]] in some way:
+$$\begin{aligned}
+r_1&=n_1.d_{11}d_{12}d_{13}\cdots\\
+r_2&=n_2.d_{21}d_{22}d_{23}\cdots\\
+r_3&=n_3.d_{31}d_{32}d_{33}\cdots\\
+&\ \,\vdots
+\end{aligned}$$
+Define $r=0.d_1d_2d_3\cdots$ by
+$$d_n=\begin{cases}1&\text{if }d_{nn}\ne1,\\2&\text{if }d_{nn}=1.\end{cases}$$
+This $r$ has only one decimal expansion, and is not on the list, because for all $n\in\mathbb N$, $r\ne r_n$. This contradicts the assumption that $\mathbb R$ is countable.
+
+This is known as a **diagonal argument**. Note that it in fact shows that $(0,1)$ is uncountable.
+
+> [!note] Explanation
+> $r$ differs from $r_n$ in the $n$th decimal place. That alone would not be enough if $r$ had a second expansion (like $0.1999\ldots=0.2$), but [[Numbers and Sets - Chapter 2 The Reals#Non-uniqueness of decimal expansions|non-unique expansions]] end in repeated $0$s or $9$s, and $r$ uses only the digits $1$ and $2$. Since $r\in(0,1)$, the same argument rules out any list of $(0,1)$.
+
+### Corollary 9 — Transcendental numbers
+
+There are uncountably many [[Numbers and Sets - Chapter 2 The Reals#Definition — Algebraic and transcendental numbers|transcendental numbers]].
+
+**Proof.** If $\mathbb R\setminus\mathbb A$ were countable, then since $\mathbb A$ is countable by [[#Theorem 7 — Algebraic numbers are countable|Theorem 7]], $\mathbb R=(\mathbb R\setminus\mathbb A)\cup\mathbb A$ would be countable (Theorem 6), a contradiction.
+
+### Theorem 10 — P(N) is uncountable
+
+The power set $\mathcal P(\mathbb N)$ is uncountable.
+
+**Proof 1.** If $\mathcal P(\mathbb N)$ were countable, we could list it as $S_1,S_2,S_3,\dots$. Let
+$$S=\{n\in\mathbb N:n\notin S_n\}.$$
+Then $S$ is not on our list, since for all $n\in\mathbb N$, $S\ne S_n$ ($S$ and $S_n$ differ in the element $n$). Hence $\mathcal P(\mathbb N)$ is uncountable. Note that this again is a diagonal argument.
+
+**Proof 2.** There is an injection from $(0,1)$ into $\mathcal P(\mathbb N)$: write $x\in(0,1)$ in binary as $0.x_1x_2x_3\cdots$ with $x_i\in\{0,1\}$ (not ending in an infinite string of $1$s), and set
+$$f(x)=\{n\in\mathbb N:x_n=1\}.$$
+E.g. $0.111101000\cdots\mapsto\{1,2,3,5\}$. This is an injection.
+
+> [!note] Explanation
+> Proof 2 finishes like this: if $\mathcal P(\mathbb N)$ were countable, then by Theorem 2 it would inject into $\mathbb N$, and composing with $f$ would give an injection $(0,1)\to\mathbb N$, so $(0,1)$ would be countable, contradicting Theorem 8. Forbidding endless $1$s makes the binary expansion unique, so $f$ is well defined, and different $x$ give different digit sets.
+
+### Theorem 11 — No bijection between X and P(X)
+
+For any set $X$, there is no bijection between $X$ and its power set $\mathcal P(X)$.
+
+**Proof.** Given any $f:X\to\mathcal P(X)$, we show that it is not a surjection. Indeed, let
+$$S=\{x\in X:x\notin f(x)\}.$$
+Then $S$ does not belong to the image of $f$, since for all $x\in X$, $S$ and $f(x)$ differ in the element $x$. Thus $S\ne f(x)$ for every $x\in X$.
+
+**Remarks.**
+1. This is reminiscent of [[Numbers and Sets - Chapter 3 Sets, Functions and Relations#Russell's paradox|Russell's paradox]].
+2. In fact it gives another proof that there is no universal set. For suppose we had such a universal set $V$. Then we would have $\mathcal P(V)\subseteq V$, in which case there would be a surjection from $V$ to $\mathcal P(V)$.
+
+> [!note] Explanation
+> The surjection in Remark 2: send $x\in V$ to $x$ itself if $x\in\mathcal P(V)$ (i.e. $x$ is a subset of $V$), and to $\varnothing$ otherwise. Every element of $\mathcal P(V)$ is hit, which contradicts the proof of Theorem 11.
+
+**Example.** Let $\{A_i:i\in I\}$ be a family of open, pairwise disjoint intervals of $\mathbb R$. Must the family $I$ be countable? In fact, $\{A_i:i\in I\}$ is countable.
+
+**Proof 1.** Each interval $A_i$ contains a rational, and $\mathbb Q$ is countable. So, since the intervals are disjoint, we have an injection from $I$ into $\mathbb Q$. Hence $\{A_i:i\in I\}$ is countable.
+
+**Proof 2.** The set $\{i\in I:A_i\text{ has length}\ge1\}$ is countable, as it injects into $\mathbb Z$. Similarly, the set $\{i\in I:A_i\text{ has length}\ge\frac12\}$ is countable, as it injects into $\frac12\mathbb Z$. More generally, for each $n\in\mathbb N$, $\{i\in I:A_i\text{ has length}\ge\frac1n\}$ is countable. Thus $\{A_i:i\in I\}$ is a countable union of countable sets, so it is countable.
+
+> [!note] Explanation
+> One injection for Proof 2: send $A_i=(a_i,b_i)$ to the integer $\lfloor a_i\rfloor$. Two disjoint intervals of length $\ge1$ have left endpoints at least $1$ apart, so their values differ. Likewise $\lfloor na_i\rfloor/n\in\frac1n\mathbb Z$ works for length $\ge\frac1n$. Every interval has length $\ge\frac1n$ for some $n$, so the union over $n$ is the whole family. (Nondegenerate intervals are assumed, i.e. $a_i<b_i$.)
