@@ -6,15 +6,15 @@ chapter: 8
 source_file: Ch.8 Matrices.pdf
 drive_file_id: 1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG
 source_url: https://drive.google.com/file/d/1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG/view
-source_pages: 3
+source_pages: 9
 tags: [lecture, groups]
 ---
 
 # Groups — Chapter 8: Matrices
 
 > [!abstract] Overview
-> Invertible matrices form a group, the general linear group $GL_n(\mathbb R)$. The determinant is a homomorphism onto $\mathbb R^\times$, and its kernel is the special linear group $SL_n(\mathbb R)$. The isomorphism theorem gives $GL_n/SL_n\cong\mathbb R^\times$, and the same holds over $\mathbb C$. $GL_n(\mathbb R)$ acts on matrices by conjugation, and the orbit of a matrix representing a linear map consists exactly of its representations in all possible bases.
-> Prerequisites: [[Groups - Chapter 3 Group Actions]] (actions, orbits); [[Groups - Chapter 6 Quotients]] (normal subgroups, isomorphism theorem); [[Vectors and Matrices - Chapter 3 Matrices]] (determinants).
+> Invertible matrices form a group, the general linear group $GL_n(\mathbb R)$. The determinant is a homomorphism onto $\mathbb R^\times$, and its kernel is the special linear group $SL_n(\mathbb R)$. The isomorphism theorem gives $GL_n/SL_n\cong\mathbb R^\times$, and the same holds over $\mathbb C$. $GL_n(\mathbb R)$ acts on matrices by conjugation, and the orbit of a matrix representing a linear map consists exactly of its representations in all possible bases. The Möbius group is $GL_2(\mathbb C)$ modulo scalar matrices. The orthogonal group $O(n)$ of distance-preserving matrices is characterised by $A^{\mathsf T}A=I$; its determinant-one part is $SO(n)$, and reflections lie in $O(n)$ but not in $SO(n)$.
+> Prerequisites: [[Groups - Chapter 3 Group Actions]] (actions, orbits); [[Groups - Chapter 4 The Möbius Group]]; [[Groups - Chapter 6 Quotients]] (normal subgroups, isomorphism theorem); [[Vectors and Matrices - Chapter 3 Matrices]] (determinants).
 
 ## Results index
 
@@ -25,6 +25,14 @@ tags: [lecture, groups]
 | [[#Lemma 8.3 — Determinant is a homomorphism]] | $\det(AB)=\det A\det B$; $\det:GL_n(\mathbb R)\to\mathbb R^\times$ | 1 |
 | [[#Definition 8.4 — Special linear group]] | $SL_n(\mathbb R)=\ker(\det)$; $GL_n/SL_n\cong\mathbb R^\times$ | 2 |
 | [[#Proposition 8.5 — Orbits under conjugation are changes of basis]] | $GL_n(\mathbb R)\cdot A$ = all matrices representing $\alpha$ | 2–3 |
+| [[#Proposition 8.6 — M is a quotient of GL_2(C)]] | $\mathcal M\cong GL_2(\mathbb C)/D$, $D$ = scalar matrices | 4 |
+| [[#Definition 8.7 — Orthogonal group]] | $O(n)=\{A:\lVert A\mathbf v\rVert=\lVert\mathbf v\rVert\}$ | 5 |
+| [[#Lemma 8.8 — Polarisation identity]] | $\mathbf u\cdot\mathbf v=\frac12(\lVert\mathbf u\rVert^2+\lVert\mathbf v\rVert^2-\lVert\mathbf u-\mathbf v\rVert^2)$ | 5 |
+| [[#Lemma 8.9 — O(n) preserves the dot product]] | $A\in O(n)\iff A\mathbf x\cdot A\mathbf y=\mathbf x\cdot\mathbf y$ | 5 |
+| [[#Lemma 8.10 — Characterisations of orthogonal matrices]] | $O(n)$ $\iff$ orthonormal columns $\iff A^{\mathsf T}A=I$; $\det A=\pm1$ | 6–7 |
+| [[#Definition 8.11 — Special orthogonal group]] | $SO(n)=\ker\det$, index $2$ in $O(n)$ | 7 |
+| [[#Definition 8.12 — Reflection]] | $S_{\mathbf v}(\mathbf x)=\mathbf x-2\frac{\mathbf x\cdot\mathbf v}{\lVert\mathbf v\rVert^2}\mathbf v$ | 7–8 |
+| [[#Lemma 8.13 — Reflections are orthogonal involutions]] | $S_{\mathbf v}^2=I$, $S_{\mathbf v}\in O(n)$, $\det S_{\mathbf v}=-1$ | 8–9 |
 
 ## 8.1 The general and special linear groups
 
@@ -108,3 +116,143 @@ and $B$ is in the orbit of $A$.
 
 > [!note] Explanation
 > In 1, $\psi^{-1}\circ\varphi$ is an invertible linear map $\mathbb R^n\to\mathbb R^n$, i.e. an invertible matrix. In 2, check: $\psi\circ B\circ\psi^{-1}=\varphi P^{-1}(PAP^{-1})P\varphi^{-1}=\varphi A\varphi^{-1}=\alpha$. Compare the change-of-basis formula $A_{\mathcal C}=P^{-1}A_{\mathcal B}P$ in [[Vectors and Matrices - Chapter 4 Eigenvalues and Eigenvectors#Change between two arbitrary bases|Vectors and Matrices]]: there $P$ is the change of basis matrix itself, here it is its inverse, which does not change the set of matrices obtained.
+
+## 8.3 Möbius transformations revisited
+
+Recall: composition in the [[Groups - Chapter 4 The Möbius Group#Theorem 4.3 — The Möbius group|Möbius group]] $\mathcal M$ looked similar to multiplication of $2\times2$ matrices.
+
+### Proposition 8.6 — M is a quotient of GL_2(C)
+
+Let
+$$D=\Big\{\begin{pmatrix}\lambda&0\\0&\lambda\end{pmatrix}\in GL_2(\mathbb C)\Big\}\cong\mathbb C^\times,\qquad\begin{pmatrix}\lambda&0\\0&\lambda\end{pmatrix}\mapsto\lambda.$$
+Then $D\trianglelefteq GL_2(\mathbb C)$ and $\mathcal M\cong GL_2(\mathbb C)/D$.
+
+**Proof.** Let
+$$\Phi:GL_2(\mathbb C)\to\mathcal M,\qquad\begin{pmatrix}a&b\\c&d\end{pmatrix}\longmapsto\Big(z\mapsto\frac{az+b}{cz+d}\Big).$$
+- $\Phi$ is a homomorphism, by our [[Groups - Chapter 4 The Möbius Group#Composition of Möbius transformations|computation of composition]] in $\mathcal M$.
+- $\Phi$ is surjective by construction.
+- Kernel: $\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\ker\Phi$ iff its image fixes $0$, $1$ and $\infty$, i.e. $b=c=0$ and $a=d$. So $\ker\Phi=D$.
+
+The result then follows by the [[Groups - Chapter 6 Quotients#Theorem 6.5 — Isomorphism theorem|isomorphism theorem]].
+
+> [!note] Explanation
+> A Möbius map fixing three points is the identity (by the [[Groups - Chapter 4 The Möbius Group#Lemma 4.5 — Three-point lemma|three-point lemma]]). Fixing $\infty$ forces $c=0$, fixing $0$ forces $b=0$, and then fixing $1$ gives $\frac ad=1$. $D$ is normal because it is a kernel.
+
+## 8.4 Orthogonal groups
+
+Write $\|\cdot\|$ for the usual notion of length in $\mathbb R^n$:
+$$\|\mathbf u\|=\sqrt{\sum_{i=1}^nu_i^2}.$$
+
+### Definition 8.7 — Orthogonal group
+
+The $n$-dimensional **orthogonal group** is the subgroup of $GL_n(\mathbb R)$ that preserves distance in $\mathbb R^n$:
+$$O(n)=\{A\in GL_n(\mathbb R):\|A\mathbf v\|=\|\mathbf v\|\text{ for all }\mathbf v\in\mathbb R^n\}.$$
+
+To think about distance, it is often useful to use the dot product $\mathbf u\cdot\mathbf v=\sum_{i=1}^nu_iv_i$.
+
+### Lemma 8.8 — Polarisation identity
+
+For $\mathbf u,\mathbf v\in\mathbb R^n$,
+$$\mathbf u\cdot\mathbf v=\tfrac12\big(\|\mathbf u\|^2+\|\mathbf v\|^2-\|\mathbf u-\mathbf v\|^2\big).$$
+
+**Proof.**
+$$\|\mathbf u-\mathbf v\|^2=(\mathbf u-\mathbf v)\cdot(\mathbf u-\mathbf v)=\|\mathbf u\|^2-2(\mathbf u\cdot\mathbf v)+\|\mathbf v\|^2,$$
+and rearrange.
+
+### Lemma 8.9 — O(n) preserves the dot product
+
+$$O(n)=\{A\in GL_n(\mathbb R):A\mathbf x\cdot A\mathbf y=\mathbf x\cdot\mathbf y\text{ for all }\mathbf x,\mathbf y\in\mathbb R^n\}.$$
+
+**Proof.** ($\supseteq$) If $A\mathbf x\cdot A\mathbf y=\mathbf x\cdot\mathbf y$ for all $\mathbf x,\mathbf y\in\mathbb R^n$, then for any $\mathbf v\in\mathbb R^n$,
+$$\|A\mathbf v\|^2=(A\mathbf v)\cdot(A\mathbf v)=\mathbf v\cdot\mathbf v=\|\mathbf v\|^2,$$
+so $A\in O(n)$.
+
+($\subseteq$) Suppose $A\in O(n)$. Then for any $\mathbf x,\mathbf y\in\mathbb R^n$,
+$$\begin{aligned}
+2(A\mathbf x)\cdot(A\mathbf y)&=\|A\mathbf x\|^2+\|A\mathbf y\|^2-\|A\mathbf x-A\mathbf y\|^2\\
+&=\|\mathbf x\|^2+\|\mathbf y\|^2-\|\mathbf x-\mathbf y\|^2&&\text{by assumption}\\
+&=2\,\mathbf x\cdot\mathbf y&&\text{by polarisation.}
+\end{aligned}$$
+
+> [!note] Explanation
+> The middle step uses $A\mathbf x-A\mathbf y=A(\mathbf x-\mathbf y)$, so $\|A\mathbf x-A\mathbf y\|=\|\mathbf x-\mathbf y\|$ as well.
+
+### Lemma 8.10 — Characterisations of orthogonal matrices
+
+Let $A\in M_n(\mathbb R)$. The following are equivalent:
+1. $A\in O(n)$;
+2. the columns of $A$ form an orthonormal basis;
+3. $A^{\mathsf T}A=I$.
+
+**Proof.** (1) $\Rightarrow$ (2): Let $A=(a_{ij})$ and let $(\mathbf e_1,\dots,\mathbf e_n)$ be the standard basis for $\mathbb R^n$. The $i$th column of $A$ is $A\mathbf e_i$. Now
+$$A\mathbf e_i\cdot A\mathbf e_j=\mathbf e_i\cdot\mathbf e_j=\begin{cases}1&i=j\\0&\text{otherwise}\end{cases}=\delta_{ij},$$
+so the columns form an orthonormal basis.
+
+(2) $\Rightarrow$ (3): As explained above, (2) means that $\delta_{ij}=A\mathbf e_i\cdot A\mathbf e_j$. Since $\mathbf u\cdot\mathbf v=\mathbf u^{\mathsf T}\mathbf v$, (2) means that
+$$\delta_{ij}=(A\mathbf e_i)^{\mathsf T}(A\mathbf e_j)=\mathbf e_i^{\mathsf T}A^{\mathsf T}A\,\mathbf e_j.$$
+Now for any $n\times n$ matrix $M$, $\mathbf e_i^{\mathsf T}M\mathbf e_j=M_{ij}$. So $A^{\mathsf T}A=I$.
+
+(3) $\Rightarrow$ (1): Suppose $\mathbf u,\mathbf v\in\mathbb R^n$. Then
+$$A\mathbf u\cdot A\mathbf v=(A\mathbf u)^{\mathsf T}(A\mathbf v)=\mathbf u^{\mathsf T}A^{\mathsf T}A\mathbf v=\mathbf u^{\mathsf T}\mathbf v=\mathbf u\cdot\mathbf v$$
+by assumption (3).
+
+> [!note] Explanation
+> To finish (3) $\Rightarrow$ (1): $A^{\mathsf T}A=I$ shows that $A$ is invertible, with $A^{-1}=A^{\mathsf T}$, so $A\in GL_n(\mathbb R)$, and it preserves dot products, so $A\in O(n)$ by Lemma 8.9.
+
+**Determinants.** Recall from Vectors and Matrices that $\det A^{\mathsf T}=\det A$ (see [[Vectors and Matrices - Chapter 3 Matrices#Rows and columns give the same determinant|here]]). So for any $A\in O(n)$,
+$$1=\det I=\det(A^{\mathsf T}A)=\det(A^{\mathsf T})\det A=(\det A)^2,$$
+so $\det A=\pm1$.
+
+### Definition 8.11 — Special orthogonal group
+
+$$SO(n)=O(n)\cap SL_n(\mathbb R)=\{A\in O(n):\det A=1\}.$$
+This is called the **special orthogonal group** in dimension $n$.
+
+**Remark.** $SO(n)=\ker\big(\det:O(n)\to\{\pm1\}\big)$. So $SO(n)\trianglelefteq O(n)$ and $|O(n):SO(n)|=2$.
+
+> [!note] Explanation
+> The index is $2$ because $\det$ is onto $\{\pm1\}$ (a reflection, below, has determinant $-1$), so by the isomorphism theorem $O(n)/SO(n)\cong\{\pm1\}$.
+
+### Definition 8.12 — Reflection
+
+Any $\mathbf v\in\mathbb R^n\setminus\{\mathbf 0\}$ defines an orthogonal plane
+$$P_{\mathbf v}=\{\mathbf x\in\mathbb R^n:\mathbf x\cdot\mathbf v=0\}.$$
+The **reflection** in $P_{\mathbf v}$ is defined to be
+$$S_{\mathbf v}:\mathbf x\longmapsto\mathbf x-2\frac{\mathbf x\cdot\mathbf v}{\|\mathbf v\|^2}\mathbf v.$$
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw (-2.6,-0.95) -- (2.6,0.95) node[right] {$P_v$};
+  \draw[->,thick] (-1.6,-0.58) -- ++(-0.34,0.94) node[above] {$v$};
+  \fill[blue] (-0.25,1.4) circle (1.3pt) node[left] {$x$};
+  \fill[blue] (0.71,-1.24) circle (1.3pt) node[right] {$S_v(x)$};
+  \draw[blue,dashed,->] (-0.25,1.4) -- (0.69,-1.19);
+\end{tikzpicture}
+\end{document}
+```
+*$S_{\mathbf v}$ moves $\mathbf x$ along $\mathbf v$, to the mirror image on the other side of the plane $P_{\mathbf v}$.*
+
+**Remark.** We may replace $\mathbf v$ by $\frac{\mathbf v}{\|\mathbf v\|}$ and assume that $\|\mathbf v\|=1$. In this case
+$$S_{\mathbf v}(\mathbf x)=\mathbf x-2(\mathbf x\cdot\mathbf v)\mathbf v.$$
+
+### Lemma 8.13 — Reflections are orthogonal involutions
+
+$S_{\mathbf v}^2=I$ and $S_{\mathbf v}\in O(n)$.
+
+**Proof.** We may assume $\|\mathbf v\|=1$.
+- $S_{\mathbf v}$ is linear in $\mathbf x$, so $S_{\mathbf v}\in M_n(\mathbb R)$.
+- $S_{\mathbf v}^2$: we have $S_{\mathbf v}(\mathbf x)\cdot\mathbf v=(\mathbf x\cdot\mathbf v)-2(\mathbf x\cdot\mathbf v)(\mathbf v\cdot\mathbf v)=-\mathbf x\cdot\mathbf v$, so
+$$S_{\mathbf v}^2(\mathbf x)=S_{\mathbf v}(\mathbf x)-2\big(S_{\mathbf v}(\mathbf x)\cdot\mathbf v\big)\mathbf v=\mathbf x-2(\mathbf x\cdot\mathbf v)\mathbf v+2(\mathbf x\cdot\mathbf v)\mathbf v=\mathbf x.$$
+So $S_{\mathbf v}^2=I$.
+- For any $\mathbf x\in\mathbb R^n$,
+$$\|S_{\mathbf v}(\mathbf x)\|^2=\big(\mathbf x-2(\mathbf x\cdot\mathbf v)\mathbf v\big)\cdot\big(\mathbf x-2(\mathbf x\cdot\mathbf v)\mathbf v\big)=\|\mathbf x\|^2-4(\mathbf x\cdot\mathbf v)^2+4(\mathbf x\cdot\mathbf v)^2\underbrace{\|\mathbf v\|^2}_{=1}=\|\mathbf x\|^2,$$
+so $S_{\mathbf v}\in O(n)$ ($S_{\mathbf v}$ is invertible since $S_{\mathbf v}^2=I$).
+
+**Remark.** Let $\sigma_{\mathbf v}$ be the abstract linear map represented by $S_{\mathbf v}$ (with respect to the standard basis). Let $\|\mathbf v\|=1$ and pick any basis $(\mathbf v_2,\dots,\mathbf v_n)$ for $P_{\mathbf v}$. Then $(\mathbf v,\mathbf v_2,\dots,\mathbf v_n)$ is a basis for $\mathbb R^n$. With respect to this basis, $\sigma_{\mathbf v}$ is represented by
+$$\begin{pmatrix}-1&&&0\\&1&&\\&&\ddots&\\0&&&1\end{pmatrix},$$
+so $\det S_{\mathbf v}=-1$ and $S_{\mathbf v}\notin SO(n)$ (the determinant is invariant under change of basis).
+
+> [!note] Explanation
+> $\sigma_{\mathbf v}(\mathbf v)=\mathbf v-2\mathbf v=-\mathbf v$, and $\sigma_{\mathbf v}(\mathbf v_i)=\mathbf v_i$ since $\mathbf v_i\cdot\mathbf v=0$. Two matrices of the same map are conjugate, $B=PAP^{-1}$ ([[#Proposition 8.5 — Orbits under conjugation are changes of basis|Prop 8.5]]), so $\det B=\det A$.

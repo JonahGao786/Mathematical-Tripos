@@ -6,14 +6,14 @@ chapter: 4
 source_file: Ch.4 Eigenvalues and Eigenvectors.pdf
 drive_file_id: 1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6
 source_url: https://drive.google.com/file/d/1u6v1qK4liyDt8u40qnzJ_DjJnNAgfXE6/view
-source_pages: 21
+source_pages: 26
 tags: [lecture, vectors-and-matrices]
 ---
 
 # Vectors and Matrices — Chapter 4: Eigenvalues and Eigenvectors
 
 > [!abstract] Overview
-> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Then eigenspaces $E_\lambda$, algebraic and geometric multiplicities $M_\lambda\ge m_\lambda$, and the independence of eigenvectors for distinct eigenvalues. Then diagonalisation: $A$ is diagonalisable iff $\chi_A$ splits and $m_\lambda=M_\lambda$ for every eigenvalue, how to build $P$, and powers $A^k=PD^kP^{-1}$. When there are too few eigenvectors, the Jordan canonical form uses Jordan blocks and chains of generalised eigenvectors. Finally, Hermitian matrices have real eigenvalues.
+> An eigenvector of $T$ is a non-zero vector that $T$ only rescales. For a matrix $A$, the eigenvalues are the roots of the characteristic polynomial $\chi_A(t)=\det(A-tI)$; their sum is $\operatorname{tr}A$ and their product is $\det A$, and for real $A$ the non-real ones come in conjugate pairs. Triangular and diagonal matrices show their eigenvalues on the diagonal. Then change of basis: a map with matrix $A$ in one basis has matrix $P^{-1}AP$ in another, which leads to similar matrices. Then eigenspaces $E_\lambda$, algebraic and geometric multiplicities $M_\lambda\ge m_\lambda$, and the independence of eigenvectors for distinct eigenvalues. Then diagonalisation: $A$ is diagonalisable iff $\chi_A$ splits and $m_\lambda=M_\lambda$ for every eigenvalue, how to build $P$, and powers $A^k=PD^kP^{-1}$. When there are too few eigenvectors, the Jordan canonical form uses Jordan blocks and chains of generalised eigenvectors. Finally, Hermitian matrices have real eigenvalues and, by the spectral theorem, an orthonormal basis of eigenvectors (built with Gram–Schmidt); applied to quadratic forms this gives principal axes, in which $q(\mathbf x)=\sum\lambda_jy_j^2$.
 > Prerequisite: [[Vectors and Matrices - Chapter 3 Matrices]] (determinants, trace, kernels).
 
 ## Results index
@@ -44,7 +44,12 @@ tags: [lecture, vectors-and-matrices]
 | [[#Proposition — Jordan forms in dimension 2]] | $\operatorname{diag}(\lambda_1,\lambda_2)$, $\lambda I$ or $\begin{pmatrix}\lambda&1\\0&\lambda\end{pmatrix}$ | 16–18 |
 | [[#Definition — Jordan block]] | $J_p(\lambda)$: $\lambda$ on the diagonal, $1$ above | 18 |
 | [[#Theorem — Jordan canonical form]] | $P^{-1}AP=\operatorname{diag}(J_{p_i}(\lambda_i))$; chains, block counts, examples | 18–20 |
-| [[#Theorem — Eigenvalues of Hermitian matrices]] | real eigenvalues; orthogonal eigenvectors; real eigenvectors if real symmetric | 21 |
+| [[#Theorem — Eigenvalues of Hermitian matrices]] | real eigenvalues; orthogonal eigenvectors; real eigenvectors if real symmetric | 21–22 |
+| [[#Proposition — Gram–Schmidt orthonormalisation]] | independent set $\to$ orthonormal set with the same span | 23 |
+| [[#Theorem — Spectral theorem]] | Hermitian: $U^\dagger AU=D$ real; real symmetric: $Q^{\mathsf T}AQ=D$ | 23 |
+| [[#Definition — Quadratic form]] | $q(\mathbf x)=\mathbf x^{\mathsf T}A\mathbf x$, $A$ real symmetric | 24 |
+| [[#Principal axes]] | $q=\sum\lambda_jy_j^2$ in eigenvector coordinates; definiteness by eigenvalue signs | 24 |
+| [[#Examples in 2D and 3D]] | ellipse, hyperbola; ellipsoid; hyperboloids and double cone | 25–26 |
 
 ## 4.1 Eigenvalues and the characteristic polynomial
 
@@ -443,3 +448,116 @@ Let $A\in\mathbb C^{n\times n}$ be Hermitian.
 - Every eigenvalue of $A$ is real.
 - In particular, if $A$ has $n$ distinct eigenvalues, choosing one eigenvector for each gives an orthogonal basis of $\mathbb C^n$.
 - If $A$ is real symmetric, each eigenvalue has a non-zero real eigenvector.
+
+**Proof.** Let $A\mathbf v=\lambda\mathbf v$ and $A\mathbf w=\mu\mathbf w$ with $\mathbf v,\mathbf w\ne\mathbf 0$. Evaluate $\mathbf v^\dagger A\mathbf w$ in two ways:
+$$\mathbf v^\dagger A\mathbf w=\mathbf v^\dagger(\mu\mathbf w)=\mu\,\mathbf v^\dagger\mathbf w,\qquad\mathbf v^\dagger A\mathbf w=(A\mathbf v)^\dagger\mathbf w=\bar\lambda\,\mathbf v^\dagger\mathbf w,$$
+so
+$$(\mu-\bar\lambda)\,\mathbf v^\dagger\mathbf w=0.$$
+1. Take $\mathbf w=\mathbf v$, so $\mu=\lambda$: then $(\lambda-\bar\lambda)\mathbf v^\dagger\mathbf v=0$. Since $\mathbf v^\dagger\mathbf v=\sum_{j=1}^n|v_j|^2>0$, we get $\lambda=\bar\lambda$, i.e. $\lambda$ is real.
+   Now take $\mathbf v\ne\mathbf w$ with $\mu\ne\lambda$. Then $(\mu-\lambda)\mathbf v^\dagger\mathbf w=0$ gives $\mathbf v^\dagger\mathbf w=0$: $\mathbf v$ and $\mathbf w$ are orthogonal.
+2. With $n$ distinct eigenvalues $\lambda_1,\dots,\lambda_n$ and eigenvectors $\mathbf v_1,\dots,\mathbf v_n$, we show that $\{\mathbf v_1,\dots,\mathbf v_n\}$ is linearly independent: suppose $\sum_{j=1}^nc_j\mathbf v_j=\mathbf 0$. Multiplying from the left by $\mathbf v_k^\dagger$ ($k=1,\dots,n$),
+$$0=\mathbf v_k^\dagger\Big(\sum_{j=1}^nc_j\mathbf v_j\Big)=\sum_{j=1}^nc_j\,\mathbf v_k^\dagger\mathbf v_j=c_k\,\mathbf v_k^\dagger\mathbf v_k\ \Rightarrow\ c_k=0.$$
+Repeating for all $k=1,\dots,n$ gives $c_1=\dots=c_n=0$, so $\{\mathbf v_1,\dots,\mathbf v_n\}$ is an orthogonal basis of $\mathbb C^n$.
+3. Let $A$ be real symmetric with eigenvalue $\lambda$ (real, by 1) and eigenvector $\mathbf v=\mathbf a+i\mathbf b$, where $\mathbf a,\mathbf b\in\mathbb R^n$. Then
+$$A\mathbf a+iA\mathbf b=A\mathbf v=\lambda\mathbf v=\lambda\mathbf a+i\lambda\mathbf b\ \Rightarrow\ A\mathbf a=\lambda\mathbf a,\quad A\mathbf b=\lambda\mathbf b,$$
+and since $\mathbf v\ne\mathbf 0$, $\mathbf a$ or $\mathbf b$ is non-zero: that one is a real eigenvector.
+
+> [!note] Explanation
+> The second evaluation uses $A=A^\dagger$: $\mathbf v^\dagger A\mathbf w=\mathbf v^\dagger A^\dagger\mathbf w=(A\mathbf v)^\dagger\mathbf w$, and $(\lambda\mathbf v)^\dagger=\bar\lambda\mathbf v^\dagger$. In 3, comparing real and imaginary parts works because $A$ and $\lambda$ are real.
+
+**Remark.** Eigenvectors associated to the same eigenvalue need not be orthogonal.
+
+### Proposition — Gram–Schmidt orthonormalisation
+
+Every linearly independent set $\{\mathbf w_1,\dots,\mathbf w_k\}$ in a real or complex inner-product space can be replaced by an orthonormal set $\{\mathbf u_1,\dots,\mathbf u_k\}$ with $\operatorname{span}\{\mathbf w_1,\dots,\mathbf w_k\}=\operatorname{span}\{\mathbf u_1,\dots,\mathbf u_k\}$. Define
+$$\mathbf u_1=\frac{\mathbf w_1}{\|\mathbf w_1\|},\qquad\mathbf u_2=\frac{\mathbf w_2-\langle\mathbf u_1,\mathbf w_2\rangle\mathbf u_1}{\|\mathbf w_2-\langle\mathbf u_1,\mathbf w_2\rangle\mathbf u_1\|},\qquad\dots,\qquad\mathbf u_k=\frac{\mathbf w_k-\sum_{i=1}^{k-1}\langle\mathbf u_i,\mathbf w_k\rangle\mathbf u_i}{\big\|\mathbf w_k-\sum_{i=1}^{k-1}\langle\mathbf u_i,\mathbf w_k\rangle\mathbf u_i\big\|}.$$
+
+> [!note] Explanation
+> At each step, subtracting $\langle\mathbf u_i,\mathbf w_k\rangle\mathbf u_i$ removes the component of $\mathbf w_k$ along each earlier $\mathbf u_i$, so what is left is orthogonal to $\mathbf u_1,\dots,\mathbf u_{k-1}$. It is non-zero because the $\mathbf w$'s are independent, so it can be normalised. This is how an [[Vectors and Matrices - Chapter 2 Vectors#Definition — Orthonormal basis|orthonormal basis]] can be chosen inside each eigenspace in the next theorem.
+
+### Theorem — Spectral theorem
+
+Every Hermitian matrix $A\in\mathbb C^{n\times n}$ has an orthonormal basis of eigenvectors. Equivalently, there is a unitary matrix $U$ such that
+$$U^\dagger AU=D=\operatorname{diag}(\lambda_1,\dots,\lambda_n),\qquad\lambda_j\in\mathbb R.$$
+For a real symmetric matrix, the eigenbasis can be chosen real, giving an orthogonal matrix $Q$ with
+$$Q^{\mathsf T}AQ=D.$$
+
+## 4.7 Quadratic forms and principal axes
+
+### Definition — Quadratic form
+
+A **quadratic form** on $\mathbb R^n$ is a function
+$$q(\mathbf x)=\mathbf x^{\mathsf T}A\mathbf x=\sum_iA_{ii}x_i^2+2\sum_{i<j}A_{ij}x_ix_j,$$
+where $\mathbf x=(x_1,\dots,x_n)$ and $A=(A_{ij})$ is a real symmetric matrix.
+
+### Principal axes
+
+By the spectral theorem, choose an orthogonal matrix $Q=(\mathbf u_1\ \cdots\ \mathbf u_n)$ (columns the orthonormal eigenvectors) so that $Q^{\mathsf T}AQ=D$. Set coordinates $\mathbf y=Q^{\mathsf T}\mathbf x$, or $\mathbf x=Q\mathbf y$. Then
+$$q(\mathbf x)=\mathbf x^{\mathsf T}A\mathbf x=\mathbf x^{\mathsf T}QDQ^{\mathsf T}\mathbf x=\mathbf y^{\mathsf T}D\mathbf y=\sum_{j=1}^n\lambda_jy_j^2,\qquad y_j=\mathbf u_j\cdot\mathbf x.$$
+The eigenvector directions are the **principal axes**. Since
+$$\mathbf x=\sum_jx_j\mathbf e_j=\sum_jy_j\mathbf u_j\ \Rightarrow\ \|\mathbf x\|^2=\sum_jx_j^2=\sum_jy_j^2,$$
+the new coordinates measure lengths in the same way.
+
+| Type (quadratic form $\leftrightarrow$ matrix) | Eigenvalue signs |
+| --- | --- |
+| positive definite | $\lambda_j>0$ for all $j$ |
+| positive semidefinite | $\lambda_j\ge0$ for all $j$ |
+| negative definite | $\lambda_j<0$ for all $j$ |
+| negative semidefinite | $\lambda_j\le0$ for all $j$ |
+| indefinite | at least one positive and one negative eigenvalue |
+
+### Examples in 2D and 3D
+
+**Example.** $A=\begin{pmatrix}\alpha&\beta\\\beta&\alpha\end{pmatrix}$, $q(\mathbf x)=\alpha x_1^2+2\beta x_1x_2+\alpha x_2^2$. The eigenvalues are
+$$\alpha+\beta\ \text{ with }\ \mathbf u_1=\tfrac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix},\qquad\alpha-\beta\ \text{ with }\ \mathbf u_2=\tfrac1{\sqrt2}\begin{pmatrix}-1\\1\end{pmatrix}.$$
+Then
+$$\begin{pmatrix}y_1\\y_2\end{pmatrix}=\begin{pmatrix}\frac1{\sqrt2}&\frac1{\sqrt2}\\-\frac1{\sqrt2}&\frac1{\sqrt2}\end{pmatrix}\begin{pmatrix}x_1\\x_2\end{pmatrix}\ \Rightarrow\ y_1=\frac{x_1+x_2}{\sqrt2},\quad y_2=\frac{-x_1+x_2}{\sqrt2},$$
+and
+$$q(\mathbf x)=(\alpha+\beta)y_1^2+(\alpha-\beta)y_2^2.$$
+- $\alpha=\frac32$, $\beta=-\frac12$ $\Rightarrow$ $q(\mathbf x)=y_1^2+2y_2^2$. Taking $q(\mathbf x)=1$ gives an ellipse with semi-axes $1$ and $\frac1{\sqrt2}$.
+- $\alpha=-\frac12$, $\beta=\frac32$ $\Rightarrow$ $q(\mathbf x)=y_1^2-2y_2^2$. Taking $q(\mathbf x)=1$ gives a hyperbola with asymptotes $y_1=\pm\sqrt2\,y_2$.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=1.1]
+  \draw[->] (-1.7,0) -- (1.8,0) node[right] {$x_1$};
+  \draw[->] (0,-1.7) -- (0,1.8) node[above] {$x_2$};
+  \draw[blue,->] (-1.2,-1.2) -- (1.3,1.3) node[above right] {$y_1$};
+  \draw[blue,->] (1.2,-1.2) -- (-1.3,1.3) node[above left] {$y_2$};
+  \draw[red,thick,rotate=45] (0,0) ellipse (1 and 0.707);
+  \node at (0.1,-2.1) {\small $y_1^2+2y_2^2=1$};
+  \begin{scope}[xshift=5cm]
+  \draw[->] (-1.9,0) -- (1.9,0) node[right] {$x_1$};
+  \draw[->] (0,-1.9) -- (0,1.9) node[above] {$x_2$};
+  \draw[blue,->] (-1.4,-1.4) -- (1.5,1.5) node[above right] {$y_1$};
+  \draw[blue,->] (1.4,-1.4) -- (-1.5,1.5) node[above left] {$y_2$};
+  \begin{scope}[rotate=45]
+    \draw[red,thick,domain=-1.05:1.05,samples=40] plot ({cosh(\x)},{sinh(\x)/sqrt(2)});
+    \draw[red,thick,domain=-1.05:1.05,samples=40] plot ({-cosh(\x)},{sinh(\x)/sqrt(2)});
+    \draw[gray,dashed] (-1.9,-1.34) -- (1.9,1.34); \draw[gray,dashed] (-1.9,1.34) -- (1.9,-1.34);
+  \end{scope}
+  \node at (1.1,-2.2) {\small $y_1^2-2y_2^2=1$};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*The level set $q(\mathbf x)=1$ in the two cases, drawn against the principal axes $y_1,y_2$ (the diagonals). Left: an ellipse with semi-axes $1$ along $y_1$ and $\frac1{\sqrt2}$ along $y_2$. Right: a hyperbola crossing the $y_1$-axis at $\pm1$, with asymptotes $y_1=\pm\sqrt2\,y_2$ (dashed).*
+
+**Example 4.7.3.** Let $\lambda_1,\lambda_2,\lambda_3>0$ and $\mathbf x=(x_1,x_2,x_3)^{\mathsf T}\in\mathbb R^3$, with
+$$q(\mathbf x)=\frac{\lambda_1+\lambda_2}2(x_1^2+x_2^2)+(\lambda_1-\lambda_2)x_1x_2+\lambda_3x_3^2.$$
+With $y_1=\frac{x_1+x_2}{\sqrt2}$, $y_2=\frac{-x_1+x_2}{\sqrt2}$, $y_3=x_3$, the surface $q(\mathbf x)=1$ becomes
+$$\lambda_1y_1^2+\lambda_2y_2^2+\lambda_3y_3^2=1,$$
+an ellipsoid with semi-axes $\frac1{\sqrt{\lambda_1}},\frac1{\sqrt{\lambda_2}},\frac1{\sqrt{\lambda_3}}$ along the $y_1$, $y_2$, $y_3$ axes.
+
+**Example 4.7.4.**
+$$A=\begin{pmatrix}0&1&1\\1&0&1\\1&1&0\end{pmatrix},\qquad q(\mathbf x)=2x_1x_2+2x_2x_3+2x_1x_3.$$
+The eigenvalues are $-1$ (multiplicity $2$) and $2$, with orthonormal eigenvectors
+$$\mathbf u_1=\tfrac1{\sqrt2}(1,-1,0)^{\mathsf T},\qquad\mathbf u_2=\tfrac1{\sqrt6}(1,1,-2)^{\mathsf T},\qquad\mathbf u_3=\tfrac1{\sqrt3}(1,1,1)^{\mathsf T},$$
+so $q(\mathbf x)=-y_1^2-y_2^2+2y_3^2$.
+- $q(\mathbf x)=1$ $\Rightarrow$ hyperboloid of two sheets.
+- $q(\mathbf x)=-1$ $\Rightarrow$ connected hyperboloid of one sheet.
+- $q(\mathbf x)=0$ $\Rightarrow$ double cone.
+
+> [!note] Explanation
+> $\mathbf u_1,\mathbf u_2$ span the $(-1)$-eigenspace (the plane $x_1+x_2+x_3=0$) and were chosen orthonormal inside it, as Gram–Schmidt allows. For $q=1$: $2y_3^2=1+y_1^2+y_2^2\ge1$, so $|y_3|\ge\frac1{\sqrt2}$ and the surface has two separate pieces. For $q=-1$: $y_1^2+y_2^2=1+2y_3^2$, a circle for every $y_3$, which forms one connected tube.

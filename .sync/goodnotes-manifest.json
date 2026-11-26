@@ -3622,14 +3622,18 @@
         "p.18: chain relation (A - lambda I)v_j = v_j read as v_{j-1}.",
         "p.19: diag(J2(lambda), lambda) drawn with a 1 in position (2,3); written with 0 there.",
         "p.19: 6x6 example: the ragged layout suggests A_46 = 1, but the lecturer's chains and P^{-1}AP = diag(J3(2), J2(2), J1(-1)) hold only with A_46 = 0; written with 0 (checked numerically).",
-        "p.15 P^{-1} and P^{-1}AP = D checked numerically."
+        "p.15 P^{-1} and P^{-1}AP = D checked numerically.",
+        "p.22: 'n distinct symmetries' read as eigenvalues; c_1 v_1^dagger v_1 written with general index k.",
+        "p.25: q = (alpha+beta)^2 y1^2 + ... read as (alpha+beta) y1^2 (consistent with the examples).",
+        "p.26 Example 4.7.3: 'lambda1, lambda2, lambda3 = 0' read as > 0 (semi-axes 1/sqrt(lambda_i)).",
+        "Example 4.7.4 eigenvectors and the 2D examples checked numerically; 3D ellipsoid sketch not redrawn."
       ],
       "unresolved_todos": [],
-      "diagram_note": "TikZ: vector v against the standard and the new basis (p.7).",
-      "observed_source_modified_timestamp": "2026-11-24T13:18:06.971Z",
-      "processed_source_modified_timestamp": "2026-11-24T13:18:06.971Z",
-      "total_page_count": 21,
-      "visually_inspected_pages": "pp.15-21 (2026-11-24); pp.1-14 matched baseline hashes",
+      "diagram_note": "TikZ: ellipse and hyperbola against principal axes (p.25).",
+      "observed_source_modified_timestamp": "2026-11-26T12:55:44.808Z",
+      "processed_source_modified_timestamp": "2026-11-26T12:55:44.808Z",
+      "total_page_count": 26,
+      "visually_inspected_pages": "pp.21-26 (2026-11-26; p.21 extended); pp.1-20 matched baseline hashes",
       "page_hashes": [
         "ff554edab589601a361a",
         "f738cce5a36585915a88",
@@ -3651,11 +3655,16 @@
         "826cda4319c7cbdb941d",
         "38ea2bb008b98a43b03b",
         "0ac2e39325e050b4c31c",
-        "b200d3d9d642046cd98c"
+        "2f7872d95c4ae380c57f",
+        "ab9732d83fe592cf7118",
+        "ada1c88b58fd6f09e480",
+        "23c96a376d9cd800d257",
+        "e588cc0a0abab69c0c24",
+        "ccc3299dc0da0cbdaff8"
       ],
-      "source_sha256": "5389aa9fe22ad467c86b00316c2a37d8905da3b1f6690ec5cb5e56d718873252",
-      "source_size_bytes": 3936805,
-      "last_successful_processing_at": "2026-11-24",
+      "source_sha256": "b56b0982522b041117f00abc7f476491559835e79af9e50b7f0fe37b0fc17040",
+      "source_size_bytes": 4962542,
+      "last_successful_processing_at": "2026-11-26",
       "status": "processed"
     },
     "1BP8s-umleZR5F0W7zdTZInHoTPxS-Vfh": {
@@ -3673,7 +3682,9 @@
       "normalizations": [
         "p.4 Thm 6: 'included by N' read as 'indexed by N'.",
         "p.4 Thm 7: degree written d and alpha in source; d used throughout.",
-        "Diagonal enumeration of N x N redrawn (p.3)."
+        "Diagonal enumeration of N x N redrawn (p.3).",
+        "p.5: '(0,1) is countable' read as uncountable.",
+        "p.6 Thm 10 Proof 2 and p.7 Remark ii, Example Proof 2: missing steps (contradiction with Thm 8; surjection V -> P(V); injection via left endpoints) given in callouts."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: zig-zag listing of Z (p.1); diagonal listing of N x N (p.3).",
@@ -3681,15 +3692,18 @@
         "c6ccbd6c7dc4fb6567b8",
         "8f16b4fa6f2e7df4ea12",
         "3e9249dab665f6d9ef32",
-        "3f77d1fcd5299951869c"
+        "3f77d1fcd5299951869c",
+        "6109fd1eaf947d950882",
+        "f2a85b0f7068f1969538",
+        "d4823d2e89258d110298"
       ],
-      "observed_source_modified_timestamp": "2026-11-24T12:54:40.335Z",
-      "processed_source_modified_timestamp": "2026-11-24T12:54:40.335Z",
-      "total_page_count": 4,
-      "visually_inspected_pages": "pp.1-4 (2026-11-24; p.1 edited, pp.2-4 new)",
-      "source_sha256": "07200d888f607d2479896532ad7abf4262d041dd197268669f5b3993d6e625e8",
-      "source_size_bytes": 1169751,
-      "last_successful_processing_at": "2026-11-24",
+      "observed_source_modified_timestamp": "2026-11-26T12:55:15.511Z",
+      "processed_source_modified_timestamp": "2026-11-26T12:55:15.511Z",
+      "total_page_count": 7,
+      "visually_inspected_pages": "pp.5-7 (2026-11-26); pp.1-4 matched baseline hashes",
+      "source_sha256": "fba468c6356d4cc855a8a3d72eb1c3f26071aa11cbf97d94e327c41a09e52d78",
+      "source_size_bytes": 1970741,
+      "last_successful_processing_at": "2026-11-26",
       "status": "processed"
     },
     "1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG": {
@@ -3704,22 +3718,31 @@
       "course": "Part IA Groups",
       "classification": "study_material",
       "normalizations": [
-        "p.3: the two basis isomorphisms read as phi (first basis) and psi (second), confirmed by zoom; new basis vectors written u_i."
+        "p.3: the two basis isomorphisms read as phi (first basis) and psi (second), confirmed by zoom; new basis vectors written u_i.",
+        "p.5 Lemma 8.9: ||x - y|| (missing square) read as ||x - y||^2.",
+        "p.7 Def 8.12: 'Any r in R^n \\ {0}' read as v (the vector used throughout).",
+        "Lemma 8.10 (iii)=>(i): invertibility of A and use of Lemma 8.9 noted in a callout."
       ],
       "unresolved_todos": [],
-      "diagram_note": "TikZ: commuting square for Prop 8.5 (p.3).",
+      "diagram_note": "TikZ: commuting square for Prop 8.5 (p.3); reflection in P_v (p.7).",
       "page_hashes": [
         "784bf1a14e25d0c5e923",
         "46779f3c48c14fe94764",
-        "eff1bbf9357e310b74a8"
+        "eff1bbf9357e310b74a8",
+        "482fcb59052d08df4bc8",
+        "8261390d59777bfff712",
+        "ae41aaf65c93ea8c3bfd",
+        "4164cf324f84217fa227",
+        "9cf01e113a49a13b0603",
+        "241fbc2a93522a64a0bb"
       ],
-      "observed_source_modified_timestamp": "2026-11-23T13:11:54.901Z",
-      "processed_source_modified_timestamp": "2026-11-23T13:11:54.901Z",
-      "total_page_count": 3,
-      "visually_inspected_pages": "pp.1-3 (all, 2026-11-23)",
-      "source_sha256": "8cdc2f062353c555bf1a06ea0e75c1e26d021083d9104032eb8eeb7cc8a06f8f",
-      "source_size_bytes": 670229,
-      "last_successful_processing_at": "2026-11-23",
+      "observed_source_modified_timestamp": "2026-11-25T16:31:23.839Z",
+      "processed_source_modified_timestamp": "2026-11-25T16:31:23.839Z",
+      "total_page_count": 9,
+      "visually_inspected_pages": "pp.4-9 (2026-11-25); pp.1-3 matched baseline hashes",
+      "source_sha256": "25df8fb6a8d058fbd78cff7a00d4a5aafe214b8b555f8511d0a6c68ae5ac2e6d",
+      "source_size_bytes": 1785712,
+      "last_successful_processing_at": "2026-11-25",
       "status": "processed"
     },
     "19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi": {
@@ -3735,7 +3758,9 @@
       "course": "Part IA Differential Equations",
       "classification": "study_material",
       "normalizations": [
-        "Outline lists coupled ODE systems and PDEs; source covers sections 1-3.1 so far."
+        "p.6: 'H indefinite => may be max, min or saddle' kept with the lecturer's broad meaning of indefinite; callout explains.",
+        "Worked example f = 4x^3 - 12xy + y^2 + 10y + 6 checked (stationary points, minors -96 and 96).",
+        "p.6: 'all eigenvalues non-zero but mixed signs => saddle; any zero => higher terms' sharpened to: eigenvalues of both signs => saddle; zeros with the rest of one sign => higher terms (review fix)."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: contours with ds (p.1); max/min/saddle contour panels with gradient arrows (pp.3-4; 3D surface sketches not redrawn); line x0 + s s-hat through contours (p.4).",
@@ -3744,32 +3769,36 @@
         "d78146fabaf53ce66436",
         "e83755f2e46e4180272c",
         "f555b97845e9bb295211",
-        "29b6633a595f3f755d49"
+        "dbb1752c03cf32e1fab1",
+        "14409023eacd7c270f0c",
+        "5438ee66259a2e13b218",
+        "a7a825da70fbdbeecc0e",
+        "d258416c3ca727edca75"
       ],
-      "observed_source_modified_timestamp": "2026-11-23T13:11:27.212Z",
-      "processed_source_modified_timestamp": "2026-11-23T13:11:27.212Z",
-      "total_page_count": 5,
-      "visually_inspected_pages": "pp.1-5 (all, 2026-11-23)",
-      "source_sha256": "f6f4acc3049de6b209984de645ba408f8ec8999ac1c41cc88f32753e536428c0",
-      "source_size_bytes": 979149,
-      "last_successful_processing_at": "2026-11-23",
+      "observed_source_modified_timestamp": "2026-11-25T16:14:24.265Z",
+      "processed_source_modified_timestamp": "2026-11-25T16:14:24.265Z",
+      "total_page_count": 9,
+      "visually_inspected_pages": "pp.5-9 (2026-11-25; p.5 extended); pp.1-4 matched baseline hashes",
+      "source_sha256": "b8f49609c0b265a5f30d9443bc473025c8b5413462dee6fb114884aa3c4616b0",
+      "source_size_bytes": 1940780,
+      "last_successful_processing_at": "2026-11-25",
       "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-24",
-    "completed_at": "2026-11-24T15:00:00Z",
+    "date": "2026-11-26",
+    "completed_at": "2026-11-26T15:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
     "new_source_count": 0,
     "modified_source_count": 2,
     "processed_source_count": 2,
     "pending_source_count": 0,
-    "reading_method": "Drive connector (no service-account key in container): changed-file search on modifiedTime/createdTime since the last full listing; downloads matched Drive sizes. pagediff.py selected V&M Ch.4 pp.15-21 and N&S Ch.4 pp.1-4.",
-    "visually_inspected_page_count": 11,
+    "reading_method": "Drive connector (no service-account key in container): changed-file search since the last run; downloads matched Drive sizes. pagediff.py selected V&M Ch.4 pp.21-26 and N&S Ch.4 pp.5-7.",
+    "visually_inspected_page_count": 9,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-24"
+    "commit_message": "notes: process Goodnotes files from 2026-11-26"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

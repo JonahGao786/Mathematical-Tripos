@@ -24,6 +24,7 @@ tags: [concept, groups]
 - **Simple groups** have no normal subgroups except $1$, $G$; every homomorphism out of one is trivial or injective; $C_p$ is simple. → [[Groups - Chapter 6 Quotients#Definition 6.6 — Simple group|lecture]]
 - **Theorem 7.15.** $A_5$ is simple: its classes have sizes $1,20,15,12,12$, a normal subgroup is a union of classes containing $e$, and the only such sums dividing $60$ are $1$ and $60$. → [[Groups - Chapter 7 Permutations#Theorem 7.15 — A_5 is simple|proof]]
 - $SL_n(\mathbb R)=\ker(\det)\trianglelefteq GL_n(\mathbb R)$ and $GL_n(\mathbb R)/SL_n(\mathbb R)\cong\mathbb R^\times$ (also over $\mathbb C$). → [[Groups - Chapter 8 Matrices#Definition 8.4 — Special linear group|lecture]]
+- Scalar matrices $D\trianglelefteq GL_2(\mathbb C)$ with $GL_2(\mathbb C)/D\cong\mathcal M$; $SO(n)\trianglelefteq O(n)$ with index $2$. → [[Groups - Chapter 8 Matrices#Proposition 8.6 — M is a quotient of GL_2(C)|proof]] · [[Groups - Chapter 8 Matrices#Definition 8.11 — Special orthogonal group|lecture]]
 
 ## Related
 

@@ -32,7 +32,7 @@ tags: [lecture, groups]
 | [[#Definition 3.9 — Conjugate]] | $hgh^{-1}$; conjugation action $(g,\gamma)\mapsto g\gamma g^{-1}$ | 13 |
 | [[#Definition 3.10 — Conjugacy classes]] | orbits of conjugation, $\operatorname{ccl}(g)$; reflections in $D_{2n}$ | 14 |
 | [[#Definition 3.11 — Centraliser]] | $C_G(g)=\{h:hgh^{-1}=g\}$, the elements commuting with $g$ | 14 |
-| [[#Definition 3.12 — Centre]] | $Z(G)=\bigcap_gC_G(g)$ | 15 |
+| [[#Definition 3.12 — Centre]] | $Z(G)=\bigcap_gC_G(g)$, a subgroup | 15 |
 
 ## 3.1 Actions
 
@@ -354,3 +354,8 @@ $$C_G(g)=\{h\in G:h\cdot g\cdot h^{-1}=g\}.$$
 The **centre** of $G$ is
 $$Z(G)=\{h\in G:hg=gh\text{ for all }g\in G\}=\bigcap_{g\in G}C_G(g),$$
 i.e. the set of elements of $G$ which commute with everything.
+
+**Remark.** $Z(G)$ is a [[Groups - Chapter 1 Examples and Definitions#Definition 1.15 — Subgroup|subgroup]] of $G$. Each centraliser $C_G(g)$ is a stabiliser (for the conjugation action), so it is a subgroup by [[#Proposition 3.5 — Stabilisers are subgroups, orbits partition X|Proposition 3.5]]. An intersection of subgroups is a subgroup, so $Z(G)=\bigcap_{g\in G}C_G(g)\le G$.
+
+> [!note] Explanation
+> Why an intersection of subgroups $H_i$ is a subgroup: $e$ lies in every $H_i$. If $a,b$ lie in every $H_i$, then so do $ab$ and $a^{-1}$, because each $H_i$ is closed under products and inverses.
