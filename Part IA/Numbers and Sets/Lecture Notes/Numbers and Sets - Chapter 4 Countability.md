@@ -220,7 +220,7 @@ Then $S$ is not on our list, since for all $n\in\mathbb N$, $S\ne S_n$ ($S$ and 
 
 **Proof 2.** There is an injection from $(0,1)$ into $\mathcal P(\mathbb N)$: write $x\in(0,1)$ in binary as $0.x_1x_2x_3\cdots$ with $x_i\in\{0,1\}$ (not ending in an infinite string of $1$s), and set
 $$f(x)=\{n\in\mathbb N:x_n=1\}.$$
-E.g. $0.111101000\cdots\mapsto\{1,2,3,5\}$. This is an injection.
+E.g. $0.11101000\cdots\mapsto\{1,2,3,5\}$. This is an injection.
 
 > [!note] Explanation
 > Proof 2 finishes like this: if $\mathcal P(\mathbb N)$ were countable, then by Theorem 2 it would inject into $\mathbb N$, and composing with $f$ would give an injection $(0,1)\to\mathbb N$, so $(0,1)$ would be countable, contradicting Theorem 8. Forbidding endless $1$s makes the binary expansion unique, so $f$ is well defined, and different $x$ give different digit sets.
