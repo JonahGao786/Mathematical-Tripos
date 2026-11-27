@@ -3721,10 +3721,12 @@
         "p.3: the two basis isomorphisms read as phi (first basis) and psi (second), confirmed by zoom; new basis vectors written u_i.",
         "p.5 Lemma 8.9: ||x - y|| (missing square) read as ||x - y||^2.",
         "p.7 Def 8.12: 'Any r in R^n \\ {0}' read as v (the vector used throughout).",
-        "Lemma 8.10 (iii)=>(i): invertibility of A and use of Lemma 8.9 noted in a callout."
+        "Lemma 8.10 (iii)=>(i): invertibility of A and use of Lemma 8.9 noted in a callout.",
+        "Thm 8.14: why S_v(Ae_n) = e_n and why S_vA preserves e_n-perp given in a callout.",
+        "Lemma 8.16: normals written u, v (source mixes mu/u)."
       ],
       "unresolved_todos": [],
-      "diagram_note": "TikZ: commuting square for Prop 8.5 (p.3); reflection in P_v (p.7).",
+      "diagram_note": "TikZ: commuting square (p.3); reflection in P_v (p.7); S_v swapping e_n and Ae_n (p.10); two mirror lines at angle theta (p.11); planes meeting in a line (p.11).",
       "page_hashes": [
         "784bf1a14e25d0c5e923",
         "46779f3c48c14fe94764",
@@ -3734,15 +3736,18 @@
         "ae41aaf65c93ea8c3bfd",
         "4164cf324f84217fa227",
         "9cf01e113a49a13b0603",
-        "241fbc2a93522a64a0bb"
+        "0b8d25d4a82461ae719b",
+        "ba7b8b85571031341fd5",
+        "04dbcd97dff6fbcc3e85",
+        "03416db99db946d40a8e"
       ],
-      "observed_source_modified_timestamp": "2026-11-25T16:31:23.839Z",
-      "processed_source_modified_timestamp": "2026-11-25T16:31:23.839Z",
-      "total_page_count": 9,
-      "visually_inspected_pages": "pp.4-9 (2026-11-25); pp.1-3 matched baseline hashes",
-      "source_sha256": "25df8fb6a8d058fbd78cff7a00d4a5aafe214b8b555f8511d0a6c68ae5ac2e6d",
-      "source_size_bytes": 1785712,
-      "last_successful_processing_at": "2026-11-25",
+      "observed_source_modified_timestamp": "2026-11-27T13:41:35.665Z",
+      "processed_source_modified_timestamp": "2026-11-27T13:41:35.665Z",
+      "total_page_count": 12,
+      "visually_inspected_pages": "pp.9-12 (2026-11-27; p.9 extended); pp.1-8 matched baseline hashes",
+      "source_sha256": "e5e6cf125ba89e080a3c8b36ae4544196c8c24c60217be6ee1a3028db0514965",
+      "source_size_bytes": 2396175,
+      "last_successful_processing_at": "2026-11-27",
       "status": "processed"
     },
     "19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi": {
@@ -3760,7 +3765,10 @@
       "normalizations": [
         "p.6: 'H indefinite => may be max, min or saddle' kept with the lecturer's broad meaning of indefinite; callout explains.",
         "Worked example f = 4x^3 - 12xy + y^2 + 10y + 6 checked (stationary points, minors -96 and 96).",
-        "p.6: 'all eigenvalues non-zero but mixed signs => saddle; any zero => higher terms' sharpened to: eigenvalues of both signs => saddle; zeros with the rest of one sign => higher terms (review fix)."
+        "p.6: 'all eigenvalues non-zero but mixed signs => saddle; any zero => higher terms' sharpened to: eigenvalues of both signs => saddle; zeros with the rest of one sign => higher terms (review fix).",
+        "p.12: v1 = (4,2) read as (4,1) (correct eigenvector; p.13 uses (4,1)).",
+        "Worked system example checked numerically (eigenvectors, u = (-4,-1)).",
+        "Saddle and unstable-node phase portraits redrawn as computed trajectories."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: contours with ds (p.1); max/min/saddle contour panels with gradient arrows (pp.3-4; 3D surface sketches not redrawn); line x0 + s s-hat through contours (p.4).",
@@ -3773,32 +3781,65 @@
         "14409023eacd7c270f0c",
         "5438ee66259a2e13b218",
         "a7a825da70fbdbeecc0e",
-        "d258416c3ca727edca75"
+        "d258416c3ca727edca75",
+        "8f73555c044c50019b4f",
+        "6e227cd7ff43832f1a15",
+        "748a779cc2a12056de20",
+        "080dc133a015b52c8f69",
+        "0cdb74edc62b06c4874f"
       ],
-      "observed_source_modified_timestamp": "2026-11-25T16:14:24.265Z",
-      "processed_source_modified_timestamp": "2026-11-25T16:14:24.265Z",
-      "total_page_count": 9,
-      "visually_inspected_pages": "pp.5-9 (2026-11-25; p.5 extended); pp.1-4 matched baseline hashes",
-      "source_sha256": "b8f49609c0b265a5f30d9443bc473025c8b5413462dee6fb114884aa3c4616b0",
-      "source_size_bytes": 1940780,
-      "last_successful_processing_at": "2026-11-25",
+      "observed_source_modified_timestamp": "2026-11-27T11:59:16.573Z",
+      "processed_source_modified_timestamp": "2026-11-27T11:59:16.573Z",
+      "total_page_count": 14,
+      "visually_inspected_pages": "pp.10-14 (2026-11-27); pp.1-9 matched baseline hashes",
+      "source_sha256": "640b834fe86f3e68e37fc80c72024f72d9d203ff2ff8baba5ee231f6329119a9",
+      "source_size_bytes": 2844117,
+      "last_successful_processing_at": "2026-11-27",
+      "status": "processed"
+    },
+    "1DI95lqKNiVZed3VucgyRB_uS7KzO0ANX": {
+      "drive_file_id": "1DI95lqKNiVZed3VucgyRB_uS7KzO0ANX",
+      "source_file_name": "Ch.9 Platonic Solids.pdf",
+      "source_url": "https://drive.google.com/file/d/1DI95lqKNiVZed3VucgyRB_uS7KzO0ANX/view?usp=drivesdk",
+      "drive_folder_path": "GoodNotes/Part IA/Groups",
+      "markdown_paths": [
+        "Part IA/Groups/Lecture Notes/Groups - Chapter 9 Platonic Solids.md"
+      ],
+      "material_type": "lecture notes",
+      "course": "Part IA Groups",
+      "classification": "study_material",
+      "normalizations": [
+        "Box example: the two sketches share face and vertex but use a short vs long edge; caption states this."
+      ],
+      "unresolved_todos": [],
+      "diagram_note": "TikZ: two flags on a box with edges of different lengths (p.1).",
+      "page_hashes": [
+        "13f82674891a485dc04d"
+      ],
+      "observed_source_modified_timestamp": "2026-11-27T14:01:43.750Z",
+      "processed_source_modified_timestamp": "2026-11-27T14:01:43.750Z",
+      "total_page_count": 1,
+      "visually_inspected_pages": "p.1 (all, 2026-11-27)",
+      "source_sha256": "9f75c4e354c5f2542a88fac4fc7b87f88593b2818ebec2711928e04efe370660",
+      "source_size_bytes": 177756,
+      "last_successful_processing_at": "2026-11-27",
       "status": "processed"
     }
   },
   "attachment_policy": "Commit Markdown notes and required sync metadata only. Embed TikZ source as text in the notes; PDF/image rendering, compiled diagrams and preview assets remain outside the repository. Drive links supplement the actual drawings.",
   "transcription_policy": "Produce clean mathematical notes. Correct obvious typos, variable-name inconsistencies, missing brackets or exponents, and harmless shorthand when the intended meaning is clear from the visually inspected source and mathematical context. Make routine algebra or immediate implicit steps explicit where helpful. Reserve TODOs for substantive mathematical errors, essential logical gaps, genuinely unresolved meaning, or truly unfinished work. Do not invent a new proof or solve an unfinished problem. Keep source traceability and record normalization summaries in the manifest rather than cluttering notes with minor correction flags.",
   "last_run": {
-    "date": "2026-11-26",
-    "completed_at": "2026-11-26T15:00:00Z",
+    "date": "2026-11-27",
+    "completed_at": "2026-11-27T16:00:00Z",
     "scope": "Normal sync; Example sheets skipped by default.",
-    "new_source_count": 0,
+    "new_source_count": 1,
     "modified_source_count": 2,
-    "processed_source_count": 2,
+    "processed_source_count": 3,
     "pending_source_count": 0,
-    "reading_method": "Drive connector (no service-account key in container): changed-file search since the last run; downloads matched Drive sizes. pagediff.py selected V&M Ch.4 pp.21-26 and N&S Ch.4 pp.5-7.",
-    "visually_inspected_page_count": 9,
+    "reading_method": "Drive connector (no service-account key in container): changed-file search since the last run; downloads matched Drive sizes. New Groups Ch.9 viewed in full; pagediff.py selected Groups Ch.8 pp.9-12 and DE Ch.6 pp.10-14.",
+    "visually_inspected_page_count": 10,
     "pending": [],
-    "commit_message": "notes: process Goodnotes files from 2026-11-26"
+    "commit_message": "notes: process Goodnotes files from 2026-11-27"
   },
   "diagram_policy": "Use actual TikZ drawings in fenced tikz Markdown blocks for the user’s installed Obsidian TikZJax plugin. Preserve source layout, connected paths, geometry, labels, directions and colours; do not substitute MathJax arrow arrays or automatic Mermaid layouts for mathematical drawings. Compile and visually check temporary output where supported. Commit no binary attachments; preserve incomplete work and record genuine unresolved content.",
   "inventory_file_count": 10,

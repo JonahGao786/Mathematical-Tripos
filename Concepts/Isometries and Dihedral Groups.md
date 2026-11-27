@@ -34,6 +34,8 @@ tags: [concept, groups]
 
 - $D_{2n}$ has $2n$ elements (notation by order; some texts write $D_n$).
 - **Orthogonal groups.** $O(n)$ = matrices preserving length $\iff$ preserving dot products (polarisation) $\iff$ orthonormal columns $\iff A^{\mathsf T}A=I$; $\det A=\pm1$; $SO(n)$ = determinant $1$. Reflections $S_{\mathbf v}(\mathbf x)=\mathbf x-2(\mathbf x\cdot\mathbf v)\mathbf v$ ($\|\mathbf v\|=1$) satisfy $S_{\mathbf v}^2=I$ and have $\det=-1$. → [[Groups - Chapter 8 Matrices#Lemma 8.10 — Characterisations of orthogonal matrices|proof]] · [[Groups - Chapter 8 Matrices#Lemma 8.13 — Reflections are orthogonal involutions|proof]]
+- **Theorem 8.14.** Every $A\in O(n)$ is a product of at most $n$ reflections (reflect $A\mathbf e_n$ back to $\mathbf e_n$, then induct). Hence $O(2)\setminus SO(2)$ consists of reflections and $SO(2)$ of rotations, with $S_{\mathbf w}S_{\mathbf v}=\operatorname{Rot}(2\theta)$ (Lemma 8.15); every $A\in SO(3)$ is a rotation about the line $P_{\mathbf u}\cap P_{\mathbf v}$ (Lemma 8.16). → [[Groups - Chapter 8 Matrices#Theorem 8.14 — Orthogonal matrices are products of reflections|proof]] · [[Groups - Chapter 8 Matrices#Lemma 8.15 — O(2): reflections and rotations|proof]] · [[Groups - Chapter 8 Matrices#Lemma 8.16 — SO(3) consists of rotations|proof]]
+- **Isometry group** $\operatorname{Isom}(X)$ of $X\subseteq\mathbb R^3$; a convex polyhedron is a **Platonic solid** if its isometries act transitively on face–edge–vertex flags. → [[Groups - Chapter 9 Platonic Solids#Definition — Platonic solid|lecture]]
 
 ## Related
 

@@ -6,14 +6,14 @@ chapter: 6
 source_file: Ch.6 Multivariate Functions Application.pdf
 drive_file_id: 19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi
 source_url: https://drive.google.com/file/d/19RlohvUsewtUnZL3-iyPLwzOtwX2UmAi/view
-source_pages: 9
+source_pages: 14
 tags: [lecture, differential-equations]
 ---
 
 # Differential Equations — Chapter 6: Multivariate Functions — Applications
 
 > [!abstract] Overview
-> For $f(x,y)$, the gradient $\nabla f=(f_x,f_y)$ gives the change of $f$ along any displacement, $df=d\mathbf s\cdot\nabla f$. The directional derivative is $\hat{\mathbf s}\cdot\nabla f$. $\nabla f$ points the way $f$ increases fastest, its length is that fastest rate, and it is perpendicular to the contours. Stationary points are where $\nabla f=\mathbf 0$: local maxima, local minima and saddle points, told apart by their contours. To classify them, expand $f$ by Taylor's theorem; the second-order term is a quadratic form in the Hessian matrix $H$. Positive definite $H$ (all eigenvalues positive, or all leading minors positive by Sylvester's criterion) gives a minimum, negative definite a maximum, mixed signs a saddle, and zero eigenvalues need higher-order terms.
+> For $f(x,y)$, the gradient $\nabla f=(f_x,f_y)$ gives the change of $f$ along any displacement, $df=d\mathbf s\cdot\nabla f$. The directional derivative is $\hat{\mathbf s}\cdot\nabla f$. $\nabla f$ points the way $f$ increases fastest, its length is that fastest rate, and it is perpendicular to the contours. Stationary points are where $\nabla f=\mathbf 0$: local maxima, local minima and saddle points, told apart by their contours. To classify them, expand $f$ by Taylor's theorem; the second-order term is a quadratic form in the Hessian matrix $H$. Positive definite $H$ (all eigenvalues positive, or all leading minors positive by Sylvester's criterion) gives a minimum, negative definite a maximum, mixed signs a saddle, and zero eigenvalues need higher-order terms. Finally, systems of linear ODEs $\dot{\mathbf Y}=M\mathbf Y+\mathbf F$ are solved with the eigenvectors of $M$, and the eigenvalues determine the phase portrait near the fixed point.
 > Prerequisite: [[Differential Equations - Chapter 3 Partial Differentiation]] (partial derivatives, chain rule).
 
 ## Results index
@@ -32,6 +32,10 @@ tags: [lecture, differential-equations]
 | [[#Definition — Signature of H]] | signs of the leading principal minors $\lvert H_1\rvert,\dots,\lvert H_N\rvert$ | 7 |
 | [[#Sylvester's criterion]] | $+,+,\dots$ positive definite; $-,+,-,\dots$ negative definite | 7 |
 | [[#Contours near a stationary point]] | $\lambda_1\xi^2+\lambda_2\eta^2=$ const: elliptical or hyperbolic; worked example | 8–9 |
+| [[#4. Systems of linear ODEs]] | $\dot{\mathbf Y}=M\mathbf Y+\mathbf F$; reduce to one 2nd-order ODE, or the reverse | 10–11 |
+| [[#4.1 Matrix methods]] | $\mathbf Y_c=\mathbf ve^{\lambda t}$ with $M\mathbf v=\lambda\mathbf v$; worked example | 11–13 |
+| [[#Definition — Phase space and phase portrait]] | trajectories of $\dot{\mathbf Y}=M\mathbf Y$ | 13 |
+| [[#Classification of the fixed point]] | saddle, unstable/stable node, complex pair | 13–14 |
 
 **Outline of the chapter:** directional derivatives; stationary points; coupled systems of first-order ODEs; partial differential equations.
 
@@ -257,3 +261,108 @@ $$24(\delta x)^2-24(\delta x)(\delta y)+2(\delta y)^2=\text{const}.$$
 
 > [!note] Explanation
 > For a $2\times2$ Hessian, $|H|=\lambda_1\lambda_2$. At $(1,1)$, $|H|<0$, so the eigenvalues have opposite signs: a saddle with hyperbolic contours. At $(5,25)$, $|H|>0$ and $|H_1|>0$, so both eigenvalues are positive.
+
+## 4. Systems of linear ODEs
+
+Consider $y_1(t)$ and $y_2(t)$ with
+$$\dot y_1=ay_1+by_2+f_1(t),\qquad\dot y_2=cy_1+dy_2+f_2(t)\qquad(a,b,c,d\text{ constants}).$$
+In vector form,
+$$\dot{\mathbf Y}=M\mathbf Y+\mathbf F,\qquad M=\begin{pmatrix}a&b\\c&d\end{pmatrix},\quad\mathbf Y=\begin{pmatrix}y_1\\y_2\end{pmatrix},\quad\mathbf F=\begin{pmatrix}f_1(t)\\f_2(t)\end{pmatrix}.$$
+
+There are two ways to solve it.
+
+1. **Convert to a higher-order ODE for one variable:**
+$$\begin{aligned}
+\ddot y_1&=a\dot y_1+b\dot y_2+\dot f_1\\
+&=a\dot y_1+b(cy_1+dy_2+f_2)+\dot f_1\\
+&=a\dot y_1+bcy_1+d(\dot y_1-ay_1-f_1)+bf_2+\dot f_1,
+\end{aligned}$$
+so
+$$\ddot y_1-(a+d)\dot y_1+(ad-bc)y_1=bf_2-df_1+\dot f_1,$$
+a linear second-order ODE with constant coefficients (see [[Differential Equations - Chapter 5 Higher Order Linear ODEs|Chapter 5]]).
+2. **Solve directly with matrix methods**, which may be more convenient.
+
+> [!note] Explanation
+> In the last step of 1, $by_2$ was replaced using the first equation: $by_2=\dot y_1-ay_1-f_1$. The coefficients $a+d=\operatorname{tr}M$ and $ad-bc=\det M$ appear, so the characteristic equation is $\lambda^2-(\operatorname{tr}M)\lambda+\det M=0$, the same as that of $M$.
+
+Conversely, we sometimes write a higher-order ODE as a set of first-order ODEs. E.g. for $\ddot y+a\dot y+by=f$, let $y_1=y$, $y_2=\dot y$, $\mathbf Y=\begin{pmatrix}y_1\\y_2\end{pmatrix}$. Then $\dot y_1=y_2$ and $\dot y_2=\ddot y=-ay_2-by_1+f$, i.e.
+$$\dot{\mathbf Y}=\begin{pmatrix}0&1\\-b&-a\end{pmatrix}\mathbf Y+\begin{pmatrix}0\\f\end{pmatrix}.$$
+
+### 4.1 Matrix methods
+
+For
+$$\dot{\mathbf Y}=M\mathbf Y+\mathbf F(t),\tag{$*$}$$
+1. write $\mathbf Y=\mathbf Y_c+\mathbf Y_p$ (complementary function plus particular integral), where $\dot{\mathbf Y}_c=M\mathbf Y_c$;
+2. look for $\mathbf Y_c$ of the form $\mathbf Y_c=\mathbf v e^{\lambda t}$ with $\mathbf v$ a constant vector. Then
+$$M\mathbf Y_c=\dot{\mathbf Y}_c=\lambda\mathbf ve^{\lambda t}=\lambda\mathbf Y_c\ \Rightarrow\ M\mathbf v=\lambda\mathbf v,$$
+so $\mathbf v$ is an [[Eigenvalues and Eigenvectors|eigenvector]] of $M$ with corresponding eigenvalue $\lambda$. For a system of $n$ equations there are $n$ such $\mathbf Y_c$ if the eigenvalues are distinct;
+3. find a $\mathbf Y_p$ that satisfies $(*)$.
+
+**Example.**
+$$\dot{\mathbf Y}=\underbrace{\begin{pmatrix}-4&24\\1&-2\end{pmatrix}}_{M}\mathbf Y+\underbrace{\begin{pmatrix}4\\1\end{pmatrix}e^t}_{\mathbf F}.$$
+For $\mathbf Y_c=\mathbf ve^{\lambda t}$: $M\mathbf v=\lambda\mathbf v\Rightarrow\det(M-\lambda I)=0$:
+$$(-4-\lambda)(-2-\lambda)-24=0\iff\lambda^2+6\lambda-16=0\iff\lambda_1=2\ \text{or}\ \lambda_2=-8,$$
+with
+$$\mathbf v_1=\begin{pmatrix}4\\1\end{pmatrix},\qquad\mathbf v_2=\begin{pmatrix}-6\\1\end{pmatrix},\qquad\mathbf Y_c=A\begin{pmatrix}4\\1\end{pmatrix}e^{2t}+B\begin{pmatrix}-6\\1\end{pmatrix}e^{-8t}\quad(A,B\text{ constants}).$$
+Try $\mathbf Y_p=\mathbf ue^t$ with $\mathbf u$ a constant vector:
+$$\mathbf u=M\mathbf u+\begin{pmatrix}4\\1\end{pmatrix}\iff(I-M)\mathbf u=\begin{pmatrix}4\\1\end{pmatrix}\iff\mathbf u=(I-M)^{-1}\begin{pmatrix}4\\1\end{pmatrix}=\begin{pmatrix}-4\\-1\end{pmatrix}$$
+(the inverse exists because $1$ is not an eigenvalue of $M$). General solution:
+$$\mathbf Y(t)=A\begin{pmatrix}4\\1\end{pmatrix}e^{2t}+B\begin{pmatrix}-6\\1\end{pmatrix}e^{-8t}-\begin{pmatrix}4\\1\end{pmatrix}e^t.$$
+
+**Note.** If $\mathbf F\propto e^{\lambda t}$ with $\lambda$ an eigenvalue of $M$, try $\mathbf Y_p=(\mathbf a+\mathbf bt)e^{\lambda t}$.
+
+> [!note] Explanation
+> Check: $M\begin{pmatrix}4\\1\end{pmatrix}=\begin{pmatrix}8\\2\end{pmatrix}=2\begin{pmatrix}4\\1\end{pmatrix}$ and $M\begin{pmatrix}-6\\1\end{pmatrix}=\begin{pmatrix}48\\-8\end{pmatrix}=-8\begin{pmatrix}-6\\1\end{pmatrix}$. The Note is the matrix version of [[Differential Equations - Chapter 5 Higher Order Linear ODEs|resonance]]: when $\lambda$ is an eigenvalue, $\lambda I-M$ is not invertible, so a pure $\mathbf ue^{\lambda t}$ cannot work.
+
+### 4.2 Non-degenerate phase portraits
+
+### Definition — Phase space and phase portrait
+
+The **phase space** of $n$ first-order ODEs has points $\mathbf Y=(y_1,y_2,\dots,y_n)^{\mathsf T}$. A **phase portrait** shows solution trajectories in phase space. For autonomous systems there is one trajectory through each point of phase space, except at fixed points.
+
+Consider the homogeneous system $\dot{\mathbf Y}=M\mathbf Y$, with a fixed point at $\mathbf Y=\mathbf 0$. For $n=2$ and $\lambda_1\ne\lambda_2$ (non-degenerate), the general solution is
+$$\mathbf Y(t)=A\mathbf v_1e^{\lambda_1t}+B\mathbf v_2e^{\lambda_2t},$$
+with eigenvalues $\lambda_1,\lambda_2$ and eigenvectors $\mathbf v_1,\mathbf v_2$. Take $\lambda_1\ne0$, $\lambda_2\ne0$, $\lambda_1\ne\lambda_2$.
+
+### Classification of the fixed point
+
+1. **$\lambda_1,\lambda_2$ real, opposite signs** — without loss of generality $\lambda_1>0$, $\lambda_2<0$ ($\mathbf v_1,\mathbf v_2$ can be chosen real): a **saddle**.
+2. **$\lambda_1,\lambda_2$ real, same sign** — without loss of generality $|\lambda_1|>|\lambda_2|$ (choose $\mathbf v_1,\mathbf v_2$ real).
+   - (a) $\lambda_1,\lambda_2>0$: **unstable node**.
+   - (b) $\lambda_1,\lambda_2<0$: **stable node** (reverse the directions of the arrows).
+3. **$\lambda_1,\lambda_2$ a complex conjugate pair**: $\lambda_2=\bar\lambda_1$, $\mathbf v_2=\bar{\mathbf v}_1$, and the real solutions are
+$$\mathbf Y(t)=C\mathbf v_1e^{\operatorname{Re}(\lambda_1)t}e^{i\operatorname{Im}(\lambda_1)t}+\text{c.c.},$$
+where $C$ is a complex constant and c.c. denotes the complex conjugate of the first term.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex,scale=0.9]
+  % saddle
+  \draw[->] (-2,0) -- (2.1,0) node[right] {$y_1$}; \draw[->] (0,-1.8) -- (0,1.9) node[above] {$y_2$};
+  \draw[blue] (-1.7,-1.3) -- (1.7,1.3) node[above right] {$v_1$};
+  \draw[blue] (-1.7,1.3) -- (1.7,-1.3) node[below right] {$v_2$};
+  \draw[blue,->] (0,0) -- (1.2,0.92); \draw[blue,->] (0,0) -- (-1.2,-0.92);
+  \draw[blue,->] (-1.5,1.15) -- (-0.7,0.54); \draw[blue,->] (1.5,-1.15) -- (0.7,-0.54);
+  \foreach \s in {1,-1} {
+    \draw[red,->] plot[smooth] coordinates {(-1.3*\s,1.25*\s) (-0.35*\s,0.55*\s) (0.6*\s,0.75*\s) (1.5*\s,1.45*\s)};
+    \draw[red,->] plot[smooth] coordinates {(1.3*\s,-0.95*\s) (0.45*\s,-0.15*\s) (0.85*\s,0.4*\s) (1.75*\s,1.15*\s)};
+  }
+  \node at (0,-2.3) {\small saddle};
+  % unstable node
+  \begin{scope}[xshift=5.5cm]
+  \draw[->] (-2,0) -- (2.1,0) node[right] {$y_1$}; \draw[->] (0,-1.8) -- (0,1.9) node[above] {$y_2$};
+  \draw[blue] (-1.7,-1.3) -- (1.7,1.3) node[above right] {$v_1$};
+  \draw[blue] (-1.7,1.3) -- (1.7,-1.3) node[below right] {$v_2$};
+  \foreach \a/\b in {1/1,1/-1,-1/1,-1/-1,0.4/1,0.4/-1,-0.4/1,-0.4/-1} {
+    \draw[red,->,domain=0:1,samples=20] plot ({0.77*\a*1.6*\x*\x*1.6 - 0.77*\b*1.6*\x},{0.59*\a*1.6*\x*\x*1.6 + 0.59*\b*1.6*\x});
+  }
+  \node at (0,-2.3) {\small unstable node};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+```
+*Left: saddle. Trajectories come in along $\mathbf v_2$ ($\lambda_2<0$) and leave along $\mathbf v_1$ ($\lambda_1>0$). Right: unstable node with $\lambda_1>\lambda_2>0$. Trajectories leave the origin tangent to $\mathbf v_2$ (the slower direction) and turn parallel to $\mathbf v_1$ far away. For a stable node, reverse the arrows.*
+
+> [!note] Explanation
+> In the saddle, $A\mathbf v_1e^{\lambda_1t}$ grows and $B\mathbf v_2e^{\lambda_2t}$ decays, so trajectories bend away from $\mathbf v_2$ towards $\mathbf v_1$: hyperbola-like curves. In a node both terms grow (or both decay); near $\mathbf 0$ (as $t\to-\infty$) the slower term $e^{\lambda_2t}$ dominates, and far away the faster one $e^{\lambda_1t}$ does.
