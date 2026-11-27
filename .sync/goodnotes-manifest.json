@@ -3723,7 +3723,8 @@
         "p.7 Def 8.12: 'Any r in R^n \\ {0}' read as v (the vector used throughout).",
         "Lemma 8.10 (iii)=>(i): invertibility of A and use of Lemma 8.9 noted in a callout.",
         "Thm 8.14: why S_v(Ae_n) = e_n and why S_vA preserves e_n-perp given in a callout.",
-        "Lemma 8.16: normals written u, v (source mixes mu/u)."
+        "Lemma 8.16: normals written u, v (source mixes mu/u).",
+        "Lemma 8.15: theta made a directed angle from P_v to P_w (source states only v.w = cos(pi - theta)); figure labels fixed to match (review fix)."
       ],
       "unresolved_todos": [],
       "diagram_note": "TikZ: commuting square (p.3); reflection in P_v (p.7); S_v swapping e_n and Ae_n (p.10); two mirror lines at angle theta (p.11); planes meeting in a line (p.11).",

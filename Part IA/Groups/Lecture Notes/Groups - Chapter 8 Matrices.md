@@ -316,15 +316,16 @@ $$S_{\mathbf w}S_{\mathbf v}=\operatorname{Rot}_0(2\theta),\qquad\text{where }\m
 \begin{tikzpicture}[>=latex]
   \draw (-1.0,-1.6) -- (1.0,1.6); \draw (1.0,-1.6) -- (-1.0,1.6);
   \draw[red] (0.33,0.53) arc (58:122:0.62); \node[red] at (0,0.85) {\small$\theta$};
-  \draw[blue,->] (0,0) -- (-0.85,-0.53) node[left] {\small$v$};
-  \draw[blue,->] (0,0) -- (0.85,-0.53) node[right] {\small$w$};
+  \draw[blue,->] (0,0) -- (-0.85,-0.53) node[left] {\small$w$};
+  \draw[blue,->] (0,0) -- (0.85,-0.53) node[right] {\small$v$};
+  \node at (1.25,1.75) {\small$P_v$}; \node at (-1.25,1.75) {\small$P_w$};
 \end{tikzpicture}
 \end{document}
 ```
-*Two mirror lines meeting at angle $\theta$, with unit normals $\mathbf v,\mathbf w$ at angle $\pi-\theta$. Composing the two reflections rotates by $2\theta$.*
+*The mirror lines $P_{\mathbf v}$ and $P_{\mathbf w}$ meet at angle $\theta$, measured anticlockwise from $P_{\mathbf v}$ to $P_{\mathbf w}$, and their unit normals $\mathbf v,\mathbf w$ are at angle $\pi-\theta$. Reflecting first in $P_{\mathbf v}$ and then in $P_{\mathbf w}$ rotates anticlockwise by $2\theta$.*
 
 > [!note] Explanation
-> "Three-point lemma": an isometry of the plane is determined by where it sends three non-collinear points (see [[Groups - Chapter 1 Examples and Definitions#Lemma 1.24 — Three point lemma|Lemma 1.24]]). $S_{\mathbf w}S_{\mathbf v}$ fixes $0$ and agrees with $\operatorname{Rot}_0(2\theta)$ on two more points, so the two maps are equal.
+> Here $\theta$ must be read as a directed angle, from the first mirror $P_{\mathbf v}$ to the second mirror $P_{\mathbf w}$. The dot product $\mathbf v\cdot\mathbf w$ only fixes its size, and swapping the order of the two reflections gives the inverse rotation $\operatorname{Rot}_0(-2\theta)$. "Three-point lemma": an isometry of the plane is determined by where it sends three non-collinear points (see [[Groups - Chapter 1 Examples and Definitions#Lemma 1.24 — Three point lemma|Lemma 1.24]]). $S_{\mathbf w}S_{\mathbf v}$ fixes $0$ and agrees with $\operatorname{Rot}_0(2\theta)$ on two more points, so the two maps are equal.
 
 **Remark.** If $A\in SO(2)$, its columns form an orthonormal basis, so
 $$A=\begin{pmatrix}a&b\\-b&a\end{pmatrix}\quad\text{with }a^2+b^2=1,$$
