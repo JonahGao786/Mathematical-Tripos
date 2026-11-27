@@ -25,6 +25,7 @@ tags: [concept, differential-equations]
 - **Logistic equation.** $y'=\lambda y(1-y/Y)$ with $\lambda>0$: $y=0$ unstable, $y=Y$ stable. → [[Differential Equations - Chapter 4 First-Order Linear Differential Equations#Logistic equation|lecture]]
 - **Discrete equations** $x_{n+1}=f(x_n)$: fixed point $f(x_f)=x_f$, with error $\varepsilon_{n+1}\approx f'(x_f)\varepsilon_n$, so stable iff $|f'(x_f)|<1$. → [[Differential Equations - Chapter 4 First-Order Linear Differential Equations#Stability of a discrete fixed point|lecture]]
 - **Logistic map** $x_{n+1}=rx_n(1-x_n)$: $x=0$ stable for $r<1$; $x=1-\frac1r$ stable for $1<r<3$. → [[Differential Equations - Chapter 4 First-Order Linear Differential Equations#Logistic map|lecture]]
+- **Linear systems** $\dot{\mathbf Y}=M\mathbf Y$ ($2\times2$, $\lambda_1\ne\lambda_2$, both non-zero): the fixed point $\mathbf 0$ is a **saddle** for real eigenvalues of opposite sign, an **unstable / stable node** for real eigenvalues both positive / both negative; complex pairs give $C\mathbf v_1e^{\operatorname{Re}\lambda_1t}e^{i\operatorname{Im}\lambda_1t}+$c.c. Solutions are built from $\mathbf ve^{\lambda t}$ with $M\mathbf v=\lambda\mathbf v$. → [[Differential Equations - Chapter 6 Multivariate Functions Applications#4.1 Matrix methods|lecture]] · [[Differential Equations - Chapter 6 Multivariate Functions Applications#Classification of the fixed point|lecture]]
 
 ## Slope fields and isoclines
 

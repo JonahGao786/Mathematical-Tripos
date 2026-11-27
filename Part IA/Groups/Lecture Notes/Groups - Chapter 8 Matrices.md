@@ -6,14 +6,14 @@ chapter: 8
 source_file: Ch.8 Matrices.pdf
 drive_file_id: 1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG
 source_url: https://drive.google.com/file/d/1XxBpA9U3bz8YfjiNl7RA1eBM7EG7LTjG/view
-source_pages: 9
+source_pages: 12
 tags: [lecture, groups]
 ---
 
 # Groups — Chapter 8: Matrices
 
 > [!abstract] Overview
-> Invertible matrices form a group, the general linear group $GL_n(\mathbb R)$. The determinant is a homomorphism onto $\mathbb R^\times$, and its kernel is the special linear group $SL_n(\mathbb R)$. The isomorphism theorem gives $GL_n/SL_n\cong\mathbb R^\times$, and the same holds over $\mathbb C$. $GL_n(\mathbb R)$ acts on matrices by conjugation, and the orbit of a matrix representing a linear map consists exactly of its representations in all possible bases. The Möbius group is $GL_2(\mathbb C)$ modulo scalar matrices. The orthogonal group $O(n)$ of distance-preserving matrices is characterised by $A^{\mathsf T}A=I$; its determinant-one part is $SO(n)$, and reflections lie in $O(n)$ but not in $SO(n)$.
+> Invertible matrices form a group, the general linear group $GL_n(\mathbb R)$. The determinant is a homomorphism onto $\mathbb R^\times$, and its kernel is the special linear group $SL_n(\mathbb R)$. The isomorphism theorem gives $GL_n/SL_n\cong\mathbb R^\times$, and the same holds over $\mathbb C$. $GL_n(\mathbb R)$ acts on matrices by conjugation, and the orbit of a matrix representing a linear map consists exactly of its representations in all possible bases. The Möbius group is $GL_2(\mathbb C)$ modulo scalar matrices. The orthogonal group $O(n)$ of distance-preserving matrices is characterised by $A^{\mathsf T}A=I$; its determinant-one part is $SO(n)$, and reflections lie in $O(n)$ but not in $SO(n)$. Every orthogonal matrix is a product of at most $n$ reflections; hence $SO(2)$ and $SO(3)$ consist of rotations.
 > Prerequisites: [[Groups - Chapter 3 Group Actions]] (actions, orbits); [[Groups - Chapter 4 The Möbius Group]]; [[Groups - Chapter 6 Quotients]] (normal subgroups, isomorphism theorem); [[Vectors and Matrices - Chapter 3 Matrices]] (determinants).
 
 ## Results index
@@ -33,6 +33,9 @@ tags: [lecture, groups]
 | [[#Definition 8.11 — Special orthogonal group]] | $SO(n)=\ker\det$, index $2$ in $O(n)$ | 7 |
 | [[#Definition 8.12 — Reflection]] | $S_{\mathbf v}(\mathbf x)=\mathbf x-2\frac{\mathbf x\cdot\mathbf v}{\lVert\mathbf v\rVert^2}\mathbf v$ | 7–8 |
 | [[#Lemma 8.13 — Reflections are orthogonal involutions]] | $S_{\mathbf v}^2=I$, $S_{\mathbf v}\in O(n)$, $\det S_{\mathbf v}=-1$ | 8–9 |
+| [[#Theorem 8.14 — Orthogonal matrices are products of reflections]] | every $A\in O(n)$ is a product of $\le n$ reflections | 9–10 |
+| [[#Lemma 8.15 — O(2): reflections and rotations]] | $O(2)\setminus SO(2)$ reflections; $SO(2)$ rotations, $S_{\mathbf w}S_{\mathbf v}=\operatorname{Rot}(2\theta)$ | 10–11 |
+| [[#Lemma 8.16 — SO(3) consists of rotations]] | $A\in SO(3)$ rotates about $\ell=P_{\mathbf u}\cap P_{\mathbf v}$ by $2\theta$ | 11–12 |
 
 ## 8.1 The general and special linear groups
 
@@ -256,3 +259,102 @@ so $\det S_{\mathbf v}=-1$ and $S_{\mathbf v}\notin SO(n)$ (the determinant is i
 
 > [!note] Explanation
 > $\sigma_{\mathbf v}(\mathbf v)=\mathbf v-2\mathbf v=-\mathbf v$, and $\sigma_{\mathbf v}(\mathbf v_i)=\mathbf v_i$ since $\mathbf v_i\cdot\mathbf v=0$. Two matrices of the same map are conjugate, $B=PAP^{-1}$ ([[#Proposition 8.5 — Orbits under conjugation are changes of basis|Prop 8.5]]), so $\det B=\det A$.
+
+**Remark.** We have $O(n)\le O(n+1)$, by acting trivially on the final coordinate:
+$$\left(\begin{array}{c|c}A&\begin{matrix}0\\\vdots\\0\end{matrix}\\\hline0\ \cdots\ 0&1\end{array}\right)\in O(n+1)\quad\text{for }A\in O(n).$$
+
+### Theorem 8.14 — Orthogonal matrices are products of reflections
+
+Every $A\in O(n)$ is the product of at most $n$ reflections.
+
+**Proof.** Induction on $n$.
+- *Base case* $n=1$: $O(1)=\{\pm1\}\cong C_2$.
+- *Inductive step:* assume the result for $O(n-1)$, and let $(\mathbf e_1,\dots,\mathbf e_n)$ be the standard basis for $\mathbb R^n$.
+  - If $A\mathbf e_n\ne\mathbf e_n$, let $\mathbf v=\mathbf e_n-A\mathbf e_n\ne\mathbf 0$. Calculate: $S_{\mathbf v}(A\mathbf e_n)=\mathbf e_n$.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw[->] (-0.3,0) -- (3.2,0); \draw[->] (0,-0.3) -- (0,2);
+  \draw[blue] (-0.3,-0.45) -- (1.6,2.4) node[right] {$P_v$};
+  \draw[red,thick] (0,1.5) -- (1.4,0.55);
+  \fill[red] (0,1.5) circle (1.3pt) node[left] {$e_n$};
+  \fill[red] (1.4,0.55) circle (1.3pt) node[right] {$Ae_n$};
+  \node[red] at (0.9,1.25) {\small$v$};
+\end{tikzpicture}
+\end{document}
+```
+*$\mathbf e_n$ and $A\mathbf e_n$ have the same length, so the reflection in the plane $P_{\mathbf v}$ perpendicular to $\mathbf v=\mathbf e_n-A\mathbf e_n$ swaps them.*
+
+  As $S_{\mathbf v}A\in O(n)$, it preserves the dot product. It fixes $\mathbf e_n$, so it preserves $\mathbb R^{n-1}\times\{0\}\le\mathbb R^n$ (i.e. all vectors orthogonal to $\mathbf e_n$). By the induction hypothesis there exist $\mathbf v_1,\dots,\mathbf v_j\in\mathbb R^{n-1}$ ($j\le n-1$) such that
+$$S_{\mathbf v}A=S_{\mathbf v_1}\cdots S_{\mathbf v_j}\quad\text{on }\mathbb R^{n-1}.$$
+  Each $S_{\mathbf v_i}$ fixes $\mathbf e_n$ (because $\mathbf v_i\cdot\mathbf e_n=0$). So $S_{\mathbf v}A=S_{\mathbf v_1}\cdots S_{\mathbf v_j}$ on all of $\mathbb R^n$, i.e.
+$$A=S_{\mathbf v}S_{\mathbf v_1}\cdots S_{\mathbf v_j}.$$
+  - If $A\mathbf e_n=\mathbf e_n$: similar, skipping the first step.
+
+> [!note] Explanation
+> Why $S_{\mathbf v}(A\mathbf e_n)=\mathbf e_n$: with $\mathbf a=A\mathbf e_n$, we have $\|\mathbf a\|=\|\mathbf e_n\|=1$. So $(\mathbf a-\mathbf e_n)\cdot\mathbf v=-\|\mathbf v\|^2$ and $(\mathbf a+\mathbf e_n)\cdot\mathbf v=\|\mathbf e_n\|^2-\|\mathbf a\|^2=0$. Then
+> $$S_{\mathbf v}(\mathbf a)=S_{\mathbf v}\Big(\tfrac{\mathbf a+\mathbf e_n}2\Big)+S_{\mathbf v}\Big(\tfrac{\mathbf a-\mathbf e_n}2\Big)=\tfrac{\mathbf a+\mathbf e_n}2-\tfrac{\mathbf a-\mathbf e_n}2=\mathbf e_n.$$
+> Other points: an orthogonal map fixing $\mathbf e_n$ sends each $\mathbf x\perp\mathbf e_n$ to a vector still perpendicular to $\mathbf e_n$, since $S_{\mathbf v}A\mathbf x\cdot\mathbf e_n=S_{\mathbf v}A\mathbf x\cdot S_{\mathbf v}A\mathbf e_n=\mathbf x\cdot\mathbf e_n=0$. In the base case, $-1$ is the one reflection of $\mathbb R$ and $1$ is the empty product. Counting reflections: $1+j\le n$.
+
+### Lemma 8.15 — O(2): reflections and rotations
+
+Let $A\in O(2)$.
+1. If $A\notin SO(2)$, then $A$ is a reflection.
+2. If $A\in SO(2)$, then $A$ is a rotation about $0$.
+
+**Proof.** By Theorem 8.14, $A=S_{\mathbf v_1}\cdots S_{\mathbf v_k}$ with $k\le2$. Recall $\det S_{\mathbf v}=-1$, so $\det A=(-1)^k$.
+1. If $A\notin SO(2)$, then $k=1$.
+2. If $A\in SO(2)$, then $k$ is even, so $A=I$ or $A=S_{\mathbf w}S_{\mathbf v}$ with $\|\mathbf w\|=\|\mathbf v\|=1$. Then
+$$S_{\mathbf w}S_{\mathbf v}=\operatorname{Rot}_0(2\theta),\qquad\text{where }\mathbf v\cdot\mathbf w=\cos(\pi-\theta)$$
+(e.g. because it is an isometry, by the three-point lemma).
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}[>=latex]
+  \draw (-1.0,-1.6) -- (1.0,1.6); \draw (1.0,-1.6) -- (-1.0,1.6);
+  \draw[red] (0.33,0.53) arc (58:122:0.62); \node[red] at (0,0.85) {\small$\theta$};
+  \draw[blue,->] (0,0) -- (-0.85,-0.53) node[left] {\small$w$};
+  \draw[blue,->] (0,0) -- (0.85,-0.53) node[right] {\small$v$};
+  \node at (1.25,1.75) {\small$P_v$}; \node at (-1.25,1.75) {\small$P_w$};
+\end{tikzpicture}
+\end{document}
+```
+*The mirror lines $P_{\mathbf v}$ and $P_{\mathbf w}$ meet at angle $\theta$, measured anticlockwise from $P_{\mathbf v}$ to $P_{\mathbf w}$, and their unit normals $\mathbf v,\mathbf w$ are at angle $\pi-\theta$. Reflecting first in $P_{\mathbf v}$ and then in $P_{\mathbf w}$ rotates anticlockwise by $2\theta$.*
+
+> [!note] Explanation
+> Here $\theta$ must be read as a directed angle, from the first mirror $P_{\mathbf v}$ to the second mirror $P_{\mathbf w}$. The dot product $\mathbf v\cdot\mathbf w$ only fixes its size, and swapping the order of the two reflections gives the inverse rotation $\operatorname{Rot}_0(-2\theta)$. "Three-point lemma": an isometry of the plane is determined by where it sends three non-collinear points (see [[Groups - Chapter 1 Examples and Definitions#Lemma 1.24 — Three point lemma|Lemma 1.24]]). $S_{\mathbf w}S_{\mathbf v}$ fixes $0$ and agrees with $\operatorname{Rot}_0(2\theta)$ on two more points, so the two maps are equal.
+
+**Remark.** If $A\in SO(2)$, its columns form an orthonormal basis, so
+$$A=\begin{pmatrix}a&b\\-b&a\end{pmatrix}\quad\text{with }a^2+b^2=1,$$
+so $a=\cos\theta$, $b=\sin\theta$ for some $\theta\in[0,2\pi)$.
+
+### Lemma 8.16 — SO(3) consists of rotations
+
+If $A\in SO(3)$, then $A$ is a rotation.
+
+**Proof.** As in Lemma 8.15, $A$ is a product of $k$ reflections with $k\le3$ and $k$ even, so either $A=I$ or $A=S_{\mathbf u}S_{\mathbf v}$. Assume $P_{\mathbf v}\ne P_{\mathbf u}$ (else $A=I$). Then $P_{\mathbf u}\cap P_{\mathbf v}=\ell$ is a line through $0$.
+
+```tikz
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+  \draw (0,0) -- (2,0.7) -- (2,2.9) -- (0,2.2) -- cycle;
+  \draw (2.6,0.2) -- (0.6,1.0) -- (0.6,3.2) -- (2.6,2.4) -- cycle;
+  \draw[red,thick] (1.25,0.45) -- (1.25,2.65) node[midway,right] {$\ell$};
+\end{tikzpicture}
+\end{document}
+```
+*The planes $P_{\mathbf u}$ and $P_{\mathbf v}$ meet in the line $\ell$; $A=S_{\mathbf u}S_{\mathbf v}$ fixes $\ell$ pointwise.*
+
+$S_{\mathbf u}$ and $S_{\mathbf v}$ both preserve $\ell$ pointwise, so $A$ does also. Let $H$ be the plane spanned by $\mathbf u$ and $\mathbf v$. This is orthogonal to $\ell$, so $A(H)=H$, and by Lemma 8.15, $A$ acts on $H$ by a rotation through angle $2\theta$ (for $\cos(\pi-\theta)=\mathbf u\cdot\mathbf v$).
+
+Upshot: by linearity, on $\mathbb R^3$, $A$ is a rotation with axis $\ell$ and angle $2\theta$.
+
+> [!note] Explanation
+> $k\le3$ by Theorem 8.14, and $\det A=1=(-1)^k$ forces $k$ even, so $k=0$ or $2$. Both reflections map $H$ to itself: $\mathbf u,\mathbf v\in H$ and $S_{\mathbf u}$ only changes a vector by a multiple of $\mathbf u$. On $H$ they act as the 2D reflections of Lemma 8.15. Every vector of $\mathbb R^3$ is (point of $\ell$) + (point of $H$), so knowing $A$ on $\ell$ and on $H$ determines it.
+
+**Remark.** By the three-point lemma, every isometry of $X\subseteq\mathbb R^2$ (where $X$ contains $3$ non-collinear points) is of the form
+$$\mathbf x\mapsto A\mathbf x+\mathbf b,\qquad A\in O(2),\ \mathbf b\in\mathbb R^2.$$
